@@ -1,0 +1,990 @@
+VERSION 5.00
+Object = "{F0D2F211-CCB0-11D0-A316-00AA00688B10}#1.0#0"; "msdatlst.ocx"
+Object = "{86CF1D34-0C5F-11D2-A9FC-0000F8754DA1}#2.0#0"; "mscomct2.ocx"
+Object = "{0ECD9B60-23AA-11D0-B351-00A0C9055D8E}#6.0#0"; "mshflxgd.ocx"
+Begin VB.Form FrmOrdenCompraDet 
+   BackColor       =   &H00FFFFFF&
+   BorderStyle     =   0  'None
+   Caption         =   "Form1"
+   ClientHeight    =   9240
+   ClientLeft      =   0
+   ClientTop       =   0
+   ClientWidth     =   15255
+   KeyPreview      =   -1  'True
+   LinkTopic       =   "Form1"
+   MaxButton       =   0   'False
+   MDIChild        =   -1  'True
+   MinButton       =   0   'False
+   ScaleHeight     =   9240
+   ScaleWidth      =   15255
+   ShowInTaskbar   =   0   'False
+   Begin VitekeySoft.ChameleonBtn CmdAgregar 
+      Height          =   315
+      Left            =   12360
+      TabIndex        =   34
+      Top             =   7635
+      Width           =   735
+      _ExtentX        =   1296
+      _ExtentY        =   556
+      BTYPE           =   5
+      TX              =   "ADD"
+      ENAB            =   -1  'True
+      BeginProperty FONT {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+         Name            =   "Calibri"
+         Size            =   8.25
+         Charset         =   0
+         Weight          =   700
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      COLTYPE         =   2
+      FOCUSR          =   -1  'True
+      BCOL            =   16777215
+      BCOLO           =   16777215
+      FCOL            =   0
+      FCOLO           =   0
+      MCOL            =   12632256
+      MPTR            =   1
+      MICON           =   "FrmOrdenPagoDet.frx":0000
+      PICN            =   "FrmOrdenPagoDet.frx":001C
+      UMCOL           =   -1  'True
+      SOFT            =   0   'False
+      PICPOS          =   0
+      NGREY           =   0   'False
+      FX              =   0
+      HAND            =   0   'False
+      CHECK           =   0   'False
+      VALUE           =   0   'False
+   End
+   Begin VB.TextBox TxtCodProducto 
+      Alignment       =   1  'Right Justify
+      Appearance      =   0  'Flat
+      BeginProperty Font 
+         Name            =   "Tahoma"
+         Size            =   8.25
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      ForeColor       =   &H00800000&
+      Height          =   285
+      Left            =   240
+      MaxLength       =   80
+      TabIndex        =   31
+      Top             =   7635
+      Width           =   1215
+   End
+   Begin VB.TextBox TxtCantidad 
+      Alignment       =   1  'Right Justify
+      Appearance      =   0  'Flat
+      BeginProperty Font 
+         Name            =   "Tahoma"
+         Size            =   8.25
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      ForeColor       =   &H00800000&
+      Height          =   285
+      Left            =   1620
+      MaxLength       =   80
+      TabIndex        =   30
+      Top             =   7635
+      Width           =   975
+   End
+   Begin VB.TextBox TxtDescripcionProducto 
+      Appearance      =   0  'Flat
+      BeginProperty Font 
+         Name            =   "Tahoma"
+         Size            =   8.25
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      ForeColor       =   &H00800000&
+      Height          =   285
+      Left            =   2670
+      MaxLength       =   80
+      TabIndex        =   29
+      Top             =   7635
+      Width           =   6015
+   End
+   Begin VB.TextBox TxtUnidad 
+      Alignment       =   1  'Right Justify
+      Appearance      =   0  'Flat
+      BeginProperty Font 
+         Name            =   "Tahoma"
+         Size            =   8.25
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      ForeColor       =   &H00800000&
+      Height          =   285
+      Left            =   8820
+      MaxLength       =   80
+      TabIndex        =   28
+      Top             =   7635
+      Width           =   1815
+   End
+   Begin VB.TextBox txtcosto 
+      Alignment       =   1  'Right Justify
+      Appearance      =   0  'Flat
+      BeginProperty Font 
+         Name            =   "Tahoma"
+         Size            =   8.25
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      ForeColor       =   &H00800000&
+      Height          =   285
+      Left            =   10665
+      MaxLength       =   80
+      TabIndex        =   27
+      Top             =   7635
+      Width           =   1575
+   End
+   Begin VB.TextBox TxtId_orden 
+      Appearance      =   0  'Flat
+      Height          =   285
+      Left            =   9360
+      TabIndex        =   23
+      Top             =   1680
+      Visible         =   0   'False
+      Width           =   2055
+   End
+   Begin VB.TextBox TxtProveedor 
+      Appearance      =   0  'Flat
+      BeginProperty Font 
+         Name            =   "Calibri"
+         Size            =   9
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      Height          =   285
+      Left            =   2160
+      TabIndex        =   18
+      Top             =   1560
+      Width           =   5295
+   End
+   Begin MSDataListLib.DataCombo DtcTerminosEntrega 
+      Height          =   330
+      Left            =   2160
+      TabIndex        =   17
+      Top             =   2295
+      Width           =   5295
+      _ExtentX        =   9340
+      _ExtentY        =   582
+      _Version        =   393216
+      Appearance      =   0
+      ForeColor       =   8388608
+      Text            =   "DataCombo1"
+      BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+         Name            =   "Calibri"
+         Size            =   9
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+   End
+   Begin VB.TextBox TxtRuc 
+      Appearance      =   0  'Flat
+      BeginProperty Font 
+         Name            =   "Calibri"
+         Size            =   9
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      Height          =   285
+      Left            =   2160
+      TabIndex        =   14
+      Top             =   1200
+      Width           =   1695
+   End
+   Begin MSComCtl2.DTPicker DtpPedido 
+      Height          =   315
+      Left            =   2160
+      TabIndex        =   4
+      Top             =   1920
+      Width           =   1575
+      _ExtentX        =   2778
+      _ExtentY        =   556
+      _Version        =   393216
+      BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+         Name            =   "Tahoma"
+         Size            =   8.25
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      Format          =   50003969
+      CurrentDate     =   40974
+   End
+   Begin VB.TextBox TxtNumero 
+      Appearance      =   0  'Flat
+      BackColor       =   &H00FFFFFF&
+      BorderStyle     =   0  'None
+      BeginProperty Font 
+         Name            =   "Tahoma"
+         Size            =   12
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      ForeColor       =   &H000000FF&
+      Height          =   360
+      Left            =   13200
+      MaxLength       =   50
+      TabIndex        =   2
+      Top             =   480
+      Width           =   1455
+   End
+   Begin VB.TextBox TxtSerie 
+      Appearance      =   0  'Flat
+      BackColor       =   &H00FFFFFF&
+      BorderStyle     =   0  'None
+      BeginProperty Font 
+         Name            =   "Tahoma"
+         Size            =   12
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      ForeColor       =   &H000000FF&
+      Height          =   360
+      Left            =   12240
+      MaxLength       =   50
+      TabIndex        =   1
+      Top             =   480
+      Width           =   855
+   End
+   Begin MSHierarchicalFlexGridLib.MSHFlexGrid HfdDetalle 
+      Height          =   4455
+      Left            =   240
+      TabIndex        =   13
+      Top             =   3120
+      Width           =   14775
+      _ExtentX        =   26061
+      _ExtentY        =   7858
+      _Version        =   393216
+      ForeColor       =   8388608
+      FixedCols       =   0
+      ForeColorFixed  =   8388608
+      BackColorBkg    =   16777215
+      GridColor       =   8388608
+      SelectionMode   =   1
+      Appearance      =   0
+      BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+         Name            =   "Calibri"
+         Size            =   9
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      _NumberOfBands  =   1
+      _Band(0).Cols   =   2
+   End
+   Begin MSComCtl2.DTPicker DtpPago 
+      Height          =   315
+      Left            =   5880
+      TabIndex        =   16
+      Top             =   1920
+      Width           =   1575
+      _ExtentX        =   2778
+      _ExtentY        =   556
+      _Version        =   393216
+      BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+         Name            =   "Tahoma"
+         Size            =   8.25
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      Format          =   50003969
+      CurrentDate     =   40974
+   End
+   Begin VitekeySoft.ChameleonBtn cmdImprimir 
+      Height          =   900
+      Left            =   12960
+      TabIndex        =   24
+      Top             =   8265
+      Width           =   975
+      _ExtentX        =   1720
+      _ExtentY        =   1588
+      BTYPE           =   5
+      TX              =   "IMPRIMIR"
+      ENAB            =   -1  'True
+      BeginProperty FONT {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+         Name            =   "Calibri"
+         Size            =   8.25
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      COLTYPE         =   2
+      FOCUSR          =   -1  'True
+      BCOL            =   16777215
+      BCOLO           =   16777215
+      FCOL            =   8388608
+      FCOLO           =   8388608
+      MCOL            =   12632256
+      MPTR            =   1
+      MICON           =   "FrmOrdenPagoDet.frx":2547
+      PICN            =   "FrmOrdenPagoDet.frx":2563
+      UMCOL           =   -1  'True
+      SOFT            =   0   'False
+      PICPOS          =   2
+      NGREY           =   0   'False
+      FX              =   0
+      HAND            =   0   'False
+      CHECK           =   0   'False
+      VALUE           =   0   'False
+   End
+   Begin VitekeySoft.ChameleonBtn cmdEditable 
+      Height          =   900
+      Left            =   11880
+      TabIndex        =   25
+      Top             =   8280
+      Width           =   975
+      _ExtentX        =   1720
+      _ExtentY        =   1588
+      BTYPE           =   5
+      TX              =   "PROCESAR"
+      ENAB            =   -1  'True
+      BeginProperty FONT {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+         Name            =   "Calibri"
+         Size            =   8.25
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      COLTYPE         =   2
+      FOCUSR          =   -1  'True
+      BCOL            =   16777215
+      BCOLO           =   16777215
+      FCOL            =   8388608
+      FCOLO           =   8388608
+      MCOL            =   12632256
+      MPTR            =   1
+      MICON           =   "FrmOrdenPagoDet.frx":4B34
+      PICN            =   "FrmOrdenPagoDet.frx":4B50
+      UMCOL           =   -1  'True
+      SOFT            =   0   'False
+      PICPOS          =   2
+      NGREY           =   0   'False
+      FX              =   0
+      HAND            =   0   'False
+      CHECK           =   0   'False
+      VALUE           =   0   'False
+   End
+   Begin VitekeySoft.ChameleonBtn cmdCerrarpantalla 
+      Height          =   900
+      Left            =   14040
+      TabIndex        =   26
+      Top             =   8250
+      Width           =   975
+      _ExtentX        =   1720
+      _ExtentY        =   1588
+      BTYPE           =   5
+      TX              =   "CERRAR"
+      ENAB            =   -1  'True
+      BeginProperty FONT {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+         Name            =   "Calibri"
+         Size            =   8.25
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      COLTYPE         =   2
+      FOCUSR          =   -1  'True
+      BCOL            =   16777215
+      BCOLO           =   16777215
+      FCOL            =   8388608
+      FCOLO           =   8388608
+      MCOL            =   12632256
+      MPTR            =   1
+      MICON           =   "FrmOrdenPagoDet.frx":8198
+      PICN            =   "FrmOrdenPagoDet.frx":81B4
+      UMCOL           =   -1  'True
+      SOFT            =   0   'False
+      PICPOS          =   2
+      NGREY           =   0   'False
+      FX              =   0
+      HAND            =   0   'False
+      CHECK           =   0   'False
+      VALUE           =   0   'False
+   End
+   Begin VitekeySoft.ChameleonBtn CmdQuitar 
+      Height          =   315
+      Left            =   13200
+      TabIndex        =   33
+      Top             =   7635
+      Width           =   735
+      _ExtentX        =   1296
+      _ExtentY        =   556
+      BTYPE           =   5
+      TX              =   "DELL"
+      ENAB            =   -1  'True
+      BeginProperty FONT {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+         Name            =   "Calibri"
+         Size            =   8.25
+         Charset         =   0
+         Weight          =   700
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      COLTYPE         =   2
+      FOCUSR          =   -1  'True
+      BCOL            =   16777215
+      BCOLO           =   16777215
+      FCOL            =   0
+      FCOLO           =   0
+      MCOL            =   12632256
+      MPTR            =   1
+      MICON           =   "FrmOrdenPagoDet.frx":B1DB
+      PICN            =   "FrmOrdenPagoDet.frx":B1F7
+      UMCOL           =   -1  'True
+      SOFT            =   0   'False
+      PICPOS          =   0
+      NGREY           =   0   'False
+      FX              =   0
+      HAND            =   0   'False
+      CHECK           =   0   'False
+      VALUE           =   0   'False
+   End
+   Begin VB.Line Line1 
+      BorderColor     =   &H00C0C0C0&
+      BorderStyle     =   6  'Inside Solid
+      X1              =   240
+      X2              =   15000
+      Y1              =   8040
+      Y2              =   8040
+   End
+   Begin VB.Label LblCantidad 
+      Alignment       =   2  'Center
+      Appearance      =   0  'Flat
+      BackColor       =   &H00400000&
+      BorderStyle     =   1  'Fixed Single
+      BeginProperty Font 
+         Name            =   "Arial"
+         Size            =   9.75
+         Charset         =   0
+         Weight          =   700
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      ForeColor       =   &H00FFFFFF&
+      Height          =   375
+      Left            =   14085
+      TabIndex        =   32
+      Top             =   7560
+      Width           =   975
+   End
+   Begin VB.Label lblrecibido 
+      BackColor       =   &H80000002&
+      BeginProperty Font 
+         Name            =   "Tahoma"
+         Size            =   8.25
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      Height          =   300
+      Left            =   2040
+      TabIndex        =   22
+      Top             =   8880
+      Width           =   6375
+   End
+   Begin VB.Label lblautorizado 
+      BackColor       =   &H80000002&
+      BeginProperty Font 
+         Name            =   "Tahoma"
+         Size            =   8.25
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      Height          =   300
+      Left            =   2040
+      TabIndex        =   21
+      Top             =   8520
+      Width           =   6375
+   End
+   Begin VB.Label lblelaborado 
+      BackColor       =   &H80000002&
+      BeginProperty Font 
+         Name            =   "Tahoma"
+         Size            =   8.25
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      Height          =   300
+      Left            =   2040
+      TabIndex        =   20
+      Top             =   8160
+      Width           =   6375
+   End
+   Begin VB.Label lblruc 
+      BackStyle       =   0  'Transparent
+      Caption         =   "FECHA EMISION :"
+      BeginProperty Font 
+         Name            =   "Tahoma"
+         Size            =   9.75
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      ForeColor       =   &H00800000&
+      Height          =   240
+      Left            =   960
+      TabIndex        =   19
+      Top             =   600
+      Width           =   7665
+   End
+   Begin VB.Label Label3 
+      Alignment       =   2  'Center
+      AutoSize        =   -1  'True
+      BackStyle       =   0  'Transparent
+      Caption         =   "PROVEEDOR :"
+      BeginProperty Font 
+         Name            =   "Tahoma"
+         Size            =   8.25
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      ForeColor       =   &H00800000&
+      Height          =   195
+      Left            =   240
+      TabIndex        =   15
+      Top             =   1680
+      Width           =   1035
+   End
+   Begin VB.Label Label13 
+      Alignment       =   2  'Center
+      AutoSize        =   -1  'True
+      BackStyle       =   0  'Transparent
+      Caption         =   "RECIBIDO POR :"
+      BeginProperty Font 
+         Name            =   "Tahoma"
+         Size            =   8.25
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      ForeColor       =   &H00800000&
+      Height          =   195
+      Left            =   540
+      TabIndex        =   12
+      Top             =   9000
+      Width           =   1215
+   End
+   Begin VB.Label Label12 
+      Alignment       =   2  'Center
+      AutoSize        =   -1  'True
+      BackStyle       =   0  'Transparent
+      Caption         =   "AUTORIZODO POR :"
+      BeginProperty Font 
+         Name            =   "Tahoma"
+         Size            =   8.25
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      ForeColor       =   &H00800000&
+      Height          =   195
+      Left            =   240
+      TabIndex        =   11
+      Top             =   8520
+      Width           =   1515
+   End
+   Begin VB.Label Label11 
+      Alignment       =   2  'Center
+      AutoSize        =   -1  'True
+      BackStyle       =   0  'Transparent
+      Caption         =   "ELABORADO POR :"
+      BeginProperty Font 
+         Name            =   "Tahoma"
+         Size            =   8.25
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      ForeColor       =   &H00800000&
+      Height          =   195
+      Left            =   360
+      TabIndex        =   10
+      Top             =   8160
+      Width           =   1395
+   End
+   Begin VB.Label Label8 
+      Alignment       =   2  'Center
+      AutoSize        =   -1  'True
+      BackStyle       =   0  'Transparent
+      Caption         =   "SIRVASE POR ESTE MEDIO SUMINISTRARNOS  LOS SIGUIENTES ARTICULOS"
+      BeginProperty Font 
+         Name            =   "Tahoma"
+         Size            =   8.25
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      ForeColor       =   &H00800000&
+      Height          =   195
+      Left            =   240
+      TabIndex        =   9
+      Top             =   2760
+      Width           =   5565
+   End
+   Begin VB.Label Label7 
+      Alignment       =   2  'Center
+      AutoSize        =   -1  'True
+      BackStyle       =   0  'Transparent
+      Caption         =   "TERMINOS DE ENTREGA:"
+      BeginProperty Font 
+         Name            =   "Tahoma"
+         Size            =   8.25
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      ForeColor       =   &H00800000&
+      Height          =   195
+      Left            =   240
+      TabIndex        =   8
+      Top             =   2400
+      Width           =   1845
+   End
+   Begin VB.Label Label5 
+      Alignment       =   2  'Center
+      AutoSize        =   -1  'True
+      BackStyle       =   0  'Transparent
+      Caption         =   "FECHA PAGO :"
+      BeginProperty Font 
+         Name            =   "Tahoma"
+         Size            =   8.25
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      ForeColor       =   &H00800000&
+      Height          =   195
+      Left            =   4080
+      TabIndex        =   7
+      Top             =   1920
+      Width           =   1095
+   End
+   Begin VB.Label lblempresa 
+      BackStyle       =   0  'Transparent
+      Caption         =   "FECHA EMISION :"
+      BeginProperty Font 
+         Name            =   "Tahoma"
+         Size            =   9.75
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      ForeColor       =   &H00800000&
+      Height          =   240
+      Left            =   960
+      TabIndex        =   6
+      Top             =   240
+      Width           =   7665
+   End
+   Begin VB.Label Label1 
+      Alignment       =   2  'Center
+      AutoSize        =   -1  'True
+      BackStyle       =   0  'Transparent
+      Caption         =   "RUC/PROVEEDOR:"
+      BeginProperty Font 
+         Name            =   "Tahoma"
+         Size            =   8.25
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      ForeColor       =   &H00800000&
+      Height          =   195
+      Left            =   240
+      TabIndex        =   5
+      Top             =   1200
+      Width           =   1365
+   End
+   Begin VB.Label Label9 
+      Alignment       =   2  'Center
+      AutoSize        =   -1  'True
+      BackStyle       =   0  'Transparent
+      Caption         =   "FECHA PEDIDO:"
+      BeginProperty Font 
+         Name            =   "Tahoma"
+         Size            =   8.25
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      ForeColor       =   &H00800000&
+      Height          =   195
+      Left            =   240
+      TabIndex        =   3
+      Top             =   2040
+      Width           =   1185
+   End
+   Begin VB.Label Label2 
+      Alignment       =   2  'Center
+      AutoSize        =   -1  'True
+      BackStyle       =   0  'Transparent
+      Caption         =   "ORDEN DE COMPRA"
+      BeginProperty Font 
+         Name            =   "Tahoma"
+         Size            =   9.75
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      ForeColor       =   &H00800000&
+      Height          =   240
+      Left            =   10320
+      TabIndex        =   0
+      Top             =   480
+      Width           =   1725
+   End
+   Begin VB.Shape ShpDatos 
+      BackColor       =   &H00E0E0E0&
+      BorderColor     =   &H00C0C0C0&
+      BorderStyle     =   6  'Inside Solid
+      FillColor       =   &H00E0E0E0&
+      FillStyle       =   0  'Solid
+      Height          =   915
+      Left            =   120
+      Top             =   120
+      Width           =   14895
+   End
+   Begin VB.Shape Shape1 
+      BackStyle       =   1  'Opaque
+      BorderColor     =   &H00000000&
+      BorderWidth     =   2
+      Height          =   9240
+      Left            =   0
+      Top             =   0
+      Width           =   15255
+   End
+End
+Attribute VB_Name = "FrmOrdenCompraDet"
+Attribute VB_GlobalNameSpace = False
+Attribute VB_Creatable = False
+Attribute VB_PredeclaredId = True
+Attribute VB_Exposed = False
+Public Procedencia As EnumProcede
+Private Sub cmdEliminar_Click()
+
+End Sub
+
+Private Sub CmdAgregar_Click()
+strCadena = "call orden_compra_temporal('" & Trim(Me.TxtCodProducto.Text) & "','" & Trim(Me.txtCantidad.Text) & "','" & Val(Me.txtcosto.Text) & "','" & KEY_USUARIO & "','" & KEY_ALM & "','" & KEY_RUC & "')"
+CnBd.Execute (strCadena)
+Call Me.llenar_orden(Me.HfdDetalle, Val(Me.TxtId_orden.Text))
+End Sub
+
+Private Sub cmdImprimir_Click()
+strCadena = "SELECT O.fecha,O.fecha_pago,O.id_proveedor,PP.nombre_completo,O.serie,O.numero,OD.id_detalle,OD.id_producto,P.nombre_prod,U.abreviatura,OD.cantidad,P.precio_compra,P.precio_compra*OD.cantidad as total FROM orden_compra_detalle OD,orden_compra O,producto P,unidad U,persona PP WHERE O.id_proveedor=PP.dni AND O.id_orden=OD.id_orden AND O.ruc='" & KEY_RUC & "' AND OD.ruc='" & KEY_RUC & "' AND OD.id_producto=P.id_producto AND P.ruc='" & KEY_RUC & "' AND P.id_unidad=U.id_und AND U.id_usu='" & KEY_RUC & "' AND OD.id_orden='" & Val(Me.TxtId_orden.Text) & "'"
+            Call ConfiguraRst(strCadena)
+            Ans = ShowMultiReport(rst, "RptOrdenCompra", , App.Path + "\Reportes\")
+End Sub
+
+Private Sub Form_Load()
+CenterForm Me
+Me.Top = 50
+strCadena = "SELECT id_termino as Codigo,descripcion as Descripcion FROM terminos_entrega ORDER BY descripcion"
+Call ConfiguraRst(strCadena)
+Call LlenaDataCombo(Me.DtcTerminosEntrega)
+
+
+Me.lblRuc.Caption = KEY_RUC
+Me.lblEmpresa.Caption = KEY_EMPRESA
+
+
+End Sub
+
+Private Sub llenar(ByVal id_orden As Double)
+strCadena = "SELECT * FROM orden_compra O,persona P WHERE O.id_proveedor=P.dni AND  O.id_orden='" & id_orden & "' AND ruc='" & KEY_RUC & "'"
+Call ConfiguraRst(strCadena)
+Me.lblEmpresa.Caption = BDBuscarCampo("persona", "nombre_completo", "dni", rst("ruc"))
+Me.lblRuc.Caption = rst("ruc")
+Me.TxtSerie.Text = rst("serie")
+Me.txtnumero.Text = rst("numero")
+Me.TxtRuc.Text = rst("id_proveedor")
+Me.TxtProveedor.Text = rst("nombre_completo")
+Me.TxtId_orden.Text = rst("id_orden")
+If IsNull(rst("fecha_pago")) = True Then
+    Me.DtpPago.Value = KEY_FECHA
+Else
+    Me.DtpPago.Value = rst("fecha_pago")
+End If
+Me.lblelaborado.Caption = BDBuscarCampo("persona", "nombre_completo", "dni", rst("dni_save"))
+'Call llenar_pedido(Me.HfdDetalle, Val(Me.TxtId_orden.Text))
+End Sub
+Public Sub llenar_orden(ByVal Grilla As MSHFlexGrid, ByVal id_orden As Double)
+On Error GoTo salir
+Dim tTotal As Double
+strCadena = "SELECT * FROM view_orden_compra_detalle_temp WHERE dni_save='" & KEY_USUARIO & "' and id_alm='" & KEY_ALM & "' and ruc='" & KEY_RUC & "'"
+Call ConfiguraRst(strCadena)
+If rst.RecordCount < 1 Then
+    Grilla.Rows = 0
+    
+    Exit Sub
+
+End If
+   
+   Grilla.Rows = 0
+       ReDim arrColWidth(1 To rst.Fields.Count)
+       For Each Campo In rst.Fields
+           Grilla.ColWidth(0) = 0
+           Grilla.ColWidth(1) = 1000
+           Grilla.ColWidth(2) = 4000
+           Grilla.ColWidth(3) = 1400
+           Grilla.ColWidth(4) = 1400
+           Grilla.ColWidth(5) = 1500
+           Grilla.ColWidth(6) = 1500
+        Next
+        cabecera = "IDDETALLE" & vbTab & "CODIGO" & vbTab & "PRODUCTO" & vbTab & "UNIDAD" & vbTab & "CANTIDAD" & vbTab & "PRECIO COSTO" & vbTab & "TOTAL"
+        Grilla.AddItem cabecera
+         For k = 0 To 6
+                                Grilla.col = k
+                                Grilla.Row = 0
+                                Grilla.CellBackColor = &HDFDFE0
+          Next k
+        tTotal = 0
+        rst.MoveFirst
+        For i = 0 To rst.RecordCount - 1
+            tTotal = tTotal + rst("total")
+            Fila = rst("id_detalle") & vbTab & rst("id_producto") & vbTab & rst("nombre_prod") & vbTab & rst("unidad") & vbTab & Format(rst("cantidad"), "#,##0.00") & vbTab & Format(rst("precio"), "#,##0.00") & vbTab & Format(rst("total"), "#,##0.00")
+            Grilla.AddItem Fila
+            
+            rst.MoveNext
+        Next i
+        
+        cabecera = "" & vbTab & "" & vbTab & "" & vbTab & "" & vbTab & "" & vbTab & "**** T O T A L ****" & vbTab & Format(tTotal, "#,##0.00")
+        Grilla.AddItem cabecera
+        For k = 5 To 6
+                                Grilla.col = k
+                                Grilla.Row = i + 1
+                                Grilla.CellBackColor = &H8080FF
+          Next k
+Exit Sub
+salir: MsgBox "Por Favor Digite Correctamente", vbInformation, "Mensaje para el usuario"
+
+
+End Sub
+Public Sub nuevo_registro()
+strCadena = "SELECT * FROM orden_compra WHERE ruc='" & KEY_RUC & "' ORDER BY numero DESC LIMIT 1"
+Call ConfiguraRst(strCadena)
+If rst.RecordCount > 0 Then
+   Me.TxtSerie.Text = rst("serie")
+   Me.txtnumero.Text = Format(Val(rst("numero")) + 1, "000000")
+Else
+   Me.TxtSerie.Text = "001"
+   Me.txtnumero.Text = "000001"
+End If
+End Sub
+
+
+
+Private Sub txtcantidad_KeyPress(KeyAscii As Integer)
+If KeyAscii = 13 Then
+    Call Resalta(Me.txtcosto)
+End If
+End Sub
+
+Private Sub TxtCodProducto_KeyPress(KeyAscii As Integer)
+If KeyAscii = 13 Then
+   
+    Me.TxtCodProducto.Text = formato_item(Me.TxtCodProducto.Text, 5)
+    strCadena = "SELECT * FROM view_producto WHERE id_producto = '" & Trim(Me.TxtCodProducto.Text) & "' AND ruc='" & KEY_RUC & "' and id_alm='" & KEY_ALM & "'"
+   Call ConfiguraRst(strCadena)
+   If rst.RecordCount > 0 Then
+       Me.TxtCodProducto.Text = rst("id_producto")
+        Me.TxtDescripcionProducto.Text = rst("nombre_prod")
+        Me.txtunidad.Text = rst("unidad")
+        Call Resalta(Me.txtCantidad)
+ 
+ Else
+        Procedencia = Selecionar
+        FrmProducto.Show
+ End If
+End If
+End Sub
+
+Private Sub txtcosto_KeyPress(KeyAscii As Integer)
+If KeyAscii = 13 Then
+   Me.CmdAgregar.SetFocus
+End If
+End Sub

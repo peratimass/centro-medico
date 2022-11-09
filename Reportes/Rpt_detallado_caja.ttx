@@ -1,0 +1,17 @@
+fecha	String	20
+comprobante	String	20
+dni	String	11
+cliente	String	100
+id_forma_pago	String	2
+id_tarjeta	String	5
+tarjeta	String	20
+forma_pago	String	40
+anulado	String	2
+tipo_mov	String	2
+monto	Number
+total	Number
+
+
+
+
+

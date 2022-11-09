@@ -1,0 +1,12 @@
+id_venta	String	10
+dni	String	16
+cliente	String	50
+emision	Date
+documento	String	40
+operacion	String	40
+banco	String	60
+id_moneda	String	5
+tc	Number
+total	Number
+operador	String	50
+	

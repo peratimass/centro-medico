@@ -1,0 +1,31 @@
+id_venta	String	20
+fecha_emision	Date
+fecha_vencimiento	Date
+dias	Number
+hora	String	10
+numero	String	10
+comprobante	String	35
+id_cliente	String	11
+ncliente	String	100
+direccion	String	100
+total	Number
+saldo	Number
+anulado	String	2
+id_moneda	String	5
+ruc	String	11
+tc	Number
+id_alm	String	5
+id_doc	String	4
+id_proyecto	Number
+vendedor	String	60
+moneda	String	15
+simbolo	String	5
+factor	Number
+seguro	String	100
+detraccion	Number
+garantia	Number
+guia	String	40
+monto_seguro	Number
+
+
+	

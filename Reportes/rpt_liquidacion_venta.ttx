@@ -1,0 +1,22 @@
+id_detalle	Number
+fecha	Date
+hora	String	10
+in_vendedor	String	11
+vendedor	String	60
+in_doc	String	4
+in_documento	String	30
+in_cliente	String	11
+cliente	String	60
+in_producto	String	5
+producto	String	60
+forma_pago	String	20
+linea	String	40
+sublinea	String	40
+unidad	String	20
+marca	String	20
+cantidad	Number
+p_sistema	Number
+p_venta	Number
+p_costo	Number
+margen1	Number
+margen2	Number

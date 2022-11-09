@@ -1,0 +1,8 @@
+idcompra	Number
+emision	Date
+cancelacion	Date
+comprobante	String	30
+razonsocial	String	120
+tipo	String	20
+total	Number
+operador	String	50

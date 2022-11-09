@@ -1,0 +1,7 @@
+dni	String	11
+razon_social	String	100
+direccion	String	100
+telefono	String	12
+cuenta	String	40
+saldo	Number
+otro	String	40	

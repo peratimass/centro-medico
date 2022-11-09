@@ -1,0 +1,19 @@
+in_pedido	Number
+in_comprobante	String	40
+fecha_pedido	Date
+id_proveedor	String	11
+nproveedor	String	60
+ndireccion	String	60
+lugar_entrega	String	60
+id_producto	String	5
+nproducto	String	80
+marca	String	20
+unidad	String	20
+cantidad	Number
+unitario	Number
+in_total	Number
+in_operador	String	60
+
+
+
+

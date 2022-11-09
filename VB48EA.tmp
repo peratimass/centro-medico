@@ -1,0 +1,4903 @@
+VERSION 5.00
+Object = "{F0D2F211-CCB0-11D0-A316-00AA00688B10}#1.0#0"; "msdatlst.ocx"
+Object = "{86CF1D34-0C5F-11D2-A9FC-0000F8754DA1}#2.0#0"; "mscomct2.ocx"
+Object = "{38911DA0-E448-11D0-84A3-00DD01104159}#1.1#0"; "COMCT332.OCX"
+Object = "{0ECD9B60-23AA-11D0-B351-00A0C9055D8E}#6.0#0"; "mshflxgd.ocx"
+Object = "{BDC217C8-ED16-11CD-956C-0000C04E4C0A}#1.1#0"; "tabctl32.ocx"
+Object = "{6B7E6392-850A-101B-AFC0-4210102A8DA7}#1.3#0"; "comctl32.ocx"
+Object = "{831FDD16-0C5C-11D2-A9FC-0000F8754DA1}#2.1#0"; "mscomctl.OCX"
+Begin VB.Form FrmDetallesParametros 
+   BorderStyle     =   0  'None
+   Caption         =   "Form1"
+   ClientHeight    =   8640
+   ClientLeft      =   0
+   ClientTop       =   0
+   ClientWidth     =   20055
+   LinkTopic       =   "Form1"
+   MaxButton       =   0   'False
+   MDIChild        =   -1  'True
+   MinButton       =   0   'False
+   ScaleHeight     =   8640
+   ScaleWidth      =   20055
+   ShowInTaskbar   =   0   'False
+   Begin VB.CommandButton Command13 
+      Caption         =   "CORREGIR"
+      BeginProperty Font 
+         Name            =   "Calibri"
+         Size            =   8.25
+         Charset         =   0
+         Weight          =   700
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      Height          =   420
+      Left            =   15120
+      TabIndex        =   112
+      Top             =   5760
+      Width           =   1215
+   End
+   Begin VB.CommandButton Command16 
+      Caption         =   "PASAR TODAS LAS COMPRAS"
+      BeginProperty Font 
+         Name            =   "Calibri"
+         Size            =   8.25
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      Height          =   375
+      Left            =   15120
+      TabIndex        =   109
+      Top             =   7920
+      Width           =   4575
+   End
+   Begin VB.CommandButton Command15 
+      Caption         =   "PASAR TODAS LAS VENTAS"
+      BeginProperty Font 
+         Name            =   "Calibri"
+         Size            =   8.25
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      Height          =   375
+      Left            =   15120
+      TabIndex        =   108
+      Top             =   7560
+      Width           =   4575
+   End
+   Begin VB.CommandButton cmdfaltantes 
+      Caption         =   "COMPROBANTES FACTANTES"
+      BeginProperty Font 
+         Name            =   "Calibri"
+         Size            =   8.25
+         Charset         =   0
+         Weight          =   700
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      Height          =   420
+      Left            =   15120
+      TabIndex        =   107
+      Top             =   5280
+      Width           =   1215
+   End
+   Begin VB.CommandButton Command12 
+      Caption         =   "korea"
+      BeginProperty Font 
+         Name            =   "Calibri"
+         Size            =   8.25
+         Charset         =   0
+         Weight          =   700
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      Height          =   195
+      Left            =   18240
+      TabIndex        =   106
+      Top             =   2880
+      Width           =   1095
+   End
+   Begin VB.CommandButton Command11 
+      Caption         =   "prod industr"
+      BeginProperty Font 
+         Name            =   "Calibri"
+         Size            =   8.25
+         Charset         =   0
+         Weight          =   700
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      Height          =   195
+      Left            =   18240
+      TabIndex        =   105
+      Top             =   2640
+      Width           =   1095
+   End
+   Begin VB.CommandButton Command10 
+      Caption         =   "LEER EXCEL FORMATO"
+      BeginProperty Font 
+         Name            =   "Calibri"
+         Size            =   9
+         Charset         =   0
+         Weight          =   700
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      Height          =   375
+      Left            =   15120
+      TabIndex        =   103
+      Top             =   2760
+      Width           =   2895
+   End
+   Begin VB.CommandButton Command9 
+      Caption         =   "MODIFICAR PRECIO VENTA A VALOR VENTA"
+      BeginProperty Font 
+         Name            =   "Calibri"
+         Size            =   8.25
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      Height          =   375
+      Left            =   15120
+      TabIndex        =   102
+      Top             =   7200
+      Width           =   4575
+   End
+   Begin VB.TextBox txttoken 
+      Appearance      =   0  'Flat
+      BeginProperty Font 
+         Name            =   "Calibri"
+         Size            =   8.25
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      Height          =   285
+      Left            =   16800
+      TabIndex        =   100
+      Top             =   2200
+      Width           =   2415
+   End
+   Begin VB.CommandButton cmdmigrar 
+      Caption         =   "MIGRAR BASE DE DATOS COMPLETA"
+      BeginProperty Font 
+         Name            =   "Calibri"
+         Size            =   8.25
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      Height          =   375
+      Left            =   15120
+      TabIndex        =   97
+      Top             =   6840
+      Width           =   4575
+   End
+   Begin VB.CheckBox chkfacturacion_electronica 
+      Alignment       =   1  'Right Justify
+      Appearance      =   0  'Flat
+      BackColor       =   &H008080FF&
+      Caption         =   "FACTURACION ELECTRONICA"
+      BeginProperty Font 
+         Name            =   "Calibri"
+         Size            =   9
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      ForeColor       =   &H00800000&
+      Height          =   300
+      Left            =   15240
+      TabIndex        =   95
+      Top             =   1320
+      Width           =   4110
+   End
+   Begin VB.TextBox txtresolucion 
+      Appearance      =   0  'Flat
+      BeginProperty Font 
+         Name            =   "Calibri"
+         Size            =   8.25
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      Height          =   285
+      Left            =   16800
+      TabIndex        =   94
+      Top             =   1785
+      Width           =   2415
+   End
+   Begin VB.CheckBox chkmodelo_color 
+      Appearance      =   0  'Flat
+      BackColor       =   &H00FFFFFF&
+      Caption         =   "MODELO Y COLOR"
+      BeginProperty Font 
+         Name            =   "Calibri"
+         Size            =   9
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      ForeColor       =   &H00800000&
+      Height          =   255
+      Left            =   15240
+      TabIndex        =   93
+      Top             =   600
+      Width           =   2655
+   End
+   Begin VB.CheckBox chktrackin 
+      Appearance      =   0  'Flat
+      BackColor       =   &H008080FF&
+      ForeColor       =   &H80000008&
+      Height          =   255
+      Left            =   2280
+      TabIndex        =   79
+      Top             =   1965
+      Width           =   255
+   End
+   Begin VB.CommandButton Command4 
+      Caption         =   "MIGRAR BD"
+      Height          =   495
+      Left            =   12240
+      Picture         =   "FrmDetallesParametros.frx":0000
+      Style           =   1  'Graphical
+      TabIndex        =   74
+      Top             =   5040
+      Width           =   2175
+   End
+   Begin VB.CheckBox chkCajaIndependiente 
+      Alignment       =   1  'Right Justify
+      Appearance      =   0  'Flat
+      BackColor       =   &H00FFFFFF&
+      Caption         =   "CAJA INDEPENDIENTE :"
+      BeginProperty Font 
+         Name            =   "Tahoma"
+         Size            =   6.75
+         Charset         =   0
+         Weight          =   700
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      ForeColor       =   &H00800000&
+      Height          =   255
+      Left            =   8040
+      TabIndex        =   73
+      Top             =   2760
+      Width           =   2655
+   End
+   Begin VB.CheckBox chktramitedocumentario 
+      Alignment       =   1  'Right Justify
+      Appearance      =   0  'Flat
+      BackColor       =   &H00FFFFFF&
+      Caption         =   "TRAMITE DOCUMENTARIO :"
+      BeginProperty Font 
+         Name            =   "Tahoma"
+         Size            =   6.75
+         Charset         =   0
+         Weight          =   700
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      ForeColor       =   &H00800000&
+      Height          =   255
+      Left            =   8040
+      TabIndex        =   72
+      Top             =   2400
+      Width           =   2655
+   End
+   Begin VB.CommandButton Command3 
+      Caption         =   "Migrar Partida Aracenlaria"
+      Height          =   495
+      Left            =   12240
+      Picture         =   "FrmDetallesParametros.frx":058A
+      Style           =   1  'Graphical
+      TabIndex        =   71
+      Top             =   4440
+      Width           =   1935
+   End
+   Begin VB.CheckBox chkActivacion 
+      Appearance      =   0  'Flat
+      BackColor       =   &H00FFFFFF&
+      BeginProperty Font 
+         Name            =   "Tahoma"
+         Size            =   8.25
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      ForeColor       =   &H00800000&
+      Height          =   255
+      Left            =   12480
+      TabIndex        =   67
+      Top             =   300
+      Width           =   255
+   End
+   Begin VB.Frame Frame1 
+      BackColor       =   &H00FFFFFF&
+      BeginProperty Font 
+         Name            =   "Tahoma"
+         Size            =   8.25
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      ForeColor       =   &H00800000&
+      Height          =   1335
+      Left            =   12240
+      TabIndex        =   61
+      Top             =   720
+      Visible         =   0   'False
+      Width           =   2535
+      Begin VB.CheckBox chkActivacionPermanente 
+         Appearance      =   0  'Flat
+         BackColor       =   &H00FFFFFF&
+         Caption         =   "Activacion Permanente"
+         BeginProperty Font 
+            Name            =   "Tahoma"
+            Size            =   8.25
+            Charset         =   0
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         ForeColor       =   &H00800000&
+         Height          =   255
+         Left            =   120
+         TabIndex        =   66
+         Top             =   960
+         Width           =   2175
+      End
+      Begin MSComCtl2.DTPicker DtpInstalacion 
+         Height          =   300
+         Left            =   1035
+         TabIndex        =   62
+         Top             =   240
+         Width           =   1335
+         _ExtentX        =   2355
+         _ExtentY        =   529
+         _Version        =   393216
+         BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+            Name            =   "Tahoma"
+            Size            =   8.25
+            Charset         =   0
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         Format          =   126287873
+         CurrentDate     =   41285
+      End
+      Begin MSComCtl2.DTPicker DtpCaducidad 
+         Height          =   300
+         Left            =   1035
+         TabIndex        =   63
+         Top             =   600
+         Width           =   1335
+         _ExtentX        =   2355
+         _ExtentY        =   529
+         _Version        =   393216
+         BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+            Name            =   "Tahoma"
+            Size            =   8.25
+            Charset         =   0
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         Format          =   126287873
+         CurrentDate     =   41285
+      End
+      Begin VB.Label Label21 
+         Alignment       =   2  'Center
+         BackStyle       =   0  'Transparent
+         Caption         =   "Instalacion:"
+         BeginProperty Font 
+            Name            =   "Tahoma"
+            Size            =   9
+            Charset         =   0
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         ForeColor       =   &H00800000&
+         Height          =   210
+         Left            =   0
+         TabIndex        =   65
+         Top             =   240
+         Width           =   945
+      End
+      Begin VB.Label Label22 
+         Alignment       =   2  'Center
+         AutoSize        =   -1  'True
+         BackStyle       =   0  'Transparent
+         Caption         =   "Caducidad:"
+         BeginProperty Font 
+            Name            =   "Tahoma"
+            Size            =   9
+            Charset         =   0
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         ForeColor       =   &H00800000&
+         Height          =   210
+         Left            =   15
+         TabIndex        =   64
+         Top             =   600
+         Width           =   915
+      End
+   End
+   Begin VB.CheckBox chkContador 
+      Appearance      =   0  'Flat
+      BackColor       =   &H00FFFFFF&
+      ForeColor       =   &H80000008&
+      Height          =   255
+      Left            =   9720
+      TabIndex        =   46
+      Top             =   5750
+      Width           =   255
+   End
+   Begin VB.Frame FrameContador 
+      Appearance      =   0  'Flat
+      BackColor       =   &H80000005&
+      Caption         =   "CONTABILIDAD INCLUIDA"
+      BeginProperty Font 
+         Name            =   "Calibri"
+         Size            =   8.25
+         Charset         =   0
+         Weight          =   700
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      ForeColor       =   &H000000C0&
+      Height          =   1815
+      Left            =   7800
+      TabIndex        =   39
+      Top             =   5760
+      Width           =   7095
+      Begin VB.TextBox TxtRucContador 
+         Appearance      =   0  'Flat
+         Height          =   285
+         Left            =   1440
+         TabIndex        =   40
+         Top             =   360
+         Width           =   1935
+      End
+      Begin VB.Label LblDireccionContador 
+         BorderStyle     =   1  'Fixed Single
+         BeginProperty Font 
+            Name            =   "Tahoma"
+            Size            =   8.25
+            Charset         =   0
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         Height          =   540
+         Left            =   1440
+         TabIndex        =   45
+         Top             =   1200
+         Width           =   5415
+      End
+      Begin VB.Label lblRazonContador 
+         BorderStyle     =   1  'Fixed Single
+         BeginProperty Font 
+            Name            =   "Tahoma"
+            Size            =   8.25
+            Charset         =   0
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         Height          =   300
+         Left            =   1440
+         TabIndex        =   44
+         Top             =   840
+         Width           =   5415
+      End
+      Begin VB.Label Label14 
+         Alignment       =   2  'Center
+         AutoSize        =   -1  'True
+         BackStyle       =   0  'Transparent
+         Caption         =   "Direccion Fiscal :"
+         BeginProperty Font 
+            Name            =   "Tahoma"
+            Size            =   8.25
+            Charset         =   0
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         ForeColor       =   &H00800000&
+         Height          =   195
+         Left            =   150
+         TabIndex        =   43
+         Top             =   1320
+         Width           =   1215
+      End
+      Begin VB.Label Label13 
+         Alignment       =   2  'Center
+         AutoSize        =   -1  'True
+         BackStyle       =   0  'Transparent
+         Caption         =   "Razon Social :"
+         BeginProperty Font 
+            Name            =   "Tahoma"
+            Size            =   8.25
+            Charset         =   0
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         ForeColor       =   &H00800000&
+         Height          =   195
+         Left            =   330
+         TabIndex        =   42
+         Top             =   840
+         Width           =   1035
+      End
+      Begin VB.Label Label12 
+         Alignment       =   2  'Center
+         AutoSize        =   -1  'True
+         BackStyle       =   0  'Transparent
+         Caption         =   "Ruc :"
+         BeginProperty Font 
+            Name            =   "Tahoma"
+            Size            =   8.25
+            Charset         =   0
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         ForeColor       =   &H00800000&
+         Height          =   195
+         Left            =   960
+         TabIndex        =   41
+         Top             =   360
+         Width           =   405
+      End
+   End
+   Begin VB.CheckBox ChkHuellaDigital 
+      Appearance      =   0  'Flat
+      BackColor       =   &H00FFFFFF&
+      ForeColor       =   &H80000008&
+      Height          =   255
+      Left            =   9840
+      TabIndex        =   38
+      Top             =   750
+      Width           =   255
+   End
+   Begin TabDlg.SSTab SSTab1 
+      Height          =   2955
+      Left            =   240
+      TabIndex        =   35
+      Top             =   5520
+      Width           =   7335
+      _ExtentX        =   12938
+      _ExtentY        =   5212
+      _Version        =   393216
+      Tabs            =   4
+      Tab             =   3
+      TabsPerRow      =   4
+      TabHeight       =   520
+      BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+         Name            =   "Calibri"
+         Size            =   9
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      TabCaption(0)   =   "Forma Pago"
+      TabPicture(0)   =   "FrmDetallesParametros.frx":0B14
+      Tab(0).ControlEnabled=   0   'False
+      Tab(0).Control(0)=   "DtcFormapago"
+      Tab(0).Control(1)=   "HfFormapago"
+      Tab(0).ControlCount=   2
+      TabCaption(1)   =   "Hora de Trabajo"
+      TabPicture(1)   =   "FrmDetallesParametros.frx":0B30
+      Tab(1).ControlEnabled=   0   'False
+      Tab(1).Control(0)=   "Text1"
+      Tab(1).Control(1)=   "Label23"
+      Tab(1).ControlCount=   2
+      TabCaption(2)   =   "Import Base Externa"
+      TabPicture(2)   =   "FrmDetallesParametros.frx":0B4C
+      Tab(2).ControlEnabled=   0   'False
+      Tab(2).Control(0)=   "Command5"
+      Tab(2).Control(1)=   "cmdimportartabla"
+      Tab(2).Control(2)=   "Command2"
+      Tab(2).Control(3)=   "TxtNombreTablaDestino"
+      Tab(2).Control(4)=   "TxtCriterioOrigen"
+      Tab(2).Control(5)=   "CmdImportar"
+      Tab(2).Control(6)=   "TxtNombreBaseOrigen"
+      Tab(2).Control(7)=   "TxtNombreTablaOrigen"
+      Tab(2).Control(8)=   "Label20"
+      Tab(2).Control(9)=   "Label17"
+      Tab(2).Control(10)=   "Label19"
+      Tab(2).Control(11)=   "Label18"
+      Tab(2).ControlCount=   12
+      TabCaption(3)   =   "IMPORTAR DATOS"
+      TabPicture(3)   =   "FrmDetallesParametros.frx":0B68
+      Tab(3).ControlEnabled=   -1  'True
+      Tab(3).Control(0)=   "Label26"
+      Tab(3).Control(0).Enabled=   0   'False
+      Tab(3).Control(1)=   "Label27"
+      Tab(3).Control(1).Enabled=   0   'False
+      Tab(3).Control(2)=   "Label28"
+      Tab(3).Control(2).Enabled=   0   'False
+      Tab(3).Control(3)=   "txtbaseOrigen1"
+      Tab(3).Control(3).Enabled=   0   'False
+      Tab(3).Control(4)=   "cmdimportarTabla1"
+      Tab(3).Control(4).Enabled=   0   'False
+      Tab(3).Control(5)=   "txttablaorigen"
+      Tab(3).Control(5).Enabled=   0   'False
+      Tab(3).Control(6)=   "txtserver1"
+      Tab(3).Control(6).Enabled=   0   'False
+      Tab(3).Control(7)=   "ProgressBar1"
+      Tab(3).Control(7).Enabled=   0   'False
+      Tab(3).Control(8)=   "Command6"
+      Tab(3).Control(8).Enabled=   0   'False
+      Tab(3).Control(9)=   "Command7"
+      Tab(3).Control(9).Enabled=   0   'False
+      Tab(3).Control(10)=   "Command8"
+      Tab(3).Control(10).Enabled=   0   'False
+      Tab(3).ControlCount=   11
+      Begin VB.CommandButton Command8 
+         Caption         =   "Command8"
+         Height          =   495
+         Left            =   5520
+         TabIndex        =   91
+         Top             =   600
+         Width           =   1575
+      End
+      Begin VB.CommandButton Command7 
+         Caption         =   "--"
+         BeginProperty Font 
+            Name            =   "Calibri"
+            Size            =   9
+            Charset         =   0
+            Weight          =   700
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         Height          =   375
+         Left            =   3600
+         TabIndex        =   90
+         Top             =   1320
+         Width           =   1695
+      End
+      Begin VB.CommandButton Command6 
+         Caption         =   "--"
+         BeginProperty Font 
+            Name            =   "Calibri"
+            Size            =   9
+            Charset         =   0
+            Weight          =   700
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         Height          =   375
+         Left            =   3600
+         TabIndex        =   89
+         Top             =   960
+         Width           =   1695
+      End
+      Begin ComctlLib.ProgressBar ProgressBar1 
+         Height          =   255
+         Left            =   960
+         TabIndex        =   88
+         Top             =   2160
+         Width           =   6135
+         _ExtentX        =   10821
+         _ExtentY        =   450
+         _Version        =   327682
+         Appearance      =   0
+      End
+      Begin VB.TextBox txtserver1 
+         Appearance      =   0  'Flat
+         BeginProperty Font 
+            Name            =   "Calibri"
+            Size            =   9
+            Charset         =   0
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         Height          =   315
+         Left            =   1680
+         TabIndex        =   86
+         Text            =   "Base"
+         Top             =   600
+         Width           =   1335
+      End
+      Begin VB.TextBox txttablaorigen 
+         Appearance      =   0  'Flat
+         BeginProperty Font 
+            Name            =   "Calibri"
+            Size            =   9
+            Charset         =   0
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         Height          =   315
+         Left            =   1680
+         TabIndex        =   84
+         Text            =   "Tabla"
+         Top             =   1320
+         Width           =   1335
+      End
+      Begin VB.CommandButton cmdimportarTabla1 
+         Caption         =   "IMPORTAR"
+         BeginProperty Font 
+            Name            =   "Calibri"
+            Size            =   9
+            Charset         =   0
+            Weight          =   700
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         Height          =   375
+         Left            =   3600
+         TabIndex        =   83
+         Top             =   480
+         Width           =   1695
+      End
+      Begin VB.TextBox txtbaseOrigen1 
+         Appearance      =   0  'Flat
+         BeginProperty Font 
+            Name            =   "Calibri"
+            Size            =   9
+            Charset         =   0
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         Height          =   315
+         Left            =   1680
+         TabIndex        =   81
+         Text            =   "Base"
+         Top             =   960
+         Width           =   1335
+      End
+      Begin VB.CommandButton Command5 
+         Caption         =   "IMPORTAR"
+         BeginProperty Font 
+            Name            =   "Calibri"
+            Size            =   9
+            Charset         =   0
+            Weight          =   700
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         Height          =   375
+         Left            =   -72720
+         TabIndex        =   78
+         Top             =   1260
+         Width           =   1695
+      End
+      Begin VB.CommandButton cmdimportartabla 
+         Caption         =   "IMPORTAR"
+         BeginProperty Font 
+            Name            =   "Calibri"
+            Size            =   9
+            Charset         =   0
+            Weight          =   700
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         Height          =   375
+         Left            =   -72720
+         TabIndex        =   77
+         Top             =   780
+         Width           =   1695
+      End
+      Begin VB.TextBox Text1 
+         Appearance      =   0  'Flat
+         Height          =   285
+         Left            =   -72840
+         TabIndex        =   76
+         Top             =   1020
+         Width           =   1455
+      End
+      Begin VB.CommandButton Command2 
+         Caption         =   "Recalcular Productos Relacionados"
+         BeginProperty Font 
+            Name            =   "Tahoma"
+            Size            =   8.25
+            Charset         =   0
+            Weight          =   700
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         Height          =   375
+         Left            =   -74040
+         TabIndex        =   58
+         Top             =   2460
+         Width           =   4215
+      End
+      Begin VB.TextBox TxtNombreTablaDestino 
+         Appearance      =   0  'Flat
+         BeginProperty Font 
+            Name            =   "Tahoma"
+            Size            =   8.25
+            Charset         =   0
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         Height          =   285
+         Left            =   -74160
+         TabIndex        =   56
+         Text            =   "unidad"
+         Top             =   1500
+         Width           =   1335
+      End
+      Begin VB.TextBox TxtCriterioOrigen 
+         Appearance      =   0  'Flat
+         BeginProperty Font 
+            Name            =   "Tahoma"
+            Size            =   8.25
+            Charset         =   0
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         Height          =   285
+         Left            =   -74160
+         TabIndex        =   54
+         Text            =   "cUnidad"
+         Top             =   1860
+         Width           =   1335
+      End
+      Begin VB.CommandButton CmdImportar 
+         Caption         =   "Importar"
+         BeginProperty Font 
+            Name            =   "Tahoma"
+            Size            =   8.25
+            Charset         =   0
+            Weight          =   700
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         Height          =   255
+         Left            =   -70800
+         TabIndex        =   53
+         Top             =   660
+         Width           =   1335
+      End
+      Begin VB.TextBox TxtNombreBaseOrigen 
+         Appearance      =   0  'Flat
+         BeginProperty Font 
+            Name            =   "Tahoma"
+            Size            =   8.25
+            Charset         =   0
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         Height          =   285
+         Left            =   -74160
+         TabIndex        =   50
+         Text            =   "Base"
+         Top             =   780
+         Width           =   1335
+      End
+      Begin VB.TextBox TxtNombreTablaOrigen 
+         Appearance      =   0  'Flat
+         BeginProperty Font 
+            Name            =   "Tahoma"
+            Size            =   8.25
+            Charset         =   0
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         Height          =   285
+         Left            =   -74160
+         TabIndex        =   49
+         Text            =   "Unidad"
+         Top             =   1140
+         Width           =   1335
+      End
+      Begin MSDataListLib.DataCombo DtcFormapago 
+         Height          =   315
+         Left            =   -74880
+         TabIndex        =   36
+         Top             =   660
+         Width           =   1695
+         _ExtentX        =   2990
+         _ExtentY        =   556
+         _Version        =   393216
+         Appearance      =   0
+         Style           =   2
+         ForeColor       =   8388608
+         Text            =   "DataCombo1"
+         BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+            Name            =   "Tahoma"
+            Size            =   8.25
+            Charset         =   0
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+      End
+      Begin MSHierarchicalFlexGridLib.MSHFlexGrid HfFormapago 
+         Height          =   2175
+         Left            =   -73080
+         TabIndex        =   60
+         Top             =   660
+         Width           =   5055
+         _ExtentX        =   8916
+         _ExtentY        =   3836
+         _Version        =   393216
+         ForeColor       =   8388608
+         Rows            =   0
+         FixedRows       =   0
+         FixedCols       =   0
+         ForeColorFixed  =   8388608
+         BackColorBkg    =   16777215
+         SelectionMode   =   1
+         Appearance      =   0
+         BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+            Name            =   "Tahoma"
+            Size            =   8.25
+            Charset         =   0
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         _NumberOfBands  =   1
+         _Band(0).Cols   =   2
+      End
+      Begin VB.Label Label28 
+         AutoSize        =   -1  'True
+         Caption         =   "SERVIDOR :"
+         BeginProperty Font 
+            Name            =   "Calibri"
+            Size            =   9
+            Charset         =   0
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         Height          =   210
+         Left            =   360
+         TabIndex        =   87
+         Top             =   600
+         Width           =   885
+      End
+      Begin VB.Label Label27 
+         AutoSize        =   -1  'True
+         Caption         =   "TABLA :"
+         BeginProperty Font 
+            Name            =   "Calibri"
+            Size            =   9
+            Charset         =   0
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         Height          =   210
+         Left            =   960
+         TabIndex        =   85
+         Top             =   1320
+         Width           =   570
+      End
+      Begin VB.Label Label26 
+         AutoSize        =   -1  'True
+         Caption         =   "BASE ORIGEN :"
+         BeginProperty Font 
+            Name            =   "Calibri"
+            Size            =   9
+            Charset         =   0
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         Height          =   210
+         Left            =   390
+         TabIndex        =   82
+         Top             =   960
+         Width           =   1140
+      End
+      Begin VB.Label Label23 
+         Alignment       =   2  'Center
+         AutoSize        =   -1  'True
+         BackStyle       =   0  'Transparent
+         Caption         =   "HORAS DIARIAS:"
+         BeginProperty Font 
+            Name            =   "Tahoma"
+            Size            =   6.75
+            Charset         =   0
+            Weight          =   700
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         ForeColor       =   &H00800000&
+         Height          =   165
+         Left            =   -74640
+         TabIndex        =   75
+         Top             =   1020
+         Width           =   1365
+      End
+      Begin VB.Label Label20 
+         Alignment       =   2  'Center
+         AutoSize        =   -1  'True
+         BackStyle       =   0  'Transparent
+         Caption         =   "Destino :"
+         BeginProperty Font 
+            Name            =   "Tahoma"
+            Size            =   8.25
+            Charset         =   0
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         ForeColor       =   &H00800000&
+         Height          =   195
+         Left            =   -74880
+         TabIndex        =   57
+         Top             =   1500
+         Width           =   675
+      End
+      Begin VB.Label Label17 
+         Alignment       =   2  'Center
+         AutoSize        =   -1  'True
+         BackStyle       =   0  'Transparent
+         Caption         =   "Criterio :"
+         BeginProperty Font 
+            Name            =   "Tahoma"
+            Size            =   8.25
+            Charset         =   0
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         ForeColor       =   &H00800000&
+         Height          =   195
+         Left            =   -74850
+         TabIndex        =   55
+         Top             =   1860
+         Width           =   645
+      End
+      Begin VB.Label Label19 
+         Alignment       =   2  'Center
+         AutoSize        =   -1  'True
+         BackStyle       =   0  'Transparent
+         Caption         =   "Tabla :"
+         BeginProperty Font 
+            Name            =   "Tahoma"
+            Size            =   8.25
+            Charset         =   0
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         ForeColor       =   &H00800000&
+         Height          =   195
+         Left            =   -74730
+         TabIndex        =   52
+         Top             =   1140
+         Width           =   525
+      End
+      Begin VB.Label Label18 
+         Alignment       =   2  'Center
+         AutoSize        =   -1  'True
+         BackStyle       =   0  'Transparent
+         Caption         =   "Base :"
+         BeginProperty Font 
+            Name            =   "Tahoma"
+            Size            =   8.25
+            Charset         =   0
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         ForeColor       =   &H00800000&
+         Height          =   195
+         Left            =   -74670
+         TabIndex        =   51
+         Top             =   780
+         Width           =   465
+      End
+   End
+   Begin VB.TextBox txtDireccionPublico 
+      Appearance      =   0  'Flat
+      Height          =   285
+      Left            =   4560
+      TabIndex        =   34
+      Top             =   4320
+      Width           =   2295
+   End
+   Begin VB.TextBox txttabla 
+      Appearance      =   0  'Flat
+      Height          =   285
+      Left            =   240
+      TabIndex        =   32
+      Text            =   "Tabla"
+      Top             =   6360
+      Width           =   1335
+   End
+   Begin VB.TextBox txtbase 
+      Appearance      =   0  'Flat
+      Height          =   285
+      Left            =   240
+      TabIndex        =   31
+      Text            =   "Base"
+      Top             =   6000
+      Width           =   1335
+   End
+   Begin VB.CommandButton cmdmigrartabla 
+      Caption         =   "Migrar Tabla"
+      Height          =   375
+      Left            =   240
+      TabIndex        =   30
+      Top             =   5520
+      Width           =   1335
+   End
+   Begin VB.CheckBox chkfotoproducto 
+      Appearance      =   0  'Flat
+      BackColor       =   &H00FFFFFF&
+      ForeColor       =   &H80000008&
+      Height          =   255
+      Left            =   2280
+      TabIndex        =   28
+      Top             =   3765
+      Width           =   255
+   End
+   Begin VB.CheckBox ChkUpdatePrecios 
+      Appearance      =   0  'Flat
+      BackColor       =   &H00FFFFFF&
+      ForeColor       =   &H80000008&
+      Height          =   255
+      Left            =   3120
+      TabIndex        =   26
+      Top             =   4245
+      Width           =   255
+   End
+   Begin VB.CommandButton cmdBlanquearMov 
+      Caption         =   "Blanquear Movimientos"
+      Height          =   495
+      Left            =   7920
+      Picture         =   "FrmDetallesParametros.frx":0B84
+      Style           =   1  'Graphical
+      TabIndex        =   25
+      Top             =   4920
+      Width           =   2175
+   End
+   Begin VB.OptionButton OptInventario 
+      Appearance      =   0  'Flat
+      BackColor       =   &H80000005&
+      Caption         =   "Inventario"
+      BeginProperty Font 
+         Name            =   "Tahoma"
+         Size            =   9
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      ForeColor       =   &H00800000&
+      Height          =   330
+      Left            =   4800
+      TabIndex        =   24
+      Top             =   3480
+      Width           =   1335
+   End
+   Begin VB.OptionButton OptContabilidad 
+      Appearance      =   0  'Flat
+      BackColor       =   &H80000005&
+      Caption         =   "Contabilidad"
+      BeginProperty Font 
+         Name            =   "Tahoma"
+         Size            =   9
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      ForeColor       =   &H00800000&
+      Height          =   375
+      Left            =   4800
+      TabIndex        =   23
+      Top             =   3140
+      Width           =   1455
+   End
+   Begin VB.CheckBox ChkCerveceria 
+      Appearance      =   0  'Flat
+      BackColor       =   &H00FFFFFF&
+      ForeColor       =   &H80000008&
+      Height          =   255
+      Left            =   9840
+      TabIndex        =   22
+      Top             =   300
+      Width           =   255
+   End
+   Begin VB.CheckBox ChkAutomatico 
+      Appearance      =   0  'Flat
+      BackColor       =   &H00FFFFFF&
+      ForeColor       =   &H80000008&
+      Height          =   255
+      Left            =   2280
+      TabIndex        =   19
+      Top             =   3285
+      Width           =   255
+   End
+   Begin VB.TextBox TxtRucMigrar 
+      Appearance      =   0  'Flat
+      Height          =   375
+      Left            =   10200
+      TabIndex        =   18
+      Top             =   5040
+      Width           =   1935
+   End
+   Begin VB.CommandButton Command1 
+      Caption         =   "Importar Datos(Ruc)"
+      Height          =   495
+      Left            =   10200
+      Picture         =   "FrmDetallesParametros.frx":110E
+      Style           =   1  'Graphical
+      TabIndex        =   17
+      Top             =   4440
+      Width           =   1935
+   End
+   Begin VB.CommandButton cmdBlanquear 
+      Caption         =   "Blanquear Todo "
+      Height          =   495
+      Left            =   7920
+      Picture         =   "FrmDetallesParametros.frx":1698
+      Style           =   1  'Graphical
+      TabIndex        =   16
+      Top             =   4440
+      Width           =   2175
+   End
+   Begin VB.CheckBox ChkBarras 
+      Appearance      =   0  'Flat
+      BackColor       =   &H00FFFFFF&
+      ForeColor       =   &H80000008&
+      Height          =   255
+      Left            =   2280
+      TabIndex        =   12
+      Top             =   2805
+      Width           =   255
+   End
+   Begin VB.CheckBox ckkFacturas 
+      Appearance      =   0  'Flat
+      BackColor       =   &H008080FF&
+      ForeColor       =   &H80000008&
+      Height          =   255
+      Left            =   2280
+      TabIndex        =   10
+      Top             =   2325
+      Width           =   255
+   End
+   Begin VB.TextBox TxtEmpresa 
+      Appearance      =   0  'Flat
+      ForeColor       =   &H00800000&
+      Height          =   315
+      Left            =   2085
+      MaxLength       =   50
+      TabIndex        =   3
+      Top             =   600
+      Width           =   5415
+   End
+   Begin VB.TextBox TxtRuc 
+      Appearance      =   0  'Flat
+      Enabled         =   0   'False
+      ForeColor       =   &H00800000&
+      Height          =   315
+      Left            =   2085
+      MaxLength       =   11
+      TabIndex        =   2
+      Top             =   240
+      Width           =   1935
+   End
+   Begin VB.TextBox TxtDireccion 
+      Appearance      =   0  'Flat
+      ForeColor       =   &H00800000&
+      Height          =   315
+      Left            =   2085
+      MaxLength       =   50
+      TabIndex        =   1
+      Top             =   960
+      Width           =   5415
+   End
+   Begin VB.CheckBox chkigv 
+      Appearance      =   0  'Flat
+      BackColor       =   &H008080FF&
+      ForeColor       =   &H80000008&
+      Height          =   255
+      Left            =   2280
+      TabIndex        =   0
+      Top             =   1605
+      Width           =   255
+   End
+   Begin MSComctlLib.ImageList ImgIconos 
+      Left            =   10680
+      Top             =   480
+      _ExtentX        =   1005
+      _ExtentY        =   1005
+      BackColor       =   -2147483643
+      ImageWidth      =   32
+      ImageHeight     =   32
+      MaskColor       =   12632256
+      _Version        =   393216
+      BeginProperty Images {2C247F25-8591-11D1-B16A-00C0F0283628} 
+         NumListImages   =   12
+         BeginProperty ListImage1 {2C247F27-8591-11D1-B16A-00C0F0283628} 
+            Picture         =   "FrmDetallesParametros.frx":1C22
+            Key             =   "(Aceptar)"
+         EndProperty
+         BeginProperty ListImage2 {2C247F27-8591-11D1-B16A-00C0F0283628} 
+            Picture         =   "FrmDetallesParametros.frx":1F3E
+            Key             =   "(Eliminar)"
+         EndProperty
+         BeginProperty ListImage3 {2C247F27-8591-11D1-B16A-00C0F0283628} 
+            Picture         =   "FrmDetallesParametros.frx":239E
+            Key             =   "(Inicio)"
+         EndProperty
+         BeginProperty ListImage4 {2C247F27-8591-11D1-B16A-00C0F0283628} 
+            Picture         =   "FrmDetallesParametros.frx":27FE
+            Key             =   "(Modificar)"
+         EndProperty
+         BeginProperty ListImage5 {2C247F27-8591-11D1-B16A-00C0F0283628} 
+            Picture         =   "FrmDetallesParametros.frx":2B1A
+            Key             =   "(Nuevo)"
+         EndProperty
+         BeginProperty ListImage6 {2C247F27-8591-11D1-B16A-00C0F0283628} 
+            Picture         =   "FrmDetallesParametros.frx":2F7A
+            Key             =   "(Quitar)"
+         EndProperty
+         BeginProperty ListImage7 {2C247F27-8591-11D1-B16A-00C0F0283628} 
+            Picture         =   "FrmDetallesParametros.frx":3296
+            Key             =   "(Salir)"
+         EndProperty
+         BeginProperty ListImage8 {2C247F27-8591-11D1-B16A-00C0F0283628} 
+            Picture         =   "FrmDetallesParametros.frx":36F6
+            Key             =   "(Red)"
+         EndProperty
+         BeginProperty ListImage9 {2C247F27-8591-11D1-B16A-00C0F0283628} 
+            Picture         =   "FrmDetallesParametros.frx":3B56
+            Key             =   "(Grabar)"
+         EndProperty
+         BeginProperty ListImage10 {2C247F27-8591-11D1-B16A-00C0F0283628} 
+            Picture         =   "FrmDetallesParametros.frx":4436
+            Key             =   "(Agregar)"
+         EndProperty
+         BeginProperty ListImage11 {2C247F27-8591-11D1-B16A-00C0F0283628} 
+            Picture         =   "FrmDetallesParametros.frx":4752
+            Key             =   "(Buscar)"
+         EndProperty
+         BeginProperty ListImage12 {2C247F27-8591-11D1-B16A-00C0F0283628} 
+            Picture         =   "FrmDetallesParametros.frx":4A6E
+            Key             =   "(Cancelar)"
+         EndProperty
+      EndProperty
+   End
+   Begin ComCtl3.CoolBar ClbAcciones 
+      Height          =   870
+      Left            =   12900
+      TabIndex        =   4
+      Top             =   7680
+      Width           =   1995
+      _ExtentX        =   3519
+      _ExtentY        =   1535
+      BandCount       =   1
+      ForeColor       =   -2147483635
+      ImageList       =   "ImgIconos"
+      FixedOrder      =   -1  'True
+      VariantHeight   =   0   'False
+      EmbossPicture   =   -1  'True
+      _CBWidth        =   1995
+      _CBHeight       =   870
+      _Version        =   "6.0.8169"
+      Child1          =   "TlbAcciones"
+      MinHeight1      =   810
+      Width1          =   3180
+      FixedBackground1=   0   'False
+      NewRow1         =   0   'False
+      Begin MSComctlLib.Toolbar TlbAcciones 
+         Height          =   810
+         Left            =   30
+         TabIndex        =   5
+         Top             =   30
+         Width           =   1875
+         _ExtentX        =   3307
+         _ExtentY        =   1429
+         ButtonWidth     =   1402
+         ButtonHeight    =   1429
+         Style           =   1
+         ImageList       =   "ImgIconos"
+         _Version        =   393216
+         BeginProperty Buttons {66833FE8-8583-11D1-B16A-00C0F0283628} 
+            NumButtons      =   3
+            BeginProperty Button1 {66833FEA-8583-11D1-B16A-00C0F0283628} 
+               Caption         =   "Grabar"
+               Key             =   "(Grabar)"
+               Object.ToolTipText     =   "Grabar Ctrl+G"
+               ImageKey        =   "(Grabar)"
+            EndProperty
+            BeginProperty Button2 {66833FEA-8583-11D1-B16A-00C0F0283628} 
+               Style           =   3
+            EndProperty
+            BeginProperty Button3 {66833FEA-8583-11D1-B16A-00C0F0283628} 
+               Caption         =   "Cancelar"
+               Key             =   "(Cancelar)"
+               Object.ToolTipText     =   "Cancelar"
+               ImageKey        =   "(Cancelar)"
+            EndProperty
+         EndProperty
+         OLEDropMode     =   1
+      End
+   End
+   Begin MSDataListLib.DataCombo DtcTipoDoc 
+      Height          =   315
+      Left            =   4560
+      TabIndex        =   15
+      Top             =   1875
+      Width           =   2775
+      _ExtentX        =   4895
+      _ExtentY        =   556
+      _Version        =   393216
+      Appearance      =   0
+      Style           =   2
+      ForeColor       =   8388608
+      Text            =   "DataCombo1"
+      BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+         Name            =   "Tahoma"
+         Size            =   8.25
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+   End
+   Begin MSDataListLib.DataCombo DtcTipoLetra 
+      Height          =   315
+      Left            =   8040
+      TabIndex        =   48
+      Top             =   1560
+      Width           =   2055
+      _ExtentX        =   3625
+      _ExtentY        =   556
+      _Version        =   393216
+      Appearance      =   0
+      Style           =   2
+      ForeColor       =   8388608
+      Text            =   "DataCombo1"
+      BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+         Name            =   "Tahoma"
+         Size            =   8.25
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+   End
+   Begin MSHierarchicalFlexGridLib.MSHFlexGrid hfgSeries 
+      Height          =   735
+      Left            =   4560
+      TabIndex        =   59
+      Top             =   2240
+      Width           =   2775
+      _ExtentX        =   4895
+      _ExtentY        =   1296
+      _Version        =   393216
+      ForeColor       =   8388608
+      Rows            =   0
+      FixedRows       =   0
+      FixedCols       =   0
+      ForeColorFixed  =   8388608
+      BackColorBkg    =   16777215
+      SelectionMode   =   1
+      Appearance      =   0
+      BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+         Name            =   "Tahoma"
+         Size            =   8.25
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      _NumberOfBands  =   1
+      _Band(0).Cols   =   2
+   End
+   Begin MSHierarchicalFlexGridLib.MSHFlexGrid MSHFlexGrid1 
+      Height          =   1215
+      Left            =   11400
+      TabIndex        =   70
+      Top             =   2520
+      Width           =   3015
+      _ExtentX        =   5318
+      _ExtentY        =   2143
+      _Version        =   393216
+      ForeColor       =   8388608
+      Rows            =   0
+      FixedRows       =   0
+      FixedCols       =   0
+      ForeColorFixed  =   8388608
+      BackColorBkg    =   16777215
+      SelectionMode   =   1
+      Appearance      =   0
+      BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+         Name            =   "Calibri"
+         Size            =   9
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      _NumberOfBands  =   1
+      _Band(0).Cols   =   2
+   End
+   Begin ComctlLib.ProgressBar ProgressBar2 
+      Height          =   255
+      Left            =   15240
+      TabIndex        =   99
+      Top             =   6360
+      Width           =   4335
+      _ExtentX        =   7646
+      _ExtentY        =   450
+      _Version        =   327682
+      Appearance      =   0
+   End
+   Begin MSHierarchicalFlexGridLib.MSHFlexGrid hfproductos 
+      Height          =   1935
+      Left            =   15120
+      TabIndex        =   104
+      Top             =   3240
+      Width           =   4575
+      _ExtentX        =   8070
+      _ExtentY        =   3413
+      _Version        =   393216
+      ForeColor       =   8388608
+      Rows            =   0
+      FixedRows       =   0
+      FixedCols       =   0
+      ForeColorFixed  =   8388608
+      BackColorBkg    =   16777215
+      SelectionMode   =   1
+      Appearance      =   0
+      BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+         Name            =   "Calibri"
+         Size            =   9
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      _NumberOfBands  =   1
+      _Band(0).Cols   =   2
+   End
+   Begin MSDataListLib.DataCombo DtcComprobante_buscar 
+      Height          =   315
+      Left            =   16440
+      TabIndex        =   110
+      Top             =   5280
+      Width           =   2295
+      _ExtentX        =   4048
+      _ExtentY        =   556
+      _Version        =   393216
+      Appearance      =   0
+      Style           =   2
+      ForeColor       =   8388608
+      Text            =   "DataCombo1"
+      BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+         Name            =   "Tahoma"
+         Size            =   8.25
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+   End
+   Begin MSDataListLib.DataCombo DtcSerie_buscar 
+      Height          =   315
+      Left            =   18840
+      TabIndex        =   111
+      Top             =   5280
+      Width           =   855
+      _ExtentX        =   1508
+      _ExtentY        =   556
+      _Version        =   393216
+      Appearance      =   0
+      Style           =   2
+      ForeColor       =   8388608
+      Text            =   "DataCombo1"
+      BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+         Name            =   "Tahoma"
+         Size            =   8.25
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+   End
+   Begin VB.Label Label30 
+      BackColor       =   &H008080FF&
+      Caption         =   "TOKEN:"
+      BeginProperty Font 
+         Name            =   "Calibri"
+         Size            =   9
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      ForeColor       =   &H00800000&
+      Height          =   375
+      Left            =   15240
+      TabIndex        =   101
+      Top             =   2160
+      Width           =   4095
+   End
+   Begin VB.Label lbltabla 
+      AutoSize        =   -1  'True
+      Caption         =   "NOMBRE TABLA"
+      BeginProperty Font 
+         Name            =   "Calibri"
+         Size            =   9
+         Charset         =   0
+         Weight          =   700
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      Height          =   210
+      Left            =   16680
+      TabIndex        =   98
+      Top             =   6000
+      Width           =   1215
+   End
+   Begin VB.Label Label50 
+      BackColor       =   &H008080FF&
+      Caption         =   "RESOLUCION:"
+      BeginProperty Font 
+         Name            =   "Calibri"
+         Size            =   9
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      ForeColor       =   &H00800000&
+      Height          =   375
+      Left            =   15240
+      TabIndex        =   96
+      Top             =   1740
+      Width           =   4095
+   End
+   Begin VB.Label Label29 
+      AutoSize        =   -1  'True
+      BackStyle       =   0  'Transparent
+      Caption         =   "VISUALIZACION PRODUCTO"
+      BeginProperty Font 
+         Name            =   "Calibri"
+         Size            =   9
+         Charset         =   0
+         Weight          =   700
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      ForeColor       =   &H00800000&
+      Height          =   210
+      Left            =   15240
+      TabIndex        =   92
+      Top             =   240
+      Width           =   2055
+   End
+   Begin VB.Shape Shape21 
+      BackStyle       =   1  'Opaque
+      BorderColor     =   &H00C0C0C0&
+      Height          =   8415
+      Left            =   15000
+      Top             =   120
+      Width           =   4935
+   End
+   Begin VB.Label Label25 
+      Alignment       =   2  'Center
+      AutoSize        =   -1  'True
+      BackStyle       =   0  'Transparent
+      Caption         =   "TRACKING VENTAS"
+      BeginProperty Font 
+         Name            =   "Calibri"
+         Size            =   9
+         Charset         =   0
+         Weight          =   700
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      ForeColor       =   &H00800000&
+      Height          =   210
+      Left            =   375
+      TabIndex        =   80
+      Top             =   1980
+      Width           =   1455
+   End
+   Begin VB.Label Label24 
+      Alignment       =   2  'Center
+      AutoSize        =   -1  'True
+      BackStyle       =   0  'Transparent
+      Caption         =   "IMPRES CODIGO BARRA"
+      BeginProperty Font 
+         Name            =   "Tahoma"
+         Size            =   6.75
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      ForeColor       =   &H00800000&
+      Height          =   165
+      Left            =   11835
+      TabIndex        =   69
+      Top             =   2280
+      Width           =   1755
+   End
+   Begin VB.Image Image2 
+      Height          =   240
+      Left            =   11400
+      Picture         =   "FrmDetallesParametros.frx":4D8A
+      Top             =   2205
+      Width           =   240
+   End
+   Begin VB.Shape Shape1 
+      BorderColor     =   &H00808080&
+      Height          =   1695
+      Left            =   11280
+      Top             =   2160
+      Width           =   3255
+   End
+   Begin VB.Label Label15 
+      Alignment       =   2  'Center
+      AutoSize        =   -1  'True
+      BackStyle       =   0  'Transparent
+      Caption         =   "ACTIVACION"
+      BeginProperty Font 
+         Name            =   "Tahoma"
+         Size            =   9
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      ForeColor       =   &H00800000&
+      Height          =   210
+      Left            =   12810
+      TabIndex        =   68
+      Top             =   315
+      Width           =   1095
+   End
+   Begin VB.Label Label16 
+      Alignment       =   2  'Center
+      AutoSize        =   -1  'True
+      BackStyle       =   0  'Transparent
+      Caption         =   "TIPO DE LETRA IMPRESION"
+      BeginProperty Font 
+         Name            =   "Tahoma"
+         Size            =   8.25
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      ForeColor       =   &H00800000&
+      Height          =   195
+      Left            =   8025
+      TabIndex        =   47
+      Top             =   1275
+      Width           =   2025
+   End
+   Begin VB.Label Label11 
+      Alignment       =   2  'Center
+      AutoSize        =   -1  'True
+      BackStyle       =   0  'Transparent
+      Caption         =   "Huella Digital"
+      BeginProperty Font 
+         Name            =   "Tahoma"
+         Size            =   9
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      ForeColor       =   &H00800000&
+      Height          =   210
+      Left            =   8040
+      TabIndex        =   37
+      Top             =   795
+      Width           =   1035
+   End
+   Begin VB.Shape Shape16 
+      BackStyle       =   1  'Opaque
+      BorderColor     =   &H00404040&
+      BorderStyle     =   3  'Dot
+      Height          =   375
+      Left            =   7920
+      Top             =   720
+      Width           =   2295
+   End
+   Begin VB.Label Label10 
+      Alignment       =   2  'Center
+      AutoSize        =   -1  'True
+      BackStyle       =   0  'Transparent
+      Caption         =   "Direccion Publico en General"
+      BeginProperty Font 
+         Name            =   "Tahoma"
+         Size            =   9
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      ForeColor       =   &H00800000&
+      Height          =   210
+      Left            =   4530
+      TabIndex        =   33
+      Top             =   3960
+      Width           =   2325
+   End
+   Begin VB.Shape Shape15 
+      BackStyle       =   1  'Opaque
+      BorderColor     =   &H00404040&
+      BorderStyle     =   3  'Dot
+      Height          =   735
+      Left            =   4440
+      Top             =   3960
+      Width           =   3015
+   End
+   Begin VB.Shape Shape14 
+      BackColor       =   &H00DFDFE0&
+      BorderColor     =   &H00C0C0C0&
+      BorderStyle     =   6  'Inside Solid
+      FillColor       =   &H00FFFFFF&
+      FillStyle       =   0  'Solid
+      Height          =   3195
+      Left            =   120
+      Top             =   5400
+      Width           =   7575
+   End
+   Begin VB.Label Label9 
+      Alignment       =   2  'Center
+      AutoSize        =   -1  'True
+      BackStyle       =   0  'Transparent
+      Caption         =   "Foto Producto"
+      BeginProperty Font 
+         Name            =   "Tahoma"
+         Size            =   9
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      ForeColor       =   &H00800000&
+      Height          =   210
+      Left            =   525
+      TabIndex        =   29
+      Top             =   3780
+      Width           =   1215
+   End
+   Begin VB.Label Label8 
+      Alignment       =   2  'Center
+      AutoSize        =   -1  'True
+      BackStyle       =   0  'Transparent
+      Caption         =   "Update Precios Bonificaciones."
+      BeginProperty Font 
+         Name            =   "Tahoma"
+         Size            =   9
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      ForeColor       =   &H00800000&
+      Height          =   210
+      Left            =   465
+      TabIndex        =   27
+      Top             =   4260
+      Width           =   2505
+   End
+   Begin VB.Shape Shape8 
+      BackColor       =   &H00DFDFE0&
+      BorderColor     =   &H00808080&
+      BorderStyle     =   6  'Inside Solid
+      FillColor       =   &H00FFFFFF&
+      FillStyle       =   0  'Solid
+      Height          =   1275
+      Left            =   7800
+      Top             =   4320
+      Width           =   7095
+   End
+   Begin VB.Shape Shape7 
+      BackStyle       =   1  'Opaque
+      BorderColor     =   &H00404040&
+      BorderStyle     =   3  'Dot
+      Height          =   735
+      Left            =   4440
+      Top             =   3120
+      Width           =   3015
+   End
+   Begin VB.Label Label7 
+      Alignment       =   2  'Center
+      AutoSize        =   -1  'True
+      BackStyle       =   0  'Transparent
+      Caption         =   "Manual"
+      BeginProperty Font 
+         Name            =   "Tahoma"
+         Size            =   9
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      ForeColor       =   &H00800000&
+      Height          =   210
+      Left            =   8145
+      TabIndex        =   21
+      Top             =   315
+      Width           =   585
+   End
+   Begin VB.Label Label6 
+      Alignment       =   2  'Center
+      AutoSize        =   -1  'True
+      BackStyle       =   0  'Transparent
+      Caption         =   "Ventas Automaticas"
+      BeginProperty Font 
+         Name            =   "Tahoma"
+         Size            =   9
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      ForeColor       =   &H00800000&
+      Height          =   210
+      Left            =   525
+      TabIndex        =   20
+      Top             =   3300
+      Width           =   1665
+   End
+   Begin VB.Label Label5 
+      Alignment       =   2  'Center
+      AutoSize        =   -1  'True
+      BackStyle       =   0  'Transparent
+      Caption         =   "COMPROBANTE X DEFECTO"
+      BeginProperty Font 
+         Name            =   "Tahoma"
+         Size            =   8.25
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      ForeColor       =   &H00800000&
+      Height          =   195
+      Left            =   4560
+      TabIndex        =   14
+      Top             =   1680
+      Width           =   2025
+   End
+   Begin VB.Shape Shape3 
+      BackStyle       =   1  'Opaque
+      BorderColor     =   &H00404040&
+      BorderStyle     =   3  'Dot
+      Height          =   1335
+      Left            =   4440
+      Top             =   1680
+      Width           =   3015
+   End
+   Begin VB.Label Label4 
+      Alignment       =   2  'Center
+      AutoSize        =   -1  'True
+      BackStyle       =   0  'Transparent
+      Caption         =   "Codigo de Barras:"
+      BeginProperty Font 
+         Name            =   "Tahoma"
+         Size            =   9
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      ForeColor       =   &H00800000&
+      Height          =   210
+      Left            =   525
+      TabIndex        =   13
+      Top             =   2805
+      Width           =   1455
+   End
+   Begin VB.Label Label2 
+      Alignment       =   2  'Center
+      AutoSize        =   -1  'True
+      BackStyle       =   0  'Transparent
+      Caption         =   "Stock Facturas:"
+      BeginProperty Font 
+         Name            =   "Tahoma"
+         Size            =   9
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      ForeColor       =   &H00800000&
+      Height          =   210
+      Left            =   525
+      TabIndex        =   11
+      Top             =   2340
+      Width           =   1275
+   End
+   Begin VB.Label LblDireccion 
+      Alignment       =   2  'Center
+      AutoSize        =   -1  'True
+      BackStyle       =   0  'Transparent
+      Caption         =   "Razon Social:"
+      BeginProperty Font 
+         Name            =   "Tahoma"
+         Size            =   9
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      ForeColor       =   &H00800000&
+      Height          =   210
+      Left            =   585
+      TabIndex        =   9
+      Top             =   540
+      Width           =   1065
+   End
+   Begin VB.Label LblRazonSocial 
+      Alignment       =   2  'Center
+      AutoSize        =   -1  'True
+      BackStyle       =   0  'Transparent
+      Caption         =   "Ruc:"
+      BeginProperty Font 
+         Name            =   "Tahoma"
+         Size            =   9
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      ForeColor       =   &H00800000&
+      Height          =   210
+      Left            =   1275
+      TabIndex        =   8
+      Top             =   180
+      Width           =   375
+   End
+   Begin VB.Label Label1 
+      Alignment       =   2  'Center
+      AutoSize        =   -1  'True
+      BackStyle       =   0  'Transparent
+      Caption         =   "Direccion Fiscal:"
+      BeginProperty Font 
+         Name            =   "Tahoma"
+         Size            =   9
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      ForeColor       =   &H00800000&
+      Height          =   210
+      Left            =   375
+      TabIndex        =   7
+      Top             =   900
+      Width           =   1275
+   End
+   Begin VB.Label Label3 
+      Alignment       =   2  'Center
+      AutoSize        =   -1  'True
+      BackStyle       =   0  'Transparent
+      Caption         =   "AFECTO A IGV"
+      BeginProperty Font 
+         Name            =   "Calibri"
+         Size            =   9
+         Charset         =   0
+         Weight          =   700
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      ForeColor       =   &H00800000&
+      Height          =   210
+      Left            =   450
+      TabIndex        =   6
+      Top             =   1620
+      Width           =   1065
+   End
+   Begin VB.Shape Shape2 
+      BackColor       =   &H008080FF&
+      BackStyle       =   1  'Opaque
+      BorderColor     =   &H008080FF&
+      BorderStyle     =   6  'Inside Solid
+      Height          =   300
+      Left            =   360
+      Top             =   1560
+      Width           =   2295
+   End
+   Begin VB.Shape ShpDatos 
+      BackColor       =   &H00DFDFE0&
+      BorderStyle     =   3  'Dot
+      FillColor       =   &H00FFFFFF&
+      FillStyle       =   0  'Solid
+      Height          =   1275
+      Left            =   120
+      Top             =   120
+      Width           =   7575
+   End
+   Begin VB.Shape Shape9 
+      BackColor       =   &H008080FF&
+      BackStyle       =   1  'Opaque
+      BorderColor     =   &H00C0C0C0&
+      Height          =   375
+      Left            =   360
+      Top             =   2280
+      Width           =   2295
+   End
+   Begin VB.Shape Shape11 
+      BackStyle       =   1  'Opaque
+      BorderColor     =   &H00404040&
+      BorderStyle     =   3  'Dot
+      Height          =   375
+      Left            =   360
+      Top             =   2760
+      Width           =   2295
+   End
+   Begin VB.Shape Shape10 
+      BackStyle       =   1  'Opaque
+      BorderColor     =   &H00404040&
+      BorderStyle     =   3  'Dot
+      Height          =   375
+      Left            =   360
+      Top             =   3240
+      Width           =   2295
+   End
+   Begin VB.Shape Shape12 
+      BackStyle       =   1  'Opaque
+      BorderColor     =   &H00404040&
+      BorderStyle     =   3  'Dot
+      Height          =   375
+      Left            =   360
+      Top             =   4200
+      Width           =   3255
+   End
+   Begin VB.Shape Shape13 
+      BackStyle       =   1  'Opaque
+      BorderColor     =   &H00404040&
+      BorderStyle     =   3  'Dot
+      Height          =   375
+      Left            =   360
+      Top             =   3720
+      Width           =   2295
+   End
+   Begin VB.Shape Shape6 
+      BackStyle       =   1  'Opaque
+      BorderColor     =   &H00404040&
+      BorderStyle     =   3  'Dot
+      Height          =   375
+      Left            =   7920
+      Top             =   240
+      Width           =   2295
+   End
+   Begin VB.Shape Shape18 
+      BackStyle       =   1  'Opaque
+      BorderColor     =   &H00404040&
+      BorderStyle     =   3  'Dot
+      Height          =   735
+      Left            =   7920
+      Top             =   1200
+      Width           =   2295
+   End
+   Begin VB.Shape Shape17 
+      BackStyle       =   1  'Opaque
+      BorderColor     =   &H00C0C0C0&
+      BorderStyle     =   6  'Inside Solid
+      Height          =   375
+      Left            =   12240
+      Top             =   240
+      Width           =   2535
+   End
+   Begin VB.Shape Shape19 
+      BorderColor     =   &H00808080&
+      Height          =   1695
+      Left            =   7920
+      Top             =   2160
+      Width           =   3255
+   End
+   Begin VB.Shape Shape5 
+      BackColor       =   &H00DFDFE0&
+      BorderColor     =   &H00C0C0C0&
+      BorderStyle     =   6  'Inside Solid
+      FillColor       =   &H00FFFFFF&
+      FillStyle       =   0  'Solid
+      Height          =   3915
+      Left            =   7800
+      Top             =   120
+      Width           =   7095
+   End
+   Begin VB.Shape Shape20 
+      BackColor       =   &H008080FF&
+      BackStyle       =   1  'Opaque
+      BorderColor     =   &H008080FF&
+      BorderStyle     =   6  'Inside Solid
+      Height          =   300
+      Left            =   360
+      Top             =   1920
+      Width           =   2295
+   End
+   Begin VB.Shape Shape4 
+      BackColor       =   &H00DFDFE0&
+      BorderColor     =   &H00C0C0C0&
+      BorderStyle     =   6  'Inside Solid
+      FillColor       =   &H00FFFFFF&
+      FillStyle       =   0  'Solid
+      Height          =   3915
+      Left            =   120
+      Top             =   1440
+      Width           =   7575
+   End
+   Begin VB.Shape Shape22 
+      BackStyle       =   1  'Opaque
+      BorderColor     =   &H00808080&
+      Height          =   8640
+      Left            =   0
+      Top             =   0
+      Width           =   20055
+   End
+End
+Attribute VB_Name = "FrmDetallesParametros"
+Attribute VB_GlobalNameSpace = False
+Attribute VB_Creatable = False
+Attribute VB_PredeclaredId = True
+Attribute VB_Exposed = False
+Public Procedencia As EnumProcede
+Dim strCodAlmacen As String
+Dim strSerie As String
+Public cnbd1 As New ADODB.Connection
+
+Private Sub chkActivacion_Click()
+If Me.chkActivacion.Value = 1 Then
+    Me.Frame1.Visible = True
+Else
+    Me.Frame1.Visible = False
+End If
+End Sub
+
+Private Sub chkContador_Click()
+If Me.chkContador.Value = 1 Then
+    Me.FrameContador.Enabled = True
+    Call Resalta(Me.TxtRucContador)
+Else
+    Me.FrameContador.Enabled = False
+End If
+End Sub
+
+Private Sub cmdBlanquear_Click()
+Procedencia = buscar
+FrmSeguridad.Show
+End Sub
+
+Private Sub cmdBlanquearMov_Click()
+FrmParametrosEmpresa.Procedencia = Neutro
+Procedencia = Eliminar
+FrmSeguridad.Show
+End Sub
+
+Private Sub cmdfaltantes_Click()
+
+
+
+
+strCadena = "SELECT * FROM movimiento_venta WHERE ruc='" & KEY_RUC & "' and id_doc='" & Me.DtcComprobante_buscar.BoundText & "' and serie='" & Me.DtcSerie_buscar.BoundText & "' ORDER BY numero ASC"
+Call ConfiguraRst(strCadena)
+If rst.RecordCount > 0 Then
+   rst.MoveFirst
+   Me.HfProductos.rows = 0
+   For i = Val(rst("numero")) To rst.RecordCount - 1
+        If Val(rst("numero")) = i Then
+        
+        Else
+            Me.HfProductos.ColWidth(0) = 3000
+            Me.HfProductos.AddItem Me.DtcComprobante_buscar.Text & ":" & Me.DtcSerie_buscar.Text & "-" & Format(i, "000000")
+        End If
+        DoEvents
+        rst.MoveNext
+   Next i
+   MsgBox "NADA"
+End If
+End Sub
+
+Private Sub CmdImportar_Click()
+Dim rst1 As New ADODB.Recordset
+Dim rst2 As New ADODB.Recordset
+Dim rst3 As New ADODB.Recordset
+Dim rst4 As New ADODB.Recordset
+Dim RstAlmProd As New ADODB.Recordset
+Dim Base As String, Tabla As String, Criterio As String, TablaDestino As String
+Base = Trim(Me.TxtNombreBaseOrigen.Text)
+Tabla = Trim(Me.TxtNombreTablaOrigen.Text)
+Criterio = Trim(Me.TxtCriterioOrigen.Text)
+TablaDestino = Trim(Me.TxtNombreTablaDestino.Text)
+Dim idProducto As String
+cnbd1.Open "Provider=SQLOLEDB.1;Integrated Security=SSPI;Persist Security Info=False;Initial Catalog='" & Base & "'" ';Data Source=192.168.1.33"
+    
+'GoTo compras
+    
+    
+    strCadena = "DELETE FROM unidad WHERE id_usu='" & KEY_RUC & "'"
+    CnBd.Execute (strCadena)
+    Call insertar_acciones(strCadena)
+    strCadena = "SELECT * FROM " & Tabla & " ORDER BY " & Criterio & " ASC"
+    rst1.CursorLocation = adUseClient
+    rst1.Open strCadena, cnbd1, adOpenKeyset, adLockOptimistic
+    If rst1.RecordCount > 0 Then
+       rst1.MoveFirst
+       For i = 0 To rst1.RecordCount - 1
+             strCadena = "INSERT INTO " & TablaDestino & "(id_und,descripcion,abreviatura,id_usu)VALUES('" & formato_item(rst1("cUnidad"), 5) & "','" & rst1("sDescripcion") & "','" & Trim(rst1("sAbreviatura")) & "','" & KEY_RUC & "')"
+             CnBd.Execute (strCadena)
+             Call insertar_acciones(strCadena)
+             rst1.MoveNext
+       Next i
+       MsgBox "MIGRACION EXITOSA" + Space(2) + TablaDestino, vbInformation, KEY_EMPRESA
+    End If
+    Set rst1 = Nothing
+    strCadena = "DELETE  FROM linea WHERE id_usu='" & KEY_RUC & "'"
+    CnBd.Execute (strCadena)
+    Call insertar_acciones(strCadena)
+    
+    strCadena = "SELECT * FROM Linea ORDER BY cLinea"
+    rst1.CursorLocation = adUseClient
+    rst1.Open strCadena, cnbd1, adOpenKeyset, adLockOptimistic
+    If rst1.RecordCount > 0 Then
+       rst1.MoveFirst
+       For i = 0 To rst1.RecordCount - 1
+             strCadena = "INSERT INTO linea (id_linea,descripcion,id_usu)VALUES('" & formato_item(rst1("cLinea"), 5) & "','" & rst1("sDescripcion") & "','" & KEY_RUC & "')"
+             CnBd.Execute (strCadena)
+             Call insertar_acciones(strCadena)
+             rst1.MoveNext
+       Next i
+       MsgBox "MIGRACION EXITOSA" + Space(2) + "LINEA", vbInformation, KEY_EMPRESA
+    End If
+    Set rst1 = Nothing
+    strCadena = "DELETE FROM marca WHERE id_usu='" & KEY_RUC & "'"
+    CnBd.Execute (strCadena)
+    Call insertar_acciones(strCadena)
+    
+    strCadena = "SELECT * FROM Marcas ORDER BY cMarca"
+    rst1.CursorLocation = adUseClient
+    rst1.Open strCadena, cnbd1, adOpenKeyset, adLockOptimistic
+    If rst1.RecordCount > 0 Then
+       rst1.MoveFirst
+       For i = 0 To rst1.RecordCount - 1
+             strCadena = "INSERT INTO marca (id_marca,descripcion,id_usu)VALUES('" & formato_item(rst1("cMarca"), 5) & "','" & rst1("Mar_des") & "','" & KEY_RUC & "')"
+             CnBd.Execute (strCadena)
+             Call insertar_acciones(strCadena)
+             rst1.MoveNext
+       Next i
+       MsgBox "MIGRACION EXITOSA" + Space(2) + "MARCA", vbInformation, KEY_EMPRESA
+    End If
+    Dim Proveedor As String
+    Set rst1 = Nothing
+    strCadena = "SELECT * FROM Persona WHERE Per_Ruc<>'' ORDER BY cPersona"
+    rst1.CursorLocation = adUseClient
+    rst1.Open strCadena, cnbd1, adOpenKeyset, adLockOptimistic
+    If rst1.RecordCount > 0 Then
+       rst1.MoveFirst
+       For i = 0 To rst1.RecordCount - 1
+            Proveedor = rst1("proveedor")
+            If Trim(Proveedor) = "V" Then
+                Proveedor = "si"
+            Else
+                Proveedor = "no"
+            End If
+            
+            strCadena = "SELECT * FROM persona where dni='" & rst1("Per_Ruc") & "'"
+            Call ConfiguraRstT(strCadena)
+            If rstT.RecordCount < 0 Then
+                strCadena = "P_insert_persona('" & Trim(rst1("Per_Ruc")) & "','-','-','-','" & Trim(rst1("NombrePersona")) & "','" & Trim(rst1("sDireccionCliente1")) & "','" & Trim(rst1("Telefono1")) & "','-','no','no','" & Proveedor & "','no','no','no','" & KEY_RUC & "')"
+                CnBd.Execute (strCadena)
+                Call insertar_acciones(strCadena)
+            Else
+                
+                strCadena = "SELECT * FROM entidad_empresa WHERE cod_unico='" & rst1("Per_Ruc") & "' AND id_empresa='" & KEY_RUC & "'"
+                Call ConfiguraRstT(strCadena)
+                If rstT.RecordCount < 1 Then
+                    strCadena = "INSERT INTO entidad_empresa(cod_unico,id_empresa,id_cliente)VALUES('" & rst1("Per_Ruc") & "','" & KEY_RUC & "','si')"
+                    CnBd.Execute (strCadena)
+                    Call insertar_acciones(strCadena)
+                End If
+            End If
+             
+             rst1.MoveNext
+       Next i
+       MsgBox "MIGRACION EXITOSA" + Space(2) + "PERSONA RUC", vbInformation, KEY_EMPRESA
+    End If
+    
+    Set rst1 = Nothing
+    
+    strCadena = "SELECT * FROM Persona WHERE Per_Ruc='' and cPersona<>'00004' ORDER BY cPersona"
+    rst1.CursorLocation = adUseClient
+    rst1.Open strCadena, cnbd1, adOpenKeyset, adLockOptimistic
+    If rst1.RecordCount > 0 Then
+       rst1.MoveFirst
+       For i = 0 To rst1.RecordCount - 1
+            Proveedor = rst1("proveedor")
+            If Trim(Proveedor) = "V" Then
+                Proveedor = "si"
+            Else
+                Proveedor = "no"
+            End If
+            
+            strCadena = "DELETE FROM persona WHERE dni='" & formato_item(Trim(rst1("cPersona")), 8) & "'"
+            CnBd.Execute (strCadena)
+            Call insertar_acciones(strCadena)
+             strCadena = "P_insert_persona('" & formato_item(Trim(rst1("cPersona")), 8) & "','-','-','-','" & Trim(rst1("NombrePersona")) & "','" & Trim(rst1("sDireccionCliente1")) & "','" & Trim(rst1("Telefono1")) & "','-','no','no','" & Proveedor & "','no','no','no','" & KEY_RUC & "')"
+             CnBd.Execute (strCadena)
+             Call insertar_acciones(strCadena)
+             rst1.MoveNext
+             DoEvents
+       Next i
+       MsgBox "MIGRACION EXITOSA" + Space(2) + "PERSONA RUC", vbInformation, KEY_EMPRESA
+    End If
+Set rst1 = Nothing
+
+strCadena = "DELETE FROM producto WHERE ruc='" & KEY_RUC & "'"
+CnBd.Execute (strCadena)
+Call insertar_acciones(strCadena)
+strCadena = "DELETE FROM almacen_producto WHERE ruc='" & KEY_RUC & "'"
+CnBd.Execute (strCadena)
+Call insertar_acciones(strCadena)
+
+    strCadena = "SELECT * FROM Producto P,Almacen_Productos A WHERE P.cProducto=A.cProducto   ORDER BY A.cProducto"
+    rst1.CursorLocation = adUseClient
+    rst1.Open strCadena, cnbd1, adOpenKeyset, adLockOptimistic
+    If rst1.RecordCount > 0 Then
+       rst1.MoveFirst
+       For i = 0 To rst1.RecordCount - 1
+             strCadena = "INSERT INTO producto (id_producto, id_unidad, id_linea, id_marca,nombre_prod,stock_total,stock_minimo,peso,id_percepcion,comentario,id_igv,id_sub_producto," & _
+           "id_proveedor,id_auspiciador,id_combo,ruc,precio_delivery,imagen,id_tipo) VALUES ('" & formato_item(rst1("cProducto"), 5) & "','" & formato_item(rst1("cUnidad"), 5) & "','" & formato_item(rst1("cLinea"), 5) & "','" & formato_item(rst1("cMarca"), 5) & "'," & _
+           "'" & Trim(rst1("DescripcionProducto")) & "','0','2','" & rst1("prod_peso") & "','no'," & _
+           "'--','si','no','0','0','no','" & KEY_RUC & "'," & _
+           "'0','','01')"
+           CnBd.Execute (strCadena)
+           Call insertar_acciones(strCadena)
+           strCadena = "UPDATE producto set precio_venta='" & rst1("PrecioVenta") & "',precio_compra='" & rst1("PrecioCompra") & "' WHERE id_producto='" & formato_item(rst1("cProducto"), 5) & "' AND ruc='" & KEY_RUC & "'"
+           CnBd.Execute (strCadena)
+           Call insertar_acciones(strCadena)
+           
+           strCadena = "SELECT * FROM almacen WHERE ruc='" & KEY_RUC & "'"
+           
+           RstAlmProd.CursorLocation = adUseClient
+           RstAlmProd.Open strCadena, CnBd, adOpenKeyset, adLockOptimistic
+           If RstAlmProd.RecordCount <= 0 Then
+                MsgBox "No hay Ningun Almacen registrado", vbInformation
+                MsgBox "Producto NO Grabado, Cree un Almacen", vbInformation
+                Exit Sub
+           End If
+           RstAlmProd.MoveFirst
+           For j = 0 To RstAlmProd.RecordCount - 1
+             strCadena = "INSERT INTO almacen_producto(id_alm,id_producto,stock,stock_factura,ruc) VALUES ('" & formato_item(RstAlmProd("id_alm"), 5) & "','" & formato_item(rst1("cProducto"), 5) & "','" & rst1("Stock") & "','" & rst1("Stock_factura") & "','" & Trim(KEY_RUC) & "')"
+             CnBd.Execute (strCadena)
+             Call insertar_acciones(strCadena)
+             RstAlmProd.MoveNext
+           Next j
+           Set RstAlmProd = Nothing
+             rst1.MoveNext
+       Next i
+       MsgBox "MIGRACION EXITOSA" + Space(2) + "PRODUCTOS", vbInformation, KEY_EMPRESA
+    End If
+    'GoTo inventario
+    Set rst1 = Nothing
+    '-------documento ventas
+    
+    'strCadena = "DELETE FROM movimiento_venta WHERE ruc='" & KEY_RUC & "'"
+    'CnBd.Execute (strCadena)  Call insertar_acciones(strCadena)
+'compras:
+    fecha = CVDate("01-01-2000")
+    
+    strCadena = "DELETE FROM movimiento_venta WHERE ruc='" & KEY_RUC & "'"
+    CnBd.Execute (strCadena)
+    Call insertar_acciones(strCadena)
+    strCadena = "SELECT * FROM DocumentoVenta WHERE (doc_cod='0003' or doc_cod='0001') AND dEmisionVenta>='" & fecha & "' AND sSerie<>''  ORDER BY cDocumentoVenta"
+    rst1.CursorLocation = adUseClient
+    rst1.Open strCadena, cnbd1, adOpenKeyset, adLockOptimistic
+    If rst1.RecordCount > 0 Then
+       rst1.MoveFirst
+       For i = 0 To rst1.RecordCount - 1
+            strCadena = "SELECT Per_Ruc FROM Persona WHERE cPersona='" & rst1("cPersona") & "'"
+            rst4.Open strCadena, cnbd1, adOpenKeyset, adLockOptimistic
+            If rst4.RecordCount > 0 Then
+            
+            If rst4.RecordCount > 0 And rst4("Per_Ruc") <> "" Then
+                If rst1("cPersona") = "00004" Or rst1("cPersona") = "00129" Then
+                    dni = "00000000"
+                Else
+                    dni = rst4("Per_Ruc")
+                End If
+            Else
+                dni = BDBuscarCampo("persona", "dni", "dni", formato_item(rst1("cPersona"), 8))
+            End If
+            Else
+               dni = "00000000"
+               If rst1("doc_cod") = "0001" Then
+                GoTo siguiente
+               End If
+            End If
+            Set rst4 = Nothing
+                        
+            'registro de ventas
+            rmes = formato_item(Month(rst1("dEmisionVenta")), 2)
+            ranio = formato_item(Year(rst1("dEmisionVenta")), 4)
+            strCadena = "SELECT * FROM registro_ventas WHERE ruc='" & KEY_RUC & "' AND mes='" & rmes & "' AND anio='" & ranio & "'"
+            Call ConfiguraRst(strCadena)
+            If rst.RecordCount < 1 Then
+                desVentas = "REGISTRO VENTAS :" + Space(3) + nombre_mes(rmes)
+                strCadena = "INSERT INTO registro_ventas(ruc,mes,anio,descripcion)VALUES('" & KEY_RUC & "','" & rmes & "','" & ranio & "','" & desVentas & "')"
+                CnBd.Execute (strCadena)
+                Call insertar_acciones(strCadena)
+            End If
+
+    
+
+            'fin registro ventas
+            
+            
+            
+            
+            
+            
+            strCadena = "P_insert_venta('" & formato_item(rst1("doc_cod"), 4) & "','" & formato_item(rst1("Alm_cod"), 5) & "','01','00001','no'," & _
+            "'" & Trim(formato_item(rst1("sSerie"), 3)) & "','" & Trim(formato_item(rst1("cDocumentoVenta"), 6)) & "','" & dni & "','" & Trim(rst1("Persona")) & "','" & Val(rst1("nSubTotal")) & "','" & Val(rst1("nIgv")) & "','0','" & Val(rst1("nTotalVenta")) & "','0'," & _
+            "'" & Val(rst1("nTotalVenta")) & "','0','" & Format(rst1("dEmisionVenta"), "YYYY-mm-dd") & "','" & Format(rst1("dVencimiento"), "YYYY-mm-dd") & "','00001','" & KEY_USUARIO & "','" & KEY_CAMBIO & "','" & dfac & "','" & formato_item(Month(Format(rst1("dVencimiento"), "YYYY-mm-dd")), 2) & "','" & Year(Format(rst1("dVencimiento"), "YYYY-mm-dd")) & "','" & KEY_RUC & "')"
+            CnBd.Execute (strCadena)
+            Call insertar_acciones(strCadena)
+            
+            id_venta = LastRegistroRUC("movimiento_venta", "id_venta")
+128:
+            Call SaveDetalleDocumentoVenta(id_venta, Trim(rst1("cDocumentoVenta")), Trim(rst1("sSerie")), rst1("doc_cod"))
+            If Trim(rst1("Anulado")) = "V" Then
+                On Error GoTo kardex1
+                strCadena = "UPDATE movimiento_venta SET anulado='si' WHERE id_venta='" & id_venta & "' AND ruc='" & KEY_RUC & "'"
+                CnBd.Execute (strCadena)
+                Call insertar_acciones(strCadena)
+kardex1:
+                strCadena = "DELETE FROM kardex WHERE id_doc='" & formato_item(rst1("doc_cod"), 4) & "' AND id_serie='" & Trim(formato_item(rst1("sSerie"), 3)) & "' AND id_numero='" & Trim(formato_item(rst1("cDocumentoVenta"), 6)) & "' AND ruc='" & KEY_RUC & "'"
+                CnBd.Execute (strCadena)
+                Call insertar_acciones(strCadena)
+            End If
+siguiente:
+            rst1.MoveNext
+            DoEvents
+       Next i
+       MsgBox "MIGRACION EXITOSA" + Space(2) + "REGISTRO VENTAS", vbInformation, KEY_EMPRESA
+    End If
+    
+ '-------documento Compras
+'compras:
+   Set rst1 = Nothing
+ 
+   strCadena = "DELETE FROM movimiento_compra WHERE ruc='" & KEY_RUC & "'"
+   CnBd.Execute (strCadena)
+   Call insertar_acciones(strCadena)
+   
+    strCadena = "SELECT * FROM DocumentoCompra WHERE cPersona<>'00004' AND Anulado='F'  ORDER BY cDocumentoCompra"
+    rst1.CursorLocation = adUseClient
+    rst1.Open strCadena, cnbd1, adOpenKeyset, adLockOptimistic
+    If rst1.RecordCount > 0 Then
+       rst1.MoveFirst
+       
+       
+       
+       For i = 0 To rst1.RecordCount - 1
+           'dni = obtenerDNI(rst1("cPersona"))
+           strCadena = "SELECT Per_Ruc FROM Persona WHERE cPersona='" & rst1("cPersona") & "'"
+            rst4.Open strCadena, cnbd1, adOpenKeyset, adLockOptimistic
+            If rst4.RecordCount > 0 And rst4("Per_Ruc") <> "" Then
+                If rst1("cPersona") = "00004" Then
+                    dni = "00000000"
+                Else
+                    dni = rst4("Per_Ruc")
+                End If
+            Else
+                dni = BDBuscarCampo("persona", "dni", "dni", formato_item(rst1("cPersona"), 8))
+            End If
+            Set rst4 = Nothing
+            
+           
+            
+        If Len(Trim(dni)) = 11 Then
+            cod_identidad = 6
+        End If
+        If Len(Trim(dni)) <> 8 And Len(Trim(Me.TxtRuc.Text)) <> 11 Then
+            cod_identidad = 0
+        End If
+            
+       'registro compras
+            rmes = formato_item(Month(rst1("dEmisionCompra")), 2)
+            ranio = formato_item(Year(rst1("dEmisionCompra")), 4)
+            strCadena = "SELECT * FROM registro_compras WHERE ruc='" & KEY_RUC & "' AND mes='" & rmes & "' AND anio='" & ranio & "'"
+            Call ConfiguraRst(strCadena)
+            If rst.RecordCount < 1 Then
+                desCompras = "REGISTRO COMPRAS :" + Space(3) + nombre_mes(rmes)
+                strCadena = "INSERT INTO registro_compras(ruc,mes,anio,descripcion)VALUES('" & KEY_RUC & "','" & rmes & "','" & ranio & "','" & desCompras & "')"
+                CnBd.Execute (strCadena)
+                Call insertar_acciones(strCadena)
+            End If
+       'fin registro compras
+       
+       
+        strCadena = "SELECT * FROM Docreferencia_Compra WHERE IdReferencia='" & rst1("IdReferencia") & "'" ' solo para don Daniel Olivos
+        rst4.Open strCadena, cnbd1, adOpenKeyset, adLockOptimistic
+        If rst4.RecordCount > 0 Then
+            nnumero = formato_item(rst4("cDocumentoCompra"), 8) ' aqui es para als demas bases de datos
+            serie = formato_item(rst4("sSerie"), 3)
+            doc_cod = formato_item(rst4("doc_cod"), 4)
+        End If
+        Set rst4 = Nothing
+        strCadena = "P_insert_compra('" & doc_cod & "','" & KEY_ALM & "','" & Format(rst1("dEmisionCompra"), "YYYY-mm-dd") & "','" & Format(rst1("dVencimiento"), "YYYY-mm-dd") & "','02'," & _
+        "'03','','00001','" & formato_item(Month(rst1("dEmisionCompra")), 2) & "','" & Year(rst1("dEmisionCompra")) & "','" & serie & "'," & _
+        "'" & nnumero & "','" & cod_identidad & "','" & Trim(dni) & "','" & UCase(rst1("Persona")) & "','" & KEY_CAMBIO & "'," & _
+        "'0','" & Val(rst1("nSubTotal")) & "','" & Val(rst1("nIgv")) & "','0','0','0','0','0','0','" & Val(rst1("nTotalCompra")) & "','" & Val(rst1("nTotalCompra")) & "','" & KEY_USUARIO & "','" & Trim(rst1("Observacion")) & "','" & KEY_RUC & "')"
+        CnBd.Execute (strCadena)
+        Call insertar_acciones(strCadena)
+        
+        id_compra = LastRegistroRUC("movimiento_compra", "id_compra")
+
+'02----------------guardar en detalle documento Compra-----------
+        Call SaveDetalleDocumentoCompra(id_compra, rst1("cDocumentoCompra"), rst1("sSerie"), rst1("doc_cod"))
+        rst1.MoveNext
+        DoEvents
+       Next i
+       
+     Exit Sub
+ 'ACTUALIZAR STOCK PRODUCTO
+inventario:
+
+Dim strInventario As String
+strCadena = "SELECT A.cProducto,A.Stock,P.Stock_factura,A.Alm_cod FROM Almacen_productos A,Producto P WHERE A.cProducto=P.cProducto"
+rst3.Open strCadena, cnbd1, adOpenKeyset, adLockOptimistic
+
+If rst3.RecordCount > 0 Then
+rst3.MoveFirst
+For i = 0 To rst3.RecordCount - 1
+    cod_articulo = formato_item(rst3("cProducto"), 5)
+    stock_actual = BDBuscarCampoRuc("almacen_producto", "stock", "id_producto", cod_articulo)
+    stock_nuevo = rst3("Stock")
+    Pcosto = BDBuscarCampoRuc("producto", "precio_compra", "id_producto", cod_articulo)
+    
+    strInventario = formato_item(ConsultaUltimoRegistro("inventario", "id_inventario", "ruc", KEY_RUC), 6)
+    strCadena = "INSERT INTO inventario(id_inventario,id_producto,precio_costo,fecha,id_alm,cantidad,id_usuario,nusuario,ruc)VALUES('" & strInventario & "','" & cod_articulo & "','" & Val(Pcosto) & "','" & KEY_FECHA & "','" & formato_item(rst3("Alm_cod"), 5) & "','" & Val(stock_nuevo) & "','" & KEY_USUARIO & "','" & KEY_VENDEDOR & "','" & KEY_RUC & "')"
+    CnBd.Execute (strCadena)
+    Call insertar_acciones(strCadena)
+    strCadena = "UPDATE almacen_producto SET stock_factura='" & Val(rst3("Stock_factura")) & "' WHERE id_producto='" & cod_articulo & "' AND ruc='" & KEY_RUC & "'"
+    CnBd.Execute (strCadena)
+    Call insertar_acciones(strCadena)
+    'strCadena = "UPDATE producto SET precio_venta='" & Val(Me.TxtVenta.text) & "',precio_compra='" & Val(Pcosto) & "' WHERE id_producto='" & cod_articulo & "' AND ruc='" & KEY_RUC & "'"
+    'CnBd.Execute (strCadena)  Call insertar_acciones(strCadena)
+    rst3.MoveNext
+    DoEvents
+Next i
+  
+  
+End If
+       
+       
+       
+       MsgBox "MIGRACION EXITOSA" + Space(2) + "PERSONA RUC", vbInformation, KEY_EMPRESA
+    End If
+    
+End Sub
+Private Sub SaveDetalleDocumentoCompra(ByVal id_compra As Double, ByVal Numero As String, serie As String, id_doc As String)
+   Dim rst6 As New ADODB.Recordset
+   Dim precio_costo As Single, precio_venta As Single
+   rst6.CursorLocation = adUseClient
+   
+   strCadena = "SELECT * FROM Detalle_DocumentoCompra WHERE (cDocumentoCompra='" & Trim(Numero) & "' AND doc_cod='" & Trim(id_doc) & "' AND sSerie='" & Trim(serie) & "')"
+   rst6.Open strCadena, cnbd1, adOpenKeyset, adLockOptimistic
+ 
+    If rst6.RecordCount > 0 Then
+       rst6.MoveFirst
+       For i = 0 To rst6.RecordCount - 1
+          precio_costo = BDBuscarCampoRuc("producto", "precio_compra", "id_producto", formato_item(rst6("cProducto"), 5))
+          precio_venta = BDBuscarCampoRuc("producto", "precio_venta", "id_producto", formato_item(rst6("cProducto"), 5))
+          strCadena = "INSERT INTO movimiento_compra_detalle(id_compra,id_producto,cantidad,c_unitario,dsto_soles,dsto_procentaje,total_descuento,valor_neto,isc,igv,ivap,otros,percepcion, " & _
+           "valor_venta,exonerado,total,p_venta,p_costo,id_alm,ruc) VALUES ('" & id_compra & "','" & formato_item(rst6("cProducto"), 5) & "','" & rst6("cantidad") & "','" & precio_costo & "'," & _
+           "'0','0','0','" & precio_costo * rst6("cantidad") & "','0','" & precio_costo * rst6("cantidad") - precio_costo * rst6("cantidad") / 1.18 & "', " & _
+           "'0','0','0','" & precio_costo * rst6("cantidad") / 1.18 & "','0','" & precio_costo * rst6("cantidad") & "','" & precio_venta & "','" & precio_costo & "','" & KEY_ALM & "','" & KEY_RUC & "')"
+           CnBd.Execute (strCadena)
+           Call insertar_acciones(strCadena)
+           rst6.MoveNext
+        Next i
+    End If
+End Sub
+Private Sub SaveDetalleDocumentoVenta(ByVal idVenta As Double, ByVal Numero As String, serie As String, id_doc As String)
+   Dim rst6 As New ADODB.Recordset
+   Set rst6 = Nothing
+   rst6.CursorLocation = adUseClient
+   strCadena = "SELECT * FROM Detalle_DocumentoVenta WHERE (cDocumentoVenta='" & Trim(Numero) & "' AND doc_cod='" & Trim(id_doc) & "' AND sSerie='" & Trim(serie) & "')"
+   rst6.Open strCadena, cnbd1, adOpenKeyset, adLockOptimistic
+ 
+    If rst6.RecordCount > 0 Then
+       rst6.MoveFirst
+       For i = 0 To rst6.RecordCount - 1
+           strCadena = "INSERT INTO movimiento_venta_detalle(id_venta,id_producto,cantidad,precio,peso,total,ruc) VALUES ('" & idVenta & "','" & formato_item(rst6("cProducto"), 5) & "','" & rst6("cantidad") & "','" & rst6("Precio") & "','" & rst6("Peso") & "','" & rst6("Total") & "','" & KEY_RUC & "')"
+           CnBd.Execute (strCadena)
+           Call insertar_acciones(strCadena)
+           rst6.MoveNext
+        Next i
+    End If
+End Sub
+Private Function obtenerDNI(ByVal cPersona As String) As String
+obtenerDNI = BDBuscarCampo("persona", "dni", "cod_interno", cPersona)
+End Function
+
+
+Public Sub migrar_base(ByVal in_server As String, ByVal in_base As String)
+Dim sys_ConString2 As String
+sys_Server2 = in_server
+sys_DataBase2 = in_base 'ConfigRead("DataBase")
+sys_SUser2 = "user_vitekey" 'DecryptString(ConfigRead("SUser"))
+sys_SPassword2 = "02021974abc2014@" 'DecryptString(ConfigRead("SPassword"))
+db_port = "3306"
+sys_ConString2 = "" & _
+            "DRIVER={MySQL ODBC 5.1 Driver};" & _
+            "Server=" & sys_Server2 & ";" & _
+            "Database=" & sys_DataBase2 & ";" & _
+            "UID=" & sys_SUser2 & ";" & _
+            "PWD=" & sys_SPassword2 & ";" & _
+            " PORT=" & db_port & ";OPTION=" & 1 + 2 + 8 + 32 + 2048 + 16384 & ";"
+CnBd2.ConnectionString = sys_ConString2
+CnBd2.Open
+
+strCadena = "SELECT * FROM turno  WHERE ruc='20479779598'"
+Call ConfiguraRst(strCadena)
+If rst.RecordCount > 0 Then
+    rst.MoveFirst
+    For i = 0 To rst.RecordCount - 1
+    
+        strCadena = "SELECT * FROM turno  WHERE id_turno='" & rst("id_turno") & "' and ruc='" & KEY_RUC & "'"
+        Call ConfiguraRstP(strCadena)
+        If rstP.RecordCount < 1 Then
+        strCadena = "INSERT INTO turno(`id_turno`,`descripcion`,`hora_inicio`,`hora_final`,`ruc`)VALUES('" & rst("id_turno") & "','" & rst("descripcion") & "','" & Format(rst("hora_inicio"), "HH:mm:ss") & "','" & Format(rst("hora_final"), "HH:mm:ss") & "','" & KEY_RUC & "')"
+        CnBd.Execute (strCadena)
+        End If
+        'Call insertar_acciones(strCadena)
+        rst.MoveNext
+    Next i
+End If
+
+
+
+
+
+strCadena = "SELECT * FROM persona_cargos  WHERE id_empresa='20479779598'"
+Call ConfiguraRst(strCadena)
+If rst.RecordCount > 0 Then
+    rst.MoveFirst
+    For i = 0 To rst.RecordCount - 1
+        strCadena = "SELECT * FROM persona_cargos  WHERE id_cargo='" & rst("id_cargo") & "' and ruc='" & rst("ruc") & "' and id_empresa='" & KEY_RUC & "'"
+        Call ConfiguraRstP(strCadena)
+        If rstP.RecordCount < 1 Then
+            strCadena = "INSERT INTO persona_cargos(`id_cargo`,`descripcion`,`ruc`,`id_empresa`)VALUES('" & rst("id_cargo") & "','" & rst("descripcion") & "','" & rst("ruc") & "','" & KEY_RUC & "')"
+            CnBd.Execute (strCadena)
+        End If
+            rst.MoveNext
+    Next i
+End If
+
+MsgBox "cargos Ingresados Correctamente"
+
+
+strCadena = "SELECT * FROM unidad  WHERE id_usu='" & KEY_RUC & "'"
+Call ConfiguraRst2(strCadena)
+If rst2.RecordCount > 0 Then
+    rst2.MoveFirst
+    For i = 0 To rst2.RecordCount - 1
+         strCadena = "SELECT * FROM unidad  WHERE id_und='" & rst2("id_und") & "' and id_usu='" & KEY_RUC & "'"
+        Call ConfiguraRstP(strCadena)
+        If rstP.RecordCount < 1 Then
+            strCadena = "INSERT INTO unidad(`id_und`,`abreviatura`,`descripcion`,`id_usu`)VALUES('" & rst2("id_und") & "','" & rst2("abreviatura") & "','" & rst2("descripcion") & "','" & KEY_RUC & "')"
+            CnBd.Execute (strCadena)
+            Call insertar_acciones(strCadena)
+        End If
+        rst2.MoveNext
+    Next i
+End If
+
+MsgBox "Unidades Ingresados Correctamente"
+
+strCadena = "SELECT * FROM linea  WHERE id_usu='" & KEY_RUC & "'"
+Call ConfiguraRst2(strCadena)
+If rst2.RecordCount > 0 Then
+    rst2.MoveFirst
+    For i = 0 To rst2.RecordCount - 1
+        strCadena = "SELECT * FROM linea  WHERE id_linea='" & rst2("id_linea") & "' and id_usu='" & KEY_RUC & "'"
+        Call ConfiguraRstP(strCadena)
+        If rstP.RecordCount < 1 Then
+            strCadena = "INSERT INTO linea(`id_linea`,`descripcion`,`id_usu`)VALUES('" & rst2("id_linea") & "','" & rst2("descripcion") & "','" & KEY_RUC & "')"
+            CnBd.Execute (strCadena)
+        End If
+        rst2.MoveNext
+    Next i
+End If
+
+MsgBox "Linea Ingresados Correctamente"
+
+strCadena = "SELECT * FROM marca  WHERE id_usu='" & KEY_RUC & "'"
+Call ConfiguraRst2(strCadena)
+If rst2.RecordCount > 0 Then
+    rst2.MoveFirst
+    For i = 0 To rst2.RecordCount - 1
+        strCadena = "SELECT * FROM marca  WHERE id_marca='" & rst2("id_marca") & "' and id_usu='" & KEY_RUC & "'"
+        Call ConfiguraRstP(strCadena)
+        If rstP.RecordCount < 1 Then
+                    strCadena = "INSERT INTO marca(`id_marca`,`descripcion`,`id_usu`)VALUES('" & rst2("id_marca") & "','" & rst2("descripcion") & "','" & KEY_RUC & "')"
+                    CnBd.Execute (strCadena)
+                    Call insertar_acciones(strCadena)
+         End If
+        rst2.MoveNext
+    Next i
+End If
+
+MsgBox "Marcas Ingresados Correctamente"
+
+
+strCadena = "SELECT * FROM linea  WHERE id_usu='" & KEY_RUC & "'"
+Call ConfiguraRst2(strCadena)
+If rst2.RecordCount > 0 Then
+    rst2.MoveFirst
+      For i = 0 To rst2.RecordCount - 1
+         strCadena = "SELECT * FROM linea_sub  WHERE id_tipo='" & Format(i + 1, "00000") & "' and id_linea='" & rst2("id_linea") & "' and id_usu='" & KEY_RUC & "'"
+        Call ConfiguraRstP(strCadena)
+        If rstP.RecordCount < 1 Then
+                    strCadena = "INSERT INTO linea_sub(`id_tipo`,`id_linea`,`descripcion`,`id_usu`)VALUES('" & Format(i + 1, "00000") & "','" & rst2("id_linea") & "','SIN MODELO','" & KEY_RUC & "')"
+                    CnBd.Execute (strCadena)
+                    Call insertar_acciones(strCadena)
+        End If
+        rst2.MoveNext
+      Next i
+End If
+
+MsgBox "sub-lineas Ingresados Correctamente"
+
+
+strCadena = "SELECT p.* FROM entidad_empresa e,persona p WHERE e.cod_unico=p.dni and e.id_empresa='" & KEY_RUC & "'"
+Call ConfiguraRst2(strCadena)
+If rst2.RecordCount > 0 Then
+   rst2.MoveFirst
+   For i = 0 To rst2.RecordCount - 1
+   strCadena = "SELECT * FROM persona WHERE dni='" & rst2("dni") & "'"
+   Call ConfiguraRst(strCadena)
+   If rst.RecordCount < 1 Then
+      strCadena = "INSERT INTO persona(`dni`,`a_paterno`,`a_materno`,`nombres`,`nombre_completo`,`direccion`,`id_dia`,`id_mes`,`id_anio`,`sexo`,`peso`, " & _
+      "`estatura`,`estado_civil`,`mail`,`id_pais`,`celular`,`fecha_ingreso`,`id_departamento`,`id_provincia`,`id_distrito`,`id_urbanizacion`,`id_zona`,`grupo_votacion`," & _
+      "`id_religion`,`foto`,`fecha_registro`, " & _
+      "`licencia`" & _
+      ")VALUES(" & _
+      "'" & rst2("dni") & "','" & rst2("a_paterno") & "','" & rst2("a_materno") & "','" & rst2("nombres") & "','" & rst2("nombre_completo") & "','" & rst2("direccion") & "', " & _
+      "'" & rst2("id_dia") & "','" & rst2("id_mes") & "','" & rst2("id_anio") & "','" & rst2("sexo") & "','" & rst2("peso") & "','" & rst2("estatura") & "','" & rst2("estado_civil") & "' " & _
+      ",'" & rst2("mail") & "','" & rst2("id_pais") & "','" & rst2("celular") & "','" & Format(rst2("fecha_ingreso"), "YYYY-mm-dd") & "','" & rst2("id_departamento") & "','" & rst2("id_provincia") & "','" & rst2("id_distrito") & "'," & _
+      "'" & rst2("id_urbanizacion") & "','" & rst2("id_zona") & "','" & rst2("grupo_votacion") & "','" & rst2("id_religion") & "','" & rst2("foto") & "','" & Format(rst2("fecha_registro"), "YYYY-mm-dd") & "','" & rst2("licencia") & "' " & _
+      ")"
+      CnBd.Execute (strCadena)
+      Call insertar_acciones(strCadena)
+   End If
+   rst2.MoveNext
+   DoEvents
+   Next i
+   
+End If
+
+MsgBox "persona Ingresados Correctamente"
+
+strCadena = "SELECT * FROM entidad_empresa WHERE cod_unico<>'00000000' and id_empresa='" & KEY_RUC & "'"
+Call ConfiguraRst2(strCadena)
+If rst2.RecordCount > 0 Then
+    rst2.MoveFirst
+    For i = 0 To rst2.RecordCount - 1
+        strCadena = "SELECT * FROM entidad_empresa WHERE cod_unico='" & rst2("cod_unico") & "' and id_empresa='" & KEY_RUC & "'"
+        Call ConfiguraRst(strCadena)
+        If rst.RecordCount < 1 Then
+            If IsNull(rst2("fecha_ingreso")) = True Then
+                in_fecha_ingreso = KEY_FECHA
+            Else
+                in_fecha_ingreso = rst2("fecha_ingreso")
+            End If
+            strCadena = "INSERT INTO entidad_empresa(`cod_unico`,`id_empresa`,`id_tipo_per`,`id_cargo`,`id_cliente`,`id_personal`,`id_transporte`,`id_proveedor`,`id_contable`,  " & _
+            "`id_auspeciador`,`id_almacen`,`id_area`,`id_condicion`,`password`,`passwordaccesso`,`habilitado`,`fecha_ingreso`," & _
+            "`id_moneda`,`sueldo`,`id_planilla`,`id_afp`,`rta_quinta`,`asig_familiar`,`bonificacion_extraordinaria`,`cuspp`,`essalud`,`sndp`,`id_sucursal`," & _
+            " `id_credito`,`monto_credito`,`id_estado`,`observacion`)VALUES('" & rst2("cod_unico") & "','" & KEY_RUC & "','" & rst2("id_tipo_per") & "','" & rst2("id_cargo") & "','" & rst2("id_cliente") & "','" & rst2("id_personal") & "'," & _
+            "'" & rst2("id_transporte") & "','" & rst2("id_proveedor") & "','" & rst2("id_contable") & "','" & rst2("id_auspeciador") & "','" & rst2("id_almacen") & "','" & rst2("id_area") & "','" & rst2("id_condicion") & "','" & rst2("password") & "','" & rst2("passwordaccesso") & "'," & _
+            "'" & rst2("habilitado") & "','" & Format(in_fecha_ingreso, "YYYY-mm-dd") & "','" & rst2("id_moneda") & "','" & rst2("sueldo") & "','" & rst2("id_planilla") & "','" & rst2("id_afp") & "','" & rst2("rta_quinta") & "','" & rst2("asig_familiar") & "','" & rst2("bonificacion_extraordinaria") & "', " & _
+            "'" & rst2("cuspp") & "','" & rst2("essalud") & "','" & rst2("sndp") & "','" & rst2("id_sucursal") & "','" & rst2("id_credito") & "','" & rst2("monto_credito") & "','" & rst2("id_estado") & "','" & rst2("observacion") & "')"
+            CnBd.Execute (strCadena)
+            Call insertar_acciones(strCadena)
+        End If
+        rst2.MoveNext
+        DoEvents
+    Next i
+End If
+
+MsgBox "entidad empresa Ingresados Correctamente"
+strCadena = "SELECT * FROM almacen WHERE ruc='" & KEY_RUC & "'"
+Call ConfiguraRst2(strCadena)
+If rst2.RecordCount > 0 Then
+   rst2.MoveFirst
+   For i = 0 To rst2.RecordCount - 1
+       strCadena = "SELECT * FROM almacen WHERE id_alm='" & rst2("id_alm") & "' and ruc='" & KEY_RUC & "'"
+       Call ConfiguraRst(strCadena)
+       If rst.RecordCount < 1 Then
+          strCadena = "INSERT INTO almacen(`id_alm`,`ruc`,`descripcion`,`abreviatura`,`direccion`,`stock`,`defecto`,`activo`,`dni_save`)VALUES " & _
+          "('" & rst2("id_alm") & "','" & KEY_RUC & "','" & rst2("descripcion") & "','" & rst2("descripcion") & "','" & rst2("direccion") & "','si','si','si','" & KEY_USUARIO & "')"
+          CnBd.Execute (strCadena)
+       End If
+       rst2.MoveNext
+   Next i
+End If
+MsgBox "Almacen Ingresado Correctamente"
+
+strCadena = "DELETE FROM producto WHERE ruc='" & KEY_RUC & "'"
+CnBd.Execute (strCadena)
+
+strCadena = "SELECT * FROM producto WHERE ruc='" & KEY_RUC & "'"
+Call ConfiguraRst2(strCadena)
+If rst2.RecordCount > 0 Then
+    rst2.MoveFirst
+    For i = 0 To rst2.RecordCount - 1
+        strCadena = "SELECT * FROM marca WHERE id_marca='" & rst2("id_marca") & "' and id_usu='" & KEY_RUC & "'"
+        Call ConfiguraRstK(strCadena)
+        
+        If rst2("id_marca") = "" Then
+           in_marca = "00001"
+           nmarca = ""
+        Else
+           in_marca = rst2("id_marca")
+           nmarca = rstK("descripcion")
+        End If
+        strCadena = "SELECT * FROM producto WHERE id_producto='" & rst2("id_producto") & "' and ruc='" & KEY_RUC & "'"
+        Call ConfiguraRstP(strCadena)
+        If rstP.RecordCount < 1 Then
+        strCadena = "INSERT INTO producto(`id_producto`,`id_proveedor`,`id_auspiciador`,`id_linea`,`id_moneda`," & _
+        "`nombre_prod`,`id_unidad`,`stock_minimo`,`peso`,`imagen`,`nombre_comercial`,`id_marca`,`marca`,`comentario`,`id_percepcion`,`id_combo`,`id_igv`,`dni_save`,`ruc`)VALUES(" & _
+        "'" & rst2("id_producto") & "','" & rst2("id_proveedor") & "','" & rst2("id_auspiciador") & "','" & rst2("id_linea") & "','" & rst2("id_moneda") & "','" & rst2("nombre_prod") & "','" & rst2("id_unidad") & "'," & _
+        "'" & rst2("stock_minimo") & "','" & rst2("peso") & "','" & rst2("imagen") & "','" & rst2("nombre_comercial") & "','" & in_marca & "','" & nmarca & "','" & rst2("comentario") & "','" & rst2("id_percepcion") & "','" & rst2("id_combo") & "','" & rst2("id_igv") & "','" & KEY_USUARIO & "','" & KEY_RUC & "')"
+        CnBd.Execute (strCadena)
+        Call insertar_acciones(strCadena)
+        
+        strCadena = "SELECT * FROM almacen WHERE ruc='" & KEY_RUC & "'"
+        Call ConfiguraRstK(strCadena)
+        If rstK.RecordCount > 0 Then
+            rstK.MoveFirst
+            For j = 0 To rstK.RecordCount - 1
+            
+                strCadena = "INSERT INTO almacen_producto(`id_alm`,`id_producto`,`ruc`,`precio_venta`," & _
+                "`precio_compra`)VALUES('" & rstK("id_alm") & "','" & rst2("id_producto") & "'," & _
+                "'" & KEY_RUC & "','" & rst2("precio_venta") & "','" & rst2("precio_compra") & "')"
+                CnBd.Execute (strCadena)
+                Call insertar_acciones(strCadena)
+                
+                
+                rstK.MoveNext
+            Next j
+        End If
+        End If
+        rst2.MoveNext
+        
+    Next i
+End If
+
+
+
+strCadena = "SELECT * FROM almacen_comprobante WHERE ruc='" & KEY_RUC & "'"
+Call ConfiguraRst2(strCadena)
+If rst2.RecordCount > 0 Then
+   rst2.MoveFirst
+   For i = 0 To rst2.RecordCount - 1
+       strCadena = "SELECT * FROM almacen_comprobante WHERE id_alm_com='" & rst2("id_alm_com") & "' and ruc='" & KEY_RUC & "'"
+       Call ConfiguraRst(strCadena)
+       If rst.RecordCount < 1 Then
+          strCadena = "INSERT INTO almacen_comprobante(`id_alm_com`,`ruc`,`id_alm`,`id_doc`,`serie`,`numero`,`igv`,`defecto`,`id_moneda`,`venta`,`id_formato_impresion`)VALUES " & _
+          "('" & rst2("id_alm_com") & "','" & KEY_RUC & "','" & rst2("id_alm") & "','" & rst2("id_doc") & "','" & rst2("serie") & "','" & rst2("numero") & "','" & rst2("igv") & "','" & rst2("defecto") & "','" & rst2("id_moneda") & "','" & rst2("venta") & "','" & rst2("id_formato_impresion") & "')"
+          CnBd.Execute (strCadena)
+       End If
+       rst2.MoveNext
+   Next i
+End If
+
+MsgBox "Almacen Ingresado Correctamente"
+
+
+
+
+strCadena = "SELECT * FROM movimiento_venta WHERE fecha_emision>='2015-01-01' and  ruc='" & KEY_RUC & "' ORDER BY id_venta ASC"
+Call ConfiguraRst2(strCadena)
+If rst2.RecordCount > 0 Then
+   rst2.MoveFirst
+   Me.ProgressBar1.Min = 0
+   Me.ProgressBar1.Max = rst2.RecordCount
+   For i = 0 To rst2.RecordCount - 1
+            
+            strCadena = "SELECT * FROM comprobantes WHERE id_doc='" & rst2("id_doc") & "'"
+            Call ConfiguraRstP(strCadena)
+            If rstP.RecordCount > 0 Then
+                in_doc = rstP("doc_abrev") & ":" & rst2("serie") & "-" & rst2("numero")
+            Else
+                x = 1
+            End If
+            
+            
+            id_tipo_factura = "00001"
+            strCadena = "P_insert_venta_v2('" & rst2("id_doc") & "','" & rst2("id_alm") & "','" & rst2("id_forma_pago") & "','" & rst2("id_moneda") & "','" & rst2("id_delivery") & "'," & _
+            "'" & Trim(rst2("serie")) & "','" & Trim(rst2("numero")) & "','" & rst2("id_cliente") & "','" & rst2("ncliente") & "','" & rst2("valor_venta") & "','" & rst2("igv") & "','" & rst2("exonerado") & "','" & rst2("total") & "','" & rst2("saldo") & "'," & _
+            "'" & Val(rst2("total")) & "','" & Val(rst2("monto_vuelto")) & "','" & Format(rst2("fecha_emision"), "YYYY-mm-dd") & "','" & Format(rst2("fecha_emision"), "YYYY-mm-dd") & "','" & id_tipo_factura & "','" & rst2("id_vendedor") & "','" & KEY_USUARIO & "','" & rst2("tc") & "','" & rst2("afecta_factura") & "','" & formato_item(Month(rst2("fecha_emision")), 2) & "','" & Year(rst2("fecha_emision")) & "','" & in_doc & "',CURTIME(),'T','--','no','" & KEY_RUC & "')"
+            CnBd.Execute (strCadena)
+            
+            id_venta = LastRegistroRUC("movimiento_venta", "id_venta")
+            
+            strCadena = "SELECT * FROM movimiento_venta_detalle WHERE id_venta='" & rst2("id_venta") & "' and ruc='" & KEY_RUC & "' ORDER BY id_detalle_venta"
+            Call ConfiguraRstCloud(strCadena)
+            If rstCloud.RecordCount > 0 Then
+                rstCloud.MoveFirst
+                For j = 0 To rstCloud.RecordCount - 1
+                    strCadena = "INSERT INTO movimiento_venta_detalle(id_venta,id_producto,detalle,cantidad,precio,peso,total,ruc) VALUES ('" & id_venta & "','" & rstCloud("id_producto") & "','" & get_producto(rstCloud("id_producto"), KEY_RUC) & "','" & rstCloud("cantidad") & "','" & rstCloud("precio") & "','" & rstCloud("peso") & "','" & rstCloud("total") & "','" & KEY_RUC & "')"
+                    CnBd.Execute (strCadena)
+                    rstCloud.MoveNext
+                Next j
+            End If
+            strCadena = "INSERT INTO movimiento_venta_monto(id_venta,id_forma_pago,monto,monto_caja,id_tarjeta,ruc)VALUES('" & id_venta & "','01','" & rst2("total") & "','" & rst2("total") & "','00','" & KEY_RUC & "')"
+            CnBd.Execute (strCadena)
+            
+            rst2.MoveNext
+            Me.ProgressBar1.Value = i
+            DoEvents
+    Next i
+End If
+
+
+strCadena = "SELECT * FROM movimiento_compra WHERE ruc='" & KEY_RUC & "' and fecha_emision>='2015-01-01' ORDER BY id_compra ASC"
+Call ConfiguraRst2(strCadena)
+If rst2.RecordCount > 0 Then
+   rst2.MoveFirst
+   Me.ProgressBar1.Min = 0
+   Me.ProgressBar1.Max = rst2.RecordCount
+   For i = 0 To rst2.RecordCount - 1
+           
+            strCadena = "P_insert_compra('" & rst2("id_doc") & "','" & rst2("id_alm") & "','" & Format(rst2("fecha_emision"), "YYYY-mm-dd") & "','" & Format(rst2("fecha_cancelacion"), "YYYY-mm-dd") & "','02'," & _
+        "'" & rst2("id_tipo_compra") & "','','" & rst2("id_moneda") & "','" & formato_item(Month(rst2("fecha_emision")), 2) & "','" & Year(rst2("fecha_emision")) & "','" & Trim(rst2("serie")) & "'," & _
+        "'" & Format(Trim(rst2("numero")), "00000000") & "','" & rst2("tipo_doc_identidad") & "','" & Trim(rst2("id_proveedor")) & "','" & rst2("nproveedor") & "','" & rst2("tc") & "'," & _
+        "'0','" & rst2("valor_venta") & "','" & rst2("igv") & "','" & rst2("isc") & "','0','" & rst2("percepcion") & "','0','" & rst2("exonerado") & "','0','" & rst2("total") & "','" & rst2("saldo") & "','" & KEY_USUARIO & "','-','" & KEY_RUC & "')"
+        
+        CnBd.Execute (strCadena)
+            
+            id_compra = LastRegistroRUC("movimiento_compra", "id_compra")
+            
+            strCadena = "SELECT * FROM movimiento_compra_detalle WHERE id_compra='" & rst2("id_compra") & "' ORDER BY id_detalle_compra ASC"
+            Call ConfiguraRstCloud(strCadena)
+            If rstCloud.RecordCount > 0 Then
+            rstCloud.MoveFirst
+                For p = 0 To rstCloud.RecordCount - 1
+                    strCadena = "INSERT INTO movimiento_compra_detalle(id_compra,id_producto,cantidad,c_unitario,dsto_soles,dsto_procentaje,total_descuento,valor_neto,isc,igv,ivap,otros,percepcion, " & _
+                    "valor_venta,exonerado,total,p_venta,p_costo,id_alm,ruc) VALUES ('" & id_compra & "','" & rstCloud("id_producto") & "','" & rstCloud("cantidad") & "','" & rstCloud("c_unitario") & "'," & _
+                    "'" & rstCloud("dsto_soles") & "','" & rstCloud("dsto_procentaje") & "','" & rstCloud("total_descuento") & "','" & rstCloud("valor_neto") & "','" & rstCloud("isc") & "','" & rstCloud("igv") & "', " & _
+                    "'" & rstCloud("ivap") & "','" & rstCloud("otros") & "','" & rstCloud("percepcion") & "','" & rstCloud("valor_venta") & "','" & rstCloud("exonerado") & "','" & rstCloud("p_venta") & "','" & rstCloud("p_venta") & "','" & rstCloud("p_costo") & "','" & rstCloud("id_alm") & "','" & KEY_RUC & "')"
+                    CnBd.Execute (strCadena)
+                    rstCloud.MoveNext
+                Next p
+    End If
+            Me.ProgressBar1.Value = i
+            rst2.MoveNext
+            DoEvents
+    Next i
+End If
+
+
+strCadena = "SELECT * FROM almacen_producto a,producto p WHERE  a.id_producto=p.id_producto and a.id_alm='00001' and a.ruc=p.ruc and  a.ruc='" & KEY_RUC & "'"
+Call ConfiguraRst2(strCadena)
+If rst2.RecordCount > 0 Then
+    rst2.MoveFirst
+    Me.ProgressBar1.Min = 0
+    Me.ProgressBar1.Max = rst2.RecordCount
+    For i = 0 To rst2.RecordCount - 1
+        cod_articulo = rst2("id_producto")
+        
+            strInventario = formato_item(LastRegistroCloud("inventario", "id_inventario"), 6)
+            strCadena = "INSERT INTO inventario(id_inventario,id_producto,fecha,id_alm,cantidad,id_usuario,nusuario,ruc)VALUES " & _
+            "('" & strInventario & "','" & cod_articulo & "','" & KEY_FECHA & "','" & rst2("id_alm") & "','" & rst2("stock") & "','" & KEY_USUARIO & "','" & KEY_VENDEDOR & "','" & KEY_RUC & "')"
+            CnBd.Execute (strCadena)
+            
+            
+    
+            strCadena = "UPDATE almacen_producto SET stock_factura ='" & rst2("stock_factura") & "',precio_venta='" & rst2("precio_venta") & "',precio_compra='" & rst2("precio_compra") & "' WHERE id_producto='" & Trim(cod_articulo) & "' AND id_alm='" & rst2("id_alm") & "' and ruc='" & KEY_RUC & "'"
+            CnBd.Execute (strCadena)
+            rst2.MoveNext
+            Me.ProgressBar1.Value = i
+            DoEvents
+    Next i
+End If
+
+
+
+MsgBox "Listo"
+
+
+
+
+
+
+
+
+End Sub
+
+Public Function get_producto(ByVal in_producto As String, ByVal in_ruc As String)
+strCadena = "SELECT * FROM producto where id_producto='" & in_producto & "' and ruc='" & in_ruc & "'"
+Call ConfiguraRstAux(strCadena)
+If rstAux.RecordCount > 0 Then
+    get_producto = rstAux("nombre_prod")
+Else
+    get_producto = "--"
+End If
+End Function
+
+Private Sub cmdimportarTabla1_Click()
+Call migrar_base(Trim(Me.txtserver1.Text), Trim(Me.txtbaseOrigen1.Text))
+End Sub
+
+Private Sub cmdmigrar_Click()
+Dim sys_ConString2 As String
+Dim stock_actual As Integer
+
+sys_Server2 = Trim(Me.txtserver1.Text)
+sys_DataBase2 = Trim(Me.txtbaseOrigen1.Text)   'ConfigRead("DataBase")
+sys_SUser2 = "user_cord" 'DecryptString(ConfigRead("SUser"))
+sys_SPassword2 = "@02021974abc2016@123@cord" 'DecryptString(ConfigRead("SPassword"))
+db_port = "3306"
+sys_ConString2 = "" & _
+            "DRIVER={MySQL ODBC 5.1 Driver};" & _
+            "Server=" & sys_Server2 & ";" & _
+            "Database=" & sys_DataBase2 & ";" & _
+            "UID=" & sys_SUser2 & ";" & _
+            "PWD=" & sys_SPassword2 & ";" & _
+            " PORT=" & db_port & ";OPTION=" & 1 + 2 + 8 + 32 + 2048 + 16384 & ";"
+CnBd2.ConnectionString = sys_ConString2
+CnBd2.Open
+
+'GoTo 100
+ 
+'MIGRAR UNIDADES DE MEDIDA
+
+'strCadena = "SELECT * FROM almacen_producto where ruc='" & KEY_RUC & "' and id_alm='00001' ORDER BY id_producto ASC"
+'Call ConfiguraRst2(strCadena)
+'If rst2.RecordCount > 0 Then
+    'rst2.MoveFirst
+   ' For i = 0 To rst2.RecordCount - 1
+   '     Call get_stock(rst2("id_producto"), rst2("stock"), KEY_FECHA)
+   '     rst2.MoveNext
+   '     DoEvents
+  '  Next i
+'End If
+
+
+'strCadena = "SELECT id_producto,d.cantidad,v.fecha_emision FROM movimiento_venta v, movimiento_venta_detalle d WHERE   v.id_venta=d.id_venta and v.ruc='" & KEY_RUC & "' and v.fecha_emision>='2017-01-03'"
+'Call ConfiguraRst(strCadena)
+'If rst.RecordCount > 0 Then
+'    rst.MoveFirst
+'    For i = 0 To rst.RecordCount - 1
+'        Call get_update_stock(rst("id_producto"), rst("cantidad"), rst("fecha_emision"))
+'        rst.MoveNext
+'        DoEvents
+'    Next i
+'End If
+
+
+
+Me.lbltabla.Caption = "UNIDAD"
+
+strCadena = "DELETE FROM unidad WHERE id_usu='" & KEY_RUC & "'"
+CnBd.Execute (strCadena)
+
+strCadena = "SELECT * FROM unidad WHERE id_usu='" & KEY_RUC & "'"
+Call ConfiguraRst2(strCadena)
+If rst2.RecordCount > 0 Then
+   Me.ProgressBar2.Min = 0
+   Me.ProgressBar2.Max = rst2.RecordCount
+   rst2.MoveFirst
+   For i = 0 To rst2.RecordCount - 1
+       
+          strCadena = "INSERT INTO unidad(`id_und`,`abreviatura`,`descripcion`,`id_usu`)VALUES('" & rst2("id_und") & "','" & rst2("abreviatura") & "','" & rst2("descripcion") & "','" & KEY_RUC & "')"
+          CnBd.Execute (strCadena)
+       
+       rst2.MoveNext
+       DoEvents
+       Me.ProgressBar2.Value = i
+   Next i
+   
+End If
+
+
+Me.lbltabla.Caption = "LINEAS"
+'MIGRAR LINEAS
+strCadena = "DELETE FROM linea WHERE id_usu='" & KEY_RUC & "'"
+CnBd.Execute (strCadena)
+
+strCadena = "SELECT * FROM linea WHERE id_usu='" & KEY_RUC & "'"
+Call ConfiguraRst2(strCadena)
+If rst2.RecordCount > 0 Then
+   Me.ProgressBar2.Min = 0
+   Me.ProgressBar2.Max = rst2.RecordCount
+   rst2.MoveFirst
+   
+   For i = 0 To rst2.RecordCount - 1
+       strCadena = "SELECT * FROM linea WHERE id_linea='" & rst2("id_linea") & "' and id_usu='" & KEY_RUC & "'"
+       Call ConfiguraRst(strCadena)
+       If rst.RecordCount < 1 Then
+          strCadena = "INSERT INTO linea(`id_linea`,`descripcion`,`id_tipo`,`planilla`,`produccion`,`id_usu`)VALUES " & _
+          "('" & rst2("id_linea") & "','" & rst2("descripcion") & "','" & rst2("id_tipo") & "','" & rst2("planilla") & "','" & rst2("planilla") & "','" & KEY_RUC & "')"
+          CnBd.Execute (strCadena)
+       End If
+       rst2.MoveNext
+   Next i
+   DoEvents
+   Me.ProgressBar2.Value = i
+End If
+
+
+'MIGRAR SUB LINEA SUB
+Me.lbltabla.Caption = "LINEA SUB"
+strCadena = "DELETE FROM linea_sub WHERE id_usu='" & KEY_RUC & "'"
+CnBd.Execute (strCadena)
+
+strCadena = "SELECT * FROM linea_sub WHERE id_usu='" & KEY_RUC & "'"
+Call ConfiguraRst2(strCadena)
+If rst2.RecordCount > 0 Then
+   Me.ProgressBar2.Min = 0
+   Me.ProgressBar2.Max = rst2.RecordCount
+   rst2.MoveFirst
+   For i = 0 To rst2.RecordCount - 1
+       strCadena = "SELECT * FROM linea_sub WHERE id_tipo='" & rst2("id_tipo") & "' and id_usu='" & KEY_RUC & "'"
+       Call ConfiguraRst(strCadena)
+       If rst.RecordCount < 1 Then
+          strCadena = "INSERT INTO linea_sub(`id_tipo`,`id_linea`,`descripcion`,`id_usu`)VALUES " & _
+          "('" & rst2("id_tipo") & "','" & rst2("id_linea") & "','" & rst2("descripcion") & "','" & KEY_RUC & "')"
+          CnBd.Execute (strCadena)
+       End If
+       rst2.MoveNext
+   Next i
+   DoEvents
+   Me.ProgressBar2.Value = i
+End If
+
+'MIGRAR SUB ALMACEN
+Me.lbltabla.Caption = "ALMACEN"
+strCadena = "DELETE FROM almacen WHERE ruc='" & KEY_RUC & "'"
+CnBd.Execute (strCadena)
+
+strCadena = "SELECT * FROM almacen WHERE ruc='" & KEY_RUC & "'"
+Call ConfiguraRst2(strCadena)
+If rst2.RecordCount > 0 Then
+   Me.ProgressBar2.Min = 0
+   Me.ProgressBar2.Max = rst2.RecordCount
+   rst2.MoveFirst
+   For i = 0 To rst2.RecordCount - 1
+       strCadena = "SELECT * FROM almacen WHERE ruc='" & KEY_RUC & "'"
+       Call ConfiguraRst(strCadena)
+       If rst.RecordCount < 1 Then
+          strCadena = "INSERT INTO almacen(`id_alm`,`ruc`,`descripcion`,`direccion`,`id_responsable`,`stock`,`stock_personalizado`,`hora_inicio`,`hora_fin`,`horas`,`defecto`,`activo`,`id_sucursal`,`facturacion_detallada`,`caja_independiente`)VALUES " & _
+          "('" & rst2("id_alm") & "','" & KEY_RUC & "','" & rst2("descripcion") & "','" & rst2("direccion") & "','" & rst2("id_responsable") & "','" & rst2("stock") & "','" & rst2("stock_personalizado") & "'," & _
+          " '" & Format(rst2("hora_inicio"), "HH:mm") & "','" & Format(rst2("hora_fin"), "HH:mm") & "','" & Format(rst2("horas"), "HH:mm") & "','" & rst2("defecto") & "','" & rst2("activo") & "','" & rst2("id_sucursal") & "','" & rst2("facturacion_detallada") & "','" & rst2("caja_independiente") & "')"
+          CnBd.Execute (strCadena)
+       End If
+       rst2.MoveNext
+       DoEvents
+       Me.ProgressBar2.Value = i
+   Next i
+End If
+
+'MIGRAR ALMACEN COMPROBANTES
+Me.lbltabla.Caption = "ALMACEN COMPROBANTE"
+strCadena = "DELETE FROM almacen_comprobante WHERE ruc='" & KEY_RUC & "'"
+CnBd.Execute (strCadena)
+strCadena = "SELECT * FROM almacen_comprobante WHERE ruc='" & KEY_RUC & "'"
+Call ConfiguraRst2(strCadena)
+If rst2.RecordCount > 0 Then
+   rst2.MoveFirst
+   For i = 0 To rst2.RecordCount - 1
+       
+          strCadena = "INSERT INTO almacen_comprobante(`ruc`,`id_alm`,`id_doc`,`serie`,`numero`,`igv`,`defecto`,`id_moneda`,`venta`,`id_formato_impresion`,`serial`,`afecta_caja`,`tipo_movimiento`,`id_usuario`)VALUES " & _
+          "('" & KEY_RUC & "','" & rst2("id_alm") & "','" & rst2("id_doc") & "','" & rst2("serie") & "','" & rst2("numero") & "','" & rst2("igv") & "','" & rst2("defecto") & "'," & _
+          " '" & rst2("id_moneda") & "','" & rst2("venta") & "','" & rst2("id_formato_impresion") & "','" & rst2("serial") & "','" & rst2("afecta_caja") & "','" & rst2("tipo_movimiento") & "','" & rst2("id_usuario") & "')"
+          CnBd.Execute (strCadena)
+       
+       rst2.MoveNext
+   Next i
+End If
+
+
+
+
+'MIGRAR SUB PERSONA
+Me.lbltabla.Caption = "PERSONA"
+
+
+strCadena = "SELECT * FROM persona p, entidad_empresa e where p.dni=e.cod_unico and e.id_empresa='" & KEY_RUC & "'"
+Call ConfiguraRst2(strCadena)
+If rst2.RecordCount > 0 Then
+   Me.ProgressBar2.Min = 0
+   Me.ProgressBar2.Max = rst2.RecordCount
+   rst2.MoveFirst
+   
+   For i = 0 To rst2.RecordCount - 1
+       strCadena = "SELECT * FROM persona WHERE dni='" & rst2("dni") & "' LIMIT 1"
+       Call ConfiguraRst(strCadena)
+       If rst.RecordCount < 1 Then
+          strCadena = "DELETE FROM entidad_empresa WHERE cod_unico='" & rst2("dni") & "' and id_empresa='" & KEY_RUC & "'"
+          CnBd.Execute (strCadena)
+          strCadena = "call P_insert_persona('" & Trim(rst2("dni")) & "' " & _
+                ",'" & UCase(rst2("a_paterno")) & "', " & _
+                "'" & UCase(rst2("a_materno")) & "' " & _
+                ",'" & UCase(rst2("nombres")) & "' " & _
+                ",'" & UCase(rst2("nombre_completo")) & "' " & _
+                ",'" & rst2("direccion") & "' " & _
+                ",'" & rst2("celular") & "' " & _
+                ",'" & rst2("mail") & "'" & _
+                ",'" & rst2("id_transporte") & "' " & _
+                ",'" & rst2("id_contable") & "'" & _
+                ",'" & rst2("id_proveedor") & "' " & _
+                ",'" & rst2("id_personal") & "' " & _
+                ",'" & rst2("id_auspeciador") & "' " & _
+                ",'" & rst2("id_almacen") & "' " & _
+                ",'" & KEY_RUC & "')"
+                CnBd.Execute (strCadena)
+       End If
+       rst2.MoveNext
+       DoEvents
+       Me.ProgressBar2.Value = i
+   Next i
+End If
+
+
+
+'MIGRAR PRODUCTO
+Me.lbltabla.Caption = "PRODUCTO"
+strCadena = "DELETE FROM producto WHERE ruc='" & KEY_RUC & "'"
+CnBd.Execute (strCadena)
+
+strCadena = "SELECT * FROM producto WHERE ruc='" & KEY_RUC & "'"
+Call ConfiguraRst2(strCadena)
+If rst2.RecordCount > 0 Then
+   Me.ProgressBar2.Min = 0
+   Me.ProgressBar2.Max = rst2.RecordCount
+   rst2.MoveFirst
+   For i = 0 To rst2.RecordCount - 1
+       
+          strCadena = "INSERT INTO producto(`id_producto`,`id_proveedor`,`id_auspiciador`,`id_linea`,`id_sublinea`,`id_categoria`,`id_categoria1`," & _
+          "`id_categoria2`,`id_color`,`nombre_prod`,`id_unidad`,`stock_total`,`stock_minimo`,`peso`,`nombre_comercial`,`id_marca`,`id_percepcion`,`id_combo`, " & _
+          " `id_igv`,`id_sub_producto`,`id_relacionado`,`cantidad_afecta_stock`,`id_tipo`,`dni_save`,`ruc`)VALUES " & _
+          "('" & rst2("id_producto") & "','" & rst2("id_proveedor") & "','" & rst2("id_auspiciador") & "','" & rst2("id_linea") & "','" & rst2("id_sublinea") & "','" & rst2("id_categoria") & "','" & rst2("id_categoria1") & "'," & _
+          " '" & rst2("id_categoria2") & "','" & rst2("id_color") & "','" & rst2("nombre_prod") & "','" & rst2("id_unidad") & "','" & rst2("stock_total") & "','" & rst2("stock_minimo") & "','" & rst2("peso") & "','" & rst2("nombre_comercial") & "','" & rst2("id_marca") & "','" & rst2("id_percepcion") & "'" & _
+          ",'" & rst2("id_combo") & "','" & rst2("id_igv") & "','" & rst2("id_sub_producto") & "','" & rst2("id_relacionado") & "','" & rst2("cantidad_afecta_stock") & "','" & rst2("id_tipo") & "','" & rst2("dni_save") & "','" & KEY_RUC & "')"
+          CnBd.Execute (strCadena)
+       
+       rst2.MoveNext
+       DoEvents
+       Me.ProgressBar2.Value = i
+   Next i
+End If
+
+
+
+'MIGRAR ALMACEN COMPROBANTES
+Me.lbltabla.Caption = "ALMACEN PRODUCTO"
+
+strCadena = "DELETE FROM almacen_producto WHERE ruc='" & KEY_RUC & "'"
+CnBd.Execute (strCadena)
+strCadena = "SELECT * FROM almacen_producto WHERE ruc='" & KEY_RUC & "'"
+Call ConfiguraRst2(strCadena)
+If rst2.RecordCount > 0 Then
+   Me.ProgressBar2.Min = 0
+   Me.ProgressBar2.Max = rst2.RecordCount
+   rst2.MoveFirst
+   For i = 0 To rst2.RecordCount - 1
+         ' Call reiniciar_conexion
+          strCadena = "INSERT INTO almacen_producto(`id_alm`,`id_producto`,`stock`,`stock_factura`,`stock_contable`,`ruc`,`sector`,`piso`,`andamio`," & _
+          "`casillero_x`,`casillero_y`,`precio_venta`,`precio_compra`,precio_mayor,`habilitado`)VALUES " & _
+          "('" & rst2("id_alm") & "','" & rst2("id_producto") & "','" & rst2("stock") & "','" & rst2("stock_factura") & "','" & rst2("stock_contable") & "'," & _
+          "'" & KEY_RUC & "','" & rst2("sector") & "'," & _
+          " '" & rst2("piso") & "','" & rst2("andamio") & "','" & rst2("casillero_x") & "','" & rst2("casillero_y") & "','" & rst2("precio_venta") & "','" & rst2("precio_compra") & "','" & rst2("precio_mayor") & "','" & rst2("habilitado") & "')"
+          CnBd.Execute (strCadena)
+
+       rst2.MoveNext
+       DoEvents
+       Me.ProgressBar2.Value = i
+   Next i
+End If
+
+'MIGRAR ALMACEN COMPROBANTES
+Me.lbltabla.Caption = "MOVIMIENTO VENTA"
+'100:
+
+
+Me.lbltabla.Caption = "INVENTARIO"
+strCadena = "SELECT * FROM almacen_producto where ruc='" & KEY_RUC & "'"
+Call ConfiguraRst2(strCadena)
+If rst2.RecordCount > 0 Then
+   Me.ProgressBar2.Min = 0
+   Me.ProgressBar2.Max = rst2.RecordCount
+   rst2.MoveFirst
+   For i = 0 To rst2.RecordCount - 1
+        strInventario = formato_item(ConsultaUltimoRegistro("inventario", "id_inventario", "ruc", KEY_RUC), 6)
+        strCadena = "INSERT INTO inventario(id_inventario,id_producto,fecha,id_alm,cantidad,id_usuario,nusuario,ruc)VALUES " & _
+        "('" & strInventario & "','" & rst2("id_producto") & "','" & KEY_FECHA & "','" & rst2("id_alm") & "','" & rst2("stock") & "','" & KEY_USUARIO & "','" & KEY_VENDEDOR & "','" & KEY_RUC & "')"
+        CnBd.Execute (strCadena)
+        rst2.MoveNext
+        DoEvents
+        Me.ProgressBar2.Value = i
+   Next i
+End If
+MsgBox "MIGRACION EXITOSA"
+    
+    
+    
+    
+
+End Sub
+
+Private Sub cmdmigrartabla_Click()
+Dim cnbd1 As New ADODB.Connection
+Dim rst1 As New ADODB.Recordset
+Dim rst2 As New ADODB.Recordset
+Dim rst3 As New ADODB.Recordset
+
+Dim Base As String
+Dim Tabla As String
+Base = Trim(Me.txtbase.Text)
+Tabla = Trim(Me.txttabla.Text)
+Dim idProducto As String
+cnbd1.Open "Provider=SQLOLEDB.1;Integrated Security=SSPI;Persist Security Info=False;Initial Catalog='" & Base & "'" ';Data Source=192.168.1.33"
+If MsgBox("Esta seguro de Migrar esta tabla", vbQuestion + vbYesNo, "mensaje para el administrador") = vbYes Then
+    strCadena = "SELECT * FROM " & Tabla & " order by DescripcionProducto ASC"
+    rst1.CursorLocation = adUseClient
+    rst1.Open strCadena, cnbd1, adOpenKeyset, adLockOptimistic
+    If rst1.RecordCount > 0 Then
+        
+        rst1.MoveFirst
+        strCadena = "DELETE FROM " & Tabla & ""
+        CnBd.Execute (strCadena)
+        Call insertar_acciones(strCadena)
+        strCadena = "DBCC CHECKIDENT (" & Tabla & ", RESEED, 0)"
+        CnBd.Execute (strCadena)
+        Call insertar_acciones(strCadena)
+        
+        For i = 0 To rst1.RecordCount - 1
+            idProducto = formato_item(IdInsert(Tabla) + 1, 5)
+            Set rst2 = Nothing
+            If rst1("idProveedor") <> "" Then
+            If rst1("idProveedor") = "00004" Then
+                GoTo Cliente
+            End If
+            strCadena = "SELECT * FROM Persona WHERE cPersona='" & rst1("idProveedor") & "'"
+            rst2.Open strCadena, cnbd1, adOpenKeyset, adLockOptimistic
+            strCadena = "SELECT * FROM persona WHERE NombrePersona LIKE '%" & rst2("NombrePersona") & "%'"
+            Call ConfiguraRst(strCadena)
+           If rst.RecordCount < 1 Then
+                strCadena = "INSERT INTO persona(NombrePersona,cSexo,Cliente,sDireccionCliente1,Per_Ruc,proveedor,registrado_por)" & _
+                "VALUES('" & rst2("NombrePersona") & "','" & rst2("cSexo") & "','V','" & rst2("sDireccionCliente1") & "','" & rst2("Per_Ruc") & "','V','" & KEY_USUARIO & "')"
+                CnBd.Execute (strCadena)
+                Call insertar_acciones(strCadena)
+                 idproveedor = IdInsert("Persona")
+           Else
+                 idproveedor = rst("cPersona")
+           End If
+           Else
+Cliente:
+           idproveedor = 1000
+          End If
+           strCadena = "INSERT INTO producto(cProducto,cUnidad,cLinea,cMarca,DescripcionProducto,StockActual,Stock_factura,StockMinimo,prod_impto,prod_afecStock,PrecioCompra,PrecioVenta," & _
+           "Usuario,prod_peso,prod_percep,precio_alt1,precio_alt2,precio_alt3,sObservacion,IGV,sub_producto,idProveedor,combo,Ruc,gasto) VALUES " & _
+           "('" & idProducto & "','" & rst1("cUnidad") & "','" & rst1("cLinea") & "','" & rst1("cMarca") & "','" & rst1("DescripcionProducto") & "','" & rst1("StockActual") & "','" & rst1("Stock_factura") & "', " & _
+           "'" & rst1("StockMinimo") & "','0','" & rst1("prod_afecStock") & "','" & rst1("PrecioCompra") & "','" & rst1("PrecioVenta") & "','" & KEY_USUARIO & "'," & _
+           "'" & rst1("prod_peso") & "','" & rst1("prod_percep") & "','" & rst1("precio_alt1") & "','" & rst1("precio_alt2") & "','" & rst1("precio_alt3") & "','" & rst1("sObservacion") & "'," & _
+           "'V','" & rst1("sub_producto") & "','" & idproveedor & "','" & rst1("combo") & "','" & KEY_RUC & "','F')"
+           CnBd.Execute (strCadena)
+           Call insertar_acciones(strCadena)
+           Set rst3 = Nothing
+           strCadena = "SELECT * FROM Producto_barras WHERE cProducto='" & rst1("cProducto") & "'"
+           rst3.Open strCadena, cnbd1, adOpenKeyset, adLockOptimistic
+           If rst3.RecordCount > 0 Then
+              rst3.MoveFirst
+              For k = 0 To rst3.RecordCount - 1
+                strCadena = "INSERT INTO Producto_barras(cProducto,cod_barra,ruc)VALUES('" & idProducto & "','" & rst3("cod_barra") & "','" & KEY_RUC & "')"
+                CnBd.Execute (strCadena)
+                Call insertar_acciones(strCadena)
+                rst3.MoveNext
+              Next k
+           End If
+           
+           strCadena = "SELECT * FROM almacen"
+           Call ConfiguraRstT(strCadena)
+           If rstT.RecordCount > 0 Then
+              rstT.MoveFirst
+              For j = 0 To rstT.RecordCount - 1
+                strCadena = "INSERT INTO Almacen_Productos(Alm_cod,cProducto,Fecha,ruc)VALUES('" & rstT("Alm_cod") & "','" & idProducto & "','" & CVDate(Date) & "','" & KEY_RUC & "')"
+                CnBd.Execute (strCadena)
+                Call insertar_acciones(strCadena)
+                rstT.MoveNext
+              Next j
+           End If
+           rst1.MoveNext
+        Next i
+    End If
+End If
+End Sub
+
+Private Sub Command1_Click()
+Dim CnBd2 As New ADODB.Connection
+Dim rstP As New ADODB.Recordset
+Dim RstAlmProd As New ADODB.Recordset
+CnBd2.Open "Provider=SQLOLEDB.1;Integrated Security=SSPI;Persist Security Info=False;Initial Catalog=Srm"
+If Me.TxtRucMigrar.Text <> "" Then
+    strCadena = "SELECT * FROM Producto"
+    rstP.Open strCadena, CnBd2, adOpenKeyset, adLockOptimistic
+    rstP.MoveFirst
+    For j = 0 To rstP.RecordCount - 1
+    strCadena = "INSERT INTO Producto (cProducto,cUnidad,cLinea,cMarca,DescripcionProducto,StockActual,Stock_factura,StockMinimo,prod_impto,prod_afecStock,PrecioCompra," & _
+    "PrecioVenta,Usuario,prod_peso,prod_percep,precio_alt1,precio_alt2,precio_alt3,intProducto,IGV,sub_producto,combo) VALUES " & _
+    "('" & rstP("cProducto") & "','" & rstP("cUnidad") & "','" & rstP("cLinea") & "','" & rstP("cMarca") & "','" & rstP("DescripcionProducto") & "','" & rstP("StockActual") & "'," & _
+    "'" & rstP("Stock_factura") & "','" & rstP("StockMinimo") & "','" & rstP("prod_impto") & "','" & rstP("prod_afecStock") & "','" & rstP("PrecioCompra") & "','" & rstP("PrecioVenta") & "'," & _
+    "'" & KEY_USUARIO & "','" & rstP("prod_peso") & "','" & rstP("prod_percep") & "','" & rstP("precio_alt1") & "','" & rstP("precio_alt2") & "','" & rstP("precio_alt3") & "','" & rstP("intProducto") & "','V','F','no')"
+    CnBd.Execute (strCadena)
+    Call insertar_acciones(strCadena)
+     strCadena = "SELECT * FROM Almacen"
+           RstAlmProd.Open strCadena, CnBd, adOpenKeyset, adLockOptimistic
+           If RstAlmProd.RecordCount <= 0 Then
+                MsgBox "No hay Ningun Almacen registrado", vbInformation
+                MsgBox "Producto NO Grabado, Cree un Almacen", vbInformation
+                Exit Sub
+           End If
+           RstAlmProd.MoveFirst
+           For i = 0 To RstAlmProd.RecordCount - 1
+             strCadena = "INSERT INTO Almacen_Productos(Alm_cod,cProducto,Stock,Stock_factura,Habilitar,ruc) VALUES " & _
+             "('" & RstAlmProd("Alm_cod") & "','" & Trim(rstP("cproducto")) & "','0','0','V','" & Trim(Me.TxtRucMigrar.Text) & "')"
+             CnBd.Execute (strCadena)
+             Call insertar_acciones(strCadena)
+             RstAlmProd.MoveNext
+           Next i
+           Set RstAlmProd = Nothing
+           rstP.MoveNext
+    Next j
+End If
+End Sub
+
+Private Sub Command10_Click()
+      'Dim obj As New get_excel
+      Set Me.HfProductos.DataSource = Leer_Excel(App.Path & "\comparar_percy\" & "Libro diario Korea.xls", "Sheet1")
+      
+      Set obj = Nothing
+
+End Sub
+Private Function get_registro_producto(ByVal in_producto As String) As Boolean
+'strCadena = "SELECT id_producto FROM producto WHERE nombre_prod LIKE '%" & Trim(in_producto) & "%' and ruc='" & KEY_RUC & "' LIMIT 1"
+'Call ConfiguraRstL(strCadena)
+'If rstL.RecordCount > 0 Then
+'   get_registro_producto = True
+'Else
+   get_registro_producto = False
+'End If
+
+End Function
+Private Sub Command11_Click()
+'strCadena = "DELETE FROM producto WHERE ruc='" & KEY_RUC & "'"
+'CnBd.Execute (strCadena)
+
+'strCadena = "DELETE FROM almacen_producto where ruc='" & KEY_RUC & "'"
+'CnBd.Execute (strCadena)
+
+'strCadena = "DELETE FROM linea where id_usu='" & KEY_RUC & "' "
+'CnBd.Execute (strCadena)
+
+'strCadena = "DELETE FROM linea_sub WHERE id_usu='" & KEY_RUC & "' "
+'CnBd.Execute (strCadena)
+
+Me.ProgressBar2.Min = 0
+Me.ProgressBar2.Max = 10000
+For i = 2128 To 10000
+        
+        If Me.HfProductos.TextMatrix(i, 1) <> "" Then
+        in_producto = UCase(Trim(Me.HfProductos.TextMatrix(i, 1)))
+      '  If get_registro_producto(in_producto) = True Then
+       '     GoTo siguiente
+      '  End If
+        
+        
+        
+        
+        in_linea = Trim(Me.HfProductos.TextMatrix(i, 2))
+        If Trim(in_linea) <> "" Then  ' verificar que tenga contenido
+        
+        '----- CLASIFICACION *********
+        
+        strCadena = "SELECT * FROM linea WHERE descripcion LIKE '%" & in_linea & "%' AND id_usu='" & KEY_RUC & "' LIMIT 1"
+        Call ConfiguraRst(strCadena)
+        If rst.RecordCount < 1 Then
+            strCadena = "SELECT * FROM linea WHERE id_usu='" & KEY_RUC & "' ORDER BY id_linea DESC LIMIT 0,1"
+            Call ConfiguraRst(strCadena)
+            If rst.RecordCount < 1 Then
+                id_linea = "00001"
+            Else
+                id_linea = Format(Val(rst("id_linea")) + 1, "00000")
+            End If
+            
+            
+            strCadena = "INSERT INTO linea(id_linea,descripcion,id_usu)VALUES('" & id_linea & "','" & in_linea & "','" & KEY_RUC & "')"
+            CnBd.Execute (strCadena)
+            
+            id_sublinea = "00001"
+            in_modelo = Trim(Me.HfProductos.TextMatrix(i, 3))
+            
+            strCadena = "INSERT INTO linea_sub(id_tipo,id_linea,descripcion,id_usu)VALUES('" & id_sublinea & "','" & id_linea & "','" & in_modelo & "','" & KEY_RUC & "')"
+            CnBd.Execute (strCadena)
+            
+        Else
+            id_linea = rst("id_linea")
+        End If
+        id_sublinea = "00001"
+        'END  CLASIFICACION *********
+        
+        
+        
+        
+       ' in_modelo = Trim(Me.HfProductos.TextMatrix(i, 3))
+         '----- MODELO *********
+       ' strCadena = "SELECT * FROM linea_sub WHERE descripcion LIKE '%" & in_modelo & "%' AND  id_linea='" & id_linea & "' AND id_usu='" & KEY_RUC & "' limit 1"
+       ' Call ConfiguraRst(strCadena)
+       ' If rst.RecordCount < 1 Then
+       '     strCadena = "SELECT * FROM linea_sub where id_usu='" & KEY_RUC & "' ORDER BY id_tipo DESC LIMIT 0,1"
+       '     Call ConfiguraRst(strCadena)
+       '     If rst.RecordCount < 1 Then
+       '         id_sublinea = "00001"
+       '     Else
+       '         id_sublinea = Format(Val(rst("id_tipo")) + 1, "00000")
+       '     End If
+       '     strCadena = "INSERT INTO linea_sub(id_tipo,id_linea,descripcion,id_usu)VALUES('" & id_sublinea & "','" & id_linea & "','" & in_modelo & "','" & KEY_RUC & "')"
+       '     CnBd.Execute (strCadena)
+       ' Else
+       '   id_sublinea = rst("id_tipo")
+       ' End If
+        'END  CLASIFICACION *********
+        
+        '----- MARCA *********
+     '   in_marca = "SIN MARCA" 'Trim(Me.hfproductos.TextMatrix(i, 4))
+        'strCadena = "SELECT * FROM marca WHERE descripcion LIKE '%" & in_marca & "%'  AND id_usu='" & KEY_RUC & "'"
+        'Call ConfiguraRst(strCadena)
+        'If rst.RecordCount < 1 Then
+            'strCadena = "SELECT * FROM marca  where id_usu ='" & KEY_RUC & "' ORDER BY id_marca DESC LIMIT 0,1"
+            'Call ConfiguraRst(strCadena)
+           ' If rst.RecordCount < 1 Then
+             '   id_marca = "00001"
+            'Else
+            '    id_marca = Format(Val(rst("id_marca")) + 1, "00000")
+           ' End If
+          '  strCadena = "INSERT INTO marca(id_marca,descripcion,id_usu)VALUES('" & id_marca & "','" & in_marca & "','" & KEY_RUC & "')"
+         '   CnBd.Execute (strCadena)
+        'Else
+        '    id_marca = rst("id_marca")
+        'End If
+        'END  MARCA *********
+            id_marca = "00001"
+        '----- COLOR *********
+        'in_color = Trim(Me.hfproductos.TextMatrix(i, 8))
+       ' strCadena = "SELECT * FROM imp_color WHERE descripcion LIKE '%" & in_color & "%'"
+       ' Call ConfiguraRst(strCadena)
+       ' If rst.RecordCount < 1 Then
+       '     strCadena = "SELECT * FROM imp_color ORDER BY id_color DESC LIMIT 0,1"
+       '     Call ConfiguraRst(strCadena)
+       '     If rst.RecordCount < 1 Then
+       '         id_color = "00001"
+       '     Else
+       '         id_color = Format(Val(rst("id_color")) + 1, "00000")
+       '     End If
+       '     strCadena = "INSERT INTO imp_color(id_color,descripcion)VALUES('" & id_color & "','" & in_color & "')"
+       '     CnBd.Execute (strCadena)
+       ' Else
+       '     id_color = rst("id_color")
+       ' End If
+       id_color = "0000"
+        'END  MARCA *********
+        '----- Unidad de medida *********
+       ' in_unidad = Trim(Me.HfProductos.TextMatrix(i, 5))
+       ' strCadena = "SELECT * FROM unidad WHERE descripcion LIKE '%" & in_unidad & "%' AND id_usu='" & KEY_RUC & "' LIMIT 1"
+       ' Call ConfiguraRst(strCadena)
+       ' If rst.RecordCount < 1 Then
+       '
+       '     strCadena = "SELECT * FROM unidad WHERE id_usu='" & KEY_RUC & "' ORDER BY id_und DESC LIMIT 0,1"
+       '     Call ConfiguraRst(strCadena)
+       '     If rst.RecordCount > 0 Then
+       '         id_unidad = Format(Val(rst("id_und") + 1), "00000")
+       '     Else
+                id_unidad = "00001"
+       '     End If
+            'Strcadena = "INSERT INTO unidad(id_und,descripcion,abreviatura,id_usu)VALUES('" & id_unidad & "','" & Trim(ActiveCell.Offset(0, 5).Value) & "','" & Mid(Trim(ActiveCell.Offset(0, 4).Value), 1, 5) & "','" & key_ruc & "')"
+            'CnBd.Execute (Strcadena)
+       ' Else
+           ' id_unidad = rst("id_und")
+       ' End If
+        'END  MARCA *********
+        nombre_producto = ""
+        in_producto = UCase(Replace(Trim(Me.HfProductos.TextMatrix(i, 1)), "'", " "))
+        nombre_producto = in_producto '& Space(1) & "  [ " & UCase(Trim(ActiveCell.Offset(0, 3).Value)) & " ]"
+        
+        'strCadena = "SELECT * FROM producto where ruc='" & KEY_RUC & "' ORDER BY id_producto DESC LIMIT 1"
+        'Call ConfiguraRstK(strCadena)
+        'If rstK.RecordCount > 0 Then
+            id_producto = Format(Val(i), "00000")
+        'Else
+        '    id_producto = Format(1, "00000")
+        'End If
+        
+        strCadena = "INSERT INTO producto (`id_producto`,`id_linea`,`id_sublinea`,`id_moneda`,`id_color`,`nombre_prod`,`id_unidad`,`nombre_comercial`,`id_marca`,`id_igv`,`dni_save`,`ruc`) VALUES " & _
+        "('" & id_producto & "','" & id_linea & "','" & id_sublinea & "','00001','" & id_color & "','" & in_producto & "','" & id_unidad & "','" & in_producto & "','" & id_marca & "','si','" & KEY_USUARIO & "','" & KEY_RUC & "')"
+        CnBd.Execute (strCadena)
+        strCadena = "SELECT * FROM almacen WHERE ruc='" & KEY_RUC & "'"
+        Call ConfiguraRstK(strCadena)
+        If rstK.RecordCount > 0 Then
+           rstK.MoveFirst
+           For j = 0 To rstK.RecordCount - 1
+               strCadena = "INSERT INTO almacen_producto(`id_alm`,`id_producto`,`ruc`,`habilitado`) VALUES ('" & rstK("id_alm") & "','" & id_producto & "','" & KEY_RUC & "','si')"
+               CnBd.Execute (strCadena)
+               rstK.MoveNext
+           Next j
+        End If
+        
+    
+    
+      End If
+      End If
+siguiente:
+      DoEvents
+      Me.ProgressBar2.Value = i
+      
+    Next i
+        
+ MsgBox "CORRECTO"
+
+End Sub
+
+Private Sub Command12_Click()
+
+'strCadena = "DELETE FROM movimiento_venta where ruc='" & KEY_RUC & "'"
+'CnBd.Execute (strCadena)
+
+'strCadena = "delete from movimiento_venta_monto where ruc='" & KEY_RUC & "'"
+'CnBd.Execute (strCadena)
+strCadena = "SELECT id_producto FROM producto p,linea l  WHERE l.produccion='no'  and  p.id_linea=l.id_linea and p.ruc=l.id_usu and   p.ruc='" & KEY_RUC & "'  "
+Call ConfiguraRst(strCadena)
+If rst.RecordCount > 0 Then
+   rst.MoveFirst
+   For i = 0 To rst.RecordCount - 1
+    strCadena = "DELETE FROM producto WHERE id_producto='" & rst("id_producto") & "'  and   ruc='" & KEY_RUC & "'"
+    CnBd.Execute (strCadena)
+    strCadena = "DELETE FROM almacen_producto_precio WHERE id_producto='" & rst("id_producto") & "' and   ruc='" & KEY_RUC & "'"
+    CnBd.Execute (strCadena)
+    rst.MoveNext
+    DoEvents
+    
+   Next i
+End If
+'Unload Me
+
+
+
+
+'strCadena = "DELETE FROM producto WHERE ruc='" & KEY_RUC & "'"
+'CnBd.Execute (strCadena)
+
+'strCadena = "DELETE FROM almacen_producto where ruc='" & KEY_RUC & "'"
+'CnBd.Execute (strCadena)
+
+'strCadena = "DELETE FROM linea where id_usu='" & KEY_RUC & "' "
+'CnBd.Execute (strCadena)
+
+'strCadena = "DELETE FROM linea_sub WHERE id_usu='" & KEY_RUC & "' "
+'CnBd.Execute (strCadena)
+
+Me.ProgressBar2.Min = 0
+Me.ProgressBar2.Max = 10000
+For i = 1 To 10000
+        
+        If Me.HfProductos.TextMatrix(i, 1) <> "" Then
+        in_producto = UCase(Trim(Me.HfProductos.TextMatrix(i, 1)))
+      '  If get_registro_producto(in_producto) = True Then
+       '     GoTo siguiente
+      '  End If
+        
+        
+        
+        
+        in_linea = Trim(Me.HfProductos.TextMatrix(i, 2))
+        If Trim(in_linea) <> "" Then  ' verificar que tenga contenido
+        
+        '----- CLASIFICACION *********
+        
+        strCadena = "SELECT * FROM linea WHERE descripcion = '" & in_linea & "' AND id_usu='" & KEY_RUC & "' LIMIT 1"
+        Call ConfiguraRst(strCadena)
+        If rst.RecordCount < 1 Then
+            strCadena = "SELECT * FROM linea WHERE id_usu='" & KEY_RUC & "' ORDER BY id_linea DESC LIMIT 0,1"
+            Call ConfiguraRst(strCadena)
+            If rst.RecordCount < 1 Then
+                id_linea = "00001"
+            Else
+                id_linea = Format(Val(rst("id_linea")) + 1, "00000")
+            End If
+            
+            
+            strCadena = "INSERT INTO linea(id_linea,descripcion,id_usu)VALUES('" & id_linea & "','" & in_linea & "','" & KEY_RUC & "')"
+            CnBd.Execute (strCadena)
+            
+            id_sublinea = "00001"
+            in_modelo = Trim(Me.HfProductos.TextMatrix(i, 3))
+            
+            strCadena = "INSERT INTO linea_sub(id_tipo,id_linea,descripcion,id_usu)VALUES('" & id_sublinea & "','" & id_linea & "','" & in_modelo & "','" & KEY_RUC & "')"
+            CnBd.Execute (strCadena)
+            
+        Else
+            id_linea = rst("id_linea")
+        End If
+        id_sublinea = "00001"
+        'END  CLASIFICACION *********
+        
+        
+        
+        
+        in_modelo = Trim(Me.HfProductos.TextMatrix(i, 3))
+         '----- MODELO *********
+        strCadena = "SELECT * FROM linea_sub WHERE descripcion = '" & in_modelo & "' AND  id_linea='" & id_linea & "' AND id_usu='" & KEY_RUC & "' limit 1"
+        Call ConfiguraRst(strCadena)
+        If rst.RecordCount < 1 Then
+            strCadena = "SELECT * FROM linea_sub where id_usu='" & KEY_RUC & "' ORDER BY id_tipo DESC LIMIT 0,1"
+            Call ConfiguraRst(strCadena)
+            If rst.RecordCount < 1 Then
+                id_sublinea = "00001"
+            Else
+                id_sublinea = Format(Val(rst("id_tipo")) + 1, "00000")
+            End If
+            strCadena = "INSERT INTO linea_sub(id_tipo,id_linea,descripcion,id_usu)VALUES('" & id_sublinea & "','" & id_linea & "','" & in_modelo & "','" & KEY_RUC & "')"
+            CnBd.Execute (strCadena)
+        Else
+          id_sublinea = rst("id_tipo")
+        End If
+        'END  CLASIFICACION *********
+        
+        '----- MARCA *********
+        in_marca = Trim(Me.HfProductos.TextMatrix(i, 5))
+        strCadena = "SELECT * FROM marca WHERE descripcion = '" & in_marca & "'  AND id_usu='" & KEY_RUC & "'"
+        Call ConfiguraRst(strCadena)
+        If rst.RecordCount < 1 Then
+            strCadena = "SELECT * FROM marca  where id_usu ='" & KEY_RUC & "' ORDER BY id_marca DESC LIMIT 0,1"
+            Call ConfiguraRst(strCadena)
+            If rst.RecordCount < 1 Then
+                id_marca = "00001"
+            Else
+                id_marca = Format(Val(rst("id_marca")) + 1, "00000")
+            End If
+            strCadena = "INSERT INTO marca(id_marca,descripcion,id_usu)VALUES('" & id_marca & "','" & in_marca & "','" & KEY_RUC & "')"
+            CnBd.Execute (strCadena)
+        Else
+            id_marca = rst("id_marca")
+        End If
+        'END  MARCA *********
+        
+        '----- COLOR *********
+        'in_color = Trim(Me.hfproductos.TextMatrix(i, 8))
+       ' strCadena = "SELECT * FROM imp_color WHERE descripcion LIKE '%" & in_color & "%'"
+       ' Call ConfiguraRst(strCadena)
+       ' If rst.RecordCount < 1 Then
+       '     strCadena = "SELECT * FROM imp_color ORDER BY id_color DESC LIMIT 0,1"
+       '     Call ConfiguraRst(strCadena)
+       '     If rst.RecordCount < 1 Then
+       '         id_color = "00001"
+       '     Else
+       '         id_color = Format(Val(rst("id_color")) + 1, "00000")
+       '     End If
+       '     strCadena = "INSERT INTO imp_color(id_color,descripcion)VALUES('" & id_color & "','" & in_color & "')"
+       '     CnBd.Execute (strCadena)
+       ' Else
+       '     id_color = rst("id_color")
+       ' End If
+       id_color = "0000"
+        'END  MARCA *********
+        '----- Unidad de medida *********
+        in_unidad = Trim(Me.HfProductos.TextMatrix(i, 4))
+        strCadena = "SELECT * FROM unidad WHERE abreviatura = '" & in_unidad & "' AND id_usu='" & KEY_RUC & "' LIMIT 1"
+        Call ConfiguraRst(strCadena)
+        If rst.RecordCount < 1 Then
+       
+            strCadena = "SELECT * FROM unidad WHERE id_usu='" & KEY_RUC & "' ORDER BY id_und DESC LIMIT 0,1"
+            Call ConfiguraRst(strCadena)
+            If rst.RecordCount > 0 Then
+                id_unidad = Format(Val(rst("id_und") + 1), "00000")
+            Else
+               id_unidad = "00001"
+            End If
+            strCadena = "INSERT INTO unidad(id_und,descripcion,abreviatura,id_usu)VALUES('" & id_unidad & "','" & in_unidad & "','" & in_unidad & "','" & KEY_RUC & "')"
+            CnBd.Execute (strCadena)
+        Else
+            id_unidad = rst("id_und")
+        End If
+        'END  MARCA *********
+        nombre_producto = ""
+        in_producto = UCase(Replace(Trim(Me.HfProductos.TextMatrix(i, 1)), "'", " "))
+        nombre_producto = in_producto & Space(1) & "  [ " & UCase(in_modelo) & " ]"
+        
+        strCadena = "SELECT * FROM producto where ruc='" & KEY_RUC & "' ORDER BY id_producto DESC LIMIT 1"
+        Call ConfiguraRstK(strCadena)
+        If rstK.RecordCount > 0 Then
+            id_producto = Format(Val(rstK("id_producto") + 1), "00000")
+        Else
+            id_producto = Format(1, "00000")
+        End If
+        in_precio_venta = Format(Me.HfProductos.TextMatrix(i, 6), "###0.00")
+        in_precio_costo = Format(Me.HfProductos.TextMatrix(i, 8), "###0.00")
+        in_precio_mayor = Format(Me.HfProductos.TextMatrix(i, 7), "###0.00")
+        
+        strCadena = "INSERT INTO producto (`id_producto`,`id_linea`,`id_sublinea`,`id_moneda`,`id_color`,`nombre_prod`,`id_unidad`,`nombre_comercial`,`id_marca`,`id_igv`,`dni_save`,`ruc`) VALUES " & _
+        "('" & id_producto & "','" & id_linea & "','" & id_sublinea & "','00001','" & id_color & "','" & nombre_producto & "','" & id_unidad & "','" & nombre_producto & "','" & id_marca & "','si','" & KEY_USUARIO & "','" & KEY_RUC & "')"
+        CnBd.Execute (strCadena)
+        strCadena = "SELECT * FROM almacen WHERE id_tipoentidad='0' and ruc='" & KEY_RUC & "'"
+        Call ConfiguraRstK(strCadena)
+        If rstK.RecordCount > 0 Then
+           rstK.MoveFirst
+           For j = 0 To rstK.RecordCount - 1
+               strCadena = "INSERT INTO almacen_producto(`id_alm`,`id_producto`,precio_venta,precio_compra,`ruc`,`habilitado`) VALUES ('" & rstK("id_alm") & "','" & id_producto & "','" & in_precio_venta & "','" & in_precio_costo & "','" & KEY_RUC & "','si')"
+               CnBd.Execute (strCadena)
+               
+               strCadena = "INSERT INTO almacen_producto_precio(`id_alm`,`id_producto`,`precio`,`cant_ini`,`cant_fin`,`ruc`)VALUES " & _
+               "('" & rstK("id_alm") & "','" & id_producto & "','" & in_precio_mayor & "','2','5','" & KEY_RUC & "')"
+               CnBd.Execute (strCadena)
+               rstK.MoveNext
+           Next j
+        End If
+        
+    
+    
+      End If
+      End If
+siguiente:
+      'DoEvents
+      Me.ProgressBar2.Value = i
+      
+    Next i
+        
+ MsgBox "CORRECTO"
+
+
+End Sub
+
+Private Sub get_update_stock(ByVal in_producto As String, ByVal in_cantidad As Single, ByVal in_fecha As String)
+Dim in_stock As Single
+strCadena = "SELECT * FROM almacen_producto where id_producto='" & in_producto & "' and  ruc='" & KEY_RUC & "' and id_alm='00001'"
+Call ConfiguraRstK(strCadena)
+If rstK.RecordCount > 0 Then
+   in_stock = rstK("stock") - in_cantidad
+   in_fecha = Format(in_fecha, "YYYY-mm-dd")
+        strInventario = formato_item(ConsultaUltimoRegistro("inventario", "id_inventario", "ruc", KEY_RUC), 6)
+        strCadena = "INSERT INTO inventario(id_inventario,id_producto,fecha,id_alm,cantidad,id_usuario,nusuario,ruc)VALUES " & _
+        "('" & strInventario & "','" & rstK("id_producto") & "','" & in_fecha & "','" & rstK("id_alm") & "','" & in_stock & "','" & KEY_USUARIO & "','" & KEY_VENDEDOR & "','" & KEY_RUC & "')"
+        CnBd.Execute (strCadena)
+End If
+        
+   
+End Sub
+Private Sub get_stock(ByVal in_producto As String, ByVal in_cantidad As Single, ByVal in_fecha As String)
+Dim in_stock As Single
+
+   in_stock = in_cantidad
+   in_fecha = Format(in_fecha, "YYYY-mm-dd")
+        strInventario = formato_item(ConsultaUltimoRegistro("inventario", "id_inventario", "ruc", KEY_RUC), 6)
+        strCadena = "INSERT INTO inventario(id_inventario,id_producto,fecha,id_alm,cantidad,id_usuario,nusuario,ruc)VALUES " & _
+        "('" & strInventario & "','" & in_producto & "','" & in_fecha & "','00001','" & in_stock & "','" & KEY_USUARIO & "','" & KEY_VENDEDOR & "','" & KEY_RUC & "')"
+        CnBd.Execute (strCadena)
+        
+        '02516
+        
+   
+End Sub
+
+Private Sub Command14_Click()
+
+End Sub
+
+Private Sub Command13_Click()
+strCadena = "SELECT * FROM movimiento_venta WHERE ruc='" & KEY_RUC & "' and fecha_emision>='2017-04-15'"
+Call ConfiguraRst(strCadena)
+If rst.RecordCount > 0 Then
+    rst.MoveFirst
+    For i = 0 To rst.RecordCount - 1
+        strCadena = "SELECT * FROM movimiento_venta_monto WHERE id_venta='" & rst("id_venta") & "' and ruc='" & KEY_RUC & "'"
+        Call ConfiguraRstK(strCadena)
+        If rstK.RecordCount = 1 And Abs(rst("total")) <> Abs(rstK("monto_caja")) And rstK("monto_caja") > 0 Then
+           strCadena = "UPDATE movimiento_venta_monto SET monto_caja='" & rst("total") & "' WHERE id_venta='" & rst("id_venta") & "' and ruc='" & KEY_RUC & "'"
+           CnBd.Execute (strCadena)
+        End If
+        rst.MoveNext
+    Next i
+End If
+End Sub
+
+Private Sub Command15_Click()
+strCadena = "SELECT * FROM movimiento_venta WHERE id_doc IN('0007') and ruc='" & KEY_RUC & "' and fecha_emision>='2017-01-01' ORDER BY fecha_emision ASC"
+Call ConfiguraRst(strCadena)
+If rst.RecordCount > 0 Then
+   rst.MoveFirst
+   Me.ProgressBar2.Min = 0
+   Me.ProgressBar2.Max = rst.RecordCount
+   For i = 0 To rst.RecordCount - 1
+       
+      ' strCadena = "UPDATE movimiento_venta_monto SET id_forma_pago='01',cuenta_contable='10111' WHERE id_venta='" & rst("id_venta") & "'"
+      ' CnBd.Execute (strCadena)
+       
+       
+       strCadena = "call P_insert_venta_agenda('" & rst("id_venta") & "')"
+       CnBd.Execute (strCadena)
+       rst.MoveNext
+       DoEvents
+       Me.ProgressBar2.Value = i
+   Next i
+End If
+End Sub
+
+Private Sub Command16_Click()
+strCadena = "SELECT * FROM movimiento_compra WHERE id_doc IN('0001','0003') and ruc='" & KEY_RUC & "' and fecha_emision>='2017-01-01'  and fecha_emision<='2017-02-29' ORDER BY fecha_emision ASC"
+Call ConfiguraRst(strCadena)
+If rst.RecordCount > 0 Then
+   rst.MoveFirst
+   Me.ProgressBar2.Min = 0
+   Me.ProgressBar2.Max = rst.RecordCount
+   For i = 0 To rst.RecordCount - 1
+       
+          in_igv = rst("total") - rst("total") / 1.18
+       strCadena = "UPDATE movimiento_compra SET valor_venta='" & rst("total") / 1.18 & "',igv='" & in_igv & "' WHERE id_compra='" & rst("id_compra") & "'"
+       CnBd.Execute (strCadena)
+       'End If
+       
+       strCadena = "call P_insert_compra_emitido('" & rst("id_compra") & "')"
+       CnBd.Execute (strCadena)
+       rst.MoveNext
+       DoEvents
+       Me.ProgressBar2.Value = i
+   Next i
+End If
+
+End Sub
+
+Private Sub Command2_Click()
+Dim nncantidad As Single
+Dim ncantidadafecta As Single
+strCadena = "SELECT * FROM producto WHERE id_relacionado<>'0' AND cantidad_afecta_stock>0 AND ruc='" & KEY_RUC & "'"
+Call ConfiguraRst(strCadena)
+If rst.RecordCount > 0 Then
+    rst.MoveFirst
+    
+    For i = 0 To rst.RecordCount - 1
+        ncantidadafecta = rst("cantidad_afecta_stock")
+        strCadena = "SELECT sum(cantidad_real) FROM kardex WHERE id_producto='" & rst("id_relacionado") & "' AND id_alm='" & KEY_ALM & "' AND ruc='" & KEY_RUC & "'"
+        Call ConfiguraRstT(strCadena)
+        
+        If IsNull(rstT(0)) = True Then
+           nncantidad = 0
+        Else
+           nncantidad = rstT(0)
+        End If
+        strCadena = "UPDATE almacen_producto SET stock='" & Val(nncantidad / ncantidadafecta) & "' WHERE id_producto='" & rst("id_producto") & "' AND id_alm='" & KEY_ALM & "' AND ruc='" & KEY_RUC & "'"
+        CnBd.Execute (strCadena)
+        Call insertar_acciones(strCadena)
+        rst.MoveNext
+    Next i
+End If
+
+End Sub
+
+Private Sub Command3_Click()
+Dim Obj_Excel As Object
+Dim Obj_Hoja As Object
+Dim Fila_Actual As Integer
+Dim Columna_Actual As Integer
+Dim Dato As Variant
+Dim Nombre As String
+Static acum As Double
+Nombre = App.Path & "\excel\" & "sunat" & ".xls"
+Screen.MousePointer = vbHourglass
+Set Obj_Excel = CreateObject("Excel.Application")
+Obj_Excel.Workbooks.Open FileName:=Nombre
+  If Val(Obj_Excel.Application.Version) >= 8 Then
+        Set Obj_Hoja = Obj_Excel.ActiveSheet
+    Else
+        Set Obj_Hoja = Obj_Excel
+    End If
+      
+    
+       i = 1
+       Fila_Actual = i
+       acum = 0
+       Do While (i < 10000)
+            codigo = Trim$(Obj_Hoja.Cells(Fila_Actual, 1))
+            descripcion = Trim(Replace(Trim$(Obj_Hoja.Cells(Fila_Actual, 2)), "-", ""))
+            descripcion = Trim(Replace(descripcion, "'", ""))
+            'descripcion = "2,4,5T (ISO) (ácido 2,4,5-triclorofenoxiacético), sus sales y sus ésteres"
+            strCadena = "INSERT INTO partida_arancelaria(codigo,descripcion)VALUES('" & codigo & "','" & descripcion & "') "
+            CnBd.Execute (strCadena)
+            Call insertar_acciones(strCadena)
+            
+        i = i + 1
+        Fila_Actual = i
+        DoEvents
+        Loop
+    
+salir:
+       MsgBox " Datos copiados ", vbInformation
+  
+Exit Sub
+
+End Sub
+
+
+
+Private Sub Command5_Click()
+
+strCadena = "select * from movimiento_venta_detalle d,producto p WHERE d.id_producto=p.id_producto and d.ruc=p.ruc and   d.detalle='-- and p.ruc='" & KEY_RUC & "'"
+
+Call ConfiguraRstK(strCadena)
+If rstK.RecordCount > 0 Then
+    rstK.MoveFirst
+    For i = 0 To rstK.RecordCount - 1
+        strCadena = "UPDATE movimiento_venta_detalle SET detalle='" & rstK("nombre_prod") & "' WHERE id_detalle_venta='" & rstK("id_detalle_venta") & "'"
+        CnBd.Execute (strCadena)
+        rstK.MoveNext
+        DoEvents
+    Next i
+End If
+
+
+End Sub
+
+Private Sub Command6_Click()
+strCadena = "SELECT * FROM movimiento_venta_detalle WHERE ruc='" & KEY_RUC & "'"
+Call ConfiguraRst(strCadena)
+If rst.RecordCount > 0 Then
+    rst.MoveFirst
+    Me.ProgressBar1.Min = 0
+    Me.ProgressBar1.Max = rst.RecordCount
+    For i = 0 To rst.RecordCount - 1
+        strCadena = "SELECT nombre_prod FROM producto WHERE id_producto='" & rst("id_producto") & "' and ruc='" & KEY_RUC & "'"
+        Call ConfiguraRstT(strCadena)
+        If rstT.RecordCount > 0 Then
+                productot = rstT("nombre_prod")
+        Else
+                productot = "--"
+        End If
+        
+        strCadena = "UPDATE movimiento_venta_detalle SET detalle='" & productot & "' WHERE  id_detalle_venta='" & rst("id_detalle_venta") & "'"
+        CnBd.Execute (strCadena)
+        Me.ProgressBar1.Value = i
+                rst.MoveNext
+                DoEvents
+    Next i
+End If
+End Sub
+
+Private Sub Command7_Click()
+strCadena = "SELECT * FROM movimiento_compra WHERE ruc='" & KEY_RUC & "' order by numero ASC "
+Call ConfiguraRst(strCadena)
+If rst.RecordCount > 0 Then
+       rst.MoveFirst
+       Me.ProgressBar1.Min = 0
+       Me.ProgressBar1.Max = rst.RecordCount
+       For i = 0 To rst.RecordCount - 1
+           
+            strCadena = "SELECT * FROM movimiento_compra WHERE id_doc='" & rst("id_doc") & "' and serie='" & rst("serie") & "' and numero='" & Trim(rst("numero")) & "' and id_proveedor='" & rst("id_proveedor") & "' and ruc='" & KEY_RUC & "'"
+            Call ConfiguraRstT(strCadena)
+            If rstT.RecordCount > 1 Then
+                strCadena = "DELETE FROM movimiento_compra WHERE id_compra='" & rst("id_compra") & "'"
+                CnBd.Execute (strCadena)
+                
+            End If
+            Me.ProgressBar1.Value = i
+            DoEvents
+            rst.MoveNext
+       Next i
+End If
+
+MsgBox "ok"
+End Sub
+
+Private Sub Command8_Click()
+Dim sys_ConString2 As String
+Dim stock_actual As Integer
+sys_Server2 = Trim(Me.txtserver1.Text)
+sys_DataBase2 = Trim(Me.txtbaseOrigen1.Text)   'ConfigRead("DataBase")
+sys_SUser2 = "user_vitekey" 'DecryptString(ConfigRead("SUser"))
+sys_SPassword2 = "02021974abc2014@" 'DecryptString(ConfigRead("SPassword"))
+db_port = "3306"
+sys_ConString2 = "" & _
+            "DRIVER={MySQL ODBC 5.1 Driver};" & _
+            "Server=" & sys_Server2 & ";" & _
+            "Database=" & sys_DataBase2 & ";" & _
+            "UID=" & sys_SUser2 & ";" & _
+            "PWD=" & sys_SPassword2 & ";" & _
+            " PORT=" & db_port & ";OPTION=" & 1 + 2 + 8 + 32 + 2048 + 16384 & ";"
+CnBd2.ConnectionString = sys_ConString2
+CnBd2.Open
+
+
+strCadena = "SELECT * FROM almacen_producto WHERE id_alm='00001' and ruc='" & KEY_RUC & "'  order by id_producto"
+Call ConfiguraRst2(strCadena)
+If rst2.RecordCount > 0 Then
+    rst2.MoveFirst
+    Me.ProgressBar1.Min = 0
+    Me.ProgressBar1.Max = rst2.RecordCount
+    For i = 0 To rst2.RecordCount - 1
+        stock_actual = rst2("stock") + stock_comprado(rst2("id_producto")) - stock_vendido(rst2("id_producto"))
+        
+        DoEvents
+        Me.ProgressBar1.Value = i
+        rst2.MoveNext
+    Next i
+End If
+
+
+
+End Sub
+Public Function stock_vendido(ByVal in_producto As String) As Integer
+    strCadena = "SELECT sum(d.cantidad) FROM movimiento_venta v, movimiento_venta_detalle d WHERE v.afecta_factura='no' and   d.id_producto='" & in_producto & "' and   v.id_venta=d.id_venta and v.anulado='no' and v.ruc='" & KEY_RUC & "' and v.id_venta>'383212'"
+    Call ConfiguraRstT(strCadena)
+    If IsNull(rstT(0)) = True Then
+        stock_vendido = 0
+    Else
+        stock_vendido = rstT(0)
+    End If
+End Function
+Public Function stock_comprado(ByVal in_producto As String) As Integer
+    strCadena = "SELECT sum(d.cantidad) FROM movimiento_compra v, movimiento_compra_detalle d WHERE d.id_producto='" & in_producto & "' and   v.id_compra=d.id_compra and v.anulado='no' and v.ruc='" & KEY_RUC & "' and v.id_compra>'18619'"
+    Call ConfiguraRstT(strCadena)
+    If IsNull(rstT(0)) = True Then
+        stock_comprado = 0
+    Else
+        stock_comprado = rstT(0)
+    End If
+End Function
+
+
+Public Sub insert_inventario(ByVal in_poducto As String, ByVal in_almacen As String, ByVal in_stock_nuevo As Single, ByVal in_stock_factura As Single)
+Dim strInventario As String
+    
+strCadena = "SELECT * FROM almacen_producto A WHERE A.ruc='" & KEY_RUC & "' AND A.id_producto='" & Trim(in_poducto) & "' AND A.id_alm='" & in_almacen & "'"
+Call ConfiguraRst(strCadena)
+If rst.RecordCount > 0 Then
+
+    cod_articulo = rst("id_producto")
+    stock_actual = rst("stock")
+    strInventario = formato_item(ConsultaUltimoRegistro("inventario", "id_inventario", "ruc", KEY_RUC), 6)
+    
+    strCadena = "INSERT INTO inventario(id_inventario,id_producto,precio_costo,fecha,id_alm,cantidad,id_usuario,nusuario,ruc)VALUES('" & strInventario & "','" & in_poducto & "','" & rst("precio_compra") & "','" & KEY_FECHA & "','" & in_almacen & "','" & in_stock_nuevo & "','" & KEY_USUARIO & "','" & KEY_VENDEDOR & "','" & KEY_RUC & "')"
+    CnBd.Execute (strCadena)
+    
+    'strCadena = "UPDATE almacen_producto SET stock_factura ='" & rst("stock_factura") & "' WHERE id_producto='" & in_poducto & "' AND id_alm='" & KEY_ALM & "' and ruc='" & KEY_RUC & "'"
+    'CnBd.Execute (strCadena)
+    
+End If
+End Sub
+
+Private Sub Command9_Click()
+
+
+
+strCadena = "SELECT * FROM almacen_producto"
+Call ConfiguraRst(strCadena)
+If rst.RecordCount > 0 Then
+   rst.MoveFirst
+   Me.ProgressBar2.Min = 0
+   Me.ProgressBar2.Max = rst.RecordCount - 1
+   For i = 0 To rst.RecordCount - 0
+       strCadena = "UPDATE almacen_producto SET precio_venta='" & rst("precio_venta") / (1 + KEY_IGV) & "' WHERE id_producto='" & rst("id_producto") & "' and ruc='" & rst("ruc") & "' and id_alm='" & rst("id_alm") & "' "
+       CnBd.Execute (strCadena)
+       rst.MoveNext
+       DoEvents
+       Me.ProgressBar2.Value = i
+   Next i
+End If
+
+Call reiniciar_conexion
+
+End Sub
+
+Private Sub DtcComprobante_buscar_Change()
+strCadena = "SELECT serie as Codigo,serie as Descripcion FROM almacen_comprobante WHERE id_doc='" & Me.DtcComprobante_buscar.BoundText & "' and ruc='" & KEY_RUC & "'"
+Call ConfiguraRst(strCadena)
+Call LlenaDataCombo(Me.DtcSerie_buscar)
+End Sub
+
+Private Sub DtcFormaPago_Change()
+Call llenarGrid(Me.HfFormapago, Me)
+End Sub
+
+Private Sub DtcTipoDoc_Change()
+Call llenar_serie(Me.hfgSeries)
+End Sub
+
+Private Sub Form_Load()
+CenterForm Me
+Me.Top = 500
+Me.DtpInstalacion.Value = KEY_FECHA
+Me.DtpCaducidad.Value = KEY_FECHA
+  strCadena = "SELECT  DISTINCT A.id_doc as Codigo, doc_des as Descripcion FROM comprobantes C,almacen_comprobante A WHERE C.id_doc=A.id_doc AND A.ruc='" & KEY_RUC & "' AND A.venta='si' ORDER BY doc_des"
+  Call ConfiguraRst(strCadena)
+  Call LlenaDataCombo(Me.DtcTipoDoc)
+  
+  strCadena = "SELECT  DISTINCT A.id_doc as Codigo, doc_des as Descripcion FROM comprobantes C,almacen_comprobante A WHERE C.id_doc=A.id_doc AND A.ruc='" & KEY_RUC & "' AND A.venta='si' ORDER BY doc_des"
+  Call ConfiguraRst(strCadena)
+  Call LlenaDataCombo(Me.DtcComprobante_buscar)
+  
+  
+  
+  
+   
+  strCadena = "SELECT id_tipo_letra as Codigo,descripcion as Descripcion FROM tipo_letra_impresion ORDER BY id_tipo_letra"
+  Call ConfiguraRst(strCadena)
+  Call LlenaDataCombo(Me.DtcTipoLetra)
+    
+  
+Select Case FrmParametrosEmpresa.Procedencia
+    Case nuevo
+        Me.TxtRuc.Enabled = True
+    Case Modificar
+        Call LLENA
+        Call llenarforma_pago
+    End Select
+End Sub
+Private Sub llenarforma_pago()
+strCadena = "SELECT  id as Codigo, descripcion as Descripcion FROM forma_pago ORDER BY id"
+  Call ConfiguraRst(strCadena)
+  Call LlenaDataCombo(Me.DtcFormaPago)
+  Call llenarGrid(Me.HfFormapago, Me)
+End Sub
+Private Sub llenar_serie(ByVal Grilla As MSHFlexGrid)
+On Error GoTo salir
+strCadena = "SELECT C.doc_abrev,CONCAT(A.serie,'-',A.numero)as numero,A.serie,defecto FROM almacen_comprobante A,comprobantes C WHERE A.id_doc=C.id_doc AND  A.id_doc='" & Me.DtcTipoDoc.BoundText & "' AND id_alm='" & KEY_ALM & "' AND ruc='" & KEY_RUC & "'"
+Call ConfiguraRstT(strCadena)
+If rstT.RecordCount < 1 Then
+    Grilla.rows = 1
+    Grilla.Clear
+    Exit Sub
+End If
+   Grilla.Clear
+   Grilla.Refresh
+   Grilla.rows = 0
+       ReDim arrColWidth(1 To rstT.Fields.Count)
+       For Each Campo In rstT.Fields
+           Grilla.ColWidth(0) = 1200
+           Grilla.ColWidth(1) = 1200
+       Next
+        rstT.MoveFirst
+        For i = 0 To rstT.RecordCount - 1
+             Fila = rstT("doc_abrev") & vbTab & rstT("numero")
+             Grilla.AddItem Fila
+             If rstT("defecto") = "si" Then
+                         For k = 0 To 1
+                                Grilla.col = k
+                                Grilla.Row = i
+                                Grilla.CellBackColor = &H8080FF
+                         Next k
+             End If
+             Fila = ""
+             rstT.MoveNext
+        Next i
+Exit Sub
+salir: MsgBox "Por Favor Digite Correctamente", vbInformation, "Mensaje para el usuario"
+End Sub
+
+Private Sub llenarGrid(ByVal Grilla As MSHFlexGrid, ByVal Formulario As Form)
+On Error GoTo salir
+strCadena = "SELECT * FROM forma_pago_detalle WHERE id='" & Me.DtcFormaPago.BoundText & "' AND ruc='" & KEY_RUC & "'"
+Call ConfiguraRst(strCadena)
+If rst.RecordCount < 1 Then
+    Grilla.rows = 1
+    Grilla.Clear
+    Exit Sub
+End If
+   Grilla.Clear
+   Grilla.Refresh
+   Grilla.rows = 0
+       ReDim arrColWidth(1 To rst.Fields.Count)
+       For Each Campo In rst.Fields
+           Grilla.ColWidth(0) = 0
+           Grilla.ColWidth(1) = 500
+           Grilla.ColWidth(2) = 2000
+           Grilla.ColWidth(3) = 800
+      Next
+         cabecera = "ID" & vbTab & "COD" & vbTab & "DESCRIPCION" & vbTab & "ESTADO"
+         Grilla.AddItem cabecera
+         For k = 0 To 3
+                                Grilla.col = k
+                                Grilla.Row = 0
+                                Grilla.CellBackColor = &HDFDFE0
+         Next k
+                            
+        rst.MoveFirst
+        For i = 0 To rst.RecordCount - 1
+             Fila = rst("id_registro") & vbTab & rst("id_detalle") & vbTab & rst("descripcion") & vbTab & rst("estado")
+             Grilla.AddItem Fila
+            If (Trim(rst("estado")) = "no") Then
+                            For k = 0 To 3
+                                Grilla.col = k
+                                Grilla.Row = i + 1
+                                Grilla.CellBackColor = &H8080FF
+                            Next k
+        End If
+        Fila = ""
+        rst.MoveNext
+        Next i
+Exit Sub
+salir: MsgBox "Por Favor Digite Correctamente", vbInformation, "Mensaje para el usuario"
+End Sub
+
+Private Sub Save()
+Dim igv As String
+Dim Factura As String
+Dim barras As String, permanente As String
+If Me.DtcTipoDoc.BoundText <> "" Then
+    KEY_COMPROBANTE = Me.DtcTipoDoc.BoundText
+End If
+
+If Me.chkmodelo_color.Value = 1 Then
+    in_modelo_color = "si"
+Else
+    in_modelo_color = "no"
+End If
+If Me.chktrackin.Value = 1 Then
+   KEY_TRACKING = "si"
+Else
+   KEY_TRACKING = "no"
+End If
+
+If (Me.chkigv.Value = 1) Then
+    KEY_CON_IGV = "si"
+Else
+    KEY_CON_IGV = "no"
+End If
+If (Me.ChkAutomatico.Value = 1) Then
+    KEY_AUTOMATICO = "si"
+Else
+    KEY_AUTOMATICO = "no"
+End If
+If Me.chkfotoproducto.Value = 1 Then
+    KEY_FOTO = "si"
+Else
+    KEY_FOTO = "no"
+End If
+If Me.chkActivacionPermanente.Value = 1 Then
+    permanente = "si"
+Else
+    permanente = "no"
+End If
+
+If Me.chkContador.Value = 1 Then
+    KEY_CONTABILIDAD = "si"
+Else
+    KEY_CONTABILIDAD = "no"
+End If
+
+If (Me.ChkCerveceria.Value = 1) Then
+    KEY_CERVECERIA = "si"
+Else
+    KEY_CERVECERIA = "no"
+End If
+If (Me.ckkFacturas.Value = 1) Then
+    Factura = "si"
+Else
+    Factura = "no"
+End If
+If (Me.ChkBarras.Value = 1) Then
+    barras = "si"
+Else
+    barras = "no"
+End If
+If (Me.ChkUpdatePrecios.Value = 1) Then
+    KEY_UPDATE_PRECIOS = "si"
+Else
+    KEY_UPDATE_PRECIOS = "no"
+End If
+
+If Me.chkfotoproducto.Value = 1 Then
+    KEY_FOTO = "si"
+Else
+    KEY_FOTO = "no"
+End If
+If Me.ChkHuellaDigital.Value = 1 Then
+    KEY_FINGERPRINT = "si"
+Else
+    KEY_FINGERPRINT = "no"
+End If
+
+If Me.chktramitedocumentario.Value = 1 Then
+    KEY_TRAMITE = "si"
+Else
+    KEY_TRAMITE = "no"
+End If
+If Me.chkCajaIndependiente.Value = 1 Then
+    KEY_CAJA_INDEPENDIENTE = "si"
+Else
+    KEY_CAJA_INDEPENDIENTE = "no"
+End If
+
+If Me.chkfacturacion_electronica.Value = 1 Then
+    facturacion_electronica = "si"
+    KEY_FACTURACION_ELECTRONICA = "si"
+    KEY_TOKEN = Trim(Me.txttoken.Text)
+ Else
+    facturacion_electronica = "no"
+    KEY_FACTURACION_ELECTRONICA = "no"
+ End If
+ 
+ 
+
+ 
+        
+  If Me.TxtRuc.Text = "" Or Me.TxtEmpresa.Text = "" Then
+    MsgBox MSGFALTADATOS, vbCritical, MSGVALIDACION
+   
+ Else
+    Select Case FrmParametrosEmpresa.Procedencia
+      Case nuevo
+        strCadena = "INSERT INTO Empresas (ruc,nombre,direccion,igv,factura,barras) VALUES ('" & Trim(Me.TxtRuc.Text) & "','" & Trim(Me.TxtEmpresa.Text) & "','" & Me.txtdireccion.Text & "','" & Trim(igv) & "','" & Trim(Factura) & "','" & Trim(barras) & "') "
+        CnBd.Execute (strCadena)
+        Call insertar_acciones(strCadena)
+        Call FrmParametrosEmpresa.llenarGrid
+        FrmParametrosEmpresa.Procedencia = Neutro
+        Unload Me
+      Case Modificar
+        strCadena = "UPDATE entidad_parametros SET tracking='" & KEY_TRACKING & "', token='" & Trim(Me.txttoken.Text) & "',resolucion_electronica='" & Trim(Me.txtresolucion.Text) & "',facturacion_electronica='" & facturacion_electronica & "', sub_linea_color='" & in_modelo_color & "', igv='" & KEY_CON_IGV & "',factura='" & Trim(Factura) & "',barras='" & Trim(barras) & "',doc_cod='" & Trim(Me.DtcTipoDoc.BoundText) & "'," & _
+        "automatico='" & KEY_AUTOMATICO & "',caja_independiente='" & KEY_CAJA_INDEPENDIENTE & "',tramite_documentario='" & KEY_TRAMITE & "',cerveceria='" & KEY_CERVECERIA & "',contabilidad='" & KEY_CONTABILIDAD & "',update_precios='" & KEY_UPDATE_PRECIOS & "'," & _
+        "foto_producto='" & KEY_FOTO & "',fingerprint='" & KEY_FINGERPRINT & "',id_tipo_letra='" & Trim(Me.DtcTipoLetra.BoundText) & "',instalacion='" & Format(Me.DtpInstalacion.Value, "YYYY-mm-dd") & "',caducidad='" & Format(Me.DtpCaducidad.Value, "YYYY-mm-dd") & "',activacion_permanente='" & permanente & "' WHERE cod_unico='" & Trim(Me.TxtRuc.Text) & "'"
+        KEY_TIPO_LETRA = BDBuscarCampo("tipo_letra_impresion", "descripcion", "id_tipo_letra", Trim(Me.DtcTipoLetra.BoundText))
+        CnBd.Execute (strCadena)
+        
+        
+        If Me.chkContador.Value = 1 Then
+                If Trim(Me.TxtRucContador.Text) <> "" And Len(Trim(Me.TxtRucContador.Text)) > 7 And Len(Trim(Me.TxtRucContador.Text)) < 12 Then
+                    strCadena = "UPDATE entidad_empresa SET id_contador='" & Trim(Me.TxtRucContador.Text) & "' WHERE cod_unico='" & KEY_RUC & "' AND id_empresa='0'"
+                    CnBd.Execute (strCadena)
+                    
+                    '******* ACTUALIZAR DATA CONTABLE *******
+                    
+                    '****************************************
+                    
+                    
+                    strCadena = "SELECT * FROM entidad_empresa WHERE cod_unico='" & KEY_RUC & "' AND id_empresa='" & Trim(Me.TxtRucContador.Text) & "' AND id_cliente='si'"
+                    Call ConfiguraRst(strCadena)
+                    If rst.RecordCount < 1 Then
+                        strCadena = "INSERT INTO entidad_empresa(cod_unico,id_empresa,id_cliente)VALUES('" & KEY_RUC & "','" & Trim(Me.TxtRucContador.Text) & "','si')"
+                        CnBd.Execute (strCadena)
+                        
+                        strCadena = "INSERT INTO entidad_empresa(cod_unico,id_empresa,id_contable)VALUES('" & Trim(Me.TxtRucContador.Text) & "','" & KEY_RUC & "','si')"
+                        CnBd.Execute (strCadena)
+                        
+                    End If
+                End If
+        Else
+                strCadena = "DELETE FROM entidad_empresa WHERE cod_unico='" & KEY_RUC & "' AND id_contador='" & Trim(Me.TxtRucContador.Text) & "' AND id_empresa='0'"
+                CnBd.Execute (strCadena)
+                
+        End If
+        
+        
+        
+        strCadena = "SELECT * FROM persona_publico WHERE ruc='" & KEY_RUC & "' AND dni='00000000'"
+        Call ConfiguraRst(strCadena)
+        If rst.RecordCount > 0 And Trim(Me.txtDireccionPublico.Text) <> "" Then
+            
+            strCadena = "UPDATE persona_publico SET direccion='" & Trim(Me.txtDireccionPublico.Text) & "' WHERE ruc='" & KEY_RUC & "' AND dni='00000000'"
+            KEY_DIR_PUBLIC = Trim(Me.txtDireccionPublico.Text)
+        Else
+            
+            
+            strCadena = "INSERT INTO persona_publico(ruc,dni,direccion)VALUES('" & KEY_RUC & "','00000000','" & Trim(Me.txtDireccionPublico.Text) & "')"
+            KEY_DIR_PUBLIC = Trim(Me.txtDireccionPublico.Text)
+        End If
+        CnBd.Execute (strCadena)
+        
+        
+        KEY_SKFACTURA = Factura
+        KEY_BARRAS = barras
+        Call FrmParametrosEmpresa.llenarGrid
+        FrmParametrosEmpresa.Procedencia = Neutro
+        Unload Me
+        
+    End Select
+  End If
+End Sub
+Private Sub LLENA()
+strCadena = "SELECT * FROM entidad_empresa E,entidad_parametros P,persona U WHERE E.cod_unico=P.cod_unico AND P.cod_unico='" & Trim(FrmParametrosEmpresa.HfgMarcas.TextMatrix(FrmParametrosEmpresa.HfgMarcas.Row, 0)) & "' AND E.cod_unico=U.dni AND P.cod_unico=U.dni AND E.id_empresa='0'"
+Call ConfiguraRst(strCadena)
+  If rst.RecordCount > 0 Then
+    strSerie = rst("serie")
+    Me.TxtRuc.Text = rst("dni")
+    Me.txttoken.Text = rst("token")
+    Me.txtdireccion.Text = rst("direccion")
+    Me.TxtEmpresa.Text = rst("nombre_completo")
+    Me.DtcTipoDoc.BoundText = rst("doc_cod")
+    
+    If rst("contabilidad") = "si" Then
+        Me.chkContador.Value = 1
+    Else
+        Me.chkContador.Value = 0
+    End If
+    
+    
+    If rst("tramite_documentario") = "si" Then
+        Me.chktramitedocumentario.Value = 1
+    Else
+        Me.chktramitedocumentario.Value = 0
+    End If
+    
+    
+    
+    If rst("caja_independiente") = "si" Then
+        Me.chkCajaIndependiente.Value = 1
+    Else
+        Me.chkCajaIndependiente.Value = 0
+    End If
+    If rst("facturacion_electronica") = "si" Then
+       Me.chkfacturacion_electronica.Value = 1
+    Else
+       Me.chkfacturacion_electronica.Value = 0
+    End If
+    Me.txtresolucion.Text = rst("resolucion_electronica")
+    
+    
+    If IsNull(rst("instalacion")) = False Then
+        Me.DtpInstalacion.Value = rst("instalacion")
+    Else
+        Me.DtpInstalacion.Value = KEY_FECHA
+    End If
+    If IsNull(rst("caducidad")) = False Then
+        Me.DtpCaducidad.Value = rst("caducidad")
+    Else
+        Me.DtpCaducidad.Value = KEY_FECHA
+    End If
+    If rst("activacion_permanente") = "si" Then
+        Me.chkActivacionPermanente.Value = 1
+    Else
+        Me.chkActivacionPermanente.Value = 0
+    End If
+    
+    
+    
+    'Me.TxtAlmacen.text = rst("id_alm")
+    Me.DtcTipoLetra.BoundText = rst("id_tipo_letra")
+    If Len(rst("id_contador")) > 7 Then
+        Me.chkContador.Value = 1
+        strCadena = "SELECT * FROM persona WHERE dni='" & rst("id_contador") & "'"
+        Call ConfiguraRstT(strCadena)
+        If rstT.RecordCount > 0 Then
+            Me.TxtRucContador.Text = rst("id_contador")
+            Me.lblRazonContador.Caption = rstT("nombre_completo")
+            Me.LblDireccionContador.Caption = rstT("direccion")
+        Else
+            Me.lblRazonContador.Caption = "--------"
+            Me.LblDireccionContador.Caption = "--------"
+        End If
+    
+         
+         Me.FrameContador.Enabled = False
+    End If
+    
+    If rst("igv") = "si" Then
+        Me.chkigv.Value = 1
+    Else
+        Me.chkigv.Value = 0
+    End If
+    
+    If rst("automatico") = "si" Then
+        Me.ChkAutomatico.Value = 1
+    Else
+        Me.ChkAutomatico.Value = 0
+    End If
+    If rst("contabilidad") = "si" Then
+        Me.OptContabilidad.Value = True
+    Else
+        Me.OptInventario.Value = True
+    End If
+    
+    If rst("cerveceria") = "si" Then
+       Me.ChkCerveceria.Value = 1
+    Else
+        Me.ChkCerveceria.Value = 0
+    End If
+    
+    If rst("factura") = "si" Then
+        Me.ckkFacturas.Value = 1
+    Else
+        Me.ckkFacturas.Value = 0
+    End If
+     If rst("barras") = "si" Then
+        Me.ChkBarras.Value = 1
+    Else
+        Me.ChkBarras.Value = 0
+    End If
+    If rst("update_precios") = "si" Then
+        Me.ChkUpdatePrecios.Value = 1
+    Else
+        Me.ChkUpdatePrecios.Value = 0
+    End If
+    
+    If rst("foto_producto") = "si" Then
+        Me.chkfotoproducto.Value = 1
+    Else
+        Me.chkfotoproducto.Value = 0
+    End If
+    If rst("fingerprint") = "si" Then
+        Me.ChkHuellaDigital.Value = 1
+    Else
+        Me.ChkHuellaDigital.Value = 0
+    End If
+    
+    Set rst = Nothing
+    strCadena = "SELECT * FROM persona_publico WHERE dni='00000000' AND ruc='" & KEY_RUC & "'"
+    Call ConfiguraRst(strCadena)
+    If rst.RecordCount > 0 Then
+        Me.txtDireccionPublico.Text = rst("direccion")
+    Else
+        Me.txtDireccionPublico.Text = ""
+    End If
+    Set rst = Nothing
+  End If
+End Sub
+
+Private Sub HfFormapago_DblClick()
+If Val(Me.HfFormapago.TextMatrix(Me.HfFormapago.Row, 0)) > 0 Then
+    strCadena = "SELECT * FROM forma_pago_detalle WHERE id_registro='" & Val(Me.HfFormapago.TextMatrix(Me.HfFormapago.Row, 0)) & "' and ruc='" & KEY_RUC & "'"
+    Call ConfiguraRst(strCadena)
+    If rst.RecordCount > 0 Then
+        If rst("estado") = "si" Then
+            strCadena = "UPDATE forma_pago_detalle set estado='no' WHERE id_registro='" & Me.HfFormapago.TextMatrix(Me.HfFormapago.Row, 0) & "' AND ruc='" & KEY_RUC & "'"
+        Else
+            strCadena = "UPDATE forma_pago_detalle set estado='si' WHERE id_registro='" & Me.HfFormapago.TextMatrix(Me.HfFormapago.Row, 0) & "' AND ruc='" & KEY_RUC & "'"
+        End If
+        CnBd.Execute (strCadena)
+        Call insertar_acciones(strCadena)
+        Call llenarGrid(Me.HfFormapago, Me)
+    End If
+End If
+End Sub
+
+
+
+Private Sub TlbAcciones_ButtonClick(ByVal Button As MSComctlLib.Button)
+On Error GoTo Error
+  Select Case Button.key
+    Case KEY_SAVE
+        Call Save
+    Case KEY_CANCEL
+      Unload Me
+      FrmParametrosEmpresa.Procedencia = Neutro
+  End Select
+  Exit Sub
+Error:
+  MsgBox Err.Number & " " & Err.Description, vbCritical, MSGERROR
+  Exit Sub
+End Sub
+
+
+
+Private Sub TxtEmpresa_KeyPress(KeyAscii As Integer)
+If KeyAscii = 13 Then
+    Me.txtdireccion.SetFocus
+End If
+End Sub
+
+Private Sub txtruc_KeyPress(KeyAscii As Integer)
+If KeyAscii = 13 Then
+    Me.TxtEmpresa.SetFocus
+End If
+End Sub
+
+Private Sub TxtRucContador_KeyPress(KeyAscii As Integer)
+If KeyAscii = 13 Then
+    Procedencia = buscar
+    FrmPersona.Show
+    Exit Sub
+End If
+End Sub

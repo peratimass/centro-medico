@@ -1,0 +1,14 @@
+cuenta	String	80
+fecha_inicio	Date
+fecha_fin	Date
+fecha	Date
+saldo	Number
+id_tipomovimiento	String	5
+TipoMovimiento	String	30
+dni	String	11
+razonsocial	String	60
+concepto	String	100
+operador	String	50
+monto_real	Number
+encargado	String	60
+operacion	String	40

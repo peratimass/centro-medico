@@ -1,0 +1,743 @@
+[Root]
+Most Recent Package=Ing Percy Ricardo A
+
+
+[Package|Paquete de instalación estándar 1|Root]
+SubWizProgID=PDWizard.SetupPkgSubWiz
+BuildFolder=j:\Instaladores\Intalador_Olivos
+
+[Package|Paquete de instalación estándar 1|Configure DAO ISAMs]
+Applicable=No
+
+[Package|Paquete de instalación estándar 1|Configure DAO ODBC]
+JetWorkspace=
+ODBCDirect=
+
+[Package|Paquete de instalación estándar 1|Files Found]
+
+[Package|Paquete de instalación estándar 1|Files Released]
+
+[Package|Paquete de instalación estándar 1|Missing Dependency Information]
+F:\Software Percy\Sistema Grenco\MENUDESP.OCX=
+C:\Archivos de programa\Microsoft Office\OFFICE11\EXCEL.EXE=
+C:\Archivos de programa\Archivos comunes\System\ado\msado21.tlb=
+C:\WINDOWS\system32\MENUDESP.OCX=
+C:\WINDOWS\system32\msstdfmt.dll=
+F:\Software Percy\Global Bussines_Final\MENUDESP.OCX=
+C:\WINDOWS\system32\MSBIND.DLL=
+H:\Software Percy\Global Bussines_Final\MENUDESP.OCX=
+D:\Global Bussines_Final\MENUDESP.OCX=
+H:\data percy\USB PERCY 27_07_2009\Sistemas Estructurados\Global Bussines_Final\MENUDESP.OCX=
+D:\Archivos de programa\Microsoft Office\Office12\EXCEL.EXE=
+D:\Archivos de programa\Archivos comunes\System\ado\msado21.tlb=
+H:\Sistem Lirio de los Valles\MENUDESP.OCX=
+E:\Archivos de programa\Microsoft Office\Office12\EXCEL.EXE=
+E:\Archivos de programa\Archivos comunes\System\ado\msado21.tlb=
+
+[Package|Paquete de instalación estándar 1|Out-of-Date Dependency Information]
+C:\WINDOWS\system32\comdlg32.ocx=
+C:\WINDOWS\system32\MSCOMCTL.OCX=
+C:\WINDOWS\system32\COMCT332.OCX=
+C:\WINDOWS\system32\mscomct2.ocx=
+C:\WINDOWS\system32\msstdfmt.dll=
+C:\WINDOWS\system32\MSADODC.OCX=
+C:\WINDOWS\system32\MSDATGRD.OCX=
+C:\WINDOWS\system32\TABCTL32.OCX=
+C:\WINDOWS\system32\MSDATLST.OCX=
+C:\WINDOWS\system32\MSBIND.DLL=
+D:\WINDOWS\system32\MSCOMCTL.OCX=
+D:\WINDOWS\system32\COMCT332.OCX=
+D:\WINDOWS\system32\msstdfmt.dll=
+E:\WINDOWS\system32\MSCOMCTL.OCX=
+E:\WINDOWS\system32\COMCT332.OCX=
+E:\WINDOWS\system32\MSSTDFMT.DLL=
+
+[Package|Paquete de instalación estándar 1|Files Added]
+
+[Package|Paquete de instalación estándar 1|Files Removed]
+
+[Package|Paquete de instalación estándar 1|Files In Project]
+J:\Sistem Lirio de los Valles\Exes\Olivos.exe=Yes
+E:\WINDOWS\system32\msvbvm60.dll=Yes
+E:\WINDOWS\system32\oleaut32.dll=Yes
+E:\WINDOWS\system32\olepro32.dll=Yes
+E:\WINDOWS\system32\asycfilt.dll=Yes
+E:\WINDOWS\system32\stdole2.tlb=Yes
+E:\Archivos de programa\Microsoft Visual Studio\VB98\Wizards\PDWizard\Redist\COMCAT.DLL=Yes
+E:\WINDOWS\system32\VB6ES.DLL=Yes
+E:\Archivos de programa\Archivos comunes\System\ado\msado21.tlb=Yes
+E:\Archivos de programa\Archivos comunes\designer\MSDERUN.DLL=Yes
+E:\WINDOWS\system32\MSDBRPTR.DLL=Yes
+E:\WINDOWS\system32\MSSTDFMT.DLL=Yes
+E:\WINDOWS\system32\STDFTES.DLL=Yes
+E:\WINDOWS\system32\DBRPRES.DLL=Yes
+E:\WINDOWS\system32\MSBIND.DLL=Yes
+E:\Archivos de programa\Microsoft Office\Office12\EXCEL.EXE=Yes
+E:\WINDOWS\system32\MSDATLST.OCX=Yes
+E:\WINDOWS\system32\DATLSES.DLL=Yes
+E:\WINDOWS\system32\MSCOMCT2.OCX=Yes
+E:\WINDOWS\system32\MSCC2ES.DLL=Yes
+E:\WINDOWS\system32\COMCT332.OCX=Yes
+E:\WINDOWS\system32\CMCT3ES.DLL=Yes
+E:\WINDOWS\system32\MSHFLXGD.OCX=Yes
+E:\WINDOWS\system32\MSHFGES.DLL=Yes
+E:\WINDOWS\system32\MSCOMCTL.OCX=Yes
+E:\WINDOWS\system32\MSCMCES.DLL=Yes
+E:\WINDOWS\system32\TABCTL32.OCX=Yes
+E:\WINDOWS\system32\TABCTES.DLL=Yes
+E:\WINDOWS\system32\COMDLG32.OCX=Yes
+E:\WINDOWS\system32\CMDLGES.DLL=Yes
+E:\WINDOWS\system32\MSDATGRD.OCX=Yes
+E:\WINDOWS\system32\DATGDES.DLL=Yes
+E:\WINDOWS\system32\MSADODC.OCX=Yes
+E:\WINDOWS\system32\ADODCES.DLL=Yes
+H:\Sistem Lirio de los Valles\MENUDESP.OCX=Yes
+E:\Archivos de programa\Microsoft Visual Studio\VB98\Wizards\PDWizard\Redist\MDAC_TYP.EXE=Yes
+E:\Archivos de programa\Microsoft Visual Studio\VB98\Wizards\PDWizard\SETUP.EXE=Yes
+E:\Archivos de programa\Microsoft Visual Studio\VB98\Wizards\PDWizard\SETUP1.EXE=Yes
+E:\WINDOWS\system32\VB6STKIT.DLL=Yes
+E:\Archivos de programa\Microsoft Visual Studio\VB98\Wizards\PDWizard\ST6UNST.EXE=Yes
+
+[Package|Paquete de instalación estándar 1|Configure Registry Files]
+Applicable=No
+
+[Package|Paquete de instalación estándar 1|Configure Remote Servers]
+Applicable=No
+
+[Package|Paquete de instalación estándar 1|Install Locations]
+D:\lilianita\Global Bussines\GlobalBussines.exe=$(AppPath)
+C:\WINDOWS\system32\msvbvm60.dll=$(WinSysPathSysFile)
+C:\WINDOWS\system32\oleaut32.dll=$(WinSysPathSysFile)
+C:\WINDOWS\system32\olepro32.dll=$(WinSysPathSysFile)
+C:\WINDOWS\system32\asycfilt.dll=$(WinSysPathSysFile)
+C:\WINDOWS\system32\stdole2.tlb=$(WinSysPathSysFile)
+C:\Archivos de programa\Microsoft Visual Studio\VB98\Wizards\PDWizard\Redist\COMCAT.DLL=$(WinSysPathSysFile)
+C:\WINDOWS\system32\VB6ES.DLL=$(WinSysPath)
+C:\Archivos de programa\Archivos comunes\System\ado\msado21.tlb=$(WinSysPath)
+C:\Archivos de programa\Archivos comunes\designer\MSDERUN.DLL=$(CommonFiles)\designer
+C:\WINDOWS\system32\MSDBRPTR.DLL=$(WinSysPath)
+C:\WINDOWS\system32\msstdfmt.dll=$(WinSysPath)
+C:\WINDOWS\system32\STDFTES.DLL=$(WinSysPath)
+C:\WINDOWS\system32\DBRPRES.DLL=$(WinSysPath)
+C:\WINDOWS\system32\MSBIND.DLL=$(WinSysPath)
+C:\Archivos de programa\Microsoft Office\OFFICE11\EXCEL.EXE=$(AppPath)
+C:\WINDOWS\system32\MSDATLST.OCX=$(WinSysPath)
+C:\WINDOWS\system32\DATLSES.DLL=$(WinSysPath)
+C:\WINDOWS\system32\mscomct2.ocx=$(WinSysPath)
+C:\WINDOWS\system32\MSCC2ES.DLL=$(WinSysPath)
+C:\WINDOWS\system32\COMCT332.OCX=$(WinSysPath)
+C:\WINDOWS\system32\CMCT3ES.DLL=$(WinSysPath)
+C:\WINDOWS\system32\MSHFLXGD.OCX=$(WinSysPath)
+C:\WINDOWS\system32\MSHFGES.DLL=$(WinSysPath)
+C:\WINDOWS\system32\MSCOMCTL.OCX=$(WinSysPath)
+C:\WINDOWS\system32\MSCMCES.DLL=$(WinSysPath)
+C:\WINDOWS\system32\TABCTL32.OCX=$(WinSysPath)
+C:\WINDOWS\system32\TABCTES.DLL=$(WinSysPath)
+C:\WINDOWS\system32\comdlg32.ocx=$(WinSysPath)
+C:\WINDOWS\system32\CMDLGES.DLL=$(WinSysPath)
+C:\WINDOWS\system32\MSDATGRD.OCX=$(WinSysPath)
+C:\WINDOWS\system32\DATGDES.DLL=$(WinSysPath)
+C:\WINDOWS\system32\MSADODC.OCX=$(WinSysPath)
+C:\WINDOWS\system32\ADODCES.DLL=$(WinSysPath)
+F:\Software Percy\Sistema Grenco\MENUDESP.OCX=$(WinSysPath)
+C:\Archivos de programa\Microsoft Visual Studio\VB98\Wizards\PDWizard\Redist\MDAC_TYP.EXE=$(AppPath)
+C:\Archivos de programa\Microsoft Visual Studio\VB98\Wizards\PDWizard\SETUP.EXE=$(AppPath)
+C:\Archivos de programa\Microsoft Visual Studio\VB98\Wizards\PDWizard\SETUP1.EXE=$(WinPath)
+C:\WINDOWS\system32\VB6STKIT.DLL=$(WinSysPathSysFile)
+C:\Archivos de programa\Microsoft Visual Studio\VB98\Wizards\PDWizard\ST6UNST.EXE=$(WinPath)
+F:\Software Percy\Global Bussines_Final\GlobalBusiness.S.R.L.exe=$(AppPath)
+C:\WINDOWS\system32\MENUDESP.OCX=$(WinSysPath)
+F:\Software Percy\Global Bussines_Final\MENUDESP.OCX=$(WinSysPath)
+J:\Software Percy\Global Bussines_Final\GlobalBusiness.S.R.L.exe=$(AppPath)
+H:\Software Percy\Global Bussines_Final\GlobalBusiness.S.R.L.exe=$(AppPath)
+H:\Software Percy\Global Bussines_Final\MENUDESP.OCX=$(WinSysPath)
+D:\Global Bussines_Final\Exes\GlobalBusiness.S.R.L.exe=$(AppPath)
+D:\Global Bussines_Final\MENUDESP.OCX=$(WinSysPath)
+J:\Sistem Lirio de los Valles\Exes\Olivos.exe=$(AppPath)
+D:\WINDOWS\system32\msvbvm60.dll=$(WinSysPathSysFile)
+D:\WINDOWS\system32\oleaut32.dll=$(WinSysPathSysFile)
+D:\WINDOWS\system32\olepro32.dll=$(WinSysPathSysFile)
+D:\WINDOWS\system32\asycfilt.dll=$(WinSysPathSysFile)
+D:\WINDOWS\system32\stdole2.tlb=$(WinSysPathSysFile)
+D:\Archivos de programa\Microsoft Visual Studio\VB98\Wizards\PDWizard\Redist\COMCAT.DLL=$(WinSysPathSysFile)
+D:\WINDOWS\system32\VB6ES.DLL=$(WinSysPath)
+D:\Archivos de programa\Archivos comunes\System\ado\msado21.tlb=$(WinSysPath)
+D:\Archivos de programa\Archivos comunes\Designer\MSDERUN.DLL=$(CommonFiles)\designer
+D:\WINDOWS\system32\MSDBRPTR.DLL=$(WinSysPath)
+D:\WINDOWS\system32\msstdfmt.dll=$(WinSysPath)
+D:\WINDOWS\system32\STDFTES.DLL=$(WinSysPath)
+D:\WINDOWS\system32\DBRPRES.DLL=$(WinSysPath)
+D:\WINDOWS\system32\MSBIND.DLL=$(WinSysPath)
+D:\Archivos de programa\Microsoft Office\Office12\EXCEL.EXE=$(AppPath)
+D:\WINDOWS\system32\MSDATLST.OCX=$(WinSysPath)
+D:\WINDOWS\system32\DATLSES.DLL=$(WinSysPath)
+D:\WINDOWS\system32\MSCOMCT2.OCX=$(WinSysPath)
+D:\WINDOWS\system32\MSCC2ES.DLL=$(WinSysPath)
+D:\WINDOWS\system32\COMCT332.OCX=$(WinSysPath)
+D:\WINDOWS\system32\CMCT3ES.DLL=$(WinSysPath)
+D:\WINDOWS\system32\MSHFLXGD.OCX=$(WinSysPath)
+D:\WINDOWS\system32\MSHFGES.DLL=$(WinSysPath)
+D:\WINDOWS\system32\MSCOMCTL.OCX=$(WinSysPath)
+D:\WINDOWS\system32\MSCMCES.DLL=$(WinSysPath)
+D:\WINDOWS\system32\TABCTL32.OCX=$(WinSysPath)
+D:\WINDOWS\system32\TABCTES.DLL=$(WinSysPath)
+D:\WINDOWS\system32\Comdlg32.ocx=$(WinSysPath)
+D:\WINDOWS\system32\CMDLGES.DLL=$(WinSysPath)
+D:\WINDOWS\system32\MSDATGRD.OCX=$(WinSysPath)
+D:\WINDOWS\system32\DATGDES.DLL=$(WinSysPath)
+D:\WINDOWS\system32\MSADODC.OCX=$(WinSysPath)
+D:\WINDOWS\system32\ADODCES.DLL=$(WinSysPath)
+H:\data percy\USB PERCY 27_07_2009\Sistemas Estructurados\Global Bussines_Final\MENUDESP.OCX=$(WinSysPath)
+D:\Archivos de programa\Microsoft Visual Studio\VB98\Wizards\PDWizard\Redist\MDAC_TYP.EXE=$(AppPath)
+D:\Archivos de programa\Microsoft Visual Studio\VB98\Wizards\PDWizard\SETUP.EXE=$(AppPath)
+D:\Archivos de programa\Microsoft Visual Studio\VB98\Wizards\PDWizard\SETUP1.EXE=$(WinPath)
+D:\WINDOWS\system32\VB6STKIT.DLL=$(WinSysPathSysFile)
+D:\Archivos de programa\Microsoft Visual Studio\VB98\Wizards\PDWizard\ST6UNST.EXE=$(WinPath)
+E:\WINDOWS\system32\msvbvm60.dll=$(WinSysPathSysFile)
+E:\WINDOWS\system32\oleaut32.dll=$(WinSysPathSysFile)
+E:\WINDOWS\system32\olepro32.dll=$(WinSysPathSysFile)
+E:\WINDOWS\system32\asycfilt.dll=$(WinSysPathSysFile)
+E:\WINDOWS\system32\stdole2.tlb=$(WinSysPathSysFile)
+E:\Archivos de programa\Microsoft Visual Studio\VB98\Wizards\PDWizard\Redist\COMCAT.DLL=$(WinSysPathSysFile)
+E:\WINDOWS\system32\VB6ES.DLL=$(WinSysPath)
+E:\Archivos de programa\Archivos comunes\System\ado\msado21.tlb=$(WinSysPath)
+E:\Archivos de programa\Archivos comunes\designer\MSDERUN.DLL=$(CommonFiles)\designer
+E:\WINDOWS\system32\MSDBRPTR.DLL=$(WinSysPath)
+E:\WINDOWS\system32\MSSTDFMT.DLL=$(WinSysPath)
+E:\WINDOWS\system32\STDFTES.DLL=$(WinSysPath)
+E:\WINDOWS\system32\DBRPRES.DLL=$(WinSysPath)
+E:\WINDOWS\system32\MSBIND.DLL=$(WinSysPath)
+E:\Archivos de programa\Microsoft Office\Office12\EXCEL.EXE=$(AppPath)
+E:\WINDOWS\system32\MSDATLST.OCX=$(WinSysPath)
+E:\WINDOWS\system32\DATLSES.DLL=$(WinSysPath)
+E:\WINDOWS\system32\MSCOMCT2.OCX=$(WinSysPath)
+E:\WINDOWS\system32\MSCC2ES.DLL=$(WinSysPath)
+E:\WINDOWS\system32\COMCT332.OCX=$(WinSysPath)
+E:\WINDOWS\system32\CMCT3ES.DLL=$(WinSysPath)
+E:\WINDOWS\system32\MSHFLXGD.OCX=$(WinSysPath)
+E:\WINDOWS\system32\MSHFGES.DLL=$(WinSysPath)
+E:\WINDOWS\system32\MSCOMCTL.OCX=$(WinSysPath)
+E:\WINDOWS\system32\MSCMCES.DLL=$(WinSysPath)
+E:\WINDOWS\system32\TABCTL32.OCX=$(WinSysPath)
+E:\WINDOWS\system32\TABCTES.DLL=$(WinSysPath)
+E:\WINDOWS\system32\COMDLG32.OCX=$(WinSysPath)
+E:\WINDOWS\system32\CMDLGES.DLL=$(WinSysPath)
+E:\WINDOWS\system32\MSDATGRD.OCX=$(WinSysPath)
+E:\WINDOWS\system32\DATGDES.DLL=$(WinSysPath)
+E:\WINDOWS\system32\MSADODC.OCX=$(WinSysPath)
+E:\WINDOWS\system32\ADODCES.DLL=$(WinSysPath)
+H:\Sistem Lirio de los Valles\MENUDESP.OCX=$(WinSysPath)
+E:\Archivos de programa\Microsoft Visual Studio\VB98\Wizards\PDWizard\Redist\MDAC_TYP.EXE=$(AppPath)
+E:\Archivos de programa\Microsoft Visual Studio\VB98\Wizards\PDWizard\SETUP.EXE=$(AppPath)
+E:\Archivos de programa\Microsoft Visual Studio\VB98\Wizards\PDWizard\SETUP1.EXE=$(WinPath)
+E:\WINDOWS\system32\VB6STKIT.DLL=$(WinSysPathSysFile)
+E:\Archivos de programa\Microsoft Visual Studio\VB98\Wizards\PDWizard\ST6UNST.EXE=$(WinPath)
+
+[Package|Paquete de instalación estándar 1|Configure Shared Files]
+Applicable=Yes
+D:\lilianita\Global Bussines\GlobalBussines.exe=No
+C:\Archivos de programa\Microsoft Office\OFFICE11\EXCEL.EXE=Yes
+C:\Archivos de programa\Microsoft Visual Studio\VB98\Wizards\PDWizard\Redist\MDAC_TYP.EXE=Yes
+F:\Software Percy\Global Bussines_Final\GlobalBusiness.S.R.L.exe=No
+J:\Software Percy\Global Bussines_Final\GlobalBusiness.S.R.L.exe=No
+H:\Software Percy\Global Bussines_Final\GlobalBusiness.S.R.L.exe=No
+D:\Global Bussines_Final\Exes\GlobalBusiness.S.R.L.exe=Yes
+J:\Sistem Lirio de los Valles\Exes\Olivos.exe=No
+D:\Archivos de programa\Microsoft Office\Office12\EXCEL.EXE=No
+D:\Archivos de programa\Microsoft Visual Studio\VB98\Wizards\PDWizard\Redist\MDAC_TYP.EXE=No
+E:\Archivos de programa\Microsoft Office\Office12\EXCEL.EXE=No
+E:\Archivos de programa\Microsoft Visual Studio\VB98\Wizards\PDWizard\Redist\MDAC_TYP.EXE=No
+
+[Package|Paquete de instalación estándar 1|Distribution]
+Type=single
+Size=
+Title=Lirio de los Valles.SAC
+
+[Package|Paquete de instalación estándar 1|IconGroups]
+Group0=Global Bussines
+PrivateGroup0=Falso
+Parent0=$(Programs)
+
+[Package|Paquete de instalación estándar 1|Global Bussines]
+Icon1=GlobalBussines.exe
+Title1=Global Bussines
+StartIn1=$(AppPath)
+Key1=Icon1
+
+[Package|Paquete de instalación estándar 1|Package]
+PackageFolder=j:\Instaladores\Intalador_Olivos
+ProjectFolder=J:\Sistem Lirio de los Valles
+ServerSideCab=
+File1=j:\Instaladores\Intalador_Olivos\setup.exe
+File2=j:\Instaladores\Intalador_Olivos\Setup.Lst
+File3=j:\Instaladores\Intalador_Olivos\Olivos.CAB
+Handler1=PDWizard.FolderDplySubWiz
+Handler2=PDWizard.WebPostDplySubWiz
+
+
+[Package|Ing Percy Ricardo A|ERP Account]
+Icon1=Account.exe
+Title1=ERP Account
+StartIn1=$(AppPath)
+Key1=Icon1
+
+[Package|Ing Percy Ricardo A|Root]
+SubWizProgID=PDWizard.SetupPkgSubWiz
+BuildFolder=d:\instalalador inventario
+
+[Package|Ing Percy Ricardo A|Configure DAO ISAMs]
+Applicable=No
+
+[Package|Ing Percy Ricardo A|Configure DAO ODBC]
+JetWorkspace=
+ODBCDirect=
+
+[Package|Ing Percy Ricardo A|Files Found]
+
+[Package|Ing Percy Ricardo A|Files Released]
+CRAXDRT9.DLL=
+
+[Package|Ing Percy Ricardo A|Missing Dependency Information]
+F:\Software Percy\Sistema Grenco\MENUDESP.OCX=
+C:\Archivos de programa\Microsoft Office\OFFICE11\EXCEL.EXE=
+C:\Archivos de programa\Archivos comunes\System\ado\msado21.tlb=
+C:\WINDOWS\system32\MENUDESP.OCX=
+C:\WINDOWS\system32\msstdfmt.dll=
+F:\Software Percy\Global Bussines_Final\MENUDESP.OCX=
+C:\WINDOWS\system32\MSBIND.DLL=
+H:\Software Percy\Global Bussines_Final\MENUDESP.OCX=
+D:\Global Bussines_Final\MENUDESP.OCX=
+H:\data percy\USB PERCY 27_07_2009\Sistemas Estructurados\Global Bussines_Final\MENUDESP.OCX=
+D:\Archivos de programa\Microsoft Office\Office12\EXCEL.EXE=
+D:\Archivos de programa\Archivos comunes\System\ado\msado21.tlb=
+H:\Sistem Lirio de los Valles\MENUDESP.OCX=
+E:\Archivos de programa\Microsoft Office\Office12\EXCEL.EXE=
+E:\Archivos de programa\Archivos comunes\System\ado\msado21.tlb=
+C:\WINDOWS\system32\ieframe.dll=
+C:\WINDOWS\system32\msderun.dll=
+C:\Archivos de programa\Microsoft Office\Office12\EXCEL.EXE=
+C:\WINDOWS\system32\MShflxgd.ocx=
+C:\Archivos de programa\Microsoft Office\Office14\EXCEL.EXE=
+M:\Factusoft1.0 Inventario\mail.ocx=
+F:\Factusoft1.0 Inventario\Suprema.tlb=
+M:\Factusoft1.0 Inventario\DIjpg.dll=
+C:\WINDOWS\system32\imagehlp.dll=
+I:\Archivos de programa\Microsoft Office\Office12\EXCEL.EXE=
+I:\WINDOWS\system32\wmp.dll=
+M:\Factusoft1.0 Inventario\actskin4.ocx=
+M:\Factusoft1.0 Contable\Suprema.tlb=
+I:\WINDOWS\system32\MSSTDFMT.DLL=
+I:\WINDOWS\system32\imagehlp.dll=
+H:\Factusoft1.0 Inventario V2.0\mail.ocx=
+C:\WINDOWS\system32\wmp.dll=
+H:\Factusoft1.0 Inventario V2.0\actskin4.ocx=
+H:\Factusoft1.0 Inventario V2.0\Suprema.tlb=
+H:\Factusoft1.0 Inventario V2.0\DIjpg.dll=
+C:\WINDOWS\system32\mail.ocx=
+G:\Factusoft1.0 Inventario V2.0\mscomctl.ocx=
+G:\Factusoft1.0 Inventario\actskin4.ocx=
+C:\WINDOWS\system32\Suprema.tlb=
+G:\Factusoft1.0 Inventario V2.0\DIjpg.dll=
+C:\Archivos de programa\DsNET Corp\aTube Catcher 2.0\mscomctl.OCX=
+C:\WINDOWS\system32\actskin4.ocx=
+C:\Documents and Settings\Administrador\Mis documentos\Dropbox\recursos vitekey\Software Propietario\Factusoft1.0 Inventario V2.0\DIjpg.dll=
+
+[Package|Ing Percy Ricardo A|Out-of-Date Dependency Information]
+C:\WINDOWS\system32\comdlg32.ocx=
+C:\WINDOWS\system32\MSCOMCTL.OCX=
+C:\WINDOWS\system32\COMCT332.OCX=
+C:\WINDOWS\system32\mscomct2.ocx=
+C:\WINDOWS\system32\msstdfmt.dll=
+C:\WINDOWS\system32\MSADODC.OCX=
+C:\WINDOWS\system32\MSDATGRD.OCX=
+C:\WINDOWS\system32\TABCTL32.OCX=
+C:\WINDOWS\system32\MSDATLST.OCX=
+C:\WINDOWS\system32\MSBIND.DLL=
+D:\WINDOWS\system32\MSCOMCTL.OCX=
+D:\WINDOWS\system32\COMCT332.OCX=
+D:\WINDOWS\system32\msstdfmt.dll=
+E:\WINDOWS\system32\MSCOMCTL.OCX=
+E:\WINDOWS\system32\COMCT332.OCX=
+E:\WINDOWS\system32\MSSTDFMT.DLL=
+C:\WINDOWS\system32\msinet.ocx=
+C:\WINDOWS\system32\mschrt20.ocx=
+C:\WINDOWS\system32\msmask32.ocx=
+C:\WINDOWS\system32\msflxgrd.ocx=
+C:\WINDOWS\system32\mscomm32.ocx=
+I:\WINDOWS\system32\Comdlg32.ocx=
+I:\WINDOWS\system32\MSCOMCTL.OCX=
+I:\WINDOWS\system32\COMCT332.OCX=
+C:\WINDOWS\system32\COMCTL32.OCX=
+C:\WINDOWS\system32\mshflxgd.ocx=
+C:\WINDOWS\system32\msdbrptr.dll=
+
+[Package|Ing Percy Ricardo A|Files Added]
+
+[Package|Ing Percy Ricardo A|Files Removed]
+
+[Package|Ing Percy Ricardo A|Files In Project]
+C:\WINDOWS\system32\msvbvm60.dll=Yes
+C:\WINDOWS\system32\oleaut32.dll=Yes
+C:\WINDOWS\system32\olepro32.dll=Yes
+C:\WINDOWS\system32\asycfilt.dll=Yes
+C:\WINDOWS\system32\stdole2.tlb=Yes
+C:\Archivos de programa\Microsoft Visual Studio\VB98\Wizards\PDWizard\Redist\COMCAT.DLL=Yes
+C:\WINDOWS\system32\VB6ES.DLL=Yes
+C:\WINDOWS\system32\imagehlp.dll=Yes
+C:\Archivos de programa\Archivos comunes\DESIGNER\MSDERUN.DLL=Yes
+C:\WINDOWS\system32\MSDBRPTR.DLL=Yes
+C:\WINDOWS\system32\MSSTDFMT.DLL=Yes
+C:\WINDOWS\system32\DBRPRES.DLL=Yes
+C:\WINDOWS\system32\MSBIND.DLL=Yes
+C:\WINDOWS\system32\MSRDO20.DLL=Yes
+C:\WINDOWS\system32\RDOCURS.DLL=Yes
+C:\WINDOWS\system32\RDO20ES.DLL=Yes
+C:\WINDOWS\system32\wmp.dll=Yes
+C:\Archivos de programa\Microsoft Office\Office12\EXCEL.EXE=Yes
+C:\WINDOWS\system32\MSDATLST.OCX=Yes
+C:\WINDOWS\system32\DATLSES.DLL=Yes
+C:\WINDOWS\system32\MSCOMCT2.OCX=Yes
+C:\WINDOWS\system32\MSCC2ES.DLL=Yes
+C:\WINDOWS\system32\comct332.ocx=Yes
+C:\WINDOWS\system32\CMCT3ES.DLL=Yes
+C:\WINDOWS\system32\MSHFLXGD.OCX=Yes
+C:\WINDOWS\system32\MSHFGES.DLL=Yes
+C:\WINDOWS\system32\TABCTL32.OCX=Yes
+C:\WINDOWS\system32\TABCTES.DLL=Yes
+C:\WINDOWS\system32\Comdlg32.ocx=Yes
+C:\WINDOWS\system32\CMDLGES.DLL=Yes
+C:\WINDOWS\system32\MSDATGRD.OCX=Yes
+C:\WINDOWS\system32\DATGDES.DLL=Yes
+C:\WINDOWS\system32\MSADODC.OCX=Yes
+C:\WINDOWS\system32\ADODCES.DLL=Yes
+C:\WINDOWS\system32\MSCOMM32.OCX=Yes
+C:\WINDOWS\system32\MSCOMES.DLL=Yes
+C:\WINDOWS\system32\MSCHRT20.OCX=Yes
+C:\WINDOWS\system32\MSCH2ES.DLL=Yes
+C:\WINDOWS\system32\MSINET.OCX=Yes
+C:\WINDOWS\system32\INETES.DLL=Yes
+C:\WINDOWS\system32\MSFLXGRD.OCX=Yes
+C:\WINDOWS\system32\FLXGDES.DLL=Yes
+C:\WINDOWS\system32\MSMASK32.OCX=Yes
+C:\WINDOWS\system32\MSMSKES.DLL=Yes
+C:\WINDOWS\system32\MCI32.OCX=Yes
+C:\WINDOWS\system32\MCIES.DLL=Yes
+C:\WINDOWS\system32\COMCTL32.OCX=Yes
+C:\WINDOWS\system32\CMCTLES.DLL=Yes
+C:\WINDOWS\system32\PICCLP32.OCX=Yes
+C:\WINDOWS\system32\PCCLPES.DLL=Yes
+C:\Archivos de programa\Microsoft Visual Studio\VB98\Wizards\PDWizard\Redist\MDAC_TYP.EXE=Yes
+C:\Archivos de programa\Microsoft Visual Studio\VB98\Wizards\PDWizard\SETUP.EXE=Yes
+C:\Archivos de programa\Microsoft Visual Studio\VB98\Wizards\PDWizard\SETUP1.EXE=Yes
+C:\WINDOWS\system32\VB6STKIT.DLL=Yes
+C:\Archivos de programa\Microsoft Visual Studio\VB98\Wizards\PDWizard\ST6UNST.EXE=Yes
+C:\WINDOWS\system32\Suprema.tlb=Yes
+C:\WINDOWS\system32\mail.ocx=Yes
+D:\data compartida\korea\19-09-2015\Vitekey Online.exe=Yes
+C:\Documents and Settings\Administrador\Mis documentos\Dropbox\recursos vitekey\Software Propietario\Factusoft1.0 Inventario V2.0\DIjpg.dll=Yes
+C:\WINDOWS\system32\STDFTES.DLL=Yes
+C:\WINDOWS\system32\ieframe.dll=Yes
+C:\WINDOWS\system32\actskin4.ocx=Yes
+C:\Archivos de programa\DsNET Corp\aTube Catcher 2.0\mscomctl.OCX=Yes
+
+[Package|Ing Percy Ricardo A|Configure Registry Files]
+Applicable=No
+
+[Package|Ing Percy Ricardo A|Configure Remote Servers]
+Applicable=No
+
+[Package|Ing Percy Ricardo A|Install Locations]
+D:\lilianita\Global Bussines\GlobalBussines.exe=$(AppPath)
+C:\WINDOWS\system32\msvbvm60.dll=$(WinSysPathSysFile)
+C:\WINDOWS\system32\oleaut32.dll=$(WinSysPathSysFile)
+C:\WINDOWS\system32\olepro32.dll=$(WinSysPathSysFile)
+C:\WINDOWS\system32\asycfilt.dll=$(WinSysPathSysFile)
+C:\WINDOWS\system32\stdole2.tlb=$(WinSysPathSysFile)
+C:\Archivos de programa\Microsoft Visual Studio\VB98\Wizards\PDWizard\Redist\COMCAT.DLL=$(WinSysPathSysFile)
+C:\WINDOWS\system32\VB6ES.DLL=$(WinSysPath)
+C:\Archivos de programa\Archivos comunes\System\ado\msado21.tlb=$(WinSysPath)
+C:\Archivos de programa\Archivos comunes\designer\MSDERUN.DLL=$(CommonFiles)\designer
+C:\WINDOWS\system32\MSDBRPTR.DLL=$(WinSysPath)
+C:\WINDOWS\system32\msstdfmt.dll=$(WinSysPath)
+C:\WINDOWS\system32\STDFTES.DLL=$(WinSysPath)
+C:\WINDOWS\system32\DBRPRES.DLL=$(WinSysPath)
+C:\WINDOWS\system32\MSBIND.DLL=$(WinSysPath)
+C:\Archivos de programa\Microsoft Office\OFFICE11\EXCEL.EXE=$(AppPath)
+C:\WINDOWS\system32\MSDATLST.OCX=$(WinSysPath)
+C:\WINDOWS\system32\DATLSES.DLL=$(WinSysPath)
+C:\WINDOWS\system32\mscomct2.ocx=$(WinSysPath)
+C:\WINDOWS\system32\MSCC2ES.DLL=$(WinSysPath)
+C:\WINDOWS\system32\COMCT332.OCX=$(WinSysPath)
+C:\WINDOWS\system32\CMCT3ES.DLL=$(WinSysPath)
+C:\WINDOWS\system32\MSHFLXGD.OCX=$(WinSysPath)
+C:\WINDOWS\system32\MSHFGES.DLL=$(WinSysPath)
+C:\WINDOWS\system32\MSCOMCTL.OCX=$(WinSysPath)
+C:\WINDOWS\system32\MSCMCES.DLL=$(WinSysPath)
+C:\WINDOWS\system32\TABCTL32.OCX=$(WinSysPath)
+C:\WINDOWS\system32\TABCTES.DLL=$(WinSysPath)
+C:\WINDOWS\system32\comdlg32.ocx=$(WinSysPath)
+C:\WINDOWS\system32\CMDLGES.DLL=$(WinSysPath)
+C:\WINDOWS\system32\MSDATGRD.OCX=$(WinSysPath)
+C:\WINDOWS\system32\DATGDES.DLL=$(WinSysPath)
+C:\WINDOWS\system32\MSADODC.OCX=$(WinSysPath)
+C:\WINDOWS\system32\ADODCES.DLL=$(WinSysPath)
+F:\Software Percy\Sistema Grenco\MENUDESP.OCX=$(WinSysPath)
+C:\Archivos de programa\Microsoft Visual Studio\VB98\Wizards\PDWizard\Redist\MDAC_TYP.EXE=$(AppPath)
+C:\Archivos de programa\Microsoft Visual Studio\VB98\Wizards\PDWizard\SETUP.EXE=$(AppPath)
+C:\Archivos de programa\Microsoft Visual Studio\VB98\Wizards\PDWizard\SETUP1.EXE=$(WinPath)
+C:\WINDOWS\system32\VB6STKIT.DLL=$(WinSysPathSysFile)
+C:\Archivos de programa\Microsoft Visual Studio\VB98\Wizards\PDWizard\ST6UNST.EXE=$(WinPath)
+F:\Software Percy\Global Bussines_Final\GlobalBusiness.S.R.L.exe=$(AppPath)
+C:\WINDOWS\system32\MENUDESP.OCX=$(WinSysPath)
+F:\Software Percy\Global Bussines_Final\MENUDESP.OCX=$(WinSysPath)
+J:\Software Percy\Global Bussines_Final\GlobalBusiness.S.R.L.exe=$(AppPath)
+H:\Software Percy\Global Bussines_Final\GlobalBusiness.S.R.L.exe=$(AppPath)
+H:\Software Percy\Global Bussines_Final\MENUDESP.OCX=$(WinSysPath)
+D:\Global Bussines_Final\Exes\GlobalBusiness.S.R.L.exe=$(AppPath)
+D:\Global Bussines_Final\MENUDESP.OCX=$(WinSysPath)
+J:\Sistem Lirio de los Valles\Exes\Olivos.exe=$(AppPath)
+D:\WINDOWS\system32\msvbvm60.dll=$(WinSysPathSysFile)
+D:\WINDOWS\system32\oleaut32.dll=$(WinSysPathSysFile)
+D:\WINDOWS\system32\olepro32.dll=$(WinSysPathSysFile)
+D:\WINDOWS\system32\asycfilt.dll=$(WinSysPathSysFile)
+D:\WINDOWS\system32\stdole2.tlb=$(WinSysPathSysFile)
+D:\Archivos de programa\Microsoft Visual Studio\VB98\Wizards\PDWizard\Redist\COMCAT.DLL=$(WinSysPathSysFile)
+D:\WINDOWS\system32\VB6ES.DLL=$(WinSysPath)
+D:\Archivos de programa\Archivos comunes\System\ado\msado21.tlb=$(WinSysPath)
+D:\Archivos de programa\Archivos comunes\Designer\MSDERUN.DLL=$(CommonFiles)\designer
+D:\WINDOWS\system32\MSDBRPTR.DLL=$(WinSysPath)
+D:\WINDOWS\system32\msstdfmt.dll=$(WinSysPath)
+D:\WINDOWS\system32\STDFTES.DLL=$(WinSysPath)
+D:\WINDOWS\system32\DBRPRES.DLL=$(WinSysPath)
+D:\WINDOWS\system32\MSBIND.DLL=$(WinSysPath)
+D:\Archivos de programa\Microsoft Office\Office12\EXCEL.EXE=$(AppPath)
+D:\WINDOWS\system32\MSDATLST.OCX=$(WinSysPath)
+D:\WINDOWS\system32\DATLSES.DLL=$(WinSysPath)
+D:\WINDOWS\system32\MSCOMCT2.OCX=$(WinSysPath)
+D:\WINDOWS\system32\MSCC2ES.DLL=$(WinSysPath)
+D:\WINDOWS\system32\COMCT332.OCX=$(WinSysPath)
+D:\WINDOWS\system32\CMCT3ES.DLL=$(WinSysPath)
+D:\WINDOWS\system32\MSHFLXGD.OCX=$(WinSysPath)
+D:\WINDOWS\system32\MSHFGES.DLL=$(WinSysPath)
+D:\WINDOWS\system32\MSCOMCTL.OCX=$(WinSysPath)
+D:\WINDOWS\system32\MSCMCES.DLL=$(WinSysPath)
+D:\WINDOWS\system32\TABCTL32.OCX=$(WinSysPath)
+D:\WINDOWS\system32\TABCTES.DLL=$(WinSysPath)
+D:\WINDOWS\system32\Comdlg32.ocx=$(WinSysPath)
+D:\WINDOWS\system32\CMDLGES.DLL=$(WinSysPath)
+D:\WINDOWS\system32\MSDATGRD.OCX=$(WinSysPath)
+D:\WINDOWS\system32\DATGDES.DLL=$(WinSysPath)
+D:\WINDOWS\system32\MSADODC.OCX=$(WinSysPath)
+D:\WINDOWS\system32\ADODCES.DLL=$(WinSysPath)
+H:\data percy\USB PERCY 27_07_2009\Sistemas Estructurados\Global Bussines_Final\MENUDESP.OCX=$(WinSysPath)
+D:\Archivos de programa\Microsoft Visual Studio\VB98\Wizards\PDWizard\Redist\MDAC_TYP.EXE=$(AppPath)
+D:\Archivos de programa\Microsoft Visual Studio\VB98\Wizards\PDWizard\SETUP.EXE=$(AppPath)
+D:\Archivos de programa\Microsoft Visual Studio\VB98\Wizards\PDWizard\SETUP1.EXE=$(WinPath)
+D:\WINDOWS\system32\VB6STKIT.DLL=$(WinSysPathSysFile)
+D:\Archivos de programa\Microsoft Visual Studio\VB98\Wizards\PDWizard\ST6UNST.EXE=$(WinPath)
+E:\WINDOWS\system32\msvbvm60.dll=$(WinSysPathSysFile)
+E:\WINDOWS\system32\oleaut32.dll=$(WinSysPathSysFile)
+E:\WINDOWS\system32\olepro32.dll=$(WinSysPathSysFile)
+E:\WINDOWS\system32\asycfilt.dll=$(WinSysPathSysFile)
+E:\WINDOWS\system32\stdole2.tlb=$(WinSysPathSysFile)
+E:\Archivos de programa\Microsoft Visual Studio\VB98\Wizards\PDWizard\Redist\COMCAT.DLL=$(WinSysPathSysFile)
+E:\WINDOWS\system32\VB6ES.DLL=$(WinSysPath)
+E:\Archivos de programa\Archivos comunes\System\ado\msado21.tlb=$(WinSysPath)
+E:\Archivos de programa\Archivos comunes\designer\MSDERUN.DLL=$(CommonFiles)\designer
+E:\WINDOWS\system32\MSDBRPTR.DLL=$(WinSysPath)
+E:\WINDOWS\system32\MSSTDFMT.DLL=$(WinSysPath)
+E:\WINDOWS\system32\STDFTES.DLL=$(WinSysPath)
+E:\WINDOWS\system32\DBRPRES.DLL=$(WinSysPath)
+E:\WINDOWS\system32\MSBIND.DLL=$(WinSysPath)
+E:\Archivos de programa\Microsoft Office\Office12\EXCEL.EXE=$(AppPath)
+E:\WINDOWS\system32\MSDATLST.OCX=$(WinSysPath)
+E:\WINDOWS\system32\DATLSES.DLL=$(WinSysPath)
+E:\WINDOWS\system32\MSCOMCT2.OCX=$(WinSysPath)
+E:\WINDOWS\system32\MSCC2ES.DLL=$(WinSysPath)
+E:\WINDOWS\system32\COMCT332.OCX=$(WinSysPath)
+E:\WINDOWS\system32\CMCT3ES.DLL=$(WinSysPath)
+E:\WINDOWS\system32\MSHFLXGD.OCX=$(WinSysPath)
+E:\WINDOWS\system32\MSHFGES.DLL=$(WinSysPath)
+E:\WINDOWS\system32\MSCOMCTL.OCX=$(WinSysPath)
+E:\WINDOWS\system32\MSCMCES.DLL=$(WinSysPath)
+E:\WINDOWS\system32\TABCTL32.OCX=$(WinSysPath)
+E:\WINDOWS\system32\TABCTES.DLL=$(WinSysPath)
+E:\WINDOWS\system32\COMDLG32.OCX=$(WinSysPath)
+E:\WINDOWS\system32\CMDLGES.DLL=$(WinSysPath)
+E:\WINDOWS\system32\MSDATGRD.OCX=$(WinSysPath)
+E:\WINDOWS\system32\DATGDES.DLL=$(WinSysPath)
+E:\WINDOWS\system32\MSADODC.OCX=$(WinSysPath)
+E:\WINDOWS\system32\ADODCES.DLL=$(WinSysPath)
+H:\Sistem Lirio de los Valles\MENUDESP.OCX=$(WinSysPath)
+E:\Archivos de programa\Microsoft Visual Studio\VB98\Wizards\PDWizard\Redist\MDAC_TYP.EXE=$(AppPath)
+E:\Archivos de programa\Microsoft Visual Studio\VB98\Wizards\PDWizard\SETUP.EXE=$(AppPath)
+E:\Archivos de programa\Microsoft Visual Studio\VB98\Wizards\PDWizard\SETUP1.EXE=$(WinPath)
+E:\WINDOWS\system32\VB6STKIT.DLL=$(WinSysPathSysFile)
+E:\Archivos de programa\Microsoft Visual Studio\VB98\Wizards\PDWizard\ST6UNST.EXE=$(WinPath)
+D:\ERP accessoft\Account.exe=$(AppPath)
+C:\Archivos de programa\Microsoft Visual Studio\VB98\Wizards\PDWizard\Redist\OLEAUT32.DLL=$(WinSysPathSysFile)
+C:\Archivos de programa\Microsoft Visual Studio\VB98\Wizards\PDWizard\Redist\OLEPRO32.DLL=$(WinSysPathSysFile)
+C:\Archivos de programa\Microsoft Visual Studio\VB98\Wizards\PDWizard\Redist\ASYCFILT.DLL=$(WinSysPathSysFile)
+C:\Archivos de programa\Microsoft Visual Studio\VB98\Wizards\PDWizard\Redist\STDOLE2.TLB=$(WinSysPathSysFile)
+C:\WINDOWS\system32\msderun.dll=$(WinSysPath)
+C:\Archivos de programa\Archivos comunes\Crystal Decisions\2.0\crystalreportviewers\ActiveXViewer\crviewer9.dll=$(CommonFiles)\Crystal Decisions\2.0\bin
+C:\WINDOWS\system32\MSCOMM32.OCX=$(WinSysPath)
+C:\WINDOWS\system32\MSCOMES.DLL=$(WinSysPath)
+C:\WINDOWS\system32\mschrt20.ocx=$(WinSysPath)
+C:\WINDOWS\system32\MSCH2ES.DLL=$(WinSysPath)
+C:\WINDOWS\system32\ieframe.dll=$(WinSysPath)
+C:\WINDOWS\system32\msinet.ocx=$(WinSysPath)
+C:\WINDOWS\system32\INETES.DLL=$(WinSysPath)
+D:\ERP accessoft\ERP_Account.exe=$(AppPath)
+E:\ERP accessoft\Account.exe=$(AppPath)
+C:\Archivos de programa\Microsoft Office\Office12\EXCEL.EXE=$(AppPath)
+C:\WINDOWS\system32\MSFLXGRD.OCX=$(WinSysPath)
+C:\WINDOWS\system32\FLXGDES.DLL=$(WinSysPath)
+C:\WINDOWS\system32\MSMASK32.OCX=$(WinSysPath)
+C:\WINDOWS\system32\MSMSKES.DLL=$(WinSysPath)
+N:\Software Propietario\Factusoft1.0\Factusoft.exe=$(AppPath)
+D:\Factusoft1.0\Factusoft.exe=$(AppPath)
+C:\Archivos de programa\Microsoft Office\Office14\EXCEL.EXE=$(AppPath)
+C:\WINDOWS\system32\Msrdo20.dll=$(WinSysPath)
+C:\WINDOWS\system32\rdocurs.dll=$(WinSysPath)
+C:\WINDOWS\system32\RDO20ES.DLL=$(WinSysPath)
+M:\Factusoft1.0 Inventario\Factusoft.exe=$(AppPath)
+C:\WINDOWS\system32\imagehlp.dll=$(WinSysPath)
+M:\Factusoft1.0 Inventario\DIjpg.dll=$(WinSysPath)
+F:\Factusoft1.0 Inventario\Suprema.tlb=$(WinSysPath)
+M:\Factusoft1.0 Inventario\mail.ocx=$(WinSysPath)
+M:\Factusoft1.0 Inventario\Vitekey Inventario.exe=$(AppPath)
+I:\WINDOWS\system32\msvbvm60.dll=$(WinSysPathSysFile)
+I:\WINDOWS\system32\oleaut32.dll=$(WinSysPathSysFile)
+I:\WINDOWS\system32\olepro32.dll=$(WinSysPathSysFile)
+I:\WINDOWS\system32\asycfilt.dll=$(WinSysPathSysFile)
+I:\WINDOWS\system32\stdole2.tlb=$(WinSysPathSysFile)
+I:\Archivos de programa\Microsoft Visual Studio\VB98\Wizards\PDWizard\Redist\COMCAT.DLL=$(WinSysPathSysFile)
+I:\WINDOWS\system32\VB6ES.DLL=$(WinSysPath)
+I:\WINDOWS\system32\imagehlp.dll=$(WinSysPath)
+I:\Archivos de programa\Archivos comunes\DESIGNER\MSDERUN.DLL=$(CommonFiles)\designer
+I:\WINDOWS\system32\MSDBRPTR.DLL=$(WinSysPath)
+I:\WINDOWS\system32\MSSTDFMT.DLL=$(WinSysPath)
+I:\WINDOWS\system32\DBRPRES.DLL=$(WinSysPath)
+I:\WINDOWS\system32\MSBIND.DLL=$(WinSysPath)
+I:\WINDOWS\system32\MSRDO20.DLL=$(WinSysPath)
+I:\WINDOWS\system32\RDOCURS.DLL=$(WinSysPath)
+I:\WINDOWS\system32\RDO20ES.DLL=$(WinSysPath)
+M:\Factusoft1.0 Contable\Suprema.tlb=$(WinSysPath)
+M:\Factusoft1.0 Inventario\actskin4.ocx=$(WinSysPath)
+I:\WINDOWS\system32\wmp.dll=$(WinSysPath)
+I:\Archivos de programa\Microsoft Office\Office12\EXCEL.EXE=$(AppPath)
+I:\WINDOWS\system32\MSDATLST.OCX=$(WinSysPath)
+I:\WINDOWS\system32\DATLSES.DLL=$(WinSysPath)
+I:\WINDOWS\system32\MSCOMCT2.OCX=$(WinSysPath)
+I:\WINDOWS\system32\MSCC2ES.DLL=$(WinSysPath)
+I:\WINDOWS\system32\COMCT332.OCX=$(WinSysPath)
+I:\WINDOWS\system32\CMCT3ES.DLL=$(WinSysPath)
+I:\WINDOWS\system32\MSHFLXGD.OCX=$(WinSysPath)
+I:\WINDOWS\system32\MSHFGES.DLL=$(WinSysPath)
+I:\WINDOWS\system32\MSCOMCTL.OCX=$(WinSysPath)
+I:\WINDOWS\system32\MSCMCES.DLL=$(WinSysPath)
+I:\WINDOWS\system32\TABCTL32.OCX=$(WinSysPath)
+I:\WINDOWS\system32\TABCTES.DLL=$(WinSysPath)
+I:\WINDOWS\system32\Comdlg32.ocx=$(WinSysPath)
+I:\WINDOWS\system32\CMDLGES.DLL=$(WinSysPath)
+I:\WINDOWS\system32\MSDATGRD.OCX=$(WinSysPath)
+I:\WINDOWS\system32\DATGDES.DLL=$(WinSysPath)
+I:\WINDOWS\system32\MSADODC.OCX=$(WinSysPath)
+I:\WINDOWS\system32\ADODCES.DLL=$(WinSysPath)
+I:\WINDOWS\system32\MSCOMM32.OCX=$(WinSysPath)
+I:\WINDOWS\system32\MSCOMES.DLL=$(WinSysPath)
+I:\WINDOWS\system32\MSCHRT20.OCX=$(WinSysPath)
+I:\WINDOWS\system32\MSCH2ES.DLL=$(WinSysPath)
+I:\WINDOWS\system32\MSINET.OCX=$(WinSysPath)
+I:\WINDOWS\system32\INETES.DLL=$(WinSysPath)
+I:\WINDOWS\system32\MSFLXGRD.OCX=$(WinSysPath)
+I:\WINDOWS\system32\FLXGDES.DLL=$(WinSysPath)
+I:\WINDOWS\system32\MSMASK32.OCX=$(WinSysPath)
+I:\WINDOWS\system32\MSMSKES.DLL=$(WinSysPath)
+I:\WINDOWS\system32\MCI32.OCX=$(WinSysPath)
+I:\WINDOWS\system32\MCIES.DLL=$(WinSysPath)
+I:\WINDOWS\system32\COMCTL32.OCX=$(WinSysPath)
+I:\WINDOWS\system32\CMCTLES.DLL=$(WinSysPath)
+I:\Archivos de programa\Microsoft Visual Studio\VB98\Wizards\PDWizard\Redist\MDAC_TYP.EXE=$(AppPath)
+I:\Archivos de programa\Microsoft Visual Studio\VB98\Wizards\PDWizard\SETUP.EXE=$(AppPath)
+I:\Archivos de programa\Microsoft Visual Studio\VB98\Wizards\PDWizard\SETUP1.EXE=$(WinPath)
+I:\WINDOWS\system32\Vb6stkit.dll=$(WinSysPathSysFile)
+I:\Archivos de programa\Microsoft Visual Studio\VB98\Wizards\PDWizard\ST6UNST.EXE=$(WinPath)
+C:\Documents and Settings\dbalarezor\Escritorio\DEMO\Vitekey Inventario.exe=$(AppPath)
+H:\Factusoft1.0 Inventario V2.0\DIjpg.dll=$(WinSysPath)
+H:\Factusoft1.0 Inventario V2.0\Suprema.tlb=$(WinSysPath)
+H:\Factusoft1.0 Inventario V2.0\actskin4.ocx=$(WinSysPath)
+C:\WINDOWS\system32\wmp.dll=$(WinSysPath)
+H:\Factusoft1.0 Inventario V2.0\mail.ocx=$(WinSysPath)
+C:\WINDOWS\system32\MCI32.OCX=$(WinSysPath)
+C:\WINDOWS\system32\MCIES.DLL=$(WinSysPath)
+C:\WINDOWS\system32\COMCTL32.OCX=$(WinSysPath)
+C:\WINDOWS\system32\CMCTLES.DLL=$(WinSysPath)
+C:\WINDOWS\system32\PICCLP32.OCX=$(WinSysPath)
+C:\WINDOWS\system32\PCCLPES.DLL=$(WinSysPath)
+D:\Software Propietario\Vitekey Online=$(AppPath)
+G:\Factusoft1.0 Inventario V2.0\DIjpg.dll=$(WinSysPath)
+C:\WINDOWS\system32\Suprema.tlb=$(WinSysPath)
+G:\Factusoft1.0 Inventario\actskin4.ocx=$(WinSysPath)
+G:\Factusoft1.0 Inventario V2.0\mscomctl.ocx=$(WinSysPath)
+C:\WINDOWS\system32\mail.ocx=$(WinSysPath)
+D:\data compartida\korea\19-09-2015\Vitekey Online.exe=$(AppPath)
+C:\Documents and Settings\Administrador\Mis documentos\Dropbox\recursos vitekey\Software Propietario\Factusoft1.0 Inventario V2.0\DIjpg.dll=$(WinSysPath)
+C:\WINDOWS\system32\actskin4.ocx=$(WinSysPath)
+C:\Archivos de programa\DsNET Corp\aTube Catcher 2.0\mscomctl.OCX=$(WinSysPath)
+
+[Package|Ing Percy Ricardo A|Configure Shared Files]
+Applicable=Yes
+D:\lilianita\Global Bussines\GlobalBussines.exe=No
+C:\Archivos de programa\Microsoft Office\OFFICE11\EXCEL.EXE=Yes
+C:\Archivos de programa\Microsoft Visual Studio\VB98\Wizards\PDWizard\Redist\MDAC_TYP.EXE=Yes
+F:\Software Percy\Global Bussines_Final\GlobalBusiness.S.R.L.exe=No
+J:\Software Percy\Global Bussines_Final\GlobalBusiness.S.R.L.exe=No
+H:\Software Percy\Global Bussines_Final\GlobalBusiness.S.R.L.exe=No
+D:\Global Bussines_Final\Exes\GlobalBusiness.S.R.L.exe=Yes
+J:\Sistem Lirio de los Valles\Exes\Olivos.exe=No
+D:\Archivos de programa\Microsoft Office\Office12\EXCEL.EXE=No
+D:\Archivos de programa\Microsoft Visual Studio\VB98\Wizards\PDWizard\Redist\MDAC_TYP.EXE=No
+E:\Archivos de programa\Microsoft Office\Office12\EXCEL.EXE=No
+E:\Archivos de programa\Microsoft Visual Studio\VB98\Wizards\PDWizard\Redist\MDAC_TYP.EXE=No
+D:\ERP accessoft\Account.exe=Yes
+D:\ERP accessoft\ERP_Account.exe=No
+E:\ERP accessoft\Account.exe=No
+C:\Archivos de programa\Microsoft Office\Office12\EXCEL.EXE=Yes
+N:\Software Propietario\Factusoft1.0\Factusoft.exe=No
+D:\Factusoft1.0\Factusoft.exe=No
+C:\Archivos de programa\Microsoft Office\Office14\EXCEL.EXE=No
+M:\Factusoft1.0 Inventario\Factusoft.exe=No
+M:\Factusoft1.0 Inventario\Vitekey Inventario.exe=No
+I:\Archivos de programa\Microsoft Office\Office12\EXCEL.EXE=No
+I:\Archivos de programa\Microsoft Visual Studio\VB98\Wizards\PDWizard\Redist\MDAC_TYP.EXE=No
+C:\Documents and Settings\dbalarezor\Escritorio\DEMO\Vitekey Inventario.exe=No
+D:\Software Propietario\Vitekey Online=Yes
+D:\data compartida\korea\19-09-2015\Vitekey Online.exe=No
+
+[Package|Ing Percy Ricardo A|Distribution]
+Type=single
+Size=
+Title=Vitekey Online
+
+[Package|Ing Percy Ricardo A|IconGroups]
+Group0=$(Programs)
+PrivateGroup0=Verdadero
+Parent0=
+
+[Package|Ing Percy Ricardo A|$(Programs)]
+Icon1=Factusoft.exe
+Title1=Factusoft
+StartIn1=$(AppPath)
+Key1=Icon2
+
+[Package|Ing Percy Ricardo A|Package]
+PackageFolder=d:\instalalador inventario
+ProjectFolder=C:\Documents and Settings\Administrador\Mis documentos\Dropbox\recursos vitekey\Software Propietario\Factusoft1.0 Inventario V2.0
+ServerSideCab=
+File1=d:\instalalador inventario\setup.exe
+File2=d:\instalalador inventario\Setup.Lst
+File3=d:\instalalador inventario\Vitekey Online.CAB
+Handler1=PDWizard.FolderDplySubWiz
+Handler2=PDWizard.WebPostDplySubWiz

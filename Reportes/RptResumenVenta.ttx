@@ -1,0 +1,4 @@
+cuenta	String	10
+descripcion	String	100
+debe	Number
+haber	Number

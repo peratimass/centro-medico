@@ -1,0 +1,8 @@
+ruc	String	11
+razonsocial	String	120
+fecha	Date	
+comprobante	String	30
+exonerado	Number
+valorventa	Number
+igv	Number
+total	Number

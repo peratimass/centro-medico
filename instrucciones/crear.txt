@@ -1,0 +1,13 @@
+Modificar la relacion Estado Documentoventa
+
+Crear Tabla DetallePagoCreditos		(
+					IdDetalleCredito
+					alm_cod
+					doc_cod
+					Serie
+					Numero
+					cpersona
+					FechaPago
+					Monto
+
+						)

@@ -1,0 +1,14 @@
+serie	String	3
+numero	String	6
+fecha	Date
+dni	String	11
+paciente	String	150
+cpt	String	6
+producto	String	120
+cantidad	Number	
+precio	Number
+Total	Number
+autorizado	String	150
+vendedor	String	100
+porcentaje	Number
+

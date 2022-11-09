@@ -1,0 +1,14 @@
+trabajador			String	130
+empresa			String	130
+proceso			String	20
+fecha_salida		Datetime
+hora_salida			Datetime 
+ruc_service			String	11
+dni_trabajador		String	11
+nombre_prod			String	600
+id_producto			String	6
+serie				String	20
+nro_motor			String	20
+nro_chasis			String	20
+id_compra			String	20
+precio			Number

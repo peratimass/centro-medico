@@ -1,0 +1,9 @@
+id_producto	String	5
+producto	String	120
+linea	String	40
+modelo	String	40
+color	String	30
+unidad	String	25
+stock	Number
+costo	Number
+venta	Number

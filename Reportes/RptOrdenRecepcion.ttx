@@ -1,0 +1,24 @@
+in_orden	Number
+in_comprobante	String	10
+in_afecto_igv	String	2
+fecha_registro	Date
+fecha_pedido	Date
+fecha_pago	Date
+id_proveedor	String	11
+nproveedor	String	60
+ndireccion	String	60
+lugar_entrega	String	60
+id_producto	String	5
+nproducto	String	80
+unidad	String	20
+cantidad_orden	Number
+cantidad	Number
+unitario	Number
+in_descuento	Number
+in_total	Number
+ncreador	String	60
+orden_compra	String	20
+guia_remision	String	20
+factura	String	20
+almacen	String	60
+estado	String	60

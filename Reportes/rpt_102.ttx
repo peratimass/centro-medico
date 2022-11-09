@@ -1,0 +1,21 @@
+codigo	String	5
+id_linea	String	5
+id_modelo	String	5
+linea	String	40
+modelo	String	40
+serie	String	20
+chasis	String	20
+motor	String	20
+vendedor	String	60
+id_forma_pago	String	5
+id_cliente	String	16
+ncliente	String	50
+documento	String	20
+fecha	Date
+id_moneda	String	5
+almacen	String	40
+tc	Number
+total	Number
+saldo	Number
+
+

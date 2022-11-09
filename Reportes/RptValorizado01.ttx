@@ -1,0 +1,8 @@
+CodProd	String	4
+barras	String	18
+Articulo	String	70
+unidad	String	4
+clinea	String	5
+linea	String	30
+stock	Number
+costo	Number

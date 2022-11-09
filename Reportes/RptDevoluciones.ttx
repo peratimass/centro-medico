@@ -1,0 +1,6 @@
+emision	Date
+comprobante	String	30
+dni	String	11
+paciente	String	100
+monto	Number
+digitador	String	100

@@ -1,0 +1,16 @@
+id_egreso	Number
+fecha	Date
+tipomovimiento	String	50
+flujo	String	60
+forma_pago	String	60
+operacion	String	40
+sucursal	String	40
+operador	String	50
+glosa	String	500
+ruc	String	11
+tc	Number
+dni	String	11
+npersona	String	60
+monto	Number
+letras	String	120
+

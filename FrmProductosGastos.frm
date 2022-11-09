@@ -1,0 +1,390 @@
+VERSION 5.00
+Object = "{38911DA0-E448-11D0-84A3-00DD01104159}#1.1#0"; "COMCT332.OCX"
+Object = "{0ECD9B60-23AA-11D0-B351-00A0C9055D8E}#6.0#0"; "mshflxgd.ocx"
+Object = "{831FDD16-0C5C-11D2-A9FC-0000F8754DA1}#2.1#0"; "mscomctl.OCX"
+Begin VB.Form FrmProductosGastos 
+   BorderStyle     =   0  'None
+   Caption         =   "Form1"
+   ClientHeight    =   6495
+   ClientLeft      =   0
+   ClientTop       =   0
+   ClientWidth     =   7335
+   KeyPreview      =   -1  'True
+   LinkTopic       =   "Form1"
+   MaxButton       =   0   'False
+   MDIChild        =   -1  'True
+   MinButton       =   0   'False
+   ScaleHeight     =   6495
+   ScaleWidth      =   7335
+   ShowInTaskbar   =   0   'False
+   Begin VB.TextBox TxtLinea 
+      Appearance      =   0  'Flat
+      BeginProperty Font 
+         Name            =   "Arial"
+         Size            =   9.75
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      ForeColor       =   &H00800000&
+      Height          =   375
+      Left            =   1680
+      TabIndex        =   0
+      Top             =   5760
+      Width           =   3855
+   End
+   Begin MSComctlLib.ImageList ImgIconos 
+      Left            =   3360
+      Top             =   2880
+      _ExtentX        =   1005
+      _ExtentY        =   1005
+      BackColor       =   -2147483643
+      ImageWidth      =   32
+      ImageHeight     =   32
+      MaskColor       =   12632256
+      _Version        =   393216
+      BeginProperty Images {2C247F25-8591-11D1-B16A-00C0F0283628} 
+         NumListImages   =   9
+         BeginProperty ListImage1 {2C247F27-8591-11D1-B16A-00C0F0283628} 
+            Picture         =   "FrmProductosGastos.frx":0000
+            Key             =   "(Nuevo)"
+         EndProperty
+         BeginProperty ListImage2 {2C247F27-8591-11D1-B16A-00C0F0283628} 
+            Picture         =   "FrmProductosGastos.frx":0454
+            Key             =   "(Modificar)"
+         EndProperty
+         BeginProperty ListImage3 {2C247F27-8591-11D1-B16A-00C0F0283628} 
+            Picture         =   "FrmProductosGastos.frx":0774
+            Key             =   "(Eliminar)"
+         EndProperty
+         BeginProperty ListImage4 {2C247F27-8591-11D1-B16A-00C0F0283628} 
+            Picture         =   "FrmProductosGastos.frx":0BC8
+            Key             =   "(Salir)"
+         EndProperty
+         BeginProperty ListImage5 {2C247F27-8591-11D1-B16A-00C0F0283628} 
+            Picture         =   "FrmProductosGastos.frx":101C
+            Key             =   "(Aceptar)"
+         EndProperty
+         BeginProperty ListImage6 {2C247F27-8591-11D1-B16A-00C0F0283628} 
+            Picture         =   "FrmProductosGastos.frx":133C
+            Key             =   "(Cancelar)"
+         EndProperty
+         BeginProperty ListImage7 {2C247F27-8591-11D1-B16A-00C0F0283628} 
+            Picture         =   "FrmProductosGastos.frx":165C
+            Key             =   "(Quitar)"
+         EndProperty
+         BeginProperty ListImage8 {2C247F27-8591-11D1-B16A-00C0F0283628} 
+            Picture         =   "FrmProductosGastos.frx":197C
+            Key             =   "(Agregar)"
+         EndProperty
+         BeginProperty ListImage9 {2C247F27-8591-11D1-B16A-00C0F0283628} 
+            Picture         =   "FrmProductosGastos.frx":1C9C
+            Key             =   "(Buscar)"
+         EndProperty
+      EndProperty
+   End
+   Begin MSHierarchicalFlexGridLib.MSHFlexGrid HfgLinea 
+      Height          =   5055
+      Left            =   240
+      TabIndex        =   1
+      Top             =   480
+      Width           =   5895
+      _ExtentX        =   10398
+      _ExtentY        =   8916
+      _Version        =   393216
+      ForeColor       =   8388608
+      FixedCols       =   0
+      ForeColorFixed  =   8388608
+      SelectionMode   =   1
+      Appearance      =   0
+      _NumberOfBands  =   1
+      _Band(0).Cols   =   2
+   End
+   Begin ComCtl3.CoolBar ClbAcciones 
+      Height          =   3945
+      Left            =   6285
+      TabIndex        =   2
+      Top             =   450
+      Width           =   900
+      _ExtentX        =   1588
+      _ExtentY        =   6959
+      BandCount       =   1
+      ForeColor       =   8388608
+      ImageList       =   "ImgIconos"
+      FixedOrder      =   -1  'True
+      VariantHeight   =   0   'False
+      Orientation     =   1
+      EmbossPicture   =   -1  'True
+      _CBWidth        =   900
+      _CBHeight       =   3945
+      _Version        =   "6.0.8169"
+      Caption1        =   "Acciones"
+      Child1          =   "TlbAcciones"
+      MinHeight1      =   840
+      Width1          =   3180
+      FixedBackground1=   0   'False
+      NewRow1         =   0   'False
+      Begin MSComctlLib.Toolbar TlbAcciones 
+         Height          =   780
+         Left            =   30
+         TabIndex        =   3
+         Top             =   345
+         Width           =   840
+         _ExtentX        =   1482
+         _ExtentY        =   1376
+         ButtonWidth     =   1535
+         ButtonHeight    =   1376
+         Style           =   1
+         ImageList       =   "ImgIconos"
+         DisabledImageList=   "ImgIconos"
+         HotImageList    =   "ImgIconos"
+         _Version        =   393216
+         BeginProperty Buttons {66833FE8-8583-11D1-B16A-00C0F0283628} 
+            NumButtons      =   7
+            BeginProperty Button1 {66833FEA-8583-11D1-B16A-00C0F0283628} 
+               Caption         =   "   Nuevo   "
+               Key             =   "(Nuevo)"
+               Object.ToolTipText     =   "Nuevo"
+               ImageKey        =   "(Nuevo)"
+            EndProperty
+            BeginProperty Button2 {66833FEA-8583-11D1-B16A-00C0F0283628} 
+               Style           =   3
+            EndProperty
+            BeginProperty Button3 {66833FEA-8583-11D1-B16A-00C0F0283628} 
+               Caption         =   "Modificar"
+               Key             =   "(Modificar)"
+               Object.ToolTipText     =   "Modificar"
+               ImageKey        =   "(Modificar)"
+            EndProperty
+            BeginProperty Button4 {66833FEA-8583-11D1-B16A-00C0F0283628} 
+               Style           =   3
+            EndProperty
+            BeginProperty Button5 {66833FEA-8583-11D1-B16A-00C0F0283628} 
+               Caption         =   "Eliminar"
+               Key             =   "(Eliminar)"
+               Object.ToolTipText     =   "Eliminar"
+               ImageKey        =   "(Eliminar)"
+            EndProperty
+            BeginProperty Button6 {66833FEA-8583-11D1-B16A-00C0F0283628} 
+               Style           =   3
+            EndProperty
+            BeginProperty Button7 {66833FEA-8583-11D1-B16A-00C0F0283628} 
+               Caption         =   "&Salir"
+               Key             =   "(Salir)"
+               ImageKey        =   "(Salir)"
+            EndProperty
+         EndProperty
+         OLEDropMode     =   1
+      End
+   End
+   Begin VB.Label LblFecha 
+      Alignment       =   2  'Center
+      AutoSize        =   -1  'True
+      BackStyle       =   0  'Transparent
+      Caption         =   "Descripcion:"
+      BeginProperty Font 
+         Name            =   "Arial"
+         Size            =   9.75
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      ForeColor       =   &H00800000&
+      Height          =   240
+      Left            =   330
+      TabIndex        =   5
+      Top             =   5760
+      Width           =   1095
+   End
+   Begin VB.Label LblEmpresa 
+      Alignment       =   2  'Center
+      AutoSize        =   -1  'True
+      BackStyle       =   0  'Transparent
+      Caption         =   "Listado de Gastos"
+      BeginProperty Font 
+         Name            =   "Tahoma"
+         Size            =   11.25
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      ForeColor       =   &H00800000&
+      Height          =   270
+      Left            =   210
+      TabIndex        =   4
+      Top             =   120
+      Width           =   1755
+   End
+   Begin VB.Shape Shape1 
+      Height          =   6495
+      Left            =   0
+      Top             =   0
+      Width           =   7335
+   End
+   Begin VB.Shape ShpDatos 
+      BackColor       =   &H00DFDFE0&
+      FillColor       =   &H00DFDFE0&
+      FillStyle       =   0  'Solid
+      Height          =   675
+      Left            =   240
+      Top             =   5640
+      Width           =   5895
+   End
+End
+Attribute VB_Name = "FrmProductosGastos"
+Attribute VB_GlobalNameSpace = False
+Attribute VB_Creatable = False
+Attribute VB_PredeclaredId = True
+Attribute VB_Exposed = False
+Public Procedencia As EnumProcede
+
+Private Sub Form_Activate()
+Call actualizar
+End Sub
+
+Private Sub Form_KeyDown(KeyCode As Integer, Shift As Integer)
+If KeyCode = 27 Then
+    Unload Me
+End If
+End Sub
+
+Private Sub Form_Load()
+CenterForm Me
+Me.Top = 500
+
+
+End Sub
+Public Sub actualizar()
+strCadena = "SELECT     ProductoGastos.cGastos, Unidad.sAbreviatura, ProductoGastos.Descripcion " & _
+" FROM Unidad INNER JOIN  ProductoGastos ON Unidad.cUnidad = ProductoGastos.cUnidad WHERE Ruc='" & KEY_RUC & "'"
+
+Call LlenarGastos(Me.HfgLinea)
+'Me.HfgLinea.SetFocus
+End Sub
+
+Private Sub HfgLinea_KeyPress(KeyAscii As Integer)
+If KeyAscii = 13 And FrmSolicitudViaticosDeclarar.Procedencia = Selecionar Then
+    
+    strCadena = "SELECT     cGastos, Descripcion FROM         ProductoGastos WHERE  cGastos='" & Val(Me.HfgLinea.TextMatrix(Me.HfgLinea.Row, 0)) & "'"
+    Call ConfiguraRst(strCadena)
+    If rst.RecordCount > 0 Then
+        'FrmSolicitudViaticosDeclarar.TxtcProducto.text = rst("cGastos")
+      '  FrmSolicitudViaticosDeclarar.TxtDescripcion.text = rst(1)
+       ' FrmSolicitudViaticosDeclarar.TxtCantidad.text = 1
+        'Call Resalta(FrmSolicitudViaticosDeclarar.TxtCantidad)
+        'Unload Me
+        
+        Set rst = Nothing
+    End If
+    'FrmSolicitudViaticosDeclarar.Procedencia = Neutro
+    Exit Sub
+End If
+End Sub
+
+Private Sub TxtLinea_Change()
+strCadena = "SELECT     ProductoGastos.cGastos, Unidad.sAbreviatura, ProductoGastos.Descripcion " & _
+" FROM Unidad INNER JOIN  ProductoGastos ON Unidad.cUnidad = ProductoGastos.cUnidad WHERE Ruc='" & KEY_RUC & "' AND ProductoGastos.Descripcion LIKE '%" & Trim(Me.TxtLinea.Text) & "%'"
+
+Call LlenarGastos(Me.HfgLinea)
+
+
+End Sub
+Private Sub HfgLinea_Click()
+On Error GoTo errorheandler
+If Val(Me.HfgLinea.TextMatrix(Me.HfgLinea.Row, 0)) > 0 Then
+    TlbAcciones.Buttons(KEY_UPDATE).Enabled = True
+    TlbAcciones.Buttons(KEY_DELETE).Enabled = True
+  End If
+errorheandler:
+Exit Sub
+End Sub
+Private Sub TlbAcciones_ButtonClick(ByVal Button As MSComctlLib.Button)
+  Select Case Button.key
+    Case KEY_NEW
+      Procedencia = nuevo
+      FrmProductosGastosDet.Show
+    Case KEY_UPDATE
+      Procedencia = Modificar
+      FrmProductosGastosDet.Show
+    Case KEY_DELETE
+      If MsgBox(MSGELIMINAR, vbQuestion + vbYesNo, MSGVERIFICACION) = vbYes Then
+        
+
+            strCadena = "DELETE FROM ProductoGastos WHERE cGastos='" & Trim(Me.HfgLinea.TextMatrix(Me.HfgLinea.Row, 0)) & "'"
+            CnBd.Execute (strCadena)
+             
+            Call LlenarGastos(Me.HfgLinea)
+        End If
+        
+        
+      
+    Case KEY_EXIT
+        Unload Me
+  End Select
+End Sub
+Public Sub LlenarGastos(ByVal Grilla As MSHFlexGrid)
+On Error GoTo salir
+Dim tTotal As Double
+
+Call ConfiguraRst(strCadena)
+If rst.RecordCount < 1 Then
+    Grilla.Rows = 1
+    Grilla.Clear
+    Exit Sub
+
+End If
+   Grilla.Clear
+   Grilla.Rows = 0
+       ReDim arrColWidth(1 To rst.Fields.Count)
+       For Each Campo In rst.Fields
+            Grilla.ColWidth(0) = 700
+           Grilla.ColWidth(1) = 3500
+           Grilla.ColWidth(2) = 1300
+          
+         Next
+        cabecera = "CODIGO" & vbTab & "DESCRIPCION" & vbTab & "UNIDAD"
+        Grilla.AddItem cabecera
+         For k = 0 To 2
+            Grilla.col = k
+            Grilla.Row = 0
+            Grilla.CellBackColor = &HDFDFE0
+        Next k
+        rst.MoveFirst
+        
+        For i = 0 To rst.RecordCount - 1
+            Fila = Fila & rst("cGastos") & vbTab & rst("Descripcion") & vbTab & rst("sAbreviatura")
+            Grilla.AddItem Fila
+            
+            
+            Fila = ""
+            rst.MoveNext
+        Next i
+     
+      
+  Grilla.Row = 1
+  Grilla.col = 0
+  Grilla.ColSel = 1
+  Grilla.RowSel = 1
+  
+  Exit Sub
+salir: MsgBox "Ocurrio un Error en la Conexion", vbInformation, "Mensaje para el usuario"
+Set rst = Nothing
+
+End Sub
+
+
+
+
+
+Private Sub TxtLinea_KeyDown(KeyCode As Integer, Shift As Integer)
+ If KeyCode = 40 Then
+        
+        Me.HfgLinea.SetFocus
+    End If
+End Sub

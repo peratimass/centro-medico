@@ -1,0 +1,6 @@
+id_venta	Number
+emision	Date
+documento	String	30
+total	Number
+costo	Number
+in_ing_sal	String	1	

@@ -1,0 +1,52 @@
+dni	String	11
+anio	String	4
+fecha	Date
+a_paterno	String	40
+a_materno	String	40
+nombres	String	40
+nacimiento	Date
+departamento	String	40
+provincia	String	40
+distrito	String	40
+vive_papa	String	2
+vive_mama	String	2
+talla	Number
+peso	Number
+tipo_nacimiento	String	20
+enfermedad	String	80
+vacuna	String	80	
+alergia	String	80
+dni_padre	String	11
+a_paterno_p	String	40
+a_materno_p	String	40
+nombre_padre	String	50
+grado_instruccion_p	String	20
+ocupacion_p	String	40
+direccion_p	String	80
+celular_padre	String	11
+dni_madre	String	11
+a_paterno_m	String	40
+a_materno_m	String	40
+nombre_madre	String	50
+grado_instruccion_m	String	20
+ocupacion_m	String	40
+direccion_m	String	80
+celular_madre	String	11
+dni_apoderado	String	11
+a_paterno_a	String	40
+a_materno_a	String	40
+nombre_apoderado	String	50
+grado_instruccion_a	String	20
+ocupacion_a	String	40
+direccion_a	String	80
+celular_apoderado	String	11
+procedencia	String	40
+promovido	String	40
+recuperacion	String	40
+tercio	String	40
+habilidad	String	40
+grado	String	10
+nivel	String	20
+			
+
+

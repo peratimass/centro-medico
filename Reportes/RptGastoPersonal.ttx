@@ -1,0 +1,7 @@
+idvendedor	String	11
+vendedor	String	60
+fecha_emision	Date
+documento	String	30
+observacion	String	200
+total	Number
+ruc	String	16

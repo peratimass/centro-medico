@@ -1,0 +1,13 @@
+CodAlm	String	5
+Alm	String	50
+linea	String	50
+CodProd	String	5
+Prod	String	100
+Und	String	5
+Ing	Number	
+Sal	Number
+Stock	Number
+ImpIng	Number
+ImpSal	Number
+Precio	Number
+

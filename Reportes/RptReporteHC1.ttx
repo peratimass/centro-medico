@@ -1,0 +1,7 @@
+fecha	Date
+turno	Datetime
+dni	String	11
+paciente	String	150
+especialidad	String	50
+medico	String	150
+

@@ -1,0 +1,18 @@
+dni_vendedor	String	11
+vendedor		String	60
+fecha_emision	Date
+documento	String	25
+id_alm	String	5
+almacen	String	50
+cantidad	Number
+detalle	String	60
+id_linea	String	5
+linea	String	50
+total	Number
+monto_nota	Number
+Nota_item	Number
+in_fecha_ini	Date
+in_fecha_fin	Date
+ruc	String	11
+
+

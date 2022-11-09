@@ -1,0 +1,8 @@
+Codigo	String	10
+Fecha	Date	
+Comprobante	String	50
+sDescripcionProducto	String	100	
+Precio	Number
+Cantidad	Number		
+Importe	Number
+Cliente	String 100

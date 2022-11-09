@@ -1,0 +1,12 @@
+in_guia	Number
+fecha	Date
+numero	String	40
+idDestinatario	String	11
+destinatario	String	60
+Direccion	String	60
+ruc	String	11
+
+
+
+
+

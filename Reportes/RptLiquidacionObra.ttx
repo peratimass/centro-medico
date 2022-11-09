@@ -1,0 +1,16 @@
+id_proyecto	Number
+fecha_inicio	DateTime
+fecha_fin	DateTime
+descripcion	String	120
+cliente	String	100
+Valorizacion	Number
+fecha_doc	DateTime
+comprobante	String	25
+id_linea	String	5
+linea	String	30
+id_producto	String	10
+producto	String	60
+cantidad	Number
+precio	Number
+
+

@@ -1,0 +1,16 @@
+id	Number
+al	String	50	
+id_moneda	String	5
+moneda	String	20
+tc	Number
+descripcion	String	80
+saldo	Number
+ruc	String	16
+
+
+
+
+
+
+
+

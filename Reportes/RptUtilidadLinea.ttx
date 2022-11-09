@@ -1,0 +1,11 @@
+id_linea	String	5
+linea	String	40
+precio_venta	Number
+precio_costo	Number
+
+
+
+
+
+
+

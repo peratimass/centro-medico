@@ -1,0 +1,14 @@
+empresa	String	80
+direccion_emp	String	80	
+ruc_emp	String	11
+serie	String	5
+numero	String	8
+numcheque	String	8
+entidad_financiera	String	40
+cPersona	String	5
+Persona	String	50
+fecha	Date
+cambio	Number
+glosa	String	100
+monto	Number
+monto_letras	String	100

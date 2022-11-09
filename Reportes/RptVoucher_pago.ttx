@@ -1,0 +1,20 @@
+id_venta	Number
+fecha_emision	Date
+hora_pago	String	20
+comprobante	String	40
+id_proveedor	String	11
+nproveedor	String	60
+monto_pago	Number
+forma_pago	String	70
+flujo	String	70
+cuenta_origen	String	80
+glosa	String	500
+operador	String	60
+tc	Number
+monto_letras	String	120
+operacion	String	20
+redondeo	Number
+anticipo	Number
+conceptoround	String	60
+conceptoanticipo	String	60
+ruc	String	11

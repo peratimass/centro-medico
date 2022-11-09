@@ -1,0 +1,20 @@
+id_prod			String	10
+prod				String	130
+id_producto			String	10
+nombre_prod			String	130
+cantidad			Number
+id_detalle			Number
+id_detalle_compra		Number
+anio_modelo			String	10
+anio_fabricacion		String	10
+nro_chasis			String	20
+nro_contenedor		String	20
+nro_motor			String	20
+serie				String	20
+subtotal			Number	
+precio			Number
+rucPro			String	11
+proveedor			String	130
+dniTra			String	11
+trabajador			String	130
+proceso			String	20

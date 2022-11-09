@@ -1,0 +1,10 @@
+CodProd	String	5
+producto	String	50	
+id_proveedor	String	11
+proveedor	String	50
+Fecha	Date
+comprobante	String	20
+unidad	String	5
+costo	Number
+cantidad	Number
+

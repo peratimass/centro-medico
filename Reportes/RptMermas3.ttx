@@ -1,0 +1,10 @@
+barra	String	20
+Producto	String	80
+Unidad	String	5
+costo	Number
+cantidad	Number		
+motivo	String	50
+fecha	Date
+detalle	String	80
+codigo	String	5
+usuario	String	50

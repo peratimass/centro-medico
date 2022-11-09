@@ -1,0 +1,5 @@
+id_hora	Number
+periodo	String	20
+atenciones	Number
+total	Number
+

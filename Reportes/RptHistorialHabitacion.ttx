@@ -1,0 +1,8 @@
+id_reserva	Number
+fecha	Date
+hora	Time
+dni	String	16
+cliente	String	100
+habitacion	String	20
+consumo	Number
+ruc	String	16	

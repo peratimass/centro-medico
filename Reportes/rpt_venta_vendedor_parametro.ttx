@@ -1,0 +1,16 @@
+id_producto	String	6
+producto	String	60
+cantidad	Number
+precio	Number
+id_alm	String	5
+fecha	DateTime
+id_doc	String	4
+serie	String	4
+id_marca	String	5
+marca	String	30
+id_linea	String	5
+linea	String	30
+id_vendedor	String	16
+vendedor	String	60
+
+

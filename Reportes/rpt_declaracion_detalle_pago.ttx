@@ -1,0 +1,3 @@
+in_venta	Number
+forma_pago_detalle	String	50
+monto	Number

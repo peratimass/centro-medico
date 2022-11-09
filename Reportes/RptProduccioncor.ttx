@@ -1,0 +1,13 @@
+id_producto	String	10
+producto	String	120
+serie	String	30
+anio_fabri	String	5
+motor	String	30
+chasis	String	30
+contenedor	String	20
+estado	String	30
+idlinea	String	5
+linea	String	50
+
+
+

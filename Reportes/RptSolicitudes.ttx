@@ -1,0 +1,7 @@
+id_usu	String	5
+nombre_usu	String	50
+fecha_solicitud	Date
+solicitado	Number
+declarado	Number
+detalle	String	500
+

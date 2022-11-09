@@ -1,0 +1,3215 @@
+VERSION 5.00
+Object = "{F0D2F211-CCB0-11D0-A316-00AA00688B10}#1.0#0"; "MSDATLST.OCX"
+Object = "{86CF1D34-0C5F-11D2-A9FC-0000F8754DA1}#2.0#0"; "MSCOMCT2.OCX"
+Object = "{0ECD9B60-23AA-11D0-B351-00A0C9055D8E}#6.0#0"; "MSHFLXGD.OCX"
+Object = "{831FDD16-0C5C-11D2-A9FC-0000F8754DA1}#2.0#0"; "mscomctl.OCX"
+Object = "{BDC217C8-ED16-11CD-956C-0000C04E4C0A}#1.1#0"; "TABCTL32.OCX"
+Object = "{65E121D4-0C60-11D2-A9FC-0000F8754DA1}#2.0#0"; "MSCHRT20.OCX"
+Begin VB.Form FrmReporteRecaudacionDiaria 
+   BorderStyle     =   0  'None
+   Caption         =   "Form1"
+   ClientHeight    =   9240
+   ClientLeft      =   0
+   ClientTop       =   0
+   ClientWidth     =   18750
+   KeyPreview      =   -1  'True
+   LinkTopic       =   "Form1"
+   MaxButton       =   0   'False
+   MDIChild        =   -1  'True
+   MinButton       =   0   'False
+   ScaleHeight     =   9240
+   ScaleWidth      =   18750
+   ShowInTaskbar   =   0   'False
+   Begin TabDlg.SSTab SstKardex 
+      Height          =   9015
+      Left            =   45
+      TabIndex        =   0
+      Top             =   120
+      Width           =   18615
+      _ExtentX        =   32835
+      _ExtentY        =   15901
+      _Version        =   393216
+      TabHeight       =   520
+      ForeColor       =   8388608
+      BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+         Name            =   "Tahoma"
+         Size            =   8.25
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      TabCaption(0)   =   "RECAUDACION"
+      TabPicture(0)   =   "FrmReporteRecaudacionDiaria.frx":0000
+      Tab(0).ControlEnabled=   -1  'True
+      Tab(0).Control(0)=   "Shape2"
+      Tab(0).Control(0).Enabled=   0   'False
+      Tab(0).Control(1)=   "Shape1"
+      Tab(0).Control(1).Enabled=   0   'False
+      Tab(0).Control(2)=   "Label6(6)"
+      Tab(0).Control(2).Enabled=   0   'False
+      Tab(0).Control(3)=   "lblTotalDevoluciones"
+      Tab(0).Control(3).Enabled=   0   'False
+      Tab(0).Control(4)=   "lblnumdevoluciones"
+      Tab(0).Control(4).Enabled=   0   'False
+      Tab(0).Control(5)=   "LblPrecioCompra"
+      Tab(0).Control(5).Enabled=   0   'False
+      Tab(0).Control(6)=   "lblNumanuladas"
+      Tab(0).Control(6).Enabled=   0   'False
+      Tab(0).Control(7)=   "lblTotalAnuladas"
+      Tab(0).Control(7).Enabled=   0   'False
+      Tab(0).Control(8)=   "lblNumEfectivo"
+      Tab(0).Control(8).Enabled=   0   'False
+      Tab(0).Control(9)=   "lblTotalEfectivo"
+      Tab(0).Control(9).Enabled=   0   'False
+      Tab(0).Control(10)=   "LblnumMastercard"
+      Tab(0).Control(10).Enabled=   0   'False
+      Tab(0).Control(11)=   "lblTotalMastercard"
+      Tab(0).Control(11).Enabled=   0   'False
+      Tab(0).Control(12)=   "lblNumVisa"
+      Tab(0).Control(12).Enabled=   0   'False
+      Tab(0).Control(13)=   "lblTotalVisa"
+      Tab(0).Control(13).Enabled=   0   'False
+      Tab(0).Control(14)=   "lblNumSubtotal"
+      Tab(0).Control(14).Enabled=   0   'False
+      Tab(0).Control(15)=   "lblSubtotal"
+      Tab(0).Control(15).Enabled=   0   'False
+      Tab(0).Control(16)=   "lblNumTikets"
+      Tab(0).Control(16).Enabled=   0   'False
+      Tab(0).Control(17)=   "lblTotalgeneral"
+      Tab(0).Control(17).Enabled=   0   'False
+      Tab(0).Control(18)=   "lblnumTotal"
+      Tab(0).Control(18).Enabled=   0   'False
+      Tab(0).Control(19)=   "lblTotalCreditos"
+      Tab(0).Control(19).Enabled=   0   'False
+      Tab(0).Control(20)=   "lblnumCreditos"
+      Tab(0).Control(20).Enabled=   0   'False
+      Tab(0).Control(21)=   "Label6(0)"
+      Tab(0).Control(21).Enabled=   0   'False
+      Tab(0).Control(22)=   "Label2"
+      Tab(0).Control(22).Enabled=   0   'False
+      Tab(0).Control(23)=   "Label6(1)"
+      Tab(0).Control(23).Enabled=   0   'False
+      Tab(0).Control(24)=   "Label3"
+      Tab(0).Control(24).Enabled=   0   'False
+      Tab(0).Control(25)=   "Label6(2)"
+      Tab(0).Control(25).Enabled=   0   'False
+      Tab(0).Control(26)=   "Label6(3)"
+      Tab(0).Control(26).Enabled=   0   'False
+      Tab(0).Control(27)=   "lblNumVitepay"
+      Tab(0).Control(27).Enabled=   0   'False
+      Tab(0).Control(28)=   "lblTotalVitepay"
+      Tab(0).Control(28).Enabled=   0   'False
+      Tab(0).Control(29)=   "Label6(4)"
+      Tab(0).Control(29).Enabled=   0   'False
+      Tab(0).Control(30)=   "Label6(5)"
+      Tab(0).Control(30).Enabled=   0   'False
+      Tab(0).Control(31)=   "Shape3"
+      Tab(0).Control(31).Enabled=   0   'False
+      Tab(0).Control(32)=   "lbltotalletras"
+      Tab(0).Control(32).Enabled=   0   'False
+      Tab(0).Control(33)=   "LblCantidad"
+      Tab(0).Control(33).Enabled=   0   'False
+      Tab(0).Control(34)=   "Label4"
+      Tab(0).Control(34).Enabled=   0   'False
+      Tab(0).Control(35)=   "Image1"
+      Tab(0).Control(35).Enabled=   0   'False
+      Tab(0).Control(36)=   "Shape4"
+      Tab(0).Control(36).Enabled=   0   'False
+      Tab(0).Control(37)=   "cmdVentasVendedor"
+      Tab(0).Control(37).Enabled=   0   'False
+      Tab(0).Control(38)=   "cmdListadorecibos"
+      Tab(0).Control(38).Enabled=   0   'False
+      Tab(0).Control(39)=   "cmdConsolidado"
+      Tab(0).Control(39).Enabled=   0   'False
+      Tab(0).Control(40)=   "cmdsalir"
+      Tab(0).Control(40).Enabled=   0   'False
+      Tab(0).Control(41)=   "cmdImprimir"
+      Tab(0).Control(41).Enabled=   0   'False
+      Tab(0).Control(42)=   "DtcTurno"
+      Tab(0).Control(42).Enabled=   0   'False
+      Tab(0).Control(43)=   "SSTab1"
+      Tab(0).Control(43).Enabled=   0   'False
+      Tab(0).Control(44)=   "HfgEfectivo"
+      Tab(0).Control(44).Enabled=   0   'False
+      Tab(0).Control(45)=   "DtcAlmacen"
+      Tab(0).Control(45).Enabled=   0   'False
+      Tab(0).Control(46)=   "DtpHasta"
+      Tab(0).Control(46).Enabled=   0   'False
+      Tab(0).Control(47)=   "DtpDesde"
+      Tab(0).Control(47).Enabled=   0   'False
+      Tab(0).Control(48)=   "DtcOperador"
+      Tab(0).Control(48).Enabled=   0   'False
+      Tab(0).Control(49)=   "chkTurno"
+      Tab(0).Control(49).Enabled=   0   'False
+      Tab(0).Control(50)=   "TxtBusquedaRapida"
+      Tab(0).Control(50).Enabled=   0   'False
+      Tab(0).Control(51)=   "ChkAlmacen"
+      Tab(0).Control(51).Enabled=   0   'False
+      Tab(0).Control(52)=   "chkOperador"
+      Tab(0).Control(52).Enabled=   0   'False
+      Tab(0).Control(53)=   "cmdAceptar"
+      Tab(0).Control(53).Enabled=   0   'False
+      Tab(0).Control(54)=   "Command1"
+      Tab(0).Control(54).Enabled=   0   'False
+      Tab(0).ControlCount=   55
+      TabCaption(1)   =   "REPORTE"
+      TabPicture(1)   =   "FrmReporteRecaudacionDiaria.frx":001C
+      Tab(1).ControlEnabled=   0   'False
+      Tab(1).Control(0)=   "Label7"
+      Tab(1).Control(1)=   "Image4"
+      Tab(1).Control(2)=   "Label5"
+      Tab(1).Control(3)=   "Image2"
+      Tab(1).Control(4)=   "Label1"
+      Tab(1).Control(5)=   "Image3"
+      Tab(1).Control(6)=   "Shape5"
+      Tab(1).Control(7)=   "Shape6"
+      Tab(1).Control(8)=   "Shape7"
+      Tab(1).Control(9)=   "Chart"
+      Tab(1).Control(10)=   "HfReporte"
+      Tab(1).Control(11)=   "Chart2"
+      Tab(1).ControlCount=   12
+      TabCaption(2)   =   "ESTADISTICA"
+      TabPicture(2)   =   "FrmReporteRecaudacionDiaria.frx":0038
+      Tab(2).ControlEnabled=   0   'False
+      Tab(2).ControlCount=   0
+      Begin VB.CommandButton Command1 
+         Caption         =   "Command1"
+         Height          =   975
+         Left            =   9360
+         TabIndex        =   62
+         Top             =   840
+         Visible         =   0   'False
+         Width           =   735
+      End
+      Begin VitekeySoft.ChameleonBtn cmdAceptar 
+         Height          =   375
+         Left            =   16080
+         TabIndex        =   56
+         Top             =   1320
+         Width           =   2175
+         _ExtentX        =   3836
+         _ExtentY        =   661
+         BTYPE           =   5
+         TX              =   "Visualizar en Pantalla"
+         ENAB            =   -1  'True
+         BeginProperty FONT {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+            Name            =   "Tahoma"
+            Size            =   8.25
+            Charset         =   0
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         COLTYPE         =   2
+         FOCUSR          =   -1  'True
+         BCOL            =   12648384
+         BCOLO           =   12648384
+         FCOL            =   8388608
+         FCOLO           =   8388608
+         MCOL            =   12632256
+         MPTR            =   1
+         MICON           =   "FrmReporteRecaudacionDiaria.frx":0054
+         PICN            =   "FrmReporteRecaudacionDiaria.frx":0070
+         UMCOL           =   -1  'True
+         SOFT            =   0   'False
+         PICPOS          =   0
+         NGREY           =   0   'False
+         FX              =   0
+         HAND            =   0   'False
+         CHECK           =   0   'False
+         VALUE           =   0   'False
+      End
+      Begin VB.CheckBox chkOperador 
+         Appearance      =   0  'Flat
+         Caption         =   "OPERADOR"
+         BeginProperty Font 
+            Name            =   "Tahoma"
+            Size            =   8.25
+            Charset         =   0
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         ForeColor       =   &H00800000&
+         Height          =   255
+         Left            =   225
+         TabIndex        =   5
+         Top             =   1500
+         Width           =   1215
+      End
+      Begin VB.CheckBox ChkAlmacen 
+         Appearance      =   0  'Flat
+         Caption         =   "ENTIDAD"
+         BeginProperty Font 
+            Name            =   "Tahoma"
+            Size            =   8.25
+            Charset         =   0
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         ForeColor       =   &H00800000&
+         Height          =   255
+         Left            =   240
+         TabIndex        =   4
+         Top             =   1905
+         Width           =   1095
+      End
+      Begin VB.TextBox TxtBusquedaRapida 
+         Appearance      =   0  'Flat
+         BeginProperty Font 
+            Name            =   "Tahoma"
+            Size            =   8.25
+            Charset         =   0
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         ForeColor       =   &H00800000&
+         Height          =   315
+         Left            =   6240
+         TabIndex        =   3
+         Top             =   1500
+         Width           =   1575
+      End
+      Begin VB.CheckBox chkTurno 
+         Appearance      =   0  'Flat
+         BackColor       =   &H008080FF&
+         Caption         =   "TURNO :"
+         BeginProperty Font 
+            Name            =   "Tahoma"
+            Size            =   8.25
+            Charset         =   0
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         ForeColor       =   &H00800000&
+         Height          =   255
+         Left            =   3600
+         TabIndex        =   1
+         Top             =   840
+         Width           =   1095
+      End
+      Begin MSChart20Lib.MSChart Chart2 
+         Height          =   4215
+         Left            =   -74640
+         OleObjectBlob   =   "FrmReporteRecaudacionDiaria.frx":2655
+         TabIndex        =   2
+         Top             =   4560
+         Width           =   9615
+      End
+      Begin MSDataListLib.DataCombo DtcOperador 
+         Height          =   315
+         Left            =   1470
+         TabIndex        =   6
+         Top             =   1500
+         Width           =   4695
+         _ExtentX        =   8281
+         _ExtentY        =   556
+         _Version        =   393216
+         Appearance      =   0
+         Style           =   2
+         ForeColor       =   8388608
+         Text            =   ""
+         BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+            Name            =   "Tahoma"
+            Size            =   8.25
+            Charset         =   0
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+      End
+      Begin MSComCtl2.DTPicker DtpDesde 
+         Height          =   315
+         Left            =   240
+         TabIndex        =   7
+         Top             =   795
+         Width           =   1455
+         _ExtentX        =   2566
+         _ExtentY        =   556
+         _Version        =   393216
+         CalendarForeColor=   -2147483635
+         CalendarTitleForeColor=   -2147483635
+         Format          =   62717953
+         CurrentDate     =   37091
+      End
+      Begin MSComCtl2.DTPicker DtpHasta 
+         Height          =   315
+         Left            =   2040
+         TabIndex        =   8
+         Top             =   795
+         Width           =   1455
+         _ExtentX        =   2566
+         _ExtentY        =   556
+         _Version        =   393216
+         CalendarForeColor=   -2147483635
+         CalendarTitleForeColor=   -2147483635
+         Format          =   62717953
+         CurrentDate     =   37091
+      End
+      Begin MSDataListLib.DataCombo DtcAlmacen 
+         Height          =   315
+         Left            =   1485
+         TabIndex        =   9
+         Top             =   1905
+         Width           =   4695
+         _ExtentX        =   8281
+         _ExtentY        =   556
+         _Version        =   393216
+         Appearance      =   0
+         Style           =   2
+         ForeColor       =   8388608
+         Text            =   ""
+         BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+            Name            =   "Tahoma"
+            Size            =   8.25
+            Charset         =   0
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+      End
+      Begin MSHierarchicalFlexGridLib.MSHFlexGrid HfgEfectivo 
+         Height          =   6255
+         Left            =   240
+         TabIndex        =   10
+         Top             =   2640
+         Width           =   8775
+         _ExtentX        =   15478
+         _ExtentY        =   11033
+         _Version        =   393216
+         ForeColor       =   8388608
+         FixedCols       =   0
+         ForeColorFixed  =   8388608
+         BackColorBkg    =   16777215
+         SelectionMode   =   1
+         Appearance      =   0
+         BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+            Name            =   "Tahoma"
+            Size            =   8.25
+            Charset         =   0
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         _NumberOfBands  =   1
+         _Band(0).Cols   =   2
+      End
+      Begin MSHierarchicalFlexGridLib.MSHFlexGrid HfReporte 
+         Height          =   3135
+         Left            =   -74640
+         TabIndex        =   11
+         Top             =   840
+         Width           =   9615
+         _ExtentX        =   16960
+         _ExtentY        =   5530
+         _Version        =   393216
+         ForeColor       =   8388608
+         FixedCols       =   0
+         ForeColorFixed  =   8388608
+         SelectionMode   =   1
+         Appearance      =   0
+         BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+            Name            =   "Tahoma"
+            Size            =   8.25
+            Charset         =   0
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         _NumberOfBands  =   1
+         _Band(0).Cols   =   2
+      End
+      Begin TabDlg.SSTab SSTab1 
+         Height          =   3975
+         Left            =   9120
+         TabIndex        =   12
+         Top             =   4920
+         Width           =   9375
+         _ExtentX        =   16536
+         _ExtentY        =   7011
+         _Version        =   393216
+         Tabs            =   6
+         TabsPerRow      =   6
+         TabHeight       =   520
+         ForeColor       =   8388608
+         BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+            Name            =   "Tahoma"
+            Size            =   8.25
+            Charset         =   0
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         TabCaption(0)   =   "MASTERCARD"
+         TabPicture(0)   =   "FrmReporteRecaudacionDiaria.frx":5F60
+         Tab(0).ControlEnabled=   -1  'True
+         Tab(0).Control(0)=   "HfDebito"
+         Tab(0).Control(0).Enabled=   0   'False
+         Tab(0).ControlCount=   1
+         TabCaption(1)   =   "VISA"
+         TabPicture(1)   =   "FrmReporteRecaudacionDiaria.frx":5F7C
+         Tab(1).ControlEnabled=   0   'False
+         Tab(1).Control(0)=   "HfCredito"
+         Tab(1).ControlCount=   1
+         TabCaption(2)   =   "PAGO CREDITO"
+         TabPicture(2)   =   "FrmReporteRecaudacionDiaria.frx":5F98
+         Tab(2).ControlEnabled=   0   'False
+         Tab(2).Control(0)=   "HfDeudas"
+         Tab(2).ControlCount=   1
+         TabCaption(3)   =   "VITEPAY"
+         TabPicture(3)   =   "FrmReporteRecaudacionDiaria.frx":5FB4
+         Tab(3).ControlEnabled=   0   'False
+         Tab(3).Control(0)=   "HfVitepay"
+         Tab(3).ControlCount=   1
+         TabCaption(4)   =   "RECIBOS"
+         TabPicture(4)   =   "FrmReporteRecaudacionDiaria.frx":5FD0
+         Tab(4).ControlEnabled=   0   'False
+         Tab(4).Control(0)=   "HfDevoluciones"
+         Tab(4).ControlCount=   1
+         TabCaption(5)   =   "DEPOSITOS"
+         TabPicture(5)   =   "FrmReporteRecaudacionDiaria.frx":5FEC
+         Tab(5).ControlEnabled=   0   'False
+         Tab(5).Control(0)=   "HfGarantias"
+         Tab(5).ControlCount=   1
+         Begin MSHierarchicalFlexGridLib.MSHFlexGrid HfDebito 
+            Height          =   3375
+            Left            =   240
+            TabIndex        =   13
+            Top             =   540
+            Width           =   9015
+            _ExtentX        =   15901
+            _ExtentY        =   5953
+            _Version        =   393216
+            ForeColor       =   8388608
+            FixedCols       =   0
+            ForeColorFixed  =   8388608
+            BackColorBkg    =   16777215
+            SelectionMode   =   1
+            Appearance      =   0
+            BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+               Name            =   "Tahoma"
+               Size            =   8.25
+               Charset         =   0
+               Weight          =   400
+               Underline       =   0   'False
+               Italic          =   0   'False
+               Strikethrough   =   0   'False
+            EndProperty
+            _NumberOfBands  =   1
+            _Band(0).Cols   =   2
+         End
+         Begin MSHierarchicalFlexGridLib.MSHFlexGrid HfCredito 
+            Height          =   3375
+            Left            =   -74760
+            TabIndex        =   14
+            Top             =   540
+            Width           =   9015
+            _ExtentX        =   15901
+            _ExtentY        =   5953
+            _Version        =   393216
+            ForeColor       =   8388608
+            FixedCols       =   0
+            ForeColorFixed  =   8388608
+            BackColorBkg    =   16777215
+            SelectionMode   =   1
+            Appearance      =   0
+            BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+               Name            =   "Tahoma"
+               Size            =   8.25
+               Charset         =   0
+               Weight          =   400
+               Underline       =   0   'False
+               Italic          =   0   'False
+               Strikethrough   =   0   'False
+            EndProperty
+            _NumberOfBands  =   1
+            _Band(0).Cols   =   2
+         End
+         Begin MSHierarchicalFlexGridLib.MSHFlexGrid HfDeudas 
+            Height          =   3375
+            Left            =   -74760
+            TabIndex        =   15
+            Top             =   540
+            Width           =   9015
+            _ExtentX        =   15901
+            _ExtentY        =   5953
+            _Version        =   393216
+            ForeColor       =   8388608
+            FixedCols       =   0
+            ForeColorFixed  =   8388608
+            BackColorBkg    =   16777215
+            SelectionMode   =   1
+            Appearance      =   0
+            BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+               Name            =   "Tahoma"
+               Size            =   8.25
+               Charset         =   0
+               Weight          =   400
+               Underline       =   0   'False
+               Italic          =   0   'False
+               Strikethrough   =   0   'False
+            EndProperty
+            _NumberOfBands  =   1
+            _Band(0).Cols   =   2
+         End
+         Begin MSHierarchicalFlexGridLib.MSHFlexGrid HfVitepay 
+            Height          =   3375
+            Left            =   -74760
+            TabIndex        =   16
+            Top             =   540
+            Width           =   9015
+            _ExtentX        =   15901
+            _ExtentY        =   5953
+            _Version        =   393216
+            ForeColor       =   8388608
+            FixedCols       =   0
+            ForeColorFixed  =   8388608
+            BackColorBkg    =   16777215
+            SelectionMode   =   1
+            Appearance      =   0
+            BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+               Name            =   "Tahoma"
+               Size            =   8.25
+               Charset         =   0
+               Weight          =   400
+               Underline       =   0   'False
+               Italic          =   0   'False
+               Strikethrough   =   0   'False
+            EndProperty
+            _NumberOfBands  =   1
+            _Band(0).Cols   =   2
+         End
+         Begin MSHierarchicalFlexGridLib.MSHFlexGrid HfDevoluciones 
+            Height          =   3375
+            Left            =   -74760
+            TabIndex        =   17
+            Top             =   540
+            Width           =   9015
+            _ExtentX        =   15901
+            _ExtentY        =   5953
+            _Version        =   393216
+            ForeColor       =   8388608
+            FixedCols       =   0
+            ForeColorFixed  =   8388608
+            BackColorBkg    =   16777215
+            SelectionMode   =   1
+            Appearance      =   0
+            BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+               Name            =   "Tahoma"
+               Size            =   8.25
+               Charset         =   0
+               Weight          =   400
+               Underline       =   0   'False
+               Italic          =   0   'False
+               Strikethrough   =   0   'False
+            EndProperty
+            _NumberOfBands  =   1
+            _Band(0).Cols   =   2
+         End
+         Begin MSHierarchicalFlexGridLib.MSHFlexGrid HfGarantias 
+            Height          =   3375
+            Left            =   -74760
+            TabIndex        =   18
+            Top             =   540
+            Width           =   9015
+            _ExtentX        =   15901
+            _ExtentY        =   5953
+            _Version        =   393216
+            ForeColor       =   8388608
+            FixedCols       =   0
+            ForeColorFixed  =   8388608
+            BackColorBkg    =   16777215
+            SelectionMode   =   1
+            Appearance      =   0
+            BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+               Name            =   "Tahoma"
+               Size            =   8.25
+               Charset         =   0
+               Weight          =   400
+               Underline       =   0   'False
+               Italic          =   0   'False
+               Strikethrough   =   0   'False
+            EndProperty
+            _NumberOfBands  =   1
+            _Band(0).Cols   =   2
+         End
+      End
+      Begin MSChart20Lib.MSChart Chart 
+         Height          =   7935
+         Left            =   -64920
+         OleObjectBlob   =   "FrmReporteRecaudacionDiaria.frx":6008
+         TabIndex        =   19
+         Top             =   840
+         Width           =   9615
+      End
+      Begin MSDataListLib.DataCombo DtcTurno 
+         Height          =   315
+         Left            =   4800
+         TabIndex        =   20
+         Top             =   840
+         Visible         =   0   'False
+         Width           =   2415
+         _ExtentX        =   4260
+         _ExtentY        =   556
+         _Version        =   393216
+         Appearance      =   0
+         Style           =   2
+         ForeColor       =   8388608
+         Text            =   ""
+         BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+            Name            =   "Tahoma"
+            Size            =   8.25
+            Charset         =   0
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+      End
+      Begin VitekeySoft.ChameleonBtn cmdImprimir 
+         Height          =   375
+         Left            =   16080
+         TabIndex        =   57
+         Top             =   1800
+         Width           =   2175
+         _ExtentX        =   3836
+         _ExtentY        =   661
+         BTYPE           =   5
+         TX              =   "  Reporte Detallado"
+         ENAB            =   -1  'True
+         BeginProperty FONT {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+            Name            =   "Tahoma"
+            Size            =   8.25
+            Charset         =   0
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         COLTYPE         =   2
+         FOCUSR          =   -1  'True
+         BCOL            =   12648384
+         BCOLO           =   12648384
+         FCOL            =   8388608
+         FCOLO           =   8388608
+         MCOL            =   12632256
+         MPTR            =   1
+         MICON           =   "FrmReporteRecaudacionDiaria.frx":9913
+         PICN            =   "FrmReporteRecaudacionDiaria.frx":992F
+         UMCOL           =   -1  'True
+         SOFT            =   0   'False
+         PICPOS          =   0
+         NGREY           =   0   'False
+         FX              =   0
+         HAND            =   0   'False
+         CHECK           =   0   'False
+         VALUE           =   0   'False
+      End
+      Begin VitekeySoft.ChameleonBtn cmdsalir 
+         Height          =   495
+         Left            =   16080
+         TabIndex        =   58
+         Top             =   3720
+         Width           =   2175
+         _ExtentX        =   3836
+         _ExtentY        =   873
+         BTYPE           =   5
+         TX              =   "CERRAR"
+         ENAB            =   -1  'True
+         BeginProperty FONT {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+            Name            =   "Tahoma"
+            Size            =   8.25
+            Charset         =   0
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         COLTYPE         =   2
+         FOCUSR          =   -1  'True
+         BCOL            =   12648384
+         BCOLO           =   12648384
+         FCOL            =   8388608
+         FCOLO           =   8388608
+         MCOL            =   12632256
+         MPTR            =   1
+         MICON           =   "FrmReporteRecaudacionDiaria.frx":99BC
+         PICN            =   "FrmReporteRecaudacionDiaria.frx":99D8
+         UMCOL           =   -1  'True
+         SOFT            =   0   'False
+         PICPOS          =   0
+         NGREY           =   0   'False
+         FX              =   0
+         HAND            =   0   'False
+         CHECK           =   0   'False
+         VALUE           =   0   'False
+      End
+      Begin VitekeySoft.ChameleonBtn cmdConsolidado 
+         Height          =   375
+         Left            =   16080
+         TabIndex        =   59
+         Top             =   2280
+         Width           =   2175
+         _ExtentX        =   3836
+         _ExtentY        =   661
+         BTYPE           =   5
+         TX              =   " Reporte Consolida"
+         ENAB            =   -1  'True
+         BeginProperty FONT {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+            Name            =   "Tahoma"
+            Size            =   8.25
+            Charset         =   0
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         COLTYPE         =   2
+         FOCUSR          =   -1  'True
+         BCOL            =   12648384
+         BCOLO           =   12648384
+         FCOL            =   8388608
+         FCOLO           =   8388608
+         MCOL            =   12632256
+         MPTR            =   1
+         MICON           =   "FrmReporteRecaudacionDiaria.frx":CB0F
+         PICN            =   "FrmReporteRecaudacionDiaria.frx":CB2B
+         UMCOL           =   -1  'True
+         SOFT            =   0   'False
+         PICPOS          =   0
+         NGREY           =   0   'False
+         FX              =   0
+         HAND            =   0   'False
+         CHECK           =   0   'False
+         VALUE           =   0   'False
+      End
+      Begin VitekeySoft.ChameleonBtn cmdListadorecibos 
+         Height          =   375
+         Left            =   16080
+         TabIndex        =   60
+         Top             =   2760
+         Width           =   2175
+         _ExtentX        =   3836
+         _ExtentY        =   661
+         BTYPE           =   5
+         TX              =   " Listado Recibos     "
+         ENAB            =   -1  'True
+         BeginProperty FONT {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+            Name            =   "Tahoma"
+            Size            =   8.25
+            Charset         =   0
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         COLTYPE         =   2
+         FOCUSR          =   -1  'True
+         BCOL            =   12648384
+         BCOLO           =   12648384
+         FCOL            =   8388608
+         FCOLO           =   8388608
+         MCOL            =   12632256
+         MPTR            =   1
+         MICON           =   "FrmReporteRecaudacionDiaria.frx":CBB8
+         PICN            =   "FrmReporteRecaudacionDiaria.frx":CBD4
+         UMCOL           =   -1  'True
+         SOFT            =   0   'False
+         PICPOS          =   0
+         NGREY           =   0   'False
+         FX              =   0
+         HAND            =   0   'False
+         CHECK           =   0   'False
+         VALUE           =   0   'False
+      End
+      Begin VitekeySoft.ChameleonBtn cmdVentasVendedor 
+         Height          =   375
+         Left            =   16080
+         TabIndex        =   61
+         Top             =   3240
+         Width           =   2175
+         _ExtentX        =   3836
+         _ExtentY        =   661
+         BTYPE           =   5
+         TX              =   " Ventas Vendedor  "
+         ENAB            =   -1  'True
+         BeginProperty FONT {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+            Name            =   "Tahoma"
+            Size            =   8.25
+            Charset         =   0
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         COLTYPE         =   2
+         FOCUSR          =   -1  'True
+         BCOL            =   12648384
+         BCOLO           =   12648384
+         FCOL            =   8388608
+         FCOLO           =   8388608
+         MCOL            =   12632256
+         MPTR            =   1
+         MICON           =   "FrmReporteRecaudacionDiaria.frx":CC61
+         PICN            =   "FrmReporteRecaudacionDiaria.frx":CC7D
+         UMCOL           =   -1  'True
+         SOFT            =   0   'False
+         PICPOS          =   0
+         NGREY           =   0   'False
+         FX              =   0
+         HAND            =   0   'False
+         CHECK           =   0   'False
+         VALUE           =   0   'False
+      End
+      Begin VB.Shape Shape7 
+         BackStyle       =   1  'Opaque
+         BorderColor     =   &H00808080&
+         Height          =   300
+         Left            =   -64920
+         Top             =   480
+         Width           =   9615
+      End
+      Begin VB.Shape Shape4 
+         BackStyle       =   1  'Opaque
+         BorderColor     =   &H00808080&
+         Height          =   300
+         Left            =   240
+         Top             =   2280
+         Width           =   5895
+      End
+      Begin VB.Shape Shape6 
+         BackStyle       =   1  'Opaque
+         BorderColor     =   &H00808080&
+         Height          =   300
+         Left            =   -74640
+         Top             =   4200
+         Width           =   9615
+      End
+      Begin VB.Shape Shape5 
+         BackStyle       =   1  'Opaque
+         BorderColor     =   &H00808080&
+         Height          =   300
+         Left            =   -74640
+         Top             =   480
+         Width           =   9615
+      End
+      Begin VB.Image Image3 
+         Height          =   270
+         Left            =   -74520
+         Picture         =   "FrmReporteRecaudacionDiaria.frx":CD0A
+         Stretch         =   -1  'True
+         Top             =   4215
+         Width           =   285
+      End
+      Begin VB.Label Label1 
+         Alignment       =   2  'Center
+         AutoSize        =   -1  'True
+         BackStyle       =   0  'Transparent
+         Caption         =   "REPORTE DETALLADO "
+         BeginProperty Font 
+            Name            =   "Tahoma"
+            Size            =   8.25
+            Charset         =   0
+            Weight          =   700
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         ForeColor       =   &H00800000&
+         Height          =   195
+         Left            =   -73275
+         TabIndex        =   55
+         Top             =   525
+         Width           =   1845
+      End
+      Begin VB.Image Image2 
+         Height          =   270
+         Left            =   -74520
+         Picture         =   "FrmReporteRecaudacionDiaria.frx":10247
+         Stretch         =   -1  'True
+         Top             =   495
+         Width           =   285
+      End
+      Begin VB.Image Image1 
+         Height          =   270
+         Left            =   360
+         Picture         =   "FrmReporteRecaudacionDiaria.frx":13784
+         Stretch         =   -1  'True
+         Top             =   2295
+         Width           =   285
+      End
+      Begin VB.Label Label4 
+         Alignment       =   2  'Center
+         AutoSize        =   -1  'True
+         BackStyle       =   0  'Transparent
+         Caption         =   "RECAUDACION EFECTIVO"
+         BeginProperty Font 
+            Name            =   "Tahoma"
+            Size            =   6.75
+            Charset         =   0
+            Weight          =   700
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         ForeColor       =   &H00800000&
+         Height          =   165
+         Left            =   810
+         TabIndex        =   54
+         Top             =   2325
+         Width           =   1995
+      End
+      Begin VB.Label LblCantidad 
+         Alignment       =   2  'Center
+         AutoSize        =   -1  'True
+         BackStyle       =   0  'Transparent
+         Caption         =   "Al:"
+         BeginProperty Font 
+            Name            =   "Arial"
+            Size            =   8.25
+            Charset         =   0
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         ForeColor       =   &H00800000&
+         Height          =   210
+         Left            =   1695
+         TabIndex        =   53
+         Top             =   840
+         Width           =   225
+      End
+      Begin VB.Label lbltotalletras 
+         Appearance      =   0  'Flat
+         BackColor       =   &H80000005&
+         BackStyle       =   0  'Transparent
+         BorderStyle     =   1  'Fixed Single
+         BeginProperty Font 
+            Name            =   "Tahoma"
+            Size            =   8.25
+            Charset         =   0
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         ForeColor       =   &H80000008&
+         Height          =   255
+         Left            =   9240
+         TabIndex        =   52
+         Top             =   4440
+         Width           =   8295
+      End
+      Begin VB.Shape Shape3 
+         BorderColor     =   &H00C0C0C0&
+         BorderStyle     =   6  'Inside Solid
+         Height          =   735
+         Left            =   15000
+         Top             =   480
+         Width           =   2535
+      End
+      Begin VB.Label Label6 
+         AutoSize        =   -1  'True
+         BackColor       =   &H00E0E0E0&
+         BackStyle       =   0  'Transparent
+         Caption         =   "TOTAL  :"
+         BeginProperty Font 
+            Name            =   "Tahoma"
+            Size            =   6.75
+            Charset         =   0
+            Weight          =   700
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         ForeColor       =   &H00800000&
+         Height          =   165
+         Index           =   5
+         Left            =   11280
+         TabIndex        =   51
+         Top             =   3360
+         Width           =   675
+      End
+      Begin VB.Label Label6 
+         AutoSize        =   -1  'True
+         BackColor       =   &H00E0E0E0&
+         BackStyle       =   0  'Transparent
+         Caption         =   "SUB TOTAL :"
+         BeginProperty Font 
+            Name            =   "Tahoma"
+            Size            =   6.75
+            Charset         =   0
+            Weight          =   700
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         ForeColor       =   &H00800000&
+         Height          =   165
+         Index           =   4
+         Left            =   10980
+         TabIndex        =   50
+         Top             =   2640
+         Width           =   975
+      End
+      Begin VB.Label lblTotalVitepay 
+         Alignment       =   1  'Right Justify
+         Appearance      =   0  'Flat
+         BackColor       =   &H80000005&
+         BorderStyle     =   1  'Fixed Single
+         BeginProperty Font 
+            Name            =   "Tahoma"
+            Size            =   9
+            Charset         =   0
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         ForeColor       =   &H00800000&
+         Height          =   285
+         Left            =   13080
+         TabIndex        =   49
+         Top             =   2280
+         Width           =   1785
+      End
+      Begin VB.Label lblNumVitepay 
+         Alignment       =   1  'Right Justify
+         Appearance      =   0  'Flat
+         BackColor       =   &H80000005&
+         BorderStyle     =   1  'Fixed Single
+         BeginProperty Font 
+            Name            =   "Tahoma"
+            Size            =   9
+            Charset         =   0
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         ForeColor       =   &H00800000&
+         Height          =   285
+         Left            =   12120
+         TabIndex        =   48
+         Top             =   2280
+         Width           =   945
+      End
+      Begin VB.Label Label6 
+         AutoSize        =   -1  'True
+         BackColor       =   &H00E0E0E0&
+         BackStyle       =   0  'Transparent
+         Caption         =   "VITEPAY :"
+         BeginProperty Font 
+            Name            =   "Tahoma"
+            Size            =   6.75
+            Charset         =   0
+            Weight          =   700
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         ForeColor       =   &H00800000&
+         Height          =   165
+         Index           =   3
+         Left            =   11160
+         TabIndex        =   47
+         Top             =   2325
+         Width           =   795
+      End
+      Begin VB.Label Label6 
+         AutoSize        =   -1  'True
+         BackColor       =   &H00E0E0E0&
+         BackStyle       =   0  'Transparent
+         Caption         =   "PAGO CREDITOS :"
+         BeginProperty Font 
+            Name            =   "Tahoma"
+            Size            =   6.75
+            Charset         =   0
+            Weight          =   700
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         ForeColor       =   &H00800000&
+         Height          =   165
+         Index           =   2
+         Left            =   10575
+         TabIndex        =   46
+         Top             =   1965
+         Width           =   1380
+      End
+      Begin VB.Label Label3 
+         AutoSize        =   -1  'True
+         BackColor       =   &H00E0E0E0&
+         BackStyle       =   0  'Transparent
+         Caption         =   "Nº TIKETS :"
+         BeginProperty Font 
+            Name            =   "Tahoma"
+            Size            =   8.25
+            Charset         =   0
+            Weight          =   700
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         ForeColor       =   &H00800000&
+         Height          =   195
+         Left            =   15600
+         TabIndex        =   45
+         Top             =   600
+         Width           =   915
+      End
+      Begin VB.Label Label6 
+         AutoSize        =   -1  'True
+         BackColor       =   &H00E0E0E0&
+         BackStyle       =   0  'Transparent
+         Caption         =   "VISA :"
+         BeginProperty Font 
+            Name            =   "Tahoma"
+            Size            =   6.75
+            Charset         =   0
+            Weight          =   700
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         ForeColor       =   &H00800000&
+         Height          =   165
+         Index           =   1
+         Left            =   11475
+         TabIndex        =   44
+         Top             =   1620
+         Width           =   480
+      End
+      Begin VB.Label Label2 
+         AutoSize        =   -1  'True
+         BackColor       =   &H00E0E0E0&
+         BackStyle       =   0  'Transparent
+         Caption         =   "MARTER CARD :"
+         BeginProperty Font 
+            Name            =   "Tahoma"
+            Size            =   6.75
+            Charset         =   0
+            Weight          =   700
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         ForeColor       =   &H00800000&
+         Height          =   165
+         Left            =   10725
+         TabIndex        =   43
+         Top             =   1245
+         Width           =   1230
+      End
+      Begin VB.Label Label6 
+         AutoSize        =   -1  'True
+         BackColor       =   &H00E0E0E0&
+         BackStyle       =   0  'Transparent
+         Caption         =   "EFECTIVO :"
+         BeginProperty Font 
+            Name            =   "Tahoma"
+            Size            =   6.75
+            Charset         =   0
+            Weight          =   700
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         ForeColor       =   &H00800000&
+         Height          =   165
+         Index           =   0
+         Left            =   11085
+         TabIndex        =   42
+         Top             =   885
+         Width           =   870
+      End
+      Begin VB.Label lblnumCreditos 
+         Alignment       =   1  'Right Justify
+         Appearance      =   0  'Flat
+         BackColor       =   &H80000005&
+         BorderStyle     =   1  'Fixed Single
+         BeginProperty Font 
+            Name            =   "Tahoma"
+            Size            =   9
+            Charset         =   0
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         ForeColor       =   &H00800000&
+         Height          =   285
+         Left            =   12120
+         TabIndex        =   41
+         Top             =   1920
+         Width           =   945
+      End
+      Begin VB.Label lblTotalCreditos 
+         Alignment       =   1  'Right Justify
+         Appearance      =   0  'Flat
+         BackColor       =   &H80000005&
+         BorderStyle     =   1  'Fixed Single
+         BeginProperty Font 
+            Name            =   "Tahoma"
+            Size            =   9
+            Charset         =   0
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         ForeColor       =   &H00800000&
+         Height          =   285
+         Left            =   13080
+         TabIndex        =   40
+         Top             =   1920
+         Width           =   1785
+      End
+      Begin VB.Label lblnumTotal 
+         Alignment       =   1  'Right Justify
+         Appearance      =   0  'Flat
+         BackColor       =   &H00C0FFFF&
+         BorderStyle     =   1  'Fixed Single
+         BeginProperty Font 
+            Name            =   "Tahoma"
+            Size            =   9
+            Charset         =   0
+            Weight          =   700
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         ForeColor       =   &H00800000&
+         Height          =   285
+         Left            =   12120
+         TabIndex        =   39
+         Top             =   3315
+         Width           =   945
+      End
+      Begin VB.Label lblTotalgeneral 
+         Alignment       =   1  'Right Justify
+         Appearance      =   0  'Flat
+         BackColor       =   &H00C0FFFF&
+         BorderStyle     =   1  'Fixed Single
+         BeginProperty Font 
+            Name            =   "Tahoma"
+            Size            =   9
+            Charset         =   0
+            Weight          =   700
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         ForeColor       =   &H00800000&
+         Height          =   285
+         Left            =   13080
+         TabIndex        =   38
+         Top             =   3315
+         Width           =   1785
+      End
+      Begin VB.Label lblNumTikets 
+         Alignment       =   1  'Right Justify
+         Appearance      =   0  'Flat
+         BackColor       =   &H80000005&
+         BorderStyle     =   1  'Fixed Single
+         BeginProperty Font 
+            Name            =   "MS Sans Serif"
+            Size            =   9.75
+            Charset         =   0
+            Weight          =   700
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         ForeColor       =   &H00800000&
+         Height          =   285
+         Left            =   15240
+         TabIndex        =   37
+         Top             =   840
+         Width           =   2025
+      End
+      Begin VB.Label lblSubtotal 
+         Alignment       =   1  'Right Justify
+         Appearance      =   0  'Flat
+         BackColor       =   &H00C0FFFF&
+         BorderStyle     =   1  'Fixed Single
+         BeginProperty Font 
+            Name            =   "Tahoma"
+            Size            =   9
+            Charset         =   0
+            Weight          =   700
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         ForeColor       =   &H00800000&
+         Height          =   285
+         Left            =   13080
+         TabIndex        =   36
+         Top             =   2640
+         Width           =   1785
+      End
+      Begin VB.Label lblNumSubtotal 
+         Alignment       =   1  'Right Justify
+         Appearance      =   0  'Flat
+         BackColor       =   &H00C0FFFF&
+         BorderStyle     =   1  'Fixed Single
+         BeginProperty Font 
+            Name            =   "Tahoma"
+            Size            =   9
+            Charset         =   0
+            Weight          =   700
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         ForeColor       =   &H00800000&
+         Height          =   285
+         Left            =   12120
+         TabIndex        =   35
+         Top             =   2640
+         Width           =   945
+      End
+      Begin VB.Label lblTotalVisa 
+         Alignment       =   1  'Right Justify
+         Appearance      =   0  'Flat
+         BackColor       =   &H80000005&
+         BorderStyle     =   1  'Fixed Single
+         BeginProperty Font 
+            Name            =   "Tahoma"
+            Size            =   9
+            Charset         =   0
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         ForeColor       =   &H00800000&
+         Height          =   285
+         Left            =   13080
+         TabIndex        =   34
+         Top             =   1560
+         Width           =   1785
+      End
+      Begin VB.Label lblNumVisa 
+         Alignment       =   1  'Right Justify
+         Appearance      =   0  'Flat
+         BackColor       =   &H80000005&
+         BorderStyle     =   1  'Fixed Single
+         BeginProperty Font 
+            Name            =   "Tahoma"
+            Size            =   9
+            Charset         =   0
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         ForeColor       =   &H00800000&
+         Height          =   285
+         Left            =   12120
+         TabIndex        =   33
+         Top             =   1560
+         Width           =   945
+      End
+      Begin VB.Label lblTotalMastercard 
+         Alignment       =   1  'Right Justify
+         Appearance      =   0  'Flat
+         BackColor       =   &H80000005&
+         BorderStyle     =   1  'Fixed Single
+         BeginProperty Font 
+            Name            =   "Tahoma"
+            Size            =   9
+            Charset         =   0
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         ForeColor       =   &H00800000&
+         Height          =   285
+         Left            =   13080
+         TabIndex        =   32
+         Top             =   1200
+         Width           =   1785
+      End
+      Begin VB.Label LblnumMastercard 
+         Alignment       =   1  'Right Justify
+         Appearance      =   0  'Flat
+         BackColor       =   &H80000005&
+         BorderStyle     =   1  'Fixed Single
+         BeginProperty Font 
+            Name            =   "Tahoma"
+            Size            =   9
+            Charset         =   0
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         ForeColor       =   &H00800000&
+         Height          =   285
+         Left            =   12120
+         TabIndex        =   31
+         Top             =   1200
+         Width           =   945
+      End
+      Begin VB.Label lblTotalEfectivo 
+         Alignment       =   1  'Right Justify
+         Appearance      =   0  'Flat
+         BackColor       =   &H80000005&
+         BorderStyle     =   1  'Fixed Single
+         BeginProperty Font 
+            Name            =   "Tahoma"
+            Size            =   9
+            Charset         =   0
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         ForeColor       =   &H00800000&
+         Height          =   285
+         Left            =   13080
+         TabIndex        =   30
+         Top             =   840
+         Width           =   1785
+      End
+      Begin VB.Label lblNumEfectivo 
+         Alignment       =   1  'Right Justify
+         Appearance      =   0  'Flat
+         BackColor       =   &H80000005&
+         BorderStyle     =   1  'Fixed Single
+         BeginProperty Font 
+            Name            =   "Tahoma"
+            Size            =   9
+            Charset         =   0
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         ForeColor       =   &H00800000&
+         Height          =   285
+         Left            =   12120
+         TabIndex        =   29
+         Top             =   840
+         Width           =   945
+      End
+      Begin VB.Label lblTotalAnuladas 
+         Alignment       =   1  'Right Justify
+         Appearance      =   0  'Flat
+         BackColor       =   &H008080FF&
+         BorderStyle     =   1  'Fixed Single
+         BeginProperty Font 
+            Name            =   "Tahoma"
+            Size            =   9
+            Charset         =   0
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         ForeColor       =   &H00800000&
+         Height          =   285
+         Left            =   13080
+         TabIndex        =   28
+         Top             =   480
+         Width           =   1785
+      End
+      Begin VB.Label lblNumanuladas 
+         Alignment       =   1  'Right Justify
+         Appearance      =   0  'Flat
+         BackColor       =   &H008080FF&
+         BorderStyle     =   1  'Fixed Single
+         BeginProperty Font 
+            Name            =   "Tahoma"
+            Size            =   9
+            Charset         =   0
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         ForeColor       =   &H00800000&
+         Height          =   285
+         Left            =   12120
+         TabIndex        =   27
+         Top             =   480
+         Width           =   945
+      End
+      Begin VB.Label LblPrecioCompra 
+         AutoSize        =   -1  'True
+         BackColor       =   &H00E0E0E0&
+         BackStyle       =   0  'Transparent
+         Caption         =   "Nº ANULADAS :"
+         BeginProperty Font 
+            Name            =   "Tahoma"
+            Size            =   6.75
+            Charset         =   0
+            Weight          =   700
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         ForeColor       =   &H00800000&
+         Height          =   165
+         Left            =   10770
+         TabIndex        =   26
+         Top             =   540
+         Width           =   1185
+      End
+      Begin VB.Label Label5 
+         Alignment       =   2  'Center
+         AutoSize        =   -1  'True
+         BackStyle       =   0  'Transparent
+         Caption         =   "RENDIMIENTO PACIENTES"
+         BeginProperty Font 
+            Name            =   "Tahoma"
+            Size            =   8.25
+            Charset         =   0
+            Weight          =   700
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         ForeColor       =   &H00800000&
+         Height          =   195
+         Left            =   -73530
+         TabIndex        =   25
+         Top             =   4245
+         Width           =   2115
+      End
+      Begin VB.Image Image4 
+         Height          =   270
+         Left            =   -64800
+         Picture         =   "FrmReporteRecaudacionDiaria.frx":16CC1
+         Stretch         =   -1  'True
+         Top             =   495
+         Width           =   285
+      End
+      Begin VB.Label Label7 
+         Alignment       =   2  'Center
+         AutoSize        =   -1  'True
+         BackStyle       =   0  'Transparent
+         Caption         =   "RENDIMIENTO ACUMULADO"
+         BeginProperty Font 
+            Name            =   "Tahoma"
+            Size            =   8.25
+            Charset         =   0
+            Weight          =   700
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         ForeColor       =   &H00800000&
+         Height          =   195
+         Left            =   -63900
+         TabIndex        =   24
+         Top             =   525
+         Width           =   2295
+      End
+      Begin VB.Label lblnumdevoluciones 
+         Alignment       =   1  'Right Justify
+         Appearance      =   0  'Flat
+         BackColor       =   &H00C0FFFF&
+         BorderStyle     =   1  'Fixed Single
+         BeginProperty Font 
+            Name            =   "Tahoma"
+            Size            =   9
+            Charset         =   0
+            Weight          =   700
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         ForeColor       =   &H00800000&
+         Height          =   285
+         Left            =   12120
+         TabIndex        =   23
+         Top             =   2985
+         Width           =   945
+      End
+      Begin VB.Label lblTotalDevoluciones 
+         Alignment       =   1  'Right Justify
+         Appearance      =   0  'Flat
+         BackColor       =   &H00C0FFFF&
+         BorderStyle     =   1  'Fixed Single
+         BeginProperty Font 
+            Name            =   "Tahoma"
+            Size            =   9
+            Charset         =   0
+            Weight          =   700
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         ForeColor       =   &H00800000&
+         Height          =   285
+         Left            =   13080
+         TabIndex        =   22
+         Top             =   2985
+         Width           =   1785
+      End
+      Begin VB.Label Label6 
+         AutoSize        =   -1  'True
+         BackColor       =   &H00E0E0E0&
+         BackStyle       =   0  'Transparent
+         Caption         =   "DEVOLUCIONES :"
+         BeginProperty Font 
+            Name            =   "Tahoma"
+            Size            =   6.75
+            Charset         =   0
+            Weight          =   700
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         ForeColor       =   &H00800000&
+         Height          =   165
+         Index           =   6
+         Left            =   10665
+         TabIndex        =   21
+         Top             =   3000
+         Width           =   1290
+      End
+      Begin VB.Shape Shape1 
+         BackColor       =   &H00E0E0E0&
+         BackStyle       =   1  'Opaque
+         BorderColor     =   &H00808080&
+         BorderStyle     =   6  'Inside Solid
+         FillColor       =   &H00FFFFFF&
+         FillStyle       =   0  'Solid
+         Height          =   855
+         Left            =   120
+         Top             =   480
+         Width           =   8415
+      End
+      Begin VB.Shape Shape2 
+         BackColor       =   &H00FFFFFF&
+         BackStyle       =   1  'Opaque
+         BorderColor     =   &H00C0C0C0&
+         BorderStyle     =   6  'Inside Solid
+         Height          =   4470
+         Left            =   9120
+         Top             =   360
+         Width           =   9375
+      End
+   End
+   Begin MSComctlLib.ImageList ImgIconos 
+      Left            =   5400
+      Top             =   2760
+      _ExtentX        =   1005
+      _ExtentY        =   1005
+      BackColor       =   -2147483643
+      ImageWidth      =   32
+      ImageHeight     =   32
+      MaskColor       =   12632256
+      _Version        =   393216
+      BeginProperty Images {2C247F25-8591-11D1-B16A-00C0F0283628} 
+         NumListImages   =   13
+         BeginProperty ListImage1 {2C247F27-8591-11D1-B16A-00C0F0283628} 
+            Picture         =   "FrmReporteRecaudacionDiaria.frx":1A1FE
+            Key             =   "(Nuevo)"
+         EndProperty
+         BeginProperty ListImage2 {2C247F27-8591-11D1-B16A-00C0F0283628} 
+            Picture         =   "FrmReporteRecaudacionDiaria.frx":1A652
+            Key             =   "(Modificar)"
+         EndProperty
+         BeginProperty ListImage3 {2C247F27-8591-11D1-B16A-00C0F0283628} 
+            Picture         =   "FrmReporteRecaudacionDiaria.frx":1A972
+            Key             =   "(Eliminar)"
+         EndProperty
+         BeginProperty ListImage4 {2C247F27-8591-11D1-B16A-00C0F0283628} 
+            Picture         =   "FrmReporteRecaudacionDiaria.frx":1ADC6
+            Key             =   "(Salir)"
+         EndProperty
+         BeginProperty ListImage5 {2C247F27-8591-11D1-B16A-00C0F0283628} 
+            Picture         =   "FrmReporteRecaudacionDiaria.frx":1B21A
+            Key             =   "(Cancelar)"
+         EndProperty
+         BeginProperty ListImage6 {2C247F27-8591-11D1-B16A-00C0F0283628} 
+            Picture         =   "FrmReporteRecaudacionDiaria.frx":1B53A
+            Key             =   "(Imprimir)"
+         EndProperty
+         BeginProperty ListImage7 {2C247F27-8591-11D1-B16A-00C0F0283628} 
+            Picture         =   "FrmReporteRecaudacionDiaria.frx":1B98E
+            Key             =   "(Anular)"
+         EndProperty
+         BeginProperty ListImage8 {2C247F27-8591-11D1-B16A-00C0F0283628} 
+            Picture         =   "FrmReporteRecaudacionDiaria.frx":1BAEA
+            Key             =   "(Aceptar)"
+         EndProperty
+         BeginProperty ListImage9 {2C247F27-8591-11D1-B16A-00C0F0283628} 
+            Picture         =   "FrmReporteRecaudacionDiaria.frx":1BF3E
+            Key             =   "(Reporte)"
+         EndProperty
+         BeginProperty ListImage10 {2C247F27-8591-11D1-B16A-00C0F0283628} 
+            Picture         =   "FrmReporteRecaudacionDiaria.frx":1C25A
+            Key             =   "(Pagar)"
+         EndProperty
+         BeginProperty ListImage11 {2C247F27-8591-11D1-B16A-00C0F0283628} 
+            Picture         =   "FrmReporteRecaudacionDiaria.frx":1CB36
+            Key             =   "(Quitar)"
+         EndProperty
+         BeginProperty ListImage12 {2C247F27-8591-11D1-B16A-00C0F0283628} 
+            Picture         =   "FrmReporteRecaudacionDiaria.frx":1CE56
+            Key             =   "(Agregar)"
+         EndProperty
+         BeginProperty ListImage13 {2C247F27-8591-11D1-B16A-00C0F0283628} 
+            Picture         =   "FrmReporteRecaudacionDiaria.frx":1D176
+            Key             =   "(Buscar)"
+         EndProperty
+      EndProperty
+   End
+End
+Attribute VB_Name = "FrmReporteRecaudacionDiaria"
+Attribute VB_GlobalNameSpace = False
+Attribute VB_Creatable = False
+Attribute VB_PredeclaredId = True
+Attribute VB_Exposed = False
+Public Procedencia As EnumProcede
+
+Private Sub Check1_Click()
+
+End Sub
+
+Private Sub ChameleonBtn2_Click()
+
+End Sub
+
+Private Sub ChameleonBtn3_Click()
+
+End Sub
+
+Private Sub ChameleonBtn1_Click()
+
+End Sub
+
+Private Sub chkAlmacen_Click()
+If Me.ChkAlmacen.Value = 1 Then
+    Me.DtcAlmacen.Enabled = True
+Else
+    Me.DtcAlmacen.Enabled = False
+End If
+
+End Sub
+
+Private Sub chkOperador_Click()
+If Me.chkOperador.Value = 1 Then
+    Me.DtcOperador.Enabled = True
+Else
+    Me.DtcOperador.Enabled = False
+End If
+End Sub
+
+Private Sub CmdDesacer_Click()
+
+End Sub
+
+
+
+Private Sub chkturno_Click()
+If Me.chkturno.Value = 1 Then
+    Me.DtcTurno.Visible = True
+    'Me.lblHorario.Visible = True
+Else
+    Me.DtcTurno.Visible = False
+    'Me.lblHorario.Visible = False
+End If
+End Sub
+
+Private Sub ClbAcciones_HeightChanged(ByVal NewHeight As Single)
+
+End Sub
+
+Private Sub cmdAceptar_Click()
+
+
+        
+        Dim Ans As Boolean
+        Dim i As Integer
+        Dim Anulado As String
+        Dim X As Integer
+        Dim tanuladas As Double
+        Dim tdeudas As Double
+        Dim tcredito As Double
+        Dim tdebito As Double
+        Dim tefectivo As Double
+        Dim pendientes As Integer
+        Dim tsubtotal As Double
+        Dim tTotal As Double
+        StrAlmacen = ""
+        StrOperador = ""
+        DteInicio = CVDate(Me.DtpDesde.Value)
+        DteFin = CVDate(Me.DtpHasta.Value)
+        
+        If Me.ChkAlmacen.Value = 1 Then
+            StrAlmacen = Replace(Me.DtcAlmacen.BoundText, "'", "''")
+        
+        End If
+        
+        If Me.chkOperador.Value = 1 Then
+         StrOperador = Replace(Me.DtcOperador.BoundText, "'", "''")
+        End If
+        
+        Call Llenar_efectivo(Me.HfgEfectivo, StrOperador, StrAlmacen)
+        Call Llenar_reporte(Me.HfReporte, StrOperador, StrAlmacen)
+        Call llenar_devoluciones(Me.HfDevoluciones, StrOperador, StrAlmacen)
+        'Call llenar_garantias(Me.HfGarantias, StrOperador, StrAlmacen)
+        Call Llenar_mastercard(Me.HfDebito, StrOperador, StrAlmacen)
+        Call Llenar_visa(Me.HfCredito, StrOperador, StrAlmacen)
+        Call llenar_anuladas(StrOperador, StrAlmacen)
+        Call Llenar_pago_credito(Me.HfDeudas, StrOperador, StrAlmacen)
+        
+        Me.lblNumSubtotal.Caption = Val(Me.lblNumanuladas.Caption) + Val(Me.lblNumEfectivo.Caption) + Val(Me.LblnumMastercard.Caption) + Val(Me.lblNumVisa.Caption)
+        Me.lblnumTotal.Caption = Val(Me.lblNumSubtotal.Caption) - Val(Me.lblNumanuladas.Caption)
+        tsubtotal = Val(Me.lblTotalEfectivo.Caption) + Val(Me.lblTotalCreditos.Caption) + Val(Me.lblTotalMastercard.Caption) + Val(Me.lblTotalVisa.Caption) + Val(Me.lblTotalVitepay.Caption)
+        tTotal = Val(tsubtotal) + Val(Me.lblTotalDevoluciones.Caption)
+        Me.lblSubtotal.Caption = Format(tsubtotal, "###0.00")
+        Me.lblTotalgeneral.Caption = Format(tTotal, "###0.00")
+        Me.lblNumTikets.Caption = Val(Me.lblNumanuladas.Caption) + Val(Me.lblNumEfectivo.Caption) + Val(Me.LblnumMastercard.Caption) + Val(Me.lblNumVisa.Caption)
+        If Val(Me.lblTotalgeneral.Caption) > 0 Then
+            Me.LblTotalLetras.Caption = UCase(EnLetras(Val(lblTotalgeneral.Caption)))
+        End If
+End Sub
+
+Private Sub cmdConsolidado_Click()
+Dim arr(0 To 1, 1 To 2) As String
+Dim param As Variant
+
+arr(0, 1) = "p_fecha_inicio"
+arr(1, 1) = "p_fecha_final"
+
+
+
+arr(0, 2) = Me.DtpDesde.Value
+arr(1, 2) = Me.DtpHasta.Value
+
+
+param = arr()
+          turno = ""
+          If Me.chkturno.Value = 1 Then
+            turno = Replace(Me.DtcTurno.BoundText, "'", "''")
+          End If
+          If Me.ChkAlmacen.Value = 1 Then
+             StrAlmacen = Replace(Me.DtcAlmacen.BoundText, "'", "''")
+          Else
+              StrAlmacen = ""
+          End If
+       
+          operador = ""
+          
+          If Me.chkOperador.Value = 1 Then
+            operador = Replace(Me.DtcOperador.BoundText, "'", "''")
+          End If
+          
+          
+          
+strCadena = "SELECT id_forma_pago,tipo_movimiento,sum(monto_caja) " & _
+"  FROM view_reporte_detallado_v2 WHERE afecta_caja='si' and anulado='no' and  id_vendedor LIKE '%" & Trim(operador) & "%' AND  id_alm like '%" & StrAlmacen & "%' and  fecha_emision>='" & Format(Me.DtpDesde.Value, "YYYY-mm-dd") & "' and fecha_emision<='" & Format(Me.DtpHasta.Value, "YYYY-mm-dd") & "' GROUP BY id_forma_pago"
+Call ConfiguraRst(strCadena)
+Ans = ShowMultiReport(rst, "Rpt_consolidado_caja", param, App.Path + "\Reportes\")
+End Sub
+
+Private Sub cmdimprimir_Click()
+Dim arr(0 To 1, 1 To 2) As String
+Dim param As Variant
+
+arr(0, 1) = "p_fecha_inicio"
+arr(1, 1) = "p_fecha_final"
+
+
+
+arr(0, 2) = Me.DtpDesde.Value
+arr(1, 2) = Me.DtpHasta.Value
+
+
+param = arr()
+
+          turno = ""
+          If Me.chkturno.Value = 1 Then
+            turno = Replace(Me.DtcTurno.BoundText, "'", "''")
+          End If
+          If Me.ChkAlmacen.Value = 1 Then
+             StrAlmacen = Replace(Me.DtcAlmacen.BoundText, "'", "''")
+          Else
+              StrAlmacen = ""
+          End If
+       
+          operador = ""
+          
+          If Me.chkOperador.Value = 1 Then
+            operador = Replace(Me.DtcOperador.BoundText, "'", "''")
+          End If
+          
+          
+          
+'strCadena = "SELECT fecha_emision,documento,id_cliente,ncliente,id_forma_pago,id_tarjeta,tarjeta,id_forma_pago,anulado,monto_caja,monto_caja " & _
+"  FROM view_reporte_detallado_v2 WHERE (id_doc='0001' or id_doc='0003') and id_vendedor LIKE '%" & Trim(StrOperador) & "%' AND  id_alm like '%" & StrAlmacen & "%' and  fecha_emision>='" & Format(Me.DtpDesde.Value, "YYYY-mm-dd") & "' and fecha_emision<='" & Format(Me.DtpHasta.Value, "YYYY-mm-dd") & "' order by fecha_emision asc,id_doc,serie,numero ASC"
+
+strCadena = "SELECT fecha_emision,documento,id_cliente,ncliente,id_forma_pago,id_tarjeta,tarjeta,id_forma_pago,anulado,tipo_movimiento,monto_caja,monto_caja as total " & _
+"  FROM view_reporte_detallado_v2 WHERE afecta_caja='si' and id_vendedor LIKE '%" & Trim(StrOperador) & "%' AND  id_alm like '%" & StrAlmacen & "%' and  fecha_emision>='" & Format(Me.DtpDesde.Value, "YYYY-mm-dd") & "' and fecha_emision<='" & Format(Me.DtpHasta.Value, "YYYY-mm-dd") & "' order by fecha_emision asc,id_doc,serie,numero ASC"
+Call ConfiguraRst(strCadena)
+Ans = ShowMultiReport(rst, "Rpt_detallado_caja", param, App.Path + "\Reportes\")
+
+
+End Sub
+
+Private Sub cmdListadorecibos_Click()
+Dim arr(0 To 1, 1 To 2) As String
+Dim param As Variant
+
+arr(0, 1) = "p_fecha_inicio"
+arr(1, 1) = "p_fecha_final"
+
+
+
+arr(0, 2) = Me.DtpDesde.Value
+arr(1, 2) = Me.DtpHasta.Value
+
+
+param = arr()
+
+          turno = ""
+          If Me.chkturno.Value = 1 Then
+            turno = Replace(Me.DtcTurno.BoundText, "'", "''")
+          End If
+          If Me.ChkAlmacen.Value = 1 Then
+             StrAlmacen = Replace(Me.DtcAlmacen.BoundText, "'", "''")
+          Else
+              StrAlmacen = ""
+          End If
+       
+          operador = ""
+          
+          If Me.chkOperador.Value = 1 Then
+            operador = Replace(Me.DtcOperador.BoundText, "'", "''")
+          End If
+          
+          
+          
+strCadena = "SELECT fecha_emision,documento,id_cliente,ncliente,id_forma_pago,id_tarjeta,tarjeta,id_forma_pago,anulado,monto,total " & _
+"  FROM view_reporte_detallado_v2 WHERE id_doc='0054' and  id_vendedor LIKE '%" & Trim(StrOperador) & "%' AND  id_alm like '%" & StrAlmacen & "%' and  fecha_emision>='" & Format(Me.DtpDesde.Value, "YYYY-mm-dd") & "' and fecha_emision<='" & Format(Me.DtpHasta.Value, "YYYY-mm-dd") & "' order by fecha_emision asc,id_doc,serie,numero ASC"
+Call ConfiguraRst(strCadena)
+Ans = ShowMultiReport(rst, "Rpt_detallado_caja", param, App.Path + "\Reportes\")
+End Sub
+
+Private Sub cmdsalir_Click()
+Unload Me
+End Sub
+
+Private Sub cmdVentasVendedor_Click()
+Dim arr(0 To 1, 1 To 2) As String
+Dim param As Variant
+
+arr(0, 1) = "p_fecha_inicio"
+arr(1, 1) = "p_fecha_final"
+
+
+
+arr(0, 2) = Me.DtpDesde.Value
+arr(1, 2) = Me.DtpHasta.Value
+
+
+param = arr()
+
+          turno = ""
+          If Me.chkturno.Value = 1 Then
+            turno = Replace(Me.DtcTurno.BoundText, "'", "''")
+          End If
+          If Me.ChkAlmacen.Value = 1 Then
+             StrAlmacen = Replace(Me.DtcAlmacen.BoundText, "'", "''")
+          Else
+              StrAlmacen = ""
+          End If
+       
+          operador = ""
+          
+          If Me.chkOperador.Value = 1 Then
+            operador = Replace(Me.DtcOperador.BoundText, "'", "''")
+          End If
+          
+          
+          
+strCadena = "SELECT fecha_emision,documento,id_cliente,ncliente,id_forma_pago,id_tarjeta,tarjeta,id_forma_pago,anulado,monto_caja,monto_caja,id_vendedor,vendedor " & _
+"  FROM view_reporte_detallado_v2 WHERE afecta_caja='si' and id_vendedor LIKE '%" & Trim(StrOperador) & "%' AND  id_alm like '%" & StrAlmacen & "%' and  fecha_emision>='" & Format(Me.DtpDesde.Value, "YYYY-mm-dd") & "' and fecha_emision<='" & Format(Me.DtpHasta.Value, "YYYY-mm-dd") & "' order by fecha_emision asc,id_doc,serie,numero ASC"
+Call ConfiguraRst(strCadena)
+Ans = ShowMultiReport(rst, "Rpt_detallado_caja_vendedor", param, App.Path + "\Reportes\")
+End Sub
+
+Private Sub Command1_Click()
+Dim nvalor_venta As Single
+Dim n_igv As Single
+Dim nTotal As Single
+strCadena = "SELECT * FROM movimiento_venta WHERE fecha_emision<='2015-04-21' and anulado='no' and  total=0  and  ruc='" & KEY_RUC & "' ORDER BY id_venta DESC"
+Call ConfiguraRst(strCadena)
+If rst.RecordCount > 0 Then
+    rst.MoveFirst
+    For k = 0 To rst.RecordCount - 1
+        strCadena = "SELECT sum(total) FROM movimiento_venta_detalle WHERE id_venta='" & rst("id_venta") & "'"
+        Call ConfiguraRstZ(strCadena)
+        If IsNull(rstZ(0)) = True Then
+            strCadena = "SELECT monto FROM movimiento_venta_monto WHERE id_venta='" & rst("id_venta") & "'"
+            Call ConfiguraRstL(strCadena)
+            If rstL.RecordCount > 1 Then
+                X = 0
+            Else
+                nTotal = rstL("monto")
+                If nTotal = 0 Then
+                    GoTo sig
+                End If
+            End If
+            
+            
+        Else
+            nTotal = Val(rstZ(0))
+        End If
+        
+        nvalor_venta = nTotal / 1.18
+        n_igv = nTotal - nvalor_venta
+        
+        strCadena = "UPDATE movimiento_venta SET `valor_venta`='" & nvalor_venta & "',`igv`='" & n_igv & "',`exonerado`='0.00',`total`='" & nTotal & "',`saldo`='0.00',`monto_pago`='" & nTotal & "',`monto_vuelto`='0.00' WHERE   id_venta='" & rst("id_venta") & "'"
+        CnBd.Execute (strCadena)
+        Call insertar_acciones(strCadena)
+sig:
+        rst.MoveNext
+        DoEvents
+    Next k
+End If
+End Sub
+
+Private Sub DtcTurno_Change()
+strCadena = "SELECT * FROM turno WHERE id_turno='" & Trim(Me.DtcTurno.BoundText) & "' AND ruc='" & KEY_RUC & "'"
+Call ConfiguraRstT(strCadena)
+If rstT.RecordCount > 0 Then
+   ' Me.lblHorario.Caption = "[ " & Format(rstT("hora_inicio"), "Medium Time") & Space(2) & "-" & Space(2) & Format(rstT("hora_final"), "Medium Time") & " ]"
+Else
+    'Me.lblHorario.Caption = ""
+End If
+End Sub
+
+Private Sub Form_KeyDown(KeyCode As Integer, Shift As Integer)
+If KeyCode = 27 Then
+    Unload Me
+End If
+End Sub
+
+Private Sub Form_Load()
+Dim hi As String
+Dim hf As String
+Dim h As String
+Dim strturno As String
+CenterForm Me
+Me.Top = 100
+Me.DtpDesde.Value = KEY_FECHA
+Me.DtpHasta.Value = KEY_FECHA
+strCadena = "SELECT * FROM turno WHERE ruc='" & KEY_RUC & "'"
+Call ConfiguraRst(strCadena)
+rst.MoveFirst
+strCadena = "SELECT CURTIME()"
+Call ConfiguraRstT(strCadena)
+h = Format(rstT(0), "hh:mm:ss")
+For i = 0 To rst.RecordCount - 1
+    hi = Format(rst("hora_inicio"), "hh:mm:ss")
+    hf = Format(rst("hora_final"), "hh:mm:ss")
+    If (Format(TimeValue(h), "hh:mm:ss") >= Format(TimeValue(hi), "hh:mm:ss")) And (Format(TimeValue(h), "hh:mm:ss") < Format(TimeValue(hf), "hh:mm:ss")) Then
+        strturno = rst("id_turno")
+        Exit For
+    End If
+        rst.MoveNext
+Next i
+
+strCadena = "SELECT id_turno as Codigo,descripcion as Descripcion FROM turno WHERE ruc='" & KEY_RUC & "' ORDER BY hora_inicio ASC"
+Call ConfiguraRst(strCadena)
+Call LlenaDataCombo(Me.DtcTurno)
+Me.DtcTurno.BoundText = strturno
+
+strCadena = "SELECT P.dni as Codigo,P.nombre_completo as Descripcion FROM persona P,entidad_empresa E WHERE P.dni=E.cod_unico AND E.id_empresa='" & KEY_RUC & "' AND E.id_personal='si' AND E.id_medico='no' AND E.id_sucursal='" & KEY_ALM & "' AND E.id_cargo<>'00025' AND E.id_cargo<>'00015'"
+Call ConfiguraRst(strCadena)
+Call LlenaDataCombo(Me.DtcOperador)
+Me.DtcOperador.Enabled = False
+
+If KEY_ALM = "00001" Then
+    strCadena = "SELECT id_alm as Codigo,descripcion as Descripcion FROM almacen WHERE ruc='" & KEY_RUC & "' ORDER BY descripcion "
+Else
+    strCadena = "SELECT id_alm as Codigo,descripcion as Descripcion FROM almacen WHERE ruc='" & KEY_RUC & "' AND id_alm='" & KEY_ALM & "' ORDER BY descripcion "
+End If
+Call ConfiguraRst(strCadena)
+Call LlenaDataCombo(Me.DtcAlmacen)
+Me.DtcAlmacen.BoundText = KEY_ALM
+Me.DtcAlmacen.Enabled = False
+Me.ChkAlmacen.Value = 1
+
+End Sub
+
+
+
+
+Private Sub HfgEfectivo_Click()
+Dim X As Integer
+If Me.HfgEfectivo.Rows < 1 Then
+    X = 0
+End If
+End Sub
+
+Private Sub HfgEfectivo_DblClick()
+If Me.HfgEfectivo.Rows > 0 Then
+    Procedencia = buscar
+    frmdetalle.Show
+End If
+End Sub
+
+Private Sub impresion_reporte()
+    Dim tttarjeta As Double
+    Call CargaDefConfigEpsonTM
+    Printer.TrackDefault = True 'siempre apunta a la impresora predeter
+    'Printer.Font.name = "FontB11"Draft 17cpi
+    'Printer.Font.name = "Draft 17cpi"
+    'Printer.Font.Size = "10"
+    m_iTamLineaImpresion = Fix(Printer.ScaleWidth / Printer.TextWidth(" "))
+    Printer.ScaleMode = vbCharacters  'establezco caracteres para controlar la impresion
+    Printer.Font.name = "FontB11"
+    Printer.Font.Size = "10"
+    'Printer.Font.name = "Draft 17cpi"
+    'Printer.Font.Size = "10"
+    m_iTamLineaImpresion = Fix(Printer.ScaleWidth / Printer.TextWidth(" "))
+    '
+        
+    Printer.Print Tab(1); KEY_EMPRESA
+    Printer.Print Tab(1); KEY_DIRECCION
+    Printer.Print Tab(1); "RUC :" & KEY_RUC
+    Printer.Print Tab(1); "========================================="
+    Printer.Print Tab(1); "ARQUEO DE CAJA"
+    Printer.Print Tab(1); "========================================="
+    Printer.Print Tab(1); "FECHA:" & KEY_FECHA
+    If Me.ChkAlmacen.Value = 1 Then
+        Printer.Print Tab(1); "TIENDA :" + Me.DtcAlmacen.Text
+    Else
+        Printer.Print Tab(1); "ACUMULADO TOTAL TODAS LAS TIENDAS"
+    End If
+    If Me.chkOperador.Value = 1 Then
+        Printer.Print Tab(1); "CAJERA :" + Me.DtcOperador.Text
+           
+    End If
+    tTotal = Val(Me.lblTotalEfectivo.Caption)
+    tttarjeta = Val(Me.lblTotalMastercard.Caption) + Val(Me.lblTotalVisa.Caption)
+    
+    Printer.Print Tab(1); "========================================="
+    Printer.Print Tab(1); Mid("ANULADAS" + Space(20), 1, 12) & ":" & Mid(Format(Val(Me.lblNumanuladas.Caption), "#,##0.00") + Space(10), 1, 5) + Space(1) + "======>" + Space(1) + Format(Val(Me.lblTotalAnuladas.Caption), "#,##0.00")
+    Printer.Print Tab(1); Mid("EFECTIVO" + Space(20), 1, 12) & ":" & Mid(Format(Val(Me.lblNumEfectivo.Caption), "#,##0.00") + Space(10), 1, 5) + Space(1) + "======>" + Space(1) + Format(Val(Me.lblTotalEfectivo.Caption), "#,##0.00")
+    Printer.Print Tab(1); Mid("VISA" + Space(20), 1, 12) & ":" & Mid(Format(Val(Me.lblNumVisa.Caption), "#,##0.00") + Space(10), 1, 5) + Space(1) + "======>" + Space(1) + Format(Val(Me.lblTotalVisa.Caption), "#,##0.00")
+    Printer.Print Tab(1); Mid("MASTERCARD" + Space(20), 1, 12) & ":" & Mid(Format(Val(Me.LblnumMastercard.Caption), "#,##0.00") + Space(10), 1, 5) + Space(1) + "======>" + Space(1) + Format(Val(Me.lblTotalMastercard.Caption), "#,##0.00")
+    Printer.Print Tab(1); Mid("CREDITOS" + Space(20), 1, 12) & ":" & Mid(Format(Val(Me.lblnumCreditos.Caption), "#,##0.00") + Space(10), 1, 5) + Space(1) + "======>" + Space(1) + Format(Val(Me.lblTotalCreditos.Caption), "#,##0.00")
+    Printer.Print Tab(1); "========================================="
+    Printer.Print Tab(1); Mid("TOTAL EFECTIVO" + Space(20), 1, 16) & ":" & Space(1) + "======>" + Space(1) + Format(tTotal, "#,##0.00")
+    Printer.Print Tab(1); Mid("TOTAL TARJETAS" + Space(20), 1, 16) & ":" & Space(1) + "======>" + Space(1) + Format(tttarjeta, "#,##0.00")
+    Printer.Print Tab(1); Mid("TOTAL CREDITOS" + Space(20), 1, 16) & ":" & Space(1) + "======>" + Space(1) + Format(Val(Me.lblTotalCreditos.Caption), "#,##0.00")
+    Printer.Print ""
+    Printer.Print Tab(1); Mid("ACUMULADO CAJA" + Space(20), 1, 16) & ":" & Space(1) + "======>" + Space(1) + Format(tTotal + Val(Me.lblTotalCreditos.Caption), "#,##0.00")
+    Printer.Print Tab(1); Mid("ACUMULADO TOTAL" + Space(20), 1, 16) & ":" & Space(1) + "======>" + Space(1) + Format(tttarjeta + tTotal + Val(Me.lblTotalCreditos.Caption), "#,##0.00")
+    Printer.Print Tab(1); "========================================="
+    Printer.Print Tab(1); UCase(EnLetras(tTotal + tttarjeta + Val(Me.lblTotalCreditos.Caption)))
+    Printer.Print ""
+    Printer.Print "" 'Tab(10); 'L 9
+    Printer.Print "" 'Tab(10); 'L 9
+    Printer.Print "" 'Tab(10); 'L 9
+    Printer.Print Tab(10); "----------------------------------"
+    Printer.Print Tab(10); Mid(Space(10) + "ENCARGADO" + Space(10), 1, 20)
+    Printer.Print Tab(10); "(" + Space(5) + Mid(KEY_VENDEDOR + Space(10), 1, 30) + ")"
+    Printer.Print "" 'Tab(10); 'L 9
+    Printer.Print Tab(1); Mid("HORA PROCESO" + Space(10), 1, 12) & ":" & Str(Time)
+    Printer.EndDoc
+    
+    Exit Sub
+End Sub
+
+
+
+
+
+
+
+
+Public Sub llenar_anuladas(ByVal id_usuario As String, ByVal id_alm As String)
+Dim ttanuladas As Double
+Dim turno As String
+turno = ""
+If Me.chkturno.Value = 1 Then
+     turno = Replace(Me.DtcTurno.BoundText, "'", "''")
+End If
+ttanuladas = 0
+If id_alm = "00001" Then
+    strCadena = "SELECT * FROM movimiento_venta WHERE ruc='" & KEY_RUC & "' AND id_vendedor LIKE '%" & id_usuario & "%'  AND fecha_emision>='" & Format(Me.DtpDesde.Value, "YYYY-mm-dd") & "' AND fecha_emision<='" & Format(Me.DtpHasta.Value, "YYYY-mm-dd") & "' AND anulado='si' AND turno LIKE '%" & Trim(turno) & "%'"
+Else
+    strCadena = "SELECT * FROM movimiento_venta WHERE ruc='" & KEY_RUC & "' AND id_vendedor LIKE '%" & id_usuario & "%' AND id_alm LIKE '%" & id_alm & "%' AND fecha_emision>='" & Format(Me.DtpDesde.Value, "YYYY-mm-dd") & "' AND fecha_emision<='" & Format(Me.DtpHasta.Value, "YYYY-mm-dd") & "' AND anulado='si' AND turno LIKE '%" & Trim(turno) & "%'"
+End If
+Call ConfiguraRst(strCadena)
+If rst.RecordCount > 0 Then
+    rst.MoveFirst
+    Me.lblTotalAnuladas.Caption = 0
+    For i = 0 To rst.RecordCount - 1
+        ttanuladas = rst("total") + ttanuladas
+        rst.MoveNext
+    Next i
+End If
+Me.lblTotalAnuladas.Caption = Format(ttanuladas, "###0.00")
+Me.lblNumanuladas.Caption = Str(rst.RecordCount)
+Set rst = Nothing
+End Sub
+Public Sub Llenar_mastercard(ByVal Grilla As MSHFlexGrid, ByVal id_usuario As String, ByVal id_alm As String)
+On Error GoTo SALIR
+Dim tTotal As Double
+Dim turno As String
+  turno = ""
+'If Me.OptManana.Value = True Then
+    turno = "M"
+'End If
+'If Me.OptTarde.Value = True Then
+    turno = "T"
+'End If
+strCadena = "SELECT V.id_venta,V.fecha_emision,CONCAT(C.doc_abrev,':',V.serie,'-',V.numero)as comprobante,P.nombre_completo,M.monto,V.anulado " & _
+"FROM movimiento_venta V,movimiento_venta_monto M, comprobantes C,persona P  WHERE V.id_venta=M.id_venta AND V.id_doc=C.id_doc AND V.fecha_emision>='" & Format(Me.DtpDesde.Value, "YYYY-mm-dd") & "' AND V.fecha_emision<='" & Format(Me.DtpHasta.Value, "YYYY-mm-dd") & "' " & _
+" AND V.id_cliente=P.dni AND V.ruc='" & KEY_RUC & "' AND M.ruc='" & KEY_RUC & "' AND M.id_tarjeta='02' AND V.id_vendedor LIKE '%" & id_usuario & "%' AND V.id_alm LIKE '%" & id_alm & "%' AND  V.turno LIKE '%" & Trim(turno) & "%' ORDER BY V.serie,V.numero ASC"
+
+
+Call ConfiguraRst(strCadena)
+Me.LblnumMastercard.Caption = Str(rst.RecordCount)
+If rst.RecordCount < 1 Then
+    Grilla.Rows = 1
+    Grilla.Clear
+    Me.LblnumMastercard.Caption = "0"
+    Me.lblTotalVisa.Caption = "0.00"
+    Exit Sub
+End If
+   Grilla.Clear
+   Grilla.Rows = 0
+       ReDim arrColWidth(1 To rst.Fields.Count)
+       For Each Campo In rst.Fields
+            Grilla.ColWidth(0) = 0
+            Grilla.ColWidth(1) = 1100
+            Grilla.ColWidth(2) = 1800
+            Grilla.ColWidth(3) = 2500
+            Grilla.ColWidth(4) = 1300
+        Next
+        cabecera = "ID_VENTA" & vbTab & "EMISION" & vbTab & "COMPROBANTE" & vbTab & "CLIENTE" & vbTab & "MONTO"
+        Grilla.AddItem cabecera
+         For k = 0 To 4
+            Grilla.col = k
+            Grilla.Row = 0
+            Grilla.CellBackColor = &HDFDFE0
+        Next k
+        rst.MoveFirst
+        
+        tTotal = 0
+        For i = 0 To rst.RecordCount - 1
+            Fila = rst("id_venta") & vbTab & rst("fecha_emision") & vbTab & rst("comprobante") & vbTab & rst("nombre_completo") & vbTab & Format(rst("monto"), "###0.00")
+            Grilla.AddItem Fila
+            Fila = ""
+            If rst("anulado") = "si" Then
+               Me.lblNumanuladas.Caption = Val(Me.lblNumanuladas.Caption) + 1
+                    For k = 0 To 4
+                        Grilla.col = k
+                        Grilla.Row = i + 1
+                        Grilla.CellBackColor = &H8080FF
+                    Next k
+            Else
+                tTotal = tTotal + rst("monto")
+            End If
+            
+           
+            rst.MoveNext
+        Next i
+       Fila = "" & vbTab & "" & vbTab & "" & vbTab & "TOTAL:" & vbTab & Format(tTotal, "#,##0.00")
+      Grilla.AddItem Fila
+      Me.lblTotalMastercard.Caption = Format(tTotal, "###0.000")
+      For k = 3 To 4
+            Grilla.col = k
+            Grilla.Row = i + 1
+            Grilla.CellBackColor = &HC0FFFF
+      Next k
+     
+     
+Exit Sub
+SALIR: MsgBox "Ocurrio un Error en la Conexion", vbInformation, "Mensaje para el usuario"
+Set rst = Nothing
+
+
+
+
+
+
+
+End Sub
+Public Sub Llenar_pago_credito(ByVal Grilla As MSHFlexGrid, ByVal id_usuario As String, ByVal id_alm As String)
+On Error GoTo SALIR
+Dim tTotal As Double
+strCadena = "SELECT V.id_venta,V.fecha_emision,CONCAT(C.doc_abrev,':',V.serie,'-',V.numero)as comprobante,P.nombre_completo,M.monto,V.anulado " & _
+"FROM movimiento_venta V,movimiento_venta_monto M, comprobantes C,persona P  WHERE V.id_venta=M.id_venta AND V.id_doc=C.id_doc AND V.fecha_emision>='" & Format(Me.DtpDesde.Value, "YYYY-mm-dd") & "' AND V.fecha_emision<='" & Format(Me.DtpHasta.Value, "YYYY-mm-dd") & "' " & _
+" AND V.id_cliente=P.dni AND V.ruc='" & KEY_RUC & "' AND M.ruc='" & KEY_RUC & "' AND M.id_tarjeta='02' AND V.id_vendedor LIKE '%" & id_usuario & "%' AND V.id_alm LIKE '%" & id_alm & "%' ORDER BY V.serie,V.numero ASC"
+
+strCadena = "SELECT * FROM mis_cuentas_det M,persona P WHERE M.id_persona=P.dni AND  M.dni_save LIKE '%" & id_usuario & "%' AND ruc='" & KEY_RUC & "' AND id_alm LIKE '%" & id_alm & "%' AND fecha>='" & Format(Me.DtpDesde.Value, "YYYY-mm-dd") & "' AND fecha<='" & Format(Me.DtpHasta.Value, "YYYY-mm-dd") & "' "
+Call ConfiguraRst(strCadena)
+Me.lblnumCreditos.Caption = Str(rst.RecordCount)
+
+If rst.RecordCount < 1 Then
+    Grilla.Rows = 1
+    Grilla.Clear
+    Me.lblTotalCreditos.Caption = Format(0, "#,##0.00")
+    Exit Sub
+End If
+   Grilla.Clear
+   Grilla.Rows = 0
+       ReDim arrColWidth(1 To rst.Fields.Count)
+       For Each Campo In rst.Fields
+            Grilla.ColWidth(0) = 0
+            Grilla.ColWidth(1) = 1100
+            Grilla.ColWidth(2) = 1800
+            Grilla.ColWidth(3) = 2500
+            Grilla.ColWidth(4) = 1300
+        Next
+        cabecera = "ID_VENTA" & vbTab & "EMISION" & vbTab & "COMPROBANTE" & vbTab & "CLIENTE" & vbTab & "MONTO"
+        Grilla.AddItem cabecera
+         For k = 0 To 4
+            Grilla.col = k
+            Grilla.Row = 0
+            Grilla.CellBackColor = &HDFDFE0
+        Next k
+        rst.MoveFirst
+        
+        tTotal = 0
+        For i = 0 To rst.RecordCount - 1
+            Fila = rst("id_movimiento") & vbTab & rst("fecha") & vbTab & Mid(rst("glosa"), 7, 19) & vbTab & rst("nombre_completo") & vbTab & Format(rst("monto"), "###0.00")
+            Grilla.AddItem Fila
+            Fila = ""
+            If rst("anulado") = "si" Then
+                    For k = 0 To 4
+                        Grilla.col = k
+                        Grilla.Row = i + 1
+                        Grilla.CellBackColor = &H8080FF
+                    Next k
+            Else
+                tTotal = tTotal + rst("monto")
+            End If
+            
+           
+            rst.MoveNext
+        Next i
+       Fila = "" & vbTab & "" & vbTab & "" & vbTab & "TOTAL:" & vbTab & Format(tTotal, "#,##0.00")
+      Grilla.AddItem Fila
+      Me.lblTotalCreditos.Caption = Format(tTotal, "###0.000")
+      For k = 0 To 4
+            Grilla.col = 4
+            Grilla.Row = i + 1
+            Grilla.CellBackColor = &HC0FFFF
+      Next k
+     
+     
+Exit Sub
+SALIR: MsgBox "Ocurrio un Error en la Conexion", vbInformation, "Mensaje para el usuario"
+Set rst = Nothing
+
+End Sub
+
+Public Sub Llenar_visa(ByVal Grilla As MSHFlexGrid, ByVal id_usuario As String, ByVal id_alm As String)
+On Error GoTo SALIR
+Dim tTotal As Double
+Dim turno As String
+  turno = ""
+'If Me.OptManana.Value = True Then
+    turno = "M"
+'End If
+'If Me.OptTarde.Value = True Then
+    turno = "T"
+'End If
+strCadena = "SELECT V.id_venta,V.fecha_emision,CONCAT(C.doc_abrev,':',V.serie,'-',V.numero)as comprobante,P.nombre_completo,M.monto,V.anulado " & _
+"FROM movimiento_venta V,movimiento_venta_monto M, comprobantes C,persona P  WHERE V.id_venta=M.id_venta AND V.id_doc=C.id_doc AND V.fecha_emision>='" & Format(Me.DtpDesde.Value, "YYYY-mm-dd") & "' AND V.fecha_emision<='" & Format(Me.DtpHasta.Value, "YYYY-mm-dd") & "' " & _
+" AND V.id_cliente=P.dni AND V.ruc='" & KEY_RUC & "' AND M.ruc='" & KEY_RUC & "' AND M.id_tarjeta='01' AND V.id_vendedor LIKE '%" & id_usuario & "%' AND V.id_alm LIKE '%" & id_alm & "%' AND  V.turno LIKE '%" & Trim(turno) & "%' ORDER BY V.serie,V.numero ASC"
+Call ConfiguraRst(strCadena)
+Me.lblNumVisa.Caption = Str(rst.RecordCount)
+If rst.RecordCount < 1 Then
+    Grilla.Rows = 1
+    Grilla.Clear
+    Me.lblTotalVisa.Caption = Format(0, "#,##0.00")
+    Exit Sub
+End If
+   Grilla.Clear
+   Grilla.Rows = 0
+       ReDim arrColWidth(1 To rst.Fields.Count)
+       For Each Campo In rst.Fields
+            Grilla.ColWidth(0) = 0
+            Grilla.ColWidth(1) = 1100
+            Grilla.ColWidth(2) = 1800
+            Grilla.ColWidth(3) = 2500
+            Grilla.ColWidth(4) = 1300
+        Next
+        cabecera = "ID_VENTA" & vbTab & "EMISION" & vbTab & "COMPROBANTE" & vbTab & "CLIENTE" & vbTab & "MONTO"
+        Grilla.AddItem cabecera
+         For k = 0 To 4
+            Grilla.col = k
+            Grilla.Row = 0
+            Grilla.CellBackColor = &HDFDFE0
+        Next k
+        rst.MoveFirst
+        
+        tTotal = 0
+        For i = 0 To rst.RecordCount - 1
+            Fila = rst("id_venta") & vbTab & rst("fecha_emision") & vbTab & rst("comprobante") & vbTab & rst("nombre_completo") & vbTab & Format(rst("monto"), "###0.00")
+            Grilla.AddItem Fila
+            Fila = ""
+            If rst("anulado") = "si" Then
+                    For k = 0 To 4
+                        Grilla.col = k
+                        Grilla.Row = i + 1
+                        Grilla.CellBackColor = &H8080FF
+                    Next k
+            Else
+                tTotal = tTotal + rst("monto")
+            End If
+            
+           
+            rst.MoveNext
+        Next i
+       Fila = "" & vbTab & "" & vbTab & "" & vbTab & "TOTAL:" & vbTab & Format(tTotal, "#,##0.00")
+      Grilla.AddItem Fila
+      Me.lblTotalVisa.Caption = Format(tTotal, "###0.000")
+      For k = 0 To 4
+            Grilla.col = 4
+            Grilla.Row = i + 1
+            Grilla.CellBackColor = &HC0FFFF
+      Next k
+Exit Sub
+SALIR: MsgBox "Ocurrio un Error en la Conexion", vbInformation, "Mensaje para el usuario"
+Set rst = Nothing
+End Sub
+Public Sub llenar_devoluciones(ByVal Grilla As MSHFlexGrid, ByVal id_usuario As String, ByVal id_alm As String)
+On Error GoTo SALIR
+Dim tTotal As Double
+Dim turno As String
+turno = ""
+If Me.chkturno.Value = 1 Then
+     turno = Replace(Me.DtcTurno.BoundText, "'", "''")
+End If
+
+If Me.DtcAlmacen.BoundText = "00001" Then
+    strCadena = "SELECT V.id_venta,V.fecha_emision,documento as comprobante,ncliente as nombre_completo,V.total ,V.anulado,P.nombre_completo as digitador " & _
+    "FROM movimiento_venta V,persona P WHERE V.fecha_emision>='" & Format(Me.DtpDesde.Value, "YYYY-mm-dd") & "' AND V.fecha_emision<='" & Format(Me.DtpHasta.Value, "YYYY-mm-dd") & "' " & _
+    " AND V.ruc='" & KEY_RUC & "' AND V.id_vendedor=P.dni AND V.id_forma_pago='01' AND V.id_vendedor LIKE '%" & id_usuario & "%' AND V.turno LIKE '%" & Trim(turno) & "%' AND id_doc='0205' ORDER BY documento ASC"
+Else
+    strCadena = "SELECT V.id_venta,V.fecha_emision,documento as comprobante,ncliente as nombre_completo,V.total ,V.anulado,P.nombre_completo as digitador " & _
+    "FROM movimiento_venta V,persona P WHERE V.fecha_emision>='" & Format(Me.DtpDesde.Value, "YYYY-mm-dd") & "' AND V.fecha_emision<='" & Format(Me.DtpHasta.Value, "YYYY-mm-dd") & "' " & _
+    " AND V.ruc='" & KEY_RUC & "' AND V.id_vendedor=P.dni AND V.id_forma_pago='01' AND V.id_vendedor LIKE '%" & id_usuario & "%' AND V.id_alm LIKE '%" & id_alm & "%' AND V.turno LIKE '%" & Trim(turno) & "%' AND  id_doc='0205' ORDER BY documento ASC"
+End If
+
+Call ConfiguraRst(strCadena)
+Me.lblnumdevoluciones.Caption = Str(rst.RecordCount)
+If rst.RecordCount < 1 Then
+    Grilla.Rows = 1
+    Grilla.Clear
+    Me.lblnumdevoluciones.Caption = "0"
+    Me.lblTotalDevoluciones.Caption = "0.00"
+    Exit Sub
+End If
+   Grilla.Rows = 1
+   Grilla.Clear
+   Grilla.Rows = 0
+       ReDim arrColWidth(1 To rst.Fields.Count)
+       For Each Campo In rst.Fields
+            Grilla.ColWidth(0) = 0
+            Grilla.ColWidth(1) = 1100
+            Grilla.ColWidth(2) = 1900
+            Grilla.ColWidth(3) = 3100
+            Grilla.ColWidth(4) = 1000
+            Grilla.ColWidth(5) = 1800
+        Next
+        cabecera = "ID_VENTA" & vbTab & "EMISION" & vbTab & "COMPROBANTE" & vbTab & "PACIENTE" & vbTab & "MONTO" & vbTab & "DIGITADOR"
+        Grilla.AddItem cabecera
+         For k = 0 To 5
+            Grilla.col = k
+            Grilla.Row = 0
+            Grilla.CellBackColor = &HDFDFE0
+        Next k
+        rst.MoveFirst
+        
+        tTotal = 0
+        For i = 0 To rst.RecordCount - 1
+            Fila = rst("id_venta") & vbTab & rst("fecha_emision") & vbTab & rst("comprobante") & vbTab & rst("nombre_completo") & vbTab & Format(rst("total"), "###0.00") & vbTab & rst("digitador")
+            Grilla.AddItem Fila
+            Fila = ""
+            If rst("anulado") = "si" Then
+               Me.lblNumanuladas.Caption = Val(Me.lblNumanuladas.Caption) + 1
+                    For k = 0 To 5
+                        Grilla.col = k
+                        Grilla.Row = i + 1
+                        Grilla.CellBackColor = &H8080FF
+                    Next k
+            Else
+                    tTotal = tTotal + rst("total")
+            End If
+            
+           
+            rst.MoveNext
+        Next i
+       Fila = "" & vbTab & "" & vbTab & "" & vbTab & "TOTAL:" & vbTab & Format(tTotal, "#,##0.00")
+      Grilla.AddItem Fila
+ Me.lblTotalDevoluciones.Caption = Format(tTotal, "###0.000")
+      For k = 3 To 5
+            Grilla.col = k
+            Grilla.Row = i + 1
+            Grilla.CellBackColor = &HC0FFFF
+      Next k
+     
+     
+Exit Sub
+
+SALIR: MsgBox "Ocurrio un Error en la Conexion", vbInformation, "Mensaje para el usuario"
+
+End Sub
+Public Sub llenar_garantias(ByVal Grilla As MSHFlexGrid, ByVal id_usuario As String, ByVal id_alm As String)
+On Error GoTo SALIR
+Dim tTotal As Double
+Dim turno As String
+turno = ""
+If Me.chkturno.Value = 1 Then
+     turno = Replace(Me.DtcTurno.BoundText, "'", "''")
+End If
+
+If Me.DtcAlmacen.BoundText = "00001" Then
+    strCadena = "SELECT V.id_venta,V.fecha_emision,documento as comprobante,ncliente as nombre_completo,V.total ,V.anulado,P.nombre_completo as digitador " & _
+    " FROM movimiento_venta V,movimiento_venta_detalle D,persona P WHERE V.id_vendedor= P.dni AND  V.id_venta=D.id_movimiento AND D.id_producto='99527' AND V.fecha_emision>='" & Format(Me.DtpDesde.Value, "YYYY-mm-dd") & "' AND V.fecha_emision<='" & Format(Me.DtpHasta.Value, "YYYY-mm-dd") & "' " & _
+    " AND V.ruc='" & KEY_RUC & "' AND V.id_vendedor=P.dni AND V.id_forma_pago='01' AND V.id_vendedor LIKE '%" & id_usuario & "%' AND V.turno LIKE '%" & Trim(turno) & "%' AND id_doc='0205' ORDER BY documento ASC"
+Else
+    strCadena = "SELECT V.id_venta,V.fecha_emision,documento as comprobante,ncliente as nombre_completo,V.total ,V.anulado,P.nombre_completo as digitador " & _
+    "FROM movimiento_venta V,movimiento_venta_detalle D,persona P WHERE V.id_vendedor= P.dni AND V.id_venta=D.id_movimiento AND D.id_producto='99527' V.fecha_emision>='" & Format(Me.DtpDesde.Value, "YYYY-mm-dd") & "' AND V.fecha_emision<='" & Format(Me.DtpHasta.Value, "YYYY-mm-dd") & "' " & _
+    " AND V.ruc='" & KEY_RUC & "' AND V.id_vendedor=P.dni AND V.id_forma_pago='01' AND V.id_vendedor LIKE '%" & id_usuario & "%' AND V.id_alm LIKE '%" & id_alm & "%' AND V.turno LIKE '%" & Trim(turno) & "%' AND  id_doc='0205' ORDER BY documento ASC"
+End If
+
+Call ConfiguraRst(strCadena)
+Me.lblnumdevoluciones.Caption = Str(rst.RecordCount)
+If rst.RecordCount < 1 Then
+    Grilla.Rows = 1
+    Grilla.Clear
+    Me.lblnumdevoluciones.Caption = "0"
+    Me.lblTotalDevoluciones.Caption = "0.00"
+    Exit Sub
+End If
+   Grilla.Rows = 1
+   Grilla.Clear
+   Grilla.Rows = 0
+       ReDim arrColWidth(1 To rst.Fields.Count)
+       For Each Campo In rst.Fields
+            Grilla.ColWidth(0) = 0
+            Grilla.ColWidth(1) = 1100
+            Grilla.ColWidth(2) = 1900
+            Grilla.ColWidth(3) = 3100
+            Grilla.ColWidth(4) = 1000
+            Grilla.ColWidth(5) = 1800
+        Next
+        cabecera = "ID_VENTA" & vbTab & "EMISION" & vbTab & "COMPROBANTE" & vbTab & "PACIENTE" & vbTab & "MONTO" & vbTab & "DIGITADOR"
+        Grilla.AddItem cabecera
+         For k = 0 To 5
+            Grilla.col = k
+            Grilla.Row = 0
+            Grilla.CellBackColor = &HDFDFE0
+        Next k
+        rst.MoveFirst
+        
+        tTotal = 0
+        For i = 0 To rst.RecordCount - 1
+            Fila = rst("id_venta") & vbTab & rst("fecha_emision") & vbTab & rst("comprobante") & vbTab & rst("nombre_completo") & vbTab & Format(rst("total"), "###0.00") & vbTab & rst("digitador")
+            Grilla.AddItem Fila
+            Fila = ""
+            If rst("anulado") = "si" Then
+               Me.lblNumanuladas.Caption = Val(Me.lblNumanuladas.Caption) + 1
+                    For k = 0 To 5
+                        Grilla.col = k
+                        Grilla.Row = i + 1
+                        Grilla.CellBackColor = &H8080FF
+                    Next k
+            Else
+                    tTotal = tTotal + rst("total")
+            End If
+            
+           
+            rst.MoveNext
+        Next i
+       Fila = "" & vbTab & "" & vbTab & "" & vbTab & "TOTAL:" & vbTab & Format(tTotal, "#,##0.00")
+      Grilla.AddItem Fila
+ Me.lblTotalDevoluciones.Caption = Format(tTotal, "###0.000")
+      For k = 3 To 5
+            Grilla.col = k
+            Grilla.Row = i + 1
+            Grilla.CellBackColor = &HC0FFFF
+      Next k
+     
+     
+Exit Sub
+
+SALIR: MsgBox "Ocurrio un Error en la Conexion", vbInformation, "Mensaje para el usuario"
+
+End Sub
+
+Public Sub Llenar_efectivo(ByVal Grilla As MSHFlexGrid, ByVal id_usuario As String, ByVal id_alm As String)
+On Error GoTo SALIR
+Dim tTotal As Double
+Dim turno As String
+turno = ""
+If Me.chkturno.Value = 1 Then
+     turno = Replace(Me.DtcTurno.BoundText, "'", "''")
+End If
+
+
+    
+    strCadena = "SELECT id_venta,fecha_emision,documento ,ncliente ,monto_caja,total,anulado,vendedor " & _
+    "FROM view_reporte_detallado_v2 WHERE fecha_emision>='" & Format(Me.DtpDesde.Value, "YYYY-mm-dd") & "' AND fecha_emision<='" & Format(Me.DtpHasta.Value, "YYYY-mm-dd") & "' " & _
+    " AND ruc='" & KEY_RUC & "' AND id_forma_pago='01' AND id_vendedor LIKE '%" & id_usuario & "%' AND id_alm LIKE '%" & id_alm & "%' AND turno LIKE '%" & Trim(turno) & "%' AND afecta_caja='si' ORDER BY documento ASC"
+    
+    'strCadena = "SELECT V.id_venta,V.fecha_emision,documento as comprobante,ncliente as nombre_completo,V.total ,V.anulado,P.nombre_completo as digitador " & _
+    "FROM movimiento_venta V,persona P WHERE V.fecha_emision>='" & Format(Me.DtpDesde.Value, "YYYY-mm-dd") & "' AND V.fecha_emision<='" & Format(Me.DtpHasta.Value, "YYYY-mm-dd") & "' " & _
+    " AND V.ruc='" & KEY_RUC & "' AND V.id_vendedor=P.dni AND V.id_forma_pago='01' AND V.id_vendedor LIKE '%" & id_usuario & "%' AND V.id_alm LIKE '%" & id_alm & "%' AND V.turno LIKE '%" & Trim(turno) & "%' AND (id_doc='0001' OR id_doc='0003') ORDER BY documento ASC"
+
+
+
+
+
+
+
+Call ConfiguraRst(strCadena)
+Me.lblNumEfectivo.Caption = Str(rst.RecordCount)
+If rst.RecordCount < 1 Then
+    Grilla.Rows = 1
+    Grilla.Clear
+    Me.lblNumEfectivo.Caption = "0"
+    Me.lblTotalEfectivo.Caption = "0.00"
+    Exit Sub
+End If
+   Grilla.Rows = 1
+   Grilla.Clear
+   Grilla.Rows = 0
+       ReDim arrColWidth(1 To rst.Fields.Count)
+       For Each Campo In rst.Fields
+            Grilla.ColWidth(0) = 0
+            Grilla.ColWidth(1) = 1000
+            Grilla.ColWidth(2) = 2000
+            Grilla.ColWidth(3) = 2400
+            Grilla.ColWidth(4) = 1100
+            Grilla.ColWidth(5) = 1900
+        Next
+        cabecera = "ID_VENTA" & vbTab & "EMISION" & vbTab & "COMPROBANTE" & vbTab & "PACIENTE" & vbTab & "MONTO" & vbTab & "DIGITADOR"
+        Grilla.AddItem cabecera
+         For k = 0 To 5
+            Grilla.col = k
+            Grilla.Row = 0
+            Grilla.CellBackColor = &HDFDFE0
+        Next k
+        rst.MoveFirst
+        
+        tTotal = 0
+        For i = 0 To rst.RecordCount - 1
+            Fila = rst("id_venta") & vbTab & rst("fecha_emision") & vbTab & rst("documento") & vbTab & rst("ncliente") & vbTab & Format(rst("monto_caja"), "###0.00") & vbTab & rst("vendedor")
+            Grilla.AddItem Fila
+            Fila = ""
+            If rst("anulado") = "si" Then
+               Me.lblNumanuladas.Caption = Val(Me.lblNumanuladas.Caption) + 1
+                    For k = 0 To 5
+                        Grilla.col = k
+                        Grilla.Row = i + 1
+                        Grilla.CellBackColor = &H8080FF
+                    Next k
+            Else
+                    tTotal = tTotal + rst("monto_caja")
+            End If
+        rst.MoveNext
+        Next i
+       Fila = "" & vbTab & "" & vbTab & "" & vbTab & "TOTAL:" & vbTab & Format(tTotal, "#,##0.00")
+      Grilla.AddItem Fila
+      Me.lblTotalEfectivo.Caption = Format(tTotal, "###0.000")
+      For k = 3 To 5
+            Grilla.col = k
+            Grilla.Row = i + 1
+            Grilla.CellBackColor = &HC0FFFF
+      Next k
+     
+     
+Exit Sub
+
+SALIR: MsgBox "Ocurrio un Error en la Conexion", vbInformation, "Mensaje para el usuario"
+
+
+End Sub
+Public Sub Llenar_tarde(ByVal Grilla As MSHFlexGrid, ByVal id_usuario As String, ByVal id_alm As String)
+'On Error GoTo SALIR
+Dim tTotal As Double
+Dim Tpacientes As Double
+Dim turno As String
+Dim Acumulado As Double
+  turno = ""
+'If Me.OptManana.Value = True Then
+    turno = "M"
+'End If
+'If Me.OptTarde.Value = True Then
+    turno = "T"
+'End If
+'Strcadena = "SELECT P.dni as Codigo,P.nombre_completo as Descripcion FROM persona P,entidad_empresa E WHERE P.dni=E.cod_unico AND E.id_empresa='" & KEY_RUC & "' AND E.id_personal='si' AND E.id_sucursal='" & KEY_ALM & "'"
+If KEY_ALM = "00001" Then
+    strCadena = "SELECT DISTINCT V.id_vendedor as Codigo,P.nombre_completo as Descripcion  FROM movimiento_venta V,persona P WHERE V.id_vendedor=P.dni AND V.ruc='" & KEY_RUC & "'  AND V.fecha_emision>='" & formato_fecha(Me.DtpDesde.Value) & "'"
+Else
+    strCadena = "SELECT DISTINCT V.id_vendedor as Codigo,P.nombre_completo as Descripcion  FROM movimiento_venta V,persona P WHERE V.id_vendedor=P.dni AND V.ruc='" & KEY_RUC & "' AND V.id_alm='" & KEY_ALM & "' AND V.fecha_emision>='" & formato_fecha(Me.DtpDesde.Value) & "'"
+End If
+
+Call ConfiguraRst(strCadena)
+If rst.RecordCount < 1 Then
+    Grilla.Rows = 1
+    Grilla.Clear
+    Me.lblNumEfectivo.Caption = "0"
+    Me.lblTotalEfectivo.Caption = "0.00"
+    Exit Sub
+End If
+   Grilla.Clear
+   Grilla.Rows = 0
+       ReDim arrColWidth(1 To rst.Fields.Count)
+       For Each Campo In rst.Fields
+            Grilla.ColWidth(0) = 1200
+            Grilla.ColWidth(1) = 3500
+            Grilla.ColWidth(2) = 2000
+            Grilla.ColWidth(3) = 2000
+        Next
+        cabecera = "DNI" & vbTab & "DESCRIPCION" & vbTab & "Nº PACIENTES" & vbTab & "MONTO ACUMULADO"
+        Grilla.AddItem cabecera
+         For k = 0 To 3
+            Grilla.col = k
+            Grilla.Row = 0
+            Grilla.CellBackColor = &HDFDFE0
+        Next k
+        Chart.TitleText = "ESTADISTICA DE PRODUCCION"
+        Me.Chart.RowCount = rst.RecordCount
+        With Chart.DataGrid
+        rst.MoveFirst
+        
+          For i = 0 To rst.RecordCount - 1
+            If KEY_ALM = "00001" Then
+                strCadena = "SELECT sum(total),count(*) FROM movimiento_venta WHERE fecha_emision>='" & Format(Me.DtpDesde.Value, "YYYY-mm-dd") & "' AND fecha_emision<='" & Format(Me.DtpHasta.Value, "YYYY-mm-dd") & "' " & _
+                " AND ruc='" & KEY_RUC & "' AND id_forma_pago='01' AND id_vendedor LIKE '%" & rst("Codigo") & "%'   AND anulado='no'"
+            Else
+                strCadena = "SELECT sum(total),count(*) FROM movimiento_venta WHERE fecha_emision>='" & Format(Me.DtpDesde.Value, "YYYY-mm-dd") & "' AND fecha_emision<='" & Format(Me.DtpHasta.Value, "YYYY-mm-dd") & "' " & _
+                " AND ruc='" & KEY_RUC & "' AND id_forma_pago='01' AND id_vendedor LIKE '%" & rst("Codigo") & "%' AND id_alm LIKE '%" & id_alm & "%'  AND anulado='no'"
+            End If
+            Call ConfiguraRstT(strCadena)
+            If IsNull(rstT(0)) = True Then
+                tTotal = 0
+            Else
+                tTotal = rstT(0)
+            End If
+            Tpacientes = Tpacientes + rstT(1)
+           .RowLabel(i + 1, 1) = rst("Descripcion")
+           .SetSize rst.RecordCount, 1, rst.RecordCount, 1
+            Acumulado = Acumulado + tTotal
+            Fila = rst("Codigo") & vbTab & rst("Descripcion") & vbTab & rstT(1) & vbTab & Format(tTotal, "###0.00")
+            Grilla.AddItem Fila
+            Fila = ""
+                      
+           
+            rst.MoveNext
+        Next i
+        End With
+          Fila = "" & vbTab & "RECAUDACION ACUMULADA" & vbTab & Tpacientes & vbTab & Format(Acumulado, "###0.00")
+          Grilla.AddItem Fila
+            '&HC0FFFF
+            For k = 1 To 3
+            Grilla.col = k
+            Grilla.Row = i + 1
+            Grilla.CellBackColor = &HC0FFFF
+        Next k
+     
+'Exit Sub
+'SALIR: MsgBox "Ocurrio un Error en la Conexion", vbInformation, "Mensaje para el usuario"
+Set rst = Nothing
+End Sub
+Private Sub llenar_imc_historial(ByVal dni As String)
+'Height = 5640: Width = 7575
+Chart.Visible = True
+
+'If Len(cboYear.text) = 4 Then
+    ' Filtramos los Registros de la BD en base a el año seleccionado
+    strCadena = "SELECT fecha,peso FROM persona_peso WHERE dni='" & dni & "'"
+    Call ConfiguraRstT(strCadena)
+    Chart.TitleText = "VARIACION DE PESO"
+    Me.Chart.RowCount = rstT.RecordCount
+    With Chart.DataGrid
+        For i = 1 To rstT.RecordCount
+        .RowLabel(i, 1) = rstT("fecha")
+        .SetSize rstT.RecordCount, 1, rstT.RecordCount, 1
+        rstT.MoveNext
+    Next i
+    End With
+
+End Sub
+Public Sub Llenar_reporte(ByVal Grilla As MSHFlexGrid, ByVal id_usuario As String, ByVal id_alm As String)
+'On Error GoTo SALIR
+Dim tTotal As Double
+Dim Tpacientes As Double
+Dim turno As String
+Dim Acumulado As Double
+Dim doc_ini As String
+Dim doc_fin As String
+
+
+
+turno = ""
+
+If Me.chkturno.Value = 1 Then
+     turno = Replace(Me.DtcTurno.BoundText, "'", "''")
+End If
+
+'If Me.chkAlmacen.Value = 1 Then
+ '    id_alm = Replace(Me.DtcAlmacen.BoundText, "'", "''")
+'End If
+'If Me.chkOperador.Value = 1 Then
+ '   id_usuario = Replace(Me.DtcOperador.BoundText, "'", "''")
+'End If
+
+
+If id_alm = "00001" Then
+    strCadena = "SELECT DISTINCT V.id_alm as Codigo,A.descripcion as Descripcion  FROM movimiento_venta V,almacen A WHERE V.id_alm=A.id_alm AND V.ruc='" & KEY_RUC & "'  AND V.fecha_emision>='" & formato_fecha(Me.DtpDesde.Value) & "' AND  V.fecha_emision<='" & formato_fecha(Me.DtpHasta.Value) & "' AND A.ruc='" & KEY_RUC & "' AND turno LIKE '%" & turno & "%' AND V.id_forma_pago='01' AND V.id_vendedor LIKE '%" & id_usuario & "%' AND anulado='no' AND (id_doc='0001' OR id_doc='0003') ORDER BY A.id_alm"
+Else
+    strCadena = "SELECT DISTINCT V.id_alm as Codigo,A.descripcion as Descripcion  FROM movimiento_venta V,almacen A WHERE  V.id_alm LIKE '%" & id_alm & "%' AND V.id_alm=A.id_alm AND V.ruc='" & KEY_RUC & "' AND A.ruc='" & KEY_RUC & "'  AND V.fecha_emision>='" & formato_fecha(Me.DtpDesde.Value) & "' AND V.fecha_emision<='" & formato_fecha(Me.DtpHasta.Value) & "' AND turno LIKE '%" & turno & "%' AND V.id_forma_pago='01' AND anulado='no' AND V.id_vendedor LIKE '%" & id_usuario & "%' AND (id_doc='0001' OR id_doc='0003') ORDER BY A.id_alm"
+End If
+
+Call ConfiguraRst(strCadena)
+If rst.RecordCount < 1 Then
+    Grilla.Rows = 1
+    Grilla.Clear
+    'Me.lblNumEfectivo.Caption = "0"
+    'Me.lblTotalEfectivo.Caption = "0.00"
+    Exit Sub
+End If
+   Grilla.Clear
+   Grilla.Rows = 0
+       ReDim arrColWidth(1 To rst.Fields.Count)
+       For Each Campo In rst.Fields
+            Grilla.ColWidth(0) = 3500
+            Grilla.ColWidth(1) = 3000
+            Grilla.ColWidth(2) = 1200
+            Grilla.ColWidth(3) = 1500
+        Next
+        cabecera = "VENTANILLA" & vbTab & "COMPROBANTES" & vbTab & "Nº PACIENTES" & vbTab & "MONTO ACUMULADO"
+        Grilla.AddItem cabecera
+         For k = 0 To 3
+            Grilla.col = k
+            Grilla.Row = 0
+            Grilla.CellBackColor = &HDFDFE0
+        Next k
+        Chart.TitleText = "ESTADISTICA DE PRODUCCION"
+        Me.Chart.RowCount = rst.RecordCount
+        
+        With Chart.DataGrid
+        
+        rst.MoveFirst
+        
+          For i = 0 To rst.RecordCount - 1
+            If KEY_ALM = "00001" Then
+              strCadena = "SELECT CONCAT(serie,'-',numero) FROM movimiento_venta WHERE  id_alm='" & rst("Codigo") & "' AND ruc='" & KEY_RUC & "'  AND fecha_emision>='" & formato_fecha(Me.DtpDesde.Value) & "' AND  fecha_emision<='" & formato_fecha(Me.DtpHasta.Value) & "' AND turno LIKE '%" & turno & "%' AND id_forma_pago='01' AND id_vendedor LIKE '%" & id_usuario & "%' AND anulado='no' AND (id_doc='0001' OR id_doc='0003')  ORDER BY serie ASC,numero ASC LIMIT 0,1"
+              Call ConfiguraRstL(strCadena)
+              If rstL.RecordCount > 0 Then
+                 boleta_ini = "[" & Space(1) & rstL(0) & Space(1) & "]"
+              End If
+              strCadena = "SELECT CONCAT(serie,'-',numero) FROM movimiento_venta WHERE  id_alm='" & rst("Codigo") & "' AND ruc='" & KEY_RUC & "'  AND fecha_emision>='" & formato_fecha(Me.DtpDesde.Value) & "' AND fecha_emision<='" & formato_fecha(Me.DtpHasta.Value) & "' AND turno LIKE '%" & turno & "%' AND id_forma_pago='01' AND id_vendedor LIKE '%" & id_usuario & "%' AND anulado='no' AND (id_doc='0001' OR id_doc='0003') ORDER BY serie DESC,numero DESC LIMIT 0,1"
+              Call ConfiguraRstL(strCadena)
+              If rstL.RecordCount > 0 Then
+                 boleta_fin = "[" & Space(1) & rstL(0) & Space(1) & "]"
+              End If
+              
+              strCadena = "SELECT sum(total),count(*) FROM movimiento_venta WHERE  id_alm='" & rst("Codigo") & "' AND ruc='" & KEY_RUC & "'  AND fecha_emision>='" & formato_fecha(Me.DtpDesde.Value) & "' AND fecha_emision<='" & formato_fecha(Me.DtpHasta.Value) & "' AND turno LIKE '%" & turno & "%' AND id_forma_pago='01' AND id_vendedor LIKE '%" & id_usuario & "%' AND anulado='no'  AND (id_doc='0001' OR id_doc='0003') ORDER BY serie ASC,numero ASC LIMIT 0,1"
+                
+            Else
+                 strCadena = "SELECT CONCAT(serie,'-',numero) FROM movimiento_venta WHERE  id_alm='" & id_alm & "' AND ruc='" & KEY_RUC & "'  AND fecha_emision>='" & formato_fecha(Me.DtpDesde.Value) & "' AND fecha_emision<='" & formato_fecha(Me.DtpHasta.Value) & "' AND turno LIKE '%" & turno & "%' AND id_forma_pago='01' AND id_vendedor LIKE '%" & id_usuario & "%'  AND anulado='no' AND (id_doc='0001' OR id_doc='0003') ORDER BY serie ASC,numero ASC LIMIT 0,1"
+                Call ConfiguraRstL(strCadena)
+                If rstL.RecordCount > 0 Then
+                    boleta_ini = "[" & Space(1) & rstL(0) & Space(1) & "]"
+                End If
+                strCadena = "SELECT CONCAT(serie,'-',numero) FROM movimiento_venta WHERE  id_alm='" & id_alm & "' AND ruc='" & KEY_RUC & "'  AND fecha_emision>='" & formato_fecha(Me.DtpDesde.Value) & "' AND fecha_emision<='" & formato_fecha(Me.DtpHasta.Value) & "' AND turno LIKE '%" & turno & "%' AND id_forma_pago='01' AND id_vendedor LIKE '%" & id_usuario & "%' AND anulado='no' AND (id_doc='0001' OR id_doc='0003') ORDER BY serie DESC,numero DESC LIMIT 0,1"
+                Call ConfiguraRstL(strCadena)
+                If rstL.RecordCount > 0 Then
+                    boleta_fin = "[" & Space(1) & rstL(0) & Space(1) & "]"
+                End If
+              
+              strCadena = "SELECT sum(total),count(*) FROM movimiento_venta WHERE  id_alm='" & id_alm & "' AND ruc='" & KEY_RUC & "'  AND fecha_emision>='" & formato_fecha(Me.DtpDesde.Value) & "' AND fecha_emision<='" & formato_fecha(Me.DtpHasta.Value) & "' AND turno LIKE '%" & turno & "%' AND id_forma_pago='01' AND id_vendedor LIKE '%" & id_usuario & "%' AND anulado='no' AND (id_doc='0001' OR id_doc='0003') ORDER BY serie ASC,numero ASC LIMIT 0,1"
+            End If
+            Call ConfiguraRstT(strCadena)
+            If IsNull(rstT(0)) = True Then
+                tTotal = 0
+            Else
+                tTotal = rstT(0)
+            End If
+            Tpacientes = Tpacientes + rstT(1)
+           .RowLabel(i + 1, 1) = rst("Descripcion")
+           .SetSize rst.RecordCount, 1, rst.RecordCount, 1
+           '.SetData 1, 1, rstT(1), 0
+            Acumulado = Acumulado + tTotal
+            Fila = rst("descripcion") & vbTab & boleta_ini & Space(3) & boleta_fin & vbTab & rstT(1) & vbTab & Format(tTotal, "###0.00")
+            Grilla.AddItem Fila
+            Fila = ""
+                      
+           
+            rst.MoveNext
+        Next i
+        End With
+        
+          Fila = "" & vbTab & "RECAUDACION ACUMULADA" & vbTab & Tpacientes & vbTab & Format(Acumulado, "###0.00")
+          Grilla.AddItem Fila
+            '&HC0FFFF
+            For k = 1 To 3
+            Grilla.col = k
+            Grilla.Row = i + 1
+            Grilla.CellBackColor = &HC0FFFF
+        Next k
+     
+'Exit Sub
+'SALIR: MsgBox "Ocurrio un Error en la Conexion", vbInformation, "Mensaje para el usuario"
+Set rst = Nothing
+
+End Sub
+
+Public Sub LlenarComprobantes(ByVal Grilla As MSHFlexGrid)
+'On Error GoTo salir
+Dim tTotal As Double
+Call ConfiguraRst(strCadena)
+If rst.RecordCount < 1 Then
+    Grilla.Rows = 1
+    Grilla.Clear
+    Exit Sub
+
+End If
+   Grilla.Clear
+   Grilla.Rows = 0
+       ReDim arrColWidth(1 To rst.Fields.Count)
+       For Each Campo In rst.Fields
+            Grilla.ColWidth(0) = 700
+           Grilla.ColWidth(1) = 1100
+           Grilla.ColWidth(2) = 2300
+           Grilla.ColWidth(3) = 0
+           Grilla.ColWidth(4) = 1200
+           Grilla.ColWidth(5) = 1500
+         Next
+        cabecera = "CODIGO" & vbTab & "EMISION" & vbTab & "DOCUMENTO" & vbTab & "CLIENTE" & vbTab & "TOTAL" & vbTab & "VENDEDOR"
+        Grilla.AddItem cabecera
+         For k = 0 To 5
+            Grilla.col = k
+            Grilla.Row = 0
+            Grilla.CellBackColor = &HDFDFE0
+        Next k
+        rst.MoveFirst
+        tTotal = 0
+        For i = 0 To rst.RecordCount - 1
+            Fila = Fila & rst("idVenta") & vbTab & rst("Fecha") & vbTab & rst("Numero") & vbTab & rst("Persona") & vbTab & Format(rst("nTotalVenta"), "#,##0.00") & vbTab & rst("Usuario")
+            Grilla.AddItem Fila
+            
+            tTotal = tTotal + rst("nTotalVenta")
+            Fila = ""
+            rst.MoveNext
+        Next i
+     
+      Fila = "" & vbTab & "" & vbTab & "" & vbTab & "" & vbTab & Format(tTotal, "#,##0.00")
+      Grilla.AddItem Fila
+       For k = 5 To 5
+            Grilla.col = 4
+            Grilla.Row = i + 1
+            Grilla.CellBackColor = &HC0FFFF
+      Next k
+  Grilla.Row = 1
+  Grilla.col = 0
+  Grilla.ColSel = 1
+  Grilla.RowSel = 1
+  
+  
+  Exit Sub
+'salir: MsgBox "Ocurrio un Error en la Conexion", vbInformation, "Mensaje para el usuario"
+Set rst = Nothing
+
+End Sub
+
+Private Sub LlenarAnulada(ByVal HfdGrillaCont As MSHFlexGrid)
+        Call ConfiguraRst(strCadena)
+        HfdGrillaCont.Rows = rst.RecordCount
+        
+        Set HfdGrillaCont.Recordset = rst
+       
+            
+        
+        HfdGrillaCont.ColWidth(0) = 1000
+        HfdGrillaCont.ColWidth(1) = 2100
+        HfdGrillaCont.ColWidth(2) = 4200
+        HfdGrillaCont.ColWidth(3) = 1500
+        Call DarFormatoFecha(HfdGrillaCont, 0)
+        Call DarFormato(HfdGrillaCont, 3)
+        Set HfdGrillaCont = Nothing
+        Set rst = Nothing
+                
+End Sub
+Public Sub SumarTotal(ByVal HfdPrecio As MSHFlexGrid, ByVal longitud As Integer)
+Dim i As Integer
+Dim Total As Double
+  Total = 0
+  HfdPrecio.col = longitud
+  HfdPrecio.Row = 0
+  For i = 0 To longitud - 1
+    HfdPrecio.Row = HfdPrecio.Row + 1
+    HfdPrecio.Text = Format(HfdPrecio.Text, "#,##0.00")
+  Next i
+  HfdPrecio.Refresh
+End Sub
+Private Sub Impresion_contable(ByVal FechaIni As Date, ByVal FechaFin As Date)
+Dim nanuladas As Integer
+Dim nefectivo As Integer
+Dim ncredito As Integer
+Dim ndebito As Integer
+Dim nTotal As Integer
+Dim ndeudas As Integer
+Dim tanuladas As Double
+Dim tefectivo As Double
+Dim tcredito As Double
+Dim tdebito As Double
+Dim tdeudas As Double
+
+Dim nUsuario As String
+'Printer.ScaleMode = vbCharacters 'establezco caracteres para controlar la impresion
+ '   Printer.TrackDefault = True 'siempre apunta a la impresora predeter
+    'Printer.Font.name = "Draft 17cpi"
+  '  Printer.Font.name = "Times New Roman"
+   ' Printer.Font.Size = 12
+    Anulado = "F"
+   StrAlmacen = ""
+        StrOperador = ""
+        If Me.ChkAlmacen.Value = 1 Then
+        StrAlmacen = Replace(Me.DtcAlmacen.BoundText, "'", "''")
+        End If
+        
+        If Me.chkOperador.Value = 1 Then
+         StrOperador = Replace(Me.DtcOperador.BoundText, "'", "''")
+        End If
+    
+        strCadena = "SELECT SUM(nTotalVenta) ,COUNT(*)  FROM DocumentoVenta WHERE idFormaPago='0001' AND dEmisionVenta>='" & CVDate(Me.DtpDesde.Value) & "' AND " & _
+        "dEmisionVenta<='" & CVDate(Me.DtpHasta.Value) & "' AND id_usuario LIKE '" & StrOperador & "%' AND Anulado='F' AND estado='Cancelado' AND DocumentoVenta.Alm_cod='" & Trim(Me.DtcAlmacen.BoundText) & "' AND DocumentoVenta.doc_cod<>'0010' AND DocumentoVenta.doc_cod<>'0097'"
+        Call ConfiguraRst(strCadena)
+        
+        If rst(1) > 0 Then
+            tefectivo = rst(0)
+            nefectivo = rst(1)
+        Else
+            tefectivo = 0
+            nefectivo = 0
+        End If
+        Set rst = Nothing
+          
+    strCadena = "SELECT SUM(nTotalVenta) ,COUNT(*)  FROM DocumentoVenta WHERE  dEmisionVenta>='" & CVDate(Me.DtpDesde.Value) & "' AND " & _
+        "dEmisionVenta<='" & CVDate(Me.DtpHasta.Value) & "' AND id_usuario LIKE '" & StrOperador & "%' AND Anulado='V' AND DocumentoVenta.Alm_cod='" & Trim(Me.DtcAlmacen.BoundText) & "'"
+        Call ConfiguraRst(strCadena)
+         If rst(1) > 0 Then
+           tanuladas = rst(0)
+           nanuladas = rst(1)
+        Else
+          tanuladas = 0
+          nanuladas = 0
+        End If
+        Set rst = Nothing
+        strCadena = "SELECT SUM(nTotalVenta) ,COUNT(*)  FROM DocumentoVenta WHERE idFormaPago='0002' AND dEmisionVenta>='" & CVDate(Me.DtpDesde.Value) & "' AND " & _
+        "dEmisionVenta<='" & CVDate(Me.DtpHasta.Value) & "' AND id_usuario LIKE '" & StrOperador & "%' AND Anulado='F' AND DocumentoVenta.Alm_cod='" & Trim(Me.DtcAlmacen.BoundText) & "'"
+        Call ConfiguraRst(strCadena)
+          If rst(1) > 0 Then
+            tcredito = rst(0)
+            ncredito = rst(1)
+        Else
+            tcredito = 0
+            ncredito = 0
+        End If
+        Set rst = Nothing
+        strCadena = "SELECT SUM(nTotalVenta) ,COUNT(*)  FROM DocumentoVenta WHERE idFormaPago='0003' AND dEmisionVenta>='" & CVDate(Me.DtpDesde.Value) & "' AND " & _
+        "dEmisionVenta<='" & CVDate(Me.DtpHasta.Value) & "' AND id_usuario LIKE '" & StrOperador & "%' AND Anulado='F' AND DocumentoVenta.Alm_cod='" & Trim(Me.DtcAlmacen.BoundText) & "'"
+        Call ConfiguraRst(strCadena)
+         If rst(1) > 0 Then
+             tdebito = rst(0)
+             ndebito = rst(1)
+        Else
+            tdebito = 0
+            tdebito = 0
+        End If
+    Set rst = Nothing
+         strCadena = "SELECT SUM(nTotalVenta) ,COUNT(*)  FROM DocumentoVenta WHERE idFormaPago='0001' AND dEmisionVenta>='" & CVDate(Me.DtpDesde.Value) & "' AND " & _
+        "dEmisionVenta<='" & CVDate(Me.DtpHasta.Value) & "' AND id_usuario LIKE '" & StrOperador & "%' AND Anulado='F' AND DocumentoVenta.Alm_cod='" & Trim(Me.DtcAlmacen.BoundText) & "' AND DocumentoVenta.doc_cod='0010'"
+        Call ConfiguraRst(strCadena)
+        
+        If rst(1) > 0 Then
+            tdeudas = rst(0)
+            ndeudas = rst(1)
+        Else
+           tdeudas = 0
+            ndeudas = 0
+        End If
+        Set rst = Nothing
+        
+    Dim cod_reporte As String
+    
+    Dim tTotal As Double
+    Dim nombre_user As String
+    nTotal = ndeudas + nefectivo + ncredito + ndeudas + ndebito
+    tTotal = tdeudas + tefectivo + tcredito + tdebito
+    strCadena = "SELECT * FROM Seguridad WHERE IdUsuario ='" & Trim(KEY_USUARIO) & "' "
+    Call ConfiguraRst(strCadena)
+    nombre_user = rst("Nombre")
+    Set rst = Nothing
+    Dim operadortext As String
+    If Me.chkOperador.Value = 1 Then
+        operadortext = Me.DtcOperador.Text
+    Else
+       operadortext = "REPORTE GLOBAL"
+    End If
+    strCadena = "SELECT * FROM CobranzaDiaria WHERE id_usuario='" & Trim(KEY_USUARIO) & "' ORDER BY id_reporte DESC"
+    Call ConfiguraRst(strCadena)
+    cod_reporte = GeneraCodigo(4)
+    strCadena = "INSERT INTO CobranzaDiaria VALUES('" & Trim(cod_reporte) & "','" & Me.DtpDesde.Value & "','" & Me.DtpHasta.Value & "','" & nanuladas & "','" & nefectivo & "','" & ncredito & "'," & _
+    "'" & ndebito & "','" & ndeudas & "','" & tanuladas & "','" & tefectivo & "','" & tcredito & "','" & tdebito & "','" & tdeudas & "','" & nTotal & "','" & tTotal & "','" & Trim(nombre_user) & "','" & Trim(operadortext) & "','" & tefectivo + tdeudas & "','" & KEY_USUARIO & "')"
+    EjecutaRST (strCadena)
+    Set RstEjecuta = Nothing
+    strCadena = "SELECT * FROM CobranzaDiaria WHERE id_reporte='" & Trim(cod_reporte) & "' AND id_usuario='" & KEY_USUARIO & "'"
+    Call ConfiguraRst(strCadena)
+    Set DtrCobranza.DataSource = rst
+    DtrCobranza.Show
+    Set rst = Nothing
+  
+  
+End Sub
+
+
+
+
+
+
+
+Private Sub Toolbar1_ButtonClick(ByVal Button As MSComctlLib.Button)
+
+End Sub
+
+Private Sub TxtBusquedaRapida_Change()
+strCadena = "SELECT P.dni as Codigo,P.nombre_completo as Descripcion FROM persona P,entidad_empresa E WHERE P.dni=E.cod_unico AND E.id_empresa='" & KEY_RUC & "' AND E.id_personal='si' AND E.id_medico='no' AND E.id_sucursal='" & KEY_ALM & "' AND E.id_cargo<>'00025' AND E.id_cargo<>'00015' AND P.nombre_completo LIKE '%" & Trim(Me.TxtBusquedaRapida.Text) & "%'"
+Call ConfiguraRst(strCadena)
+Call LlenaDataCombo(Me.DtcOperador)
+End Sub
+
+

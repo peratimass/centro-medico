@@ -1,0 +1,16 @@
+id_venta	Number
+fecha	Date
+numero	String	20
+id_producto	String	5
+cantidad	Number
+producto	String	60
+precio	Number
+descuento	Number
+porcentaje	Number
+total	Number
+obsequio	String	20
+ruc	String	16
+
+
+
+

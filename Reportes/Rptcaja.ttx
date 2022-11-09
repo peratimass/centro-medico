@@ -1,0 +1,11 @@
+id_producto	String	6
+id_linea	String	5
+linea	String	50
+producto	String	50
+marca	String	20
+color	String	20
+chasis	String	30
+motor	String	30
+
+
+

@@ -1,0 +1,13 @@
+id_venta	Number
+documento	String	30
+fecha	Date
+id_cliente	String	11
+cliente	String	80
+total	Number
+id_vendedor	String	11
+vendedor	String	80
+id_linea	String	5
+linea	String	50
+chasis	String	60
+motor	String	60
+

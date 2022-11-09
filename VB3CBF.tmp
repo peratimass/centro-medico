@@ -1,0 +1,2683 @@
+VERSION 5.00
+Object = "{F0D2F211-CCB0-11D0-A316-00AA00688B10}#1.0#0"; "msdatlst.ocx"
+Object = "{86CF1D34-0C5F-11D2-A9FC-0000F8754DA1}#2.0#0"; "mscomct2.ocx"
+Object = "{0ECD9B60-23AA-11D0-B351-00A0C9055D8E}#6.0#0"; "mshflxgd.ocx"
+Object = "{C932BA88-4374-101B-A56C-00AA003668DC}#1.1#0"; "MSMASK32.OCX"
+Object = "{831FDD16-0C5C-11D2-A9FC-0000F8754DA1}#2.1#0"; "mscomctl.OCX"
+Begin VB.Form frmCajaEgreso 
+   BorderStyle     =   0  'None
+   Caption         =   "CAJA EGRESO"
+   ClientHeight    =   9240
+   ClientLeft      =   0
+   ClientTop       =   0
+   ClientWidth     =   20145
+   BeginProperty Font 
+      Name            =   "Tahoma"
+      Size            =   8.25
+      Charset         =   0
+      Weight          =   400
+      Underline       =   0   'False
+      Italic          =   0   'False
+      Strikethrough   =   0   'False
+   EndProperty
+   KeyPreview      =   -1  'True
+   LinkTopic       =   "Form1"
+   MaxButton       =   0   'False
+   MDIChild        =   -1  'True
+   MinButton       =   0   'False
+   ScaleHeight     =   9240
+   ScaleWidth      =   20145
+   ShowInTaskbar   =   0   'False
+   Begin VB.TextBox txtbuscardni 
+      Appearance      =   0  'Flat
+      BeginProperty Font 
+         Name            =   "Calibri"
+         Size            =   9
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      ForeColor       =   &H00800000&
+      Height          =   315
+      Left            =   10800
+      TabIndex        =   73
+      Top             =   680
+      Width           =   1335
+   End
+   Begin VB.TextBox TxtBuscaEntidad 
+      Appearance      =   0  'Flat
+      BeginProperty Font 
+         Name            =   "Calibri"
+         Size            =   9
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      ForeColor       =   &H00800000&
+      Height          =   315
+      Left            =   14640
+      TabIndex        =   70
+      Top             =   680
+      Width           =   2535
+   End
+   Begin VB.TextBox txtOperacionBusqueda 
+      Appearance      =   0  'Flat
+      BeginProperty Font 
+         Name            =   "Calibri"
+         Size            =   9
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      ForeColor       =   &H00800000&
+      Height          =   315
+      Left            =   10800
+      TabIndex        =   64
+      Top             =   300
+      Width           =   1335
+   End
+   Begin VB.TextBox txtMontoBusqueda 
+      Appearance      =   0  'Flat
+      BeginProperty Font 
+         Name            =   "Calibri"
+         Size            =   9
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      ForeColor       =   &H00800000&
+      Height          =   315
+      Left            =   6600
+      TabIndex        =   62
+      Top             =   300
+      Width           =   1215
+   End
+   Begin VB.Frame frmdetalle 
+      BackColor       =   &H00FFFFFF&
+      BeginProperty Font 
+         Name            =   "Calibri"
+         Size            =   9
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      Height          =   7455
+      Left            =   2280
+      TabIndex        =   12
+      Top             =   1320
+      Visible         =   0   'False
+      Width           =   14895
+      Begin VB.TextBox txtid 
+         Appearance      =   0  'Flat
+         BeginProperty Font 
+            Name            =   "Calibri"
+            Size            =   9
+            Charset         =   0
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         ForeColor       =   &H00800000&
+         Height          =   315
+         Left            =   6120
+         TabIndex        =   55
+         Top             =   480
+         Visible         =   0   'False
+         Width           =   1335
+      End
+      Begin VB.TextBox txtTipoFlujo 
+         Appearance      =   0  'Flat
+         BeginProperty Font 
+            Name            =   "Calibri"
+            Size            =   9
+            Charset         =   0
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         ForeColor       =   &H00800000&
+         Height          =   315
+         Left            =   6480
+         TabIndex        =   54
+         Top             =   4920
+         Width           =   975
+      End
+      Begin VB.TextBox txtFormaPago 
+         Appearance      =   0  'Flat
+         BeginProperty Font 
+            Name            =   "Calibri"
+            Size            =   9
+            Charset         =   0
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         ForeColor       =   &H00800000&
+         Height          =   315
+         Left            =   6480
+         TabIndex        =   53
+         Top             =   4320
+         Width           =   975
+      End
+      Begin VB.Frame Frame1 
+         BackColor       =   &H00FFFFFF&
+         Caption         =   "COMPROBANTE"
+         BeginProperty Font 
+            Name            =   "Calibri"
+            Size            =   8.25
+            Charset         =   0
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         ForeColor       =   &H00800000&
+         Height          =   4335
+         Left            =   8520
+         TabIndex        =   39
+         Top             =   1800
+         Width           =   6135
+         Begin VB.TextBox txtdetallecomprobante 
+            Appearance      =   0  'Flat
+            BeginProperty Font 
+               Name            =   "Calibri"
+               Size            =   9
+               Charset         =   0
+               Weight          =   400
+               Underline       =   0   'False
+               Italic          =   0   'False
+               Strikethrough   =   0   'False
+            EndProperty
+            ForeColor       =   &H00800000&
+            Height          =   795
+            Left            =   1440
+            MultiLine       =   -1  'True
+            ScrollBars      =   2  'Vertical
+            TabIndex        =   46
+            Top             =   3360
+            Width           =   4455
+         End
+         Begin MSHierarchicalFlexGridLib.MSHFlexGrid HfContenido 
+            Height          =   1455
+            Left            =   1440
+            TabIndex        =   48
+            Top             =   1800
+            Width           =   4455
+            _ExtentX        =   7858
+            _ExtentY        =   2566
+            _Version        =   393216
+            ForeColor       =   8388608
+            Rows            =   0
+            FixedRows       =   0
+            FixedCols       =   0
+            ForeColorFixed  =   8388608
+            BackColorBkg    =   16777215
+            GridColor       =   8388608
+            SelectionMode   =   1
+            Appearance      =   0
+            BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+               Name            =   "Calibri"
+               Size            =   9
+               Charset         =   0
+               Weight          =   400
+               Underline       =   0   'False
+               Italic          =   0   'False
+               Strikethrough   =   0   'False
+            EndProperty
+            _NumberOfBands  =   1
+            _Band(0).Cols   =   2
+         End
+         Begin VB.Label Label20 
+            AutoSize        =   -1  'True
+            BackStyle       =   0  'Transparent
+            Caption         =   "OBSERVACION :"
+            BeginProperty Font 
+               Name            =   "Calibri"
+               Size            =   8.25
+               Charset         =   0
+               Weight          =   400
+               Underline       =   0   'False
+               Italic          =   0   'False
+               Strikethrough   =   0   'False
+            EndProperty
+            ForeColor       =   &H00800000&
+            Height          =   195
+            Left            =   120
+            TabIndex        =   47
+            Top             =   3720
+            Width           =   1035
+         End
+         Begin VB.Label Label19 
+            AutoSize        =   -1  'True
+            BackStyle       =   0  'Transparent
+            Caption         =   "MONTO :"
+            BeginProperty Font 
+               Name            =   "Calibri"
+               Size            =   8.25
+               Charset         =   0
+               Weight          =   400
+               Underline       =   0   'False
+               Italic          =   0   'False
+               Strikethrough   =   0   'False
+            EndProperty
+            ForeColor       =   &H00800000&
+            Height          =   195
+            Left            =   555
+            TabIndex        =   45
+            Top             =   1320
+            Width           =   600
+         End
+         Begin VB.Label Label18 
+            AutoSize        =   -1  'True
+            BackStyle       =   0  'Transparent
+            Caption         =   "F.EMISION :"
+            BeginProperty Font 
+               Name            =   "Calibri"
+               Size            =   8.25
+               Charset         =   0
+               Weight          =   400
+               Underline       =   0   'False
+               Italic          =   0   'False
+               Strikethrough   =   0   'False
+            EndProperty
+            ForeColor       =   &H00800000&
+            Height          =   195
+            Left            =   375
+            TabIndex        =   44
+            Top             =   840
+            Width           =   780
+         End
+         Begin VB.Label lblmonto 
+            Caption         =   " "
+            BeginProperty Font 
+               Name            =   "Calibri"
+               Size            =   8.25
+               Charset         =   0
+               Weight          =   400
+               Underline       =   0   'False
+               Italic          =   0   'False
+               Strikethrough   =   0   'False
+            EndProperty
+            ForeColor       =   &H00800000&
+            Height          =   285
+            Left            =   1440
+            TabIndex        =   43
+            Top             =   1320
+            Width           =   4470
+         End
+         Begin VB.Label lblfecha_emision 
+            Caption         =   " "
+            BeginProperty Font 
+               Name            =   "Calibri"
+               Size            =   8.25
+               Charset         =   0
+               Weight          =   400
+               Underline       =   0   'False
+               Italic          =   0   'False
+               Strikethrough   =   0   'False
+            EndProperty
+            ForeColor       =   &H00800000&
+            Height          =   285
+            Left            =   1440
+            TabIndex        =   42
+            Top             =   885
+            Width           =   4485
+         End
+         Begin VB.Label lblcomprobante 
+            Caption         =   " "
+            BeginProperty Font 
+               Name            =   "Calibri"
+               Size            =   8.25
+               Charset         =   0
+               Weight          =   400
+               Underline       =   0   'False
+               Italic          =   0   'False
+               Strikethrough   =   0   'False
+            EndProperty
+            ForeColor       =   &H00800000&
+            Height          =   405
+            Left            =   1440
+            TabIndex        =   41
+            Top             =   360
+            Width           =   4485
+         End
+         Begin VB.Label Label11 
+            AutoSize        =   -1  'True
+            BackStyle       =   0  'Transparent
+            Caption         =   "COMPROBANTE :"
+            BeginProperty Font 
+               Name            =   "Calibri"
+               Size            =   8.25
+               Charset         =   0
+               Weight          =   400
+               Underline       =   0   'False
+               Italic          =   0   'False
+               Strikethrough   =   0   'False
+            EndProperty
+            ForeColor       =   &H00800000&
+            Height          =   195
+            Left            =   30
+            TabIndex        =   40
+            Top             =   360
+            Width           =   1125
+         End
+      End
+      Begin VB.TextBox TxtOperacion 
+         Appearance      =   0  'Flat
+         BeginProperty Font 
+            Name            =   "Calibri"
+            Size            =   9
+            Charset         =   0
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         ForeColor       =   &H00800000&
+         Height          =   315
+         Left            =   2385
+         TabIndex        =   37
+         Top             =   5520
+         Width           =   2175
+      End
+      Begin VB.TextBox TxtObservacion 
+         Appearance      =   0  'Flat
+         BeginProperty Font 
+            Name            =   "Calibri"
+            Size            =   9
+            Charset         =   0
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         ForeColor       =   &H00800000&
+         Height          =   1035
+         Left            =   2400
+         TabIndex        =   31
+         Top             =   6120
+         Width           =   5055
+      End
+      Begin VB.TextBox txtrucproveedor 
+         Appearance      =   0  'Flat
+         BeginProperty Font 
+            Name            =   "Calibri"
+            Size            =   9
+            Charset         =   0
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         ForeColor       =   &H00800000&
+         Height          =   315
+         Left            =   2400
+         TabIndex        =   20
+         Top             =   1800
+         Width           =   2175
+      End
+      Begin VB.TextBox txtcambio 
+         Appearance      =   0  'Flat
+         BeginProperty Font 
+            Name            =   "Calibri"
+            Size            =   9
+            Charset         =   0
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         ForeColor       =   &H00800000&
+         Height          =   315
+         Left            =   6120
+         TabIndex        =   18
+         Top             =   1200
+         Width           =   1335
+      End
+      Begin VB.TextBox txtMonto 
+         Appearance      =   0  'Flat
+         BeginProperty Font 
+            Name            =   "Calibri"
+            Size            =   9
+            Charset         =   0
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         ForeColor       =   &H00800000&
+         Height          =   315
+         Left            =   2400
+         TabIndex        =   1
+         Top             =   1320
+         Width           =   2175
+      End
+      Begin MSDataListLib.DataCombo DtcMoneda 
+         Height          =   330
+         Left            =   2400
+         TabIndex        =   15
+         Top             =   855
+         Width           =   2175
+         _ExtentX        =   3836
+         _ExtentY        =   582
+         _Version        =   393216
+         Appearance      =   0
+         ForeColor       =   8388608
+         Text            =   "DataCombo1"
+         BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+            Name            =   "Calibri"
+            Size            =   9
+            Charset         =   0
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+      End
+      Begin VitekeySoft.ChameleonBtn cmdprocesar 
+         Height          =   795
+         Left            =   12000
+         TabIndex        =   22
+         Top             =   6480
+         Width           =   1095
+         _ExtentX        =   1931
+         _ExtentY        =   1402
+         BTYPE           =   5
+         TX              =   "PROCESAR"
+         ENAB            =   -1  'True
+         BeginProperty FONT {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+            Name            =   "Calibri"
+            Size            =   8.25
+            Charset         =   0
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         COLTYPE         =   2
+         FOCUSR          =   -1  'True
+         BCOL            =   16777215
+         BCOLO           =   16777215
+         FCOL            =   8388608
+         FCOLO           =   8388608
+         MCOL            =   12632256
+         MPTR            =   1
+         MICON           =   "frmCajaEgreso.frx":0000
+         PICN            =   "frmCajaEgreso.frx":001C
+         UMCOL           =   -1  'True
+         SOFT            =   0   'False
+         PICPOS          =   2
+         NGREY           =   0   'False
+         FX              =   0
+         HAND            =   0   'False
+         CHECK           =   0   'False
+         VALUE           =   0   'False
+      End
+      Begin VitekeySoft.ChameleonBtn cmdimprimir 
+         Height          =   795
+         Left            =   13200
+         TabIndex        =   23
+         Top             =   6480
+         Width           =   1095
+         _ExtentX        =   1931
+         _ExtentY        =   1402
+         BTYPE           =   5
+         TX              =   "IMPRIMIR"
+         ENAB            =   -1  'True
+         BeginProperty FONT {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+            Name            =   "Calibri"
+            Size            =   8.25
+            Charset         =   0
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         COLTYPE         =   2
+         FOCUSR          =   -1  'True
+         BCOL            =   16777215
+         BCOLO           =   16777215
+         FCOL            =   8388608
+         FCOLO           =   8388608
+         MCOL            =   12632256
+         MPTR            =   1
+         MICON           =   "frmCajaEgreso.frx":3664
+         PICN            =   "frmCajaEgreso.frx":3680
+         UMCOL           =   -1  'True
+         SOFT            =   0   'False
+         PICPOS          =   2
+         NGREY           =   0   'False
+         FX              =   0
+         HAND            =   0   'False
+         CHECK           =   0   'False
+         VALUE           =   0   'False
+      End
+      Begin MSDataListLib.DataCombo DtcTipomovimiento 
+         Height          =   330
+         Left            =   2400
+         TabIndex        =   25
+         Top             =   2880
+         Width           =   3015
+         _ExtentX        =   5318
+         _ExtentY        =   582
+         _Version        =   393216
+         Appearance      =   0
+         ForeColor       =   8388608
+         Text            =   "DataCombo1"
+         BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+            Name            =   "Calibri"
+            Size            =   9
+            Charset         =   0
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+      End
+      Begin MSDataListLib.DataCombo DtcCuentaOrigen 
+         Height          =   330
+         Left            =   2400
+         TabIndex        =   27
+         Top             =   3360
+         Width           =   5055
+         _ExtentX        =   8916
+         _ExtentY        =   582
+         _Version        =   393216
+         Locked          =   -1  'True
+         Appearance      =   0
+         ForeColor       =   8388608
+         Text            =   "DataCombo1"
+         BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+            Name            =   "Calibri"
+            Size            =   9
+            Charset         =   0
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+      End
+      Begin MSDataListLib.DataCombo DtcCuentaDestino 
+         Height          =   330
+         Left            =   2400
+         TabIndex        =   29
+         Top             =   3840
+         Visible         =   0   'False
+         Width           =   5055
+         _ExtentX        =   8916
+         _ExtentY        =   582
+         _Version        =   393216
+         Appearance      =   0
+         ForeColor       =   8388608
+         Text            =   "DataCombo1"
+         BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+            Name            =   "Calibri"
+            Size            =   9
+            Charset         =   0
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+      End
+      Begin VitekeySoft.ChameleonBtn cmdsalir 
+         Height          =   315
+         Left            =   14160
+         TabIndex        =   36
+         Top             =   240
+         Width           =   375
+         _ExtentX        =   661
+         _ExtentY        =   556
+         BTYPE           =   5
+         TX              =   ""
+         ENAB            =   -1  'True
+         BeginProperty FONT {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+            Name            =   "Calibri"
+            Size            =   8.25
+            Charset         =   0
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         COLTYPE         =   2
+         FOCUSR          =   -1  'True
+         BCOL            =   16777215
+         BCOLO           =   16777215
+         FCOL            =   8388608
+         FCOLO           =   8388608
+         MCOL            =   12632256
+         MPTR            =   1
+         MICON           =   "frmCajaEgreso.frx":5C51
+         PICN            =   "frmCajaEgreso.frx":5C6D
+         UMCOL           =   -1  'True
+         SOFT            =   0   'False
+         PICPOS          =   2
+         NGREY           =   0   'False
+         FX              =   0
+         HAND            =   0   'False
+         CHECK           =   0   'False
+         VALUE           =   0   'False
+      End
+      Begin MSDataListLib.DataCombo DtcFormaPago 
+         Height          =   330
+         Left            =   2400
+         TabIndex        =   51
+         Top             =   4320
+         Width           =   3975
+         _ExtentX        =   7011
+         _ExtentY        =   582
+         _Version        =   393216
+         Appearance      =   0
+         ForeColor       =   8388608
+         Text            =   "DataCombo1"
+         BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+            Name            =   "Calibri"
+            Size            =   9
+            Charset         =   0
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+      End
+      Begin MSDataListLib.DataCombo DtcFlujo 
+         Height          =   330
+         Left            =   2400
+         TabIndex        =   52
+         Top             =   4920
+         Width           =   3975
+         _ExtentX        =   7011
+         _ExtentY        =   582
+         _Version        =   393216
+         Appearance      =   0
+         ForeColor       =   8388608
+         Text            =   "DataCombo1"
+         BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+            Name            =   "Calibri"
+            Size            =   9
+            Charset         =   0
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+      End
+      Begin MSMask.MaskEdBox TxtFecha_emision 
+         Height          =   345
+         Left            =   2400
+         TabIndex        =   0
+         ToolTipText     =   "dd/mm/yyyy"
+         Top             =   360
+         Width           =   2115
+         _ExtentX        =   3731
+         _ExtentY        =   609
+         _Version        =   393216
+         Appearance      =   0
+         MaxLength       =   10
+         BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+            Name            =   "Calibri"
+            Size            =   12
+            Charset         =   0
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         Format          =   "dd/mm/yyyy"
+         Mask            =   "##/##/####"
+         PromptChar      =   "_"
+      End
+      Begin VB.Label Label16 
+         AutoSize        =   -1  'True
+         BackStyle       =   0  'Transparent
+         Caption         =   "TIPO DE FLUJO :"
+         BeginProperty Font 
+            Name            =   "Calibri"
+            Size            =   8.25
+            Charset         =   0
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         ForeColor       =   &H00800000&
+         Height          =   195
+         Left            =   1065
+         TabIndex        =   50
+         Top             =   5040
+         Width           =   1050
+      End
+      Begin VB.Label Label14 
+         AutoSize        =   -1  'True
+         BackStyle       =   0  'Transparent
+         Caption         =   "FORMA DE PAGO :"
+         BeginProperty Font 
+            Name            =   "Calibri"
+            Size            =   8.25
+            Charset         =   0
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         ForeColor       =   &H00800000&
+         Height          =   195
+         Left            =   915
+         TabIndex        =   49
+         Top             =   4440
+         Width           =   1200
+      End
+      Begin VB.Label Label8 
+         AutoSize        =   -1  'True
+         BackStyle       =   0  'Transparent
+         Caption         =   "NRO OPERACION :"
+         BeginProperty Font 
+            Name            =   "Calibri"
+            Size            =   8.25
+            Charset         =   0
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         ForeColor       =   &H00800000&
+         Height          =   195
+         Left            =   915
+         TabIndex        =   38
+         Top             =   5520
+         Width           =   1200
+      End
+      Begin VB.Label lblhora_registro 
+         Caption         =   " "
+         BeginProperty Font 
+            Name            =   "Calibri"
+            Size            =   8.25
+            Charset         =   0
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         ForeColor       =   &H00800000&
+         Height          =   255
+         Left            =   12240
+         TabIndex        =   35
+         Top             =   960
+         Width           =   2100
+      End
+      Begin VB.Label Label15 
+         AutoSize        =   -1  'True
+         BackStyle       =   0  'Transparent
+         Caption         =   "H.REGISTRO :"
+         BeginProperty Font 
+            Name            =   "Calibri"
+            Size            =   8.25
+            Charset         =   0
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         ForeColor       =   &H00800000&
+         Height          =   195
+         Left            =   11160
+         TabIndex        =   34
+         Top             =   960
+         Width           =   885
+      End
+      Begin VB.Label lblfecha_registro 
+         Caption         =   " "
+         BeginProperty Font 
+            Name            =   "Calibri"
+            Size            =   8.25
+            Charset         =   0
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         ForeColor       =   &H00800000&
+         Height          =   255
+         Left            =   12240
+         TabIndex        =   33
+         Top             =   600
+         Width           =   2100
+      End
+      Begin VB.Label Label13 
+         AutoSize        =   -1  'True
+         BackStyle       =   0  'Transparent
+         Caption         =   "F.REGISTRO :"
+         BeginProperty Font 
+            Name            =   "Calibri"
+            Size            =   8.25
+            Charset         =   0
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         ForeColor       =   &H00800000&
+         Height          =   195
+         Left            =   11160
+         TabIndex        =   32
+         Top             =   600
+         Width           =   855
+      End
+      Begin VB.Label Label12 
+         AutoSize        =   -1  'True
+         BackStyle       =   0  'Transparent
+         Caption         =   "OBSERVACION :"
+         BeginProperty Font 
+            Name            =   "Calibri"
+            Size            =   8.25
+            Charset         =   0
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         ForeColor       =   &H00800000&
+         Height          =   195
+         Left            =   1080
+         TabIndex        =   30
+         Top             =   6480
+         Width           =   1035
+      End
+      Begin VB.Label lbldestino 
+         AutoSize        =   -1  'True
+         BackStyle       =   0  'Transparent
+         Caption         =   "CUENTA DESTINO :"
+         BeginProperty Font 
+            Name            =   "Calibri"
+            Size            =   8.25
+            Charset         =   0
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         ForeColor       =   &H00800000&
+         Height          =   195
+         Left            =   885
+         TabIndex        =   28
+         Top             =   3885
+         Visible         =   0   'False
+         Width           =   1230
+      End
+      Begin VB.Label Label10 
+         AutoSize        =   -1  'True
+         BackStyle       =   0  'Transparent
+         Caption         =   "CUENTA ORIGEN :"
+         BeginProperty Font 
+            Name            =   "Calibri"
+            Size            =   8.25
+            Charset         =   0
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         ForeColor       =   &H00800000&
+         Height          =   195
+         Left            =   945
+         TabIndex        =   26
+         Top             =   3450
+         Width           =   1170
+      End
+      Begin VB.Label Label9 
+         AutoSize        =   -1  'True
+         BackStyle       =   0  'Transparent
+         Caption         =   "TIPO MOVIMIENTO  :"
+         BeginProperty Font 
+            Name            =   "Calibri"
+            Size            =   8.25
+            Charset         =   0
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         ForeColor       =   &H00800000&
+         Height          =   195
+         Left            =   750
+         TabIndex        =   24
+         Top             =   3000
+         Width           =   1365
+      End
+      Begin VB.Line Line1 
+         BorderColor     =   &H00800000&
+         BorderWidth     =   2
+         X1              =   2400
+         X2              =   7560
+         Y1              =   2640
+         Y2              =   2640
+      End
+      Begin VB.Label lblproveedor 
+         BeginProperty Font 
+            Name            =   "Calibri"
+            Size            =   8.25
+            Charset         =   0
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         ForeColor       =   &H00800000&
+         Height          =   255
+         Left            =   2400
+         TabIndex        =   21
+         Top             =   2280
+         Width           =   5220
+      End
+      Begin VB.Label lblproveedorn 
+         AutoSize        =   -1  'True
+         BackStyle       =   0  'Transparent
+         Caption         =   "PROVEEDOR :"
+         BeginProperty Font 
+            Name            =   "Calibri"
+            Size            =   8.25
+            Charset         =   0
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         ForeColor       =   &H00800000&
+         Height          =   195
+         Left            =   1215
+         TabIndex        =   19
+         Top             =   1800
+         Width           =   900
+      End
+      Begin VB.Label Label6 
+         AutoSize        =   -1  'True
+         BackStyle       =   0  'Transparent
+         Caption         =   "T.CAMBIO :"
+         BeginProperty Font 
+            Name            =   "Calibri"
+            Size            =   8.25
+            Charset         =   0
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         ForeColor       =   &H00800000&
+         Height          =   195
+         Left            =   5280
+         TabIndex        =   17
+         Top             =   1200
+         Width           =   750
+      End
+      Begin VB.Label Label5 
+         AutoSize        =   -1  'True
+         BackStyle       =   0  'Transparent
+         Caption         =   "MONTO  :"
+         BeginProperty Font 
+            Name            =   "Calibri"
+            Size            =   8.25
+            Charset         =   0
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         ForeColor       =   &H00800000&
+         Height          =   195
+         Left            =   1485
+         TabIndex        =   16
+         Top             =   1320
+         Width           =   630
+      End
+      Begin VB.Label Label3 
+         AutoSize        =   -1  'True
+         BackStyle       =   0  'Transparent
+         Caption         =   "MONEDA   :"
+         BeginProperty Font 
+            Name            =   "Calibri"
+            Size            =   8.25
+            Charset         =   0
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         ForeColor       =   &H00800000&
+         Height          =   195
+         Left            =   1365
+         TabIndex        =   14
+         Top             =   915
+         Width           =   750
+      End
+      Begin VB.Label Label4 
+         AutoSize        =   -1  'True
+         BackStyle       =   0  'Transparent
+         Caption         =   "FECHA OPERACION :"
+         BeginProperty Font 
+            Name            =   "Calibri"
+            Size            =   8.25
+            Charset         =   0
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         ForeColor       =   &H00800000&
+         Height          =   195
+         Left            =   780
+         TabIndex        =   13
+         Top             =   480
+         Width           =   1335
+      End
+   End
+   Begin MSComCtl2.DTPicker DtpInicio 
+      Height          =   300
+      Left            =   1080
+      TabIndex        =   8
+      Top             =   300
+      Width           =   1335
+      _ExtentX        =   2355
+      _ExtentY        =   529
+      _Version        =   393216
+      BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+         Name            =   "Calibri"
+         Size            =   9
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      CalendarBackColor=   8421631
+      CalendarForeColor=   8388608
+      CalendarTitleForeColor=   8388608
+      Format          =   126091265
+      CurrentDate     =   42975
+   End
+   Begin VB.TextBox txtIdcuenta 
+      Height          =   375
+      Left            =   18960
+      TabIndex        =   3
+      Text            =   "idcuenta"
+      Top             =   360
+      Visible         =   0   'False
+      Width           =   735
+   End
+   Begin MSHierarchicalFlexGridLib.MSHFlexGrid Hfdetalle 
+      Height          =   7935
+      Left            =   240
+      TabIndex        =   2
+      Top             =   1080
+      Width           =   18495
+      _ExtentX        =   32623
+      _ExtentY        =   13996
+      _Version        =   393216
+      ForeColor       =   8388608
+      Rows            =   0
+      FixedRows       =   0
+      FixedCols       =   0
+      ForeColorFixed  =   8388608
+      BackColorBkg    =   16777215
+      GridColor       =   8388608
+      SelectionMode   =   1
+      Appearance      =   0
+      BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+         Name            =   "Calibri"
+         Size            =   9
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      _NumberOfBands  =   1
+      _Band(0).Cols   =   2
+   End
+   Begin MSComctlLib.ImageList ImgIconos 
+      Left            =   9000
+      Top             =   2550
+      _ExtentX        =   1005
+      _ExtentY        =   1005
+      BackColor       =   -2147483643
+      ImageWidth      =   32
+      ImageHeight     =   32
+      MaskColor       =   12632256
+      _Version        =   393216
+      BeginProperty Images {2C247F25-8591-11D1-B16A-00C0F0283628} 
+         NumListImages   =   9
+         BeginProperty ListImage1 {2C247F27-8591-11D1-B16A-00C0F0283628} 
+            Picture         =   "frmCajaEgreso.frx":8B21
+            Key             =   "(Nuevo)"
+         EndProperty
+         BeginProperty ListImage2 {2C247F27-8591-11D1-B16A-00C0F0283628} 
+            Picture         =   "frmCajaEgreso.frx":8F75
+            Key             =   "(Modificar)"
+         EndProperty
+         BeginProperty ListImage3 {2C247F27-8591-11D1-B16A-00C0F0283628} 
+            Picture         =   "frmCajaEgreso.frx":9295
+            Key             =   "(Eliminar)"
+         EndProperty
+         BeginProperty ListImage4 {2C247F27-8591-11D1-B16A-00C0F0283628} 
+            Picture         =   "frmCajaEgreso.frx":96E9
+            Key             =   "(Salir)"
+         EndProperty
+         BeginProperty ListImage5 {2C247F27-8591-11D1-B16A-00C0F0283628} 
+            Picture         =   "frmCajaEgreso.frx":9B3D
+            Key             =   "(Aceptar)"
+         EndProperty
+         BeginProperty ListImage6 {2C247F27-8591-11D1-B16A-00C0F0283628} 
+            Picture         =   "frmCajaEgreso.frx":9E5D
+            Key             =   "(Cancelar)"
+         EndProperty
+         BeginProperty ListImage7 {2C247F27-8591-11D1-B16A-00C0F0283628} 
+            Picture         =   "frmCajaEgreso.frx":A17D
+            Key             =   "(Quitar)"
+         EndProperty
+         BeginProperty ListImage8 {2C247F27-8591-11D1-B16A-00C0F0283628} 
+            Picture         =   "frmCajaEgreso.frx":A49D
+            Key             =   "(Agregar)"
+         EndProperty
+         BeginProperty ListImage9 {2C247F27-8591-11D1-B16A-00C0F0283628} 
+            Picture         =   "frmCajaEgreso.frx":A7BD
+            Key             =   "(Buscar)"
+         EndProperty
+      EndProperty
+   End
+   Begin VitekeySoft.ChameleonBtn cmdnuevo 
+      Height          =   855
+      Left            =   18840
+      TabIndex        =   4
+      Top             =   1080
+      Width           =   1095
+      _ExtentX        =   1931
+      _ExtentY        =   1508
+      BTYPE           =   5
+      TX              =   "NUEVA "
+      ENAB            =   -1  'True
+      BeginProperty FONT {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+         Name            =   "Calibri"
+         Size            =   8.25
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      COLTYPE         =   2
+      FOCUSR          =   -1  'True
+      BCOL            =   16777215
+      BCOLO           =   16777215
+      FCOL            =   12582912
+      FCOLO           =   12582912
+      MCOL            =   12632256
+      MPTR            =   1
+      MICON           =   "frmCajaEgreso.frx":AADD
+      PICN            =   "frmCajaEgreso.frx":AAF9
+      UMCOL           =   -1  'True
+      SOFT            =   0   'False
+      PICPOS          =   2
+      NGREY           =   0   'False
+      FX              =   0
+      HAND            =   0   'False
+      CHECK           =   0   'False
+      VALUE           =   0   'False
+   End
+   Begin VitekeySoft.ChameleonBtn cmddetalle 
+      Height          =   855
+      Left            =   18840
+      TabIndex        =   5
+      Top             =   1950
+      Width           =   1095
+      _ExtentX        =   1931
+      _ExtentY        =   1508
+      BTYPE           =   5
+      TX              =   "DETALLE"
+      ENAB            =   -1  'True
+      BeginProperty FONT {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+         Name            =   "Calibri"
+         Size            =   8.25
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      COLTYPE         =   2
+      FOCUSR          =   -1  'True
+      BCOL            =   16777215
+      BCOLO           =   16777215
+      FCOL            =   12582912
+      FCOLO           =   12582912
+      MCOL            =   12632256
+      MPTR            =   1
+      MICON           =   "frmCajaEgreso.frx":AF4B
+      PICN            =   "frmCajaEgreso.frx":AF67
+      UMCOL           =   -1  'True
+      SOFT            =   0   'False
+      PICPOS          =   2
+      NGREY           =   0   'False
+      FX              =   0
+      HAND            =   0   'False
+      CHECK           =   0   'False
+      VALUE           =   0   'False
+   End
+   Begin VitekeySoft.ChameleonBtn cmdCerrar 
+      Height          =   855
+      Left            =   18840
+      TabIndex        =   6
+      Top             =   7140
+      Width           =   1095
+      _ExtentX        =   1931
+      _ExtentY        =   1508
+      BTYPE           =   5
+      TX              =   "CERRAR"
+      ENAB            =   -1  'True
+      BeginProperty FONT {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+         Name            =   "Calibri"
+         Size            =   8.25
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      COLTYPE         =   2
+      FOCUSR          =   -1  'True
+      BCOL            =   16777215
+      BCOLO           =   16777215
+      FCOL            =   12582912
+      FCOLO           =   12582912
+      MCOL            =   12632256
+      MPTR            =   1
+      MICON           =   "frmCajaEgreso.frx":D1C0
+      PICN            =   "frmCajaEgreso.frx":D1DC
+      UMCOL           =   -1  'True
+      SOFT            =   0   'False
+      PICPOS          =   2
+      NGREY           =   0   'False
+      FX              =   0
+      HAND            =   0   'False
+      CHECK           =   0   'False
+      VALUE           =   0   'False
+   End
+   Begin MSComCtl2.DTPicker DtpFin 
+      Height          =   300
+      Left            =   2640
+      TabIndex        =   10
+      Top             =   300
+      Width           =   1335
+      _ExtentX        =   2355
+      _ExtentY        =   529
+      _Version        =   393216
+      BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+         Name            =   "Calibri"
+         Size            =   9
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      CalendarBackColor=   8421631
+      CalendarForeColor=   8388608
+      CalendarTitleForeColor=   8388608
+      Format          =   126091265
+      CurrentDate     =   42975
+   End
+   Begin VitekeySoft.ChameleonBtn cmdBuscar 
+      Height          =   345
+      Left            =   4080
+      TabIndex        =   11
+      Top             =   300
+      Width           =   1215
+      _ExtentX        =   2143
+      _ExtentY        =   609
+      BTYPE           =   5
+      TX              =   "   BUSCAR"
+      ENAB            =   -1  'True
+      BeginProperty FONT {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+         Name            =   "Calibri"
+         Size            =   8.25
+         Charset         =   0
+         Weight          =   700
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      COLTYPE         =   2
+      FOCUSR          =   -1  'True
+      BCOL            =   16777215
+      BCOLO           =   16777215
+      FCOL            =   12582912
+      FCOLO           =   12582912
+      MCOL            =   12632256
+      MPTR            =   1
+      MICON           =   "frmCajaEgreso.frx":10203
+      PICN            =   "frmCajaEgreso.frx":1021F
+      UMCOL           =   -1  'True
+      SOFT            =   0   'False
+      PICPOS          =   0
+      NGREY           =   0   'False
+      FX              =   0
+      HAND            =   0   'False
+      CHECK           =   0   'False
+      VALUE           =   0   'False
+   End
+   Begin VitekeySoft.ChameleonBtn cmdReporte 
+      Height          =   855
+      Left            =   18840
+      TabIndex        =   56
+      Top             =   2820
+      Width           =   1095
+      _ExtentX        =   1931
+      _ExtentY        =   1508
+      BTYPE           =   5
+      TX              =   "REPORTE"
+      ENAB            =   -1  'True
+      BeginProperty FONT {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+         Name            =   "Calibri"
+         Size            =   8.25
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      COLTYPE         =   2
+      FOCUSR          =   -1  'True
+      BCOL            =   16777215
+      BCOLO           =   16777215
+      FCOL            =   12582912
+      FCOLO           =   12582912
+      MCOL            =   12632256
+      MPTR            =   1
+      MICON           =   "frmCajaEgreso.frx":1274A
+      PICN            =   "frmCajaEgreso.frx":12766
+      UMCOL           =   -1  'True
+      SOFT            =   0   'False
+      PICPOS          =   2
+      NGREY           =   0   'False
+      FX              =   0
+      HAND            =   0   'False
+      CHECK           =   0   'False
+      VALUE           =   0   'False
+   End
+   Begin VitekeySoft.ChameleonBtn cmdCerrarCaja 
+      Height          =   855
+      Left            =   18840
+      TabIndex        =   58
+      Top             =   4560
+      Width           =   1095
+      _ExtentX        =   1931
+      _ExtentY        =   1508
+      BTYPE           =   5
+      TX              =   "CERRAR CAJA"
+      ENAB            =   -1  'True
+      BeginProperty FONT {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+         Name            =   "Calibri"
+         Size            =   8.25
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      COLTYPE         =   2
+      FOCUSR          =   -1  'True
+      BCOL            =   16777215
+      BCOLO           =   16777215
+      FCOL            =   12582912
+      FCOLO           =   12582912
+      MCOL            =   12632256
+      MPTR            =   1
+      MICON           =   "frmCajaEgreso.frx":14D37
+      PICN            =   "frmCajaEgreso.frx":14D53
+      UMCOL           =   -1  'True
+      SOFT            =   0   'False
+      PICPOS          =   2
+      NGREY           =   0   'False
+      FX              =   0
+      HAND            =   0   'False
+      CHECK           =   0   'False
+      VALUE           =   0   'False
+   End
+   Begin VitekeySoft.ChameleonBtn cmdExtornar 
+      Height          =   855
+      Left            =   18840
+      TabIndex        =   59
+      Top             =   6280
+      Width           =   1095
+      _ExtentX        =   1931
+      _ExtentY        =   1508
+      BTYPE           =   5
+      TX              =   "EXTORNAR"
+      ENAB            =   -1  'True
+      BeginProperty FONT {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+         Name            =   "Calibri"
+         Size            =   8.25
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      COLTYPE         =   2
+      FOCUSR          =   -1  'True
+      BCOL            =   16777215
+      BCOLO           =   16777215
+      FCOL            =   12582912
+      FCOLO           =   12582912
+      MCOL            =   12632256
+      MPTR            =   1
+      MICON           =   "frmCajaEgreso.frx":151A5
+      PICN            =   "frmCajaEgreso.frx":151C1
+      UMCOL           =   -1  'True
+      SOFT            =   0   'False
+      PICPOS          =   2
+      NGREY           =   0   'False
+      FX              =   0
+      HAND            =   0   'False
+      CHECK           =   0   'False
+      VALUE           =   0   'False
+   End
+   Begin VitekeySoft.ChameleonBtn cmdeditar 
+      Height          =   855
+      Left            =   18840
+      TabIndex        =   60
+      Top             =   5420
+      Width           =   1095
+      _ExtentX        =   1931
+      _ExtentY        =   1508
+      BTYPE           =   5
+      TX              =   "EDITAR"
+      ENAB            =   -1  'True
+      BeginProperty FONT {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+         Name            =   "Calibri"
+         Size            =   8.25
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      COLTYPE         =   2
+      FOCUSR          =   -1  'True
+      BCOL            =   16777215
+      BCOLO           =   16777215
+      FCOL            =   12582912
+      FCOLO           =   12582912
+      MCOL            =   12632256
+      MPTR            =   1
+      MICON           =   "frmCajaEgreso.frx":154DB
+      PICN            =   "frmCajaEgreso.frx":154F7
+      UMCOL           =   -1  'True
+      SOFT            =   0   'False
+      PICPOS          =   2
+      NGREY           =   0   'False
+      FX              =   0
+      HAND            =   0   'False
+      CHECK           =   0   'False
+      VALUE           =   0   'False
+   End
+   Begin VitekeySoft.ChameleonBtn cmdBuscarMonto 
+      Height          =   345
+      Left            =   7920
+      TabIndex        =   65
+      Top             =   300
+      Width           =   1215
+      _ExtentX        =   2143
+      _ExtentY        =   609
+      BTYPE           =   5
+      TX              =   "   BUSCAR"
+      ENAB            =   -1  'True
+      BeginProperty FONT {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+         Name            =   "Calibri"
+         Size            =   8.25
+         Charset         =   0
+         Weight          =   700
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      COLTYPE         =   2
+      FOCUSR          =   -1  'True
+      BCOL            =   16777215
+      BCOLO           =   16777215
+      FCOL            =   12582912
+      FCOLO           =   12582912
+      MCOL            =   12632256
+      MPTR            =   1
+      MICON           =   "frmCajaEgreso.frx":187CD
+      PICN            =   "frmCajaEgreso.frx":187E9
+      UMCOL           =   -1  'True
+      SOFT            =   0   'False
+      PICPOS          =   0
+      NGREY           =   0   'False
+      FX              =   0
+      HAND            =   0   'False
+      CHECK           =   0   'False
+      VALUE           =   0   'False
+   End
+   Begin VitekeySoft.ChameleonBtn cmdBuscarOperacion 
+      Height          =   345
+      Left            =   12240
+      TabIndex        =   66
+      Top             =   300
+      Width           =   1215
+      _ExtentX        =   2143
+      _ExtentY        =   609
+      BTYPE           =   5
+      TX              =   "   BUSCAR"
+      ENAB            =   -1  'True
+      BeginProperty FONT {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+         Name            =   "Calibri"
+         Size            =   8.25
+         Charset         =   0
+         Weight          =   700
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      COLTYPE         =   2
+      FOCUSR          =   -1  'True
+      BCOL            =   16777215
+      BCOLO           =   16777215
+      FCOL            =   12582912
+      FCOLO           =   12582912
+      MCOL            =   12632256
+      MPTR            =   1
+      MICON           =   "frmCajaEgreso.frx":1AD14
+      PICN            =   "frmCajaEgreso.frx":1AD30
+      UMCOL           =   -1  'True
+      SOFT            =   0   'False
+      PICPOS          =   0
+      NGREY           =   0   'False
+      FX              =   0
+      HAND            =   0   'False
+      CHECK           =   0   'False
+      VALUE           =   0   'False
+   End
+   Begin VitekeySoft.ChameleonBtn cmdBuscartipomov 
+      Height          =   345
+      Left            =   17280
+      TabIndex        =   67
+      Top             =   300
+      Width           =   1215
+      _ExtentX        =   2143
+      _ExtentY        =   609
+      BTYPE           =   5
+      TX              =   "   BUSCAR"
+      ENAB            =   -1  'True
+      BeginProperty FONT {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+         Name            =   "Calibri"
+         Size            =   8.25
+         Charset         =   0
+         Weight          =   700
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      COLTYPE         =   2
+      FOCUSR          =   -1  'True
+      BCOL            =   16777215
+      BCOLO           =   16777215
+      FCOL            =   12582912
+      FCOLO           =   12582912
+      MCOL            =   12632256
+      MPTR            =   1
+      MICON           =   "frmCajaEgreso.frx":1D25B
+      PICN            =   "frmCajaEgreso.frx":1D277
+      UMCOL           =   -1  'True
+      SOFT            =   0   'False
+      PICPOS          =   0
+      NGREY           =   0   'False
+      FX              =   0
+      HAND            =   0   'False
+      CHECK           =   0   'False
+      VALUE           =   0   'False
+   End
+   Begin MSDataListLib.DataCombo DtcTipomov 
+      Height          =   330
+      Left            =   14640
+      TabIndex        =   69
+      Top             =   300
+      Width           =   2535
+      _ExtentX        =   4471
+      _ExtentY        =   582
+      _Version        =   393216
+      Appearance      =   0
+      ForeColor       =   8388608
+      Text            =   "DataCombo1"
+      BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+         Name            =   "Calibri"
+         Size            =   9
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+   End
+   Begin VitekeySoft.ChameleonBtn cmdBuscarEntidad 
+      Height          =   345
+      Left            =   17280
+      TabIndex        =   71
+      Top             =   680
+      Width           =   1215
+      _ExtentX        =   2143
+      _ExtentY        =   609
+      BTYPE           =   5
+      TX              =   "   BUSCAR"
+      ENAB            =   -1  'True
+      BeginProperty FONT {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+         Name            =   "Calibri"
+         Size            =   8.25
+         Charset         =   0
+         Weight          =   700
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      COLTYPE         =   2
+      FOCUSR          =   -1  'True
+      BCOL            =   16777215
+      BCOLO           =   16777215
+      FCOL            =   12582912
+      FCOLO           =   12582912
+      MCOL            =   12632256
+      MPTR            =   1
+      MICON           =   "frmCajaEgreso.frx":1F7A2
+      PICN            =   "frmCajaEgreso.frx":1F7BE
+      UMCOL           =   -1  'True
+      SOFT            =   0   'False
+      PICPOS          =   0
+      NGREY           =   0   'False
+      FX              =   0
+      HAND            =   0   'False
+      CHECK           =   0   'False
+      VALUE           =   0   'False
+   End
+   Begin VitekeySoft.ChameleonBtn cmdbuscardni 
+      Height          =   345
+      Left            =   12240
+      TabIndex        =   75
+      Top             =   680
+      Width           =   1215
+      _ExtentX        =   2143
+      _ExtentY        =   609
+      BTYPE           =   5
+      TX              =   "   BUSCAR"
+      ENAB            =   -1  'True
+      BeginProperty FONT {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+         Name            =   "Calibri"
+         Size            =   8.25
+         Charset         =   0
+         Weight          =   700
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      COLTYPE         =   2
+      FOCUSR          =   -1  'True
+      BCOL            =   16777215
+      BCOLO           =   16777215
+      FCOL            =   12582912
+      FCOLO           =   12582912
+      MCOL            =   12632256
+      MPTR            =   1
+      MICON           =   "frmCajaEgreso.frx":21CE9
+      PICN            =   "frmCajaEgreso.frx":21D05
+      UMCOL           =   -1  'True
+      SOFT            =   0   'False
+      PICPOS          =   0
+      NGREY           =   0   'False
+      FX              =   0
+      HAND            =   0   'False
+      CHECK           =   0   'False
+      VALUE           =   0   'False
+   End
+   Begin VitekeySoft.ChameleonBtn cmdOrigen_pago 
+      Height          =   855
+      Left            =   18840
+      TabIndex        =   76
+      Top             =   3690
+      Width           =   1095
+      _ExtentX        =   1931
+      _ExtentY        =   1508
+      BTYPE           =   5
+      TX              =   "ORIGEN PAGO"
+      ENAB            =   -1  'True
+      BeginProperty FONT {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+         Name            =   "Calibri"
+         Size            =   8.25
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      COLTYPE         =   2
+      FOCUSR          =   -1  'True
+      BCOL            =   16777215
+      BCOLO           =   16777215
+      FCOL            =   12582912
+      FCOLO           =   12582912
+      MCOL            =   12632256
+      MPTR            =   1
+      MICON           =   "frmCajaEgreso.frx":24230
+      PICN            =   "frmCajaEgreso.frx":2424C
+      UMCOL           =   -1  'True
+      SOFT            =   0   'False
+      PICPOS          =   2
+      NGREY           =   0   'False
+      FX              =   0
+      HAND            =   0   'False
+      CHECK           =   0   'False
+      VALUE           =   0   'False
+   End
+   Begin VB.Label Label23 
+      AutoSize        =   -1  'True
+      BackStyle       =   0  'Transparent
+      Caption         =   "DNI/RUC :"
+      BeginProperty Font 
+         Name            =   "Calibri"
+         Size            =   8.25
+         Charset         =   0
+         Weight          =   700
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      ForeColor       =   &H00800000&
+      Height          =   195
+      Left            =   9960
+      TabIndex        =   74
+      Top             =   765
+      Width           =   690
+   End
+   Begin VB.Label Label22 
+      AutoSize        =   -1  'True
+      BackStyle       =   0  'Transparent
+      Caption         =   "ENTIDAD :"
+      BeginProperty Font 
+         Name            =   "Calibri"
+         Size            =   8.25
+         Charset         =   0
+         Weight          =   700
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      ForeColor       =   &H00800000&
+      Height          =   195
+      Left            =   13800
+      TabIndex        =   72
+      Top             =   720
+      Width           =   690
+   End
+   Begin VB.Label Label21 
+      AutoSize        =   -1  'True
+      BackStyle       =   0  'Transparent
+      Caption         =   "TIPO MOV:"
+      BeginProperty Font 
+         Name            =   "Calibri"
+         Size            =   8.25
+         Charset         =   0
+         Weight          =   700
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      ForeColor       =   &H00800000&
+      Height          =   195
+      Left            =   13800
+      TabIndex        =   68
+      Top             =   360
+      Width           =   750
+   End
+   Begin VB.Label Label17 
+      AutoSize        =   -1  'True
+      BackStyle       =   0  'Transparent
+      Caption         =   "OPERACION :"
+      BeginProperty Font 
+         Name            =   "Calibri"
+         Size            =   8.25
+         Charset         =   0
+         Weight          =   700
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      ForeColor       =   &H00800000&
+      Height          =   195
+      Left            =   9840
+      TabIndex        =   63
+      Top             =   300
+      Width           =   885
+   End
+   Begin VB.Label Label7 
+      AutoSize        =   -1  'True
+      BackStyle       =   0  'Transparent
+      Caption         =   "MONTO :"
+      BeginProperty Font 
+         Name            =   "Calibri"
+         Size            =   8.25
+         Charset         =   0
+         Weight          =   700
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      ForeColor       =   &H00800000&
+      Height          =   195
+      Left            =   5880
+      TabIndex        =   61
+      Top             =   300
+      Width           =   615
+   End
+   Begin VB.Label lblcuenta 
+      BackColor       =   &H8000000D&
+      BeginProperty Font 
+         Name            =   "Calibri"
+         Size            =   12
+         Charset         =   0
+         Weight          =   700
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      ForeColor       =   &H00FFFFFF&
+      Height          =   300
+      Left            =   1080
+      TabIndex        =   57
+      Top             =   675
+      Width           =   6705
+   End
+   Begin VB.Shape Shape2 
+      BorderColor     =   &H00C0C0C0&
+      Height          =   915
+      Left            =   240
+      Top             =   120
+      Width           =   18495
+   End
+   Begin VB.Label Label2 
+      AutoSize        =   -1  'True
+      BackStyle       =   0  'Transparent
+      Caption         =   "AL"
+      BeginProperty Font 
+         Name            =   "Calibri"
+         Size            =   8.25
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      ForeColor       =   &H00800000&
+      Height          =   195
+      Left            =   2445
+      TabIndex        =   9
+      Top             =   360
+      Width           =   165
+   End
+   Begin VB.Label Label1 
+      AutoSize        =   -1  'True
+      BackStyle       =   0  'Transparent
+      Caption         =   " FECHAS :"
+      BeginProperty Font 
+         Name            =   "Calibri"
+         Size            =   8.25
+         Charset         =   0
+         Weight          =   700
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      ForeColor       =   &H00800000&
+      Height          =   195
+      Left            =   360
+      TabIndex        =   7
+      Top             =   300
+      Width           =   630
+   End
+   Begin VB.Shape Shape1 
+      BackStyle       =   1  'Opaque
+      BorderColor     =   &H00C0C0C0&
+      Height          =   9240
+      Left            =   0
+      Top             =   0
+      Width           =   20145
+   End
+End
+Attribute VB_Name = "frmCajaEgreso"
+Attribute VB_GlobalNameSpace = False
+Attribute VB_Creatable = False
+Attribute VB_PredeclaredId = True
+Attribute VB_Exposed = False
+Public Procedencia As EnumProcede
+
+Private Sub DtcCaja_Click(Area As Integer)
+'Call actualizar
+End Sub
+
+Private Sub Command1_Click()
+
+End Sub
+
+Private Sub DtcCuentas_Change()
+'Call llenarGrid(Me.HfDetalle, Me)
+End Sub
+
+Private Sub CmdRecientes_Click()
+Call recientes(Val(Me.txtIdcuenta.Text), Me.DtpInicio.Value, Me.DtpFin.Value)
+End Sub
+Public Sub recientes(ByVal id_cuenta As Double, ByVal in_fecha_ini As Date, ByVal in_fecha_fin As Date)
+Dim Saldo As Double
+
+strCadena = "select SUM(montoreal) FROM mis_cuentas_det WHERE  anulado='no' and id_cuenta='" & id_cuenta & "'  AND fecha<'" & Format(in_fecha_ini, "YYYY-mm-dd") & "' AND ruc='" & KEY_RUC & "'"
+Call ConfiguraRst(strCadena)
+If IsNull(rst(0)) = True Then
+    Saldo = 0
+Else
+    Saldo = rst(0)
+End If
+
+
+strCadena = "SELECT * FROM view_detalle_caja WHERE  id_cuenta='" & id_cuenta & "' AND ruc='" & KEY_RUC & "' AND fecha>='" & Format(in_fecha_ini, "YYYY-mm-dd") & "'AND fecha<='" & Format(in_fecha_fin, "YYYY-mm-dd") & "'"
+Call llenarGrid(Me.Hfdetalle, Val(Me.txtIdcuenta.Text), Saldo)
+End Sub
+
+Private Sub CmdTodos_Click()
+Dim Saldo As Double
+strCadena = "select SUM(montoreal) FROM mis_cuentas_det WHERE id_cuenta='" & id_cuenta & "' AND anulado='no' AND ruc='" & KEY_RUC & "' AND fecha_sys<'2000-01-01'"
+Call ConfiguraRst(strCadena)
+If IsNull(rst(0)) = True Then
+    Saldo = 0
+Else
+    Saldo = rst(0)
+End If
+Set rst = Nothing
+
+strCadena = "SELECT id,fecha_sys,fecha,documento,P.nombre_completo,G.plan_des,monto,montoreal,M.ccostos,M.anulado FROM mis_cuentas_det M,persona P,plan_contable_det G " & _
+"WHERE M.ccostos=G.pc_codigo AND  M.id_persona=P.dni AND id_cuenta='" & Val(Me.txtIdcuenta.Text) & "' AND M.ruc='" & KEY_RUC & "' AND M.dni_save='" & KEY_USUARIO & "' ORDER BY id ASC"
+Call llenarGrid(Me.Hfdetalle, Val(Me.txtIdcuenta.Text), Saldo)
+End Sub
+
+Private Sub Command3_Click()
+
+End Sub
+
+Private Sub ChameleonBtn1_Click()
+
+End Sub
+
+Private Sub cmdbuscar_Click()
+Call recientes(Val(Me.txtIdcuenta.Text), Me.DtpInicio.Value, Me.DtpFin.Value)
+End Sub
+
+Private Sub cmdbuscardni_Click()
+Dim Saldo As Double
+
+strCadena = "select SUM(montoreal) FROM mis_cuentas_det WHERE  id_persona = '" & Trim(Me.txtbuscardni.Text) & "' and anulado='no' and id_cuenta='" & Val(Me.txtIdcuenta.Text) & "'  AND fecha<'" & Format(Me.DtpInicio.Value, "YYYY-mm-dd") & "' AND ruc='" & KEY_RUC & "'"
+Call ConfiguraRst(strCadena)
+If IsNull(rst(0)) = True Then
+    Saldo = 0
+Else
+    Saldo = rst(0)
+End If
+
+
+strCadena = "SELECT * FROM view_detalle_caja WHERE  id_persona = '" & Trim(Me.txtbuscardni.Text) & "' and id_cuenta='" & Val(Me.txtIdcuenta.Text) & "' AND ruc='" & KEY_RUC & "' AND fecha>='" & Format(Me.DtpInicio.Value, "YYYY-mm-dd") & "'AND fecha<='" & Format(Me.DtpFin.Value, "YYYY-mm-dd") & "'"
+Call llenarGrid(Me.Hfdetalle, Val(Me.txtIdcuenta.Text), Saldo)
+
+End Sub
+
+Private Sub cmdBuscarEntidad_Click()
+Dim Saldo As Double
+
+strCadena = "select SUM(montoreal) FROM mis_cuentas_det WHERE  npersona LIKE '%" & Trim(Me.TxtBuscaEntidad.Text) & "%' and anulado='no' and id_cuenta='" & Val(Me.txtIdcuenta.Text) & "'  AND fecha<'" & Format(Me.DtpInicio.Value, "YYYY-mm-dd") & "' AND ruc='" & KEY_RUC & "'"
+Call ConfiguraRst(strCadena)
+If IsNull(rst(0)) = True Then
+    Saldo = 0
+Else
+    Saldo = rst(0)
+End If
+
+
+strCadena = "SELECT * FROM view_detalle_caja WHERE  npersona LIKE '%" & Trim(Me.TxtBuscaEntidad.Text) & "%' and id_cuenta='" & Val(Me.txtIdcuenta.Text) & "' AND ruc='" & KEY_RUC & "' AND fecha>='" & Format(Me.DtpInicio.Value, "YYYY-mm-dd") & "'AND fecha<='" & Format(Me.DtpFin.Value, "YYYY-mm-dd") & "'"
+Call llenarGrid(Me.Hfdetalle, Val(Me.txtIdcuenta.Text), Saldo)
+
+End Sub
+
+Private Sub cmdBuscarMonto_Click()
+Dim Saldo As Double
+
+strCadena = "select SUM(montoreal) FROM mis_cuentas_det WHERE  monto LIKE '%" & Val(Me.txtMontoBusqueda.Text) & "%' and anulado='no' and id_cuenta='" & Val(Me.txtIdcuenta.Text) & "'  AND fecha<'" & Format(Me.DtpInicio.Value, "YYYY-mm-dd") & "' AND ruc='" & KEY_RUC & "'"
+Call ConfiguraRst(strCadena)
+If IsNull(rst(0)) = True Then
+    Saldo = 0
+Else
+    Saldo = rst(0)
+End If
+
+
+strCadena = "SELECT * FROM view_detalle_caja WHERE  monto LIKE '%" & Val(Me.txtMontoBusqueda.Text) & "%' and id_cuenta='" & Val(Me.txtIdcuenta.Text) & "' AND ruc='" & KEY_RUC & "' AND fecha>='" & Format(Me.DtpInicio.Value, "YYYY-mm-dd") & "'AND fecha<='" & Format(Me.DtpFin.Value, "YYYY-mm-dd") & "'"
+Call llenarGrid(Me.Hfdetalle, Val(Me.txtIdcuenta.Text), Saldo)
+End Sub
+
+Private Sub cmdBuscarOperacion_Click()
+Dim Saldo As Double
+
+strCadena = "select SUM(montoreal) FROM mis_cuentas_det WHERE  operacion LIKE '%" & Trim(Me.TxtOperacion.Text) & "%' and anulado='no' and id_cuenta='" & Val(Me.txtIdcuenta.Text) & "'  AND fecha<'" & Format(in_fecha_ini, "YYYY-mm-dd") & "' AND ruc='" & KEY_RUC & "'"
+Call ConfiguraRst(strCadena)
+If IsNull(rst(0)) = True Then
+    Saldo = 0
+Else
+    Saldo = rst(0)
+End If
+
+
+strCadena = "SELECT * FROM view_detalle_caja WHERE  operacion LIKE '%" & Trim(Me.TxtOperacion.Text) & "%' and  id_cuenta='" & Val(Me.txtIdcuenta.Text) & "' AND ruc='" & KEY_RUC & "' AND fecha>='" & Format(in_fecha_ini, "YYYY-mm-dd") & "'AND fecha<='" & Format(in_fecha_fin, "YYYY-mm-dd") & "'"
+Call llenarGrid(Me.Hfdetalle, Val(Me.txtIdcuenta.Text), Saldo)
+End Sub
+
+Private Sub cmdBuscartipomov_Click()
+Dim Saldo As Double
+
+strCadena = "select SUM(montoreal) FROM mis_cuentas_det WHERE  id_tipo_movimiento = '" & Me.DtcTipomov.BoundText & "' and anulado='no' and id_cuenta='" & Val(Me.txtIdcuenta.Text) & "'  AND fecha<'" & Format(Me.DtpInicio.Value, "YYYY-mm-dd") & "' AND ruc='" & KEY_RUC & "'"
+Call ConfiguraRst(strCadena)
+If IsNull(rst(0)) = True Then
+    Saldo = 0
+Else
+    Saldo = rst(0)
+End If
+
+
+strCadena = "SELECT * FROM view_detalle_caja WHERE  id_tipo_movimiento LIKE '%" & Me.DtcTipomov.BoundText & "%' and id_cuenta='" & Val(Me.txtIdcuenta.Text) & "' AND ruc='" & KEY_RUC & "' AND fecha>='" & Format(Me.DtpInicio.Value, "YYYY-mm-dd") & "'AND fecha<='" & Format(Me.DtpFin.Value, "YYYY-mm-dd") & "'"
+Call llenarGrid(Me.Hfdetalle, Val(Me.txtIdcuenta.Text), Saldo)
+
+End Sub
+
+Private Sub cmdcerrar_Click()
+FrmMiscuentas.actualizar
+Unload Me
+End Sub
+
+Public Sub get_movimiento(ByVal in_id As String)
+Dim in_cuenta As Integer
+strCadena = "SELECT * FROM mis_cuentas_det where id='" & Val(in_id) & "'"
+Call ConfiguraRst(strCadena)
+If rst.RecordCount > 0 Then
+   rst.MoveFirst
+   in_cuenta = rst("id_cuenta")
+   Me.TxtFecha_emision.Text = CVDate(rst("fecha"))
+   Me.txtMonto.Text = rst("monto")
+   Me.txtrucproveedor.Text = rst("id_persona")
+   Me.DtcTipomovimiento.BoundText = rst("id_tipo_movimiento")
+   Me.DtcCuentaOrigen.BoundText = in_cuenta
+   Me.DtcCuentaDestino.BoundText = rst("id_cuenta_destino")
+   Me.TxtOperacion.Text = rst("operacion")
+   Me.TxtObservacion.Text = rst("glosa")
+   Me.lblhora_registro.Caption = rst("hora_registro")
+   Me.lblfecha_registro.Caption = rst("fecha_sys")
+   Me.lblcomprobante.Caption = rst("documento")
+   Me.lblfecha_emision.Caption = rst("fecha")
+   Me.lblmonto.Caption = rst("monto")
+   Me.txtcambio.Text = rst("tc")
+   Me.txtdetallecomprobante.Text = rst("glosa")
+   Me.lblproveedor.Caption = get_persona(Trim(Me.txtrucproveedor.Text))
+   Me.DtcFormaPago.BoundText = rst("id_forma_pago")
+   Me.DtcFlujo.BoundText = rst("id_tipo_flujo")
+   Me.txtid.Text = Val(in_id)
+   Call llenar(Me.HfContenido, rst("id_venta"), rst("id_compra"))
+   
+   Me.cmdprocesar.Enabled = False
+   Me.frmdetalle.Visible = True
+End If
+
+
+End Sub
+Sub llenar(ByVal Grilla As MSHFlexGrid, ByVal idVenta As Double, ByVal idCompra As String)
+On Error GoTo salir
+Dim tTotal As Double
+Dim texonerado As Double
+Dim tafecto As Double
+
+
+If idVenta > 0 Then
+    strCadena = "SELECT * FROM movimiento_venta_detalle  WHERE id_venta='" & idVenta & "'"
+Else
+    If idCompra = 0 Then
+        Exit Sub
+    End If
+    strCadena = "SELECT * FROM movimiento_compra_detalle WHERE id_compra='" & idCompra & "'"
+End If
+
+
+
+Call ConfiguraRst(strCadena)
+If rst.RecordCount < 1 Then
+   
+    Grilla.Rows = 0
+    Exit Sub
+End If
+   
+   Grilla.Rows = 0
+       ReDim arrColWidth(1 To rst.Fields.Count)
+       For Each Campo In rst.Fields
+           Grilla.ColWidth(0) = 0
+           Grilla.ColWidth(1) = 3000
+           Grilla.ColWidth(2) = 500
+           Grilla.ColWidth(3) = 600
+           Grilla.ColWidth(4) = 700
+           
+        Next
+        cabecera = "CODIGO" & vbTab & "DESCRIPCION " & vbTab & "CANT" & vbTab & "PRECIO" & vbTab & "TOTAL"
+        Grilla.AddItem cabecera
+         For k = 0 To 4
+            Grilla.col = k
+            Grilla.Row = 0
+            Grilla.CellBackColor = &HDFDFE0
+        Next k
+        rst.MoveFirst
+     
+        For i = 0 To rst.RecordCount - 1
+            
+            
+                Fila = rst("id_producto") & vbTab & UCase(rst("detalle")) & vbTab & rst("cantidad") & vbTab & Format(rst("total") / rst("cantidad"), "###0.00") & vbTab & Format(rst("total"), "###0.00")
+            
+            
+            Grilla.AddItem Fila
+            rst.MoveNext
+    Next i
+  
+
+
+Exit Sub
+salir: MsgBox "Ocurrio un Error en la Conexion", vbInformation, "Mensaje para el usuario"
+Set rst = Nothing
+End Sub
+
+Private Sub cmdCerrarCaja_Click()
+Procedencia = cerrarcaja
+Call disabled_form(FrmMiscuentas)
+Call disabled_form(Me)
+FrmSeguridad.Show
+Exit Sub
+
+End Sub
+
+Private Sub cmddetalle_Click()
+
+Call get_movimiento(Val(Me.Hfdetalle.TextMatrix(Me.Hfdetalle.Row, 0)))
+End Sub
+
+
+Private Sub cmdEliminar_Click()
+
+End Sub
+
+Private Sub cmdEditar_Click()
+Procedencia = Modificar
+Call enabled_form(frmCajaEgreso)
+Call enabled_form(FrmMiscuentas)
+frmsegurity.Show
+Exit Sub
+End Sub
+
+Private Sub cmdExtornar_Click()
+
+frmsegurity.Show
+Call disabled_form(Me)
+Procedencia = extornar
+Exit Sub
+
+End Sub
+
+Private Sub cmdImprimir_Click()
+If Me.DtcTipomovimiento.BoundText = "00003" Then
+strCadena = "SELECT id,fecha,id_tipo_movimiento,flujo,medio_pago,operacion,sucursal,operador,glosa,ruc FROM view_transferencia  WHERE id='" & Val(Me.txtid.Text) & "'"
+Call ConfiguraRst(strCadena)
+strCadena = "SELECT descripcion,simbolo,monto,tc,id_moneda,operador FROM view_transferencia_reporte WHERE id_origen='" & Val(Me.txtid.Text) & "'"
+Call ConfiguraRstK(strCadena)
+Ans = ShowMultiReport(rst, "RptVoucher_transferencia", , App.Path + "\Reportes\", , , , , rstK, "RptVoucher_transferencia_detalle")
+Exit Sub
+End If
+
+If Me.DtcTipomovimiento.BoundText = "00002" Then
+strCadena = "SELECT id,fecha,id_tipo_movimiento,flujo,medio_pago,operacion,sucursal,operador,glosa,ruc,tc,id_persona,npersona,monto,monto_letras FROM view_transferencia  WHERE id='" & Val(Me.txtid.Text) & "'"
+Call ConfiguraRst(strCadena)
+Ans = ShowMultiReport(rst, "RptVoucher_egreso", , App.Path + "\Reportes\")
+
+
+End If
+
+
+
+End Sub
+
+Private Sub cmdnuevo_Click()
+
+Me.txtMonto.Text = ""
+Me.txtrucproveedor.Text = ""
+Me.lblproveedor.Caption = ""
+Me.DtcTipomovimiento.BoundText = "00001"
+Me.TxtOperacion.Text = ""
+Me.TxtObservacion.Text = ""
+Me.lblcomprobante.Caption = ""
+Me.lblmonto.Caption = ""
+Me.lblfecha_emision.Caption = ""
+Me.txtdetallecomprobante.Text = ""
+    
+    Me.TxtFecha_emision.Mask = ""
+    Me.TxtFecha_emision.Text = ""
+    Me.TxtFecha_emision.Mask = "##/##/####"
+    Me.TxtFecha_emision.Text = CVDate(KEY_FECHA)
+    
+    
+ 
+    
+Me.cmdprocesar.Enabled = True
+Me.cmdimprimir.Enabled = False
+Me.DtcMoneda.Locked = True
+Me.DtcMoneda.BoundText = get_moneda_cuenta(Me.txtIdcuenta.Text)
+
+
+
+Me.frmdetalle.Visible = True
+Me.TxtFecha_emision.TabIndex = 0
+Call Resalta(Me.txtMonto)
+
+
+End Sub
+
+Private Sub cmdOrigen_pago_Click()
+
+End Sub
+
+Private Sub cmdProcesar_Click()
+If Val(Me.txtid.Text) < 1 Then
+    Me.txtid.Text = procesar_transaccion_caja(KEY_ALM, Me.DtcCuentaOrigen.BoundText, Format(Me.TxtFecha_emision.Text, "YYYY-mm-dd"), Me.DtcTipomovimiento.BoundText, Trim(Me.txtrucproveedor.Text), Trim(Me.lblproveedor.Caption), Trim(Me.TxtObservacion.Text), Val(Me.txtMonto.Text), Me.DtcCuentaDestino.BoundText, "0", "0", Trim(lblcomprobante.Caption), Val(Me.txtcambio.Text), Trim(Me.TxtOperacion.Text), Me.DtcFormaPago.BoundText, Me.DtcFlujo.BoundText, Me.DtcMoneda.BoundText, KEY_USUARIO, KEY_RUC)
+    
+Else
+    strCadena = "UPDATE mis_cuentas_det SET fecha='" & Format(Me.TxtFecha_emision.Text, "YYYY-mm-dd") & "',glosa='" & UCase(Trim(Me.TxtObservacion.Text)) & "' WHERE id='" & Val(Me.txtid.Text) & "'"
+    CnBd.Execute (strCadena)
+End If
+MsgBox "Proceso Realizado con Exito", vbInformation, KEY_VENDEDOR
+
+Call recientes(Val(Me.txtIdcuenta.Text), Me.DtpInicio.Value, Me.DtpFin.Value)
+Me.cmdprocesar.Enabled = False
+Me.cmdimprimir.Enabled = True
+End Sub
+
+Private Sub cmdreporte_Click()
+
+strCadena = "select SUM(montoreal) FROM mis_cuentas_det WHERE id_cuenta='" & Val(Me.txtIdcuenta.Text) & "' AND fecha<'" & Format(Me.DtpInicio.Value, "YYYY-mm-dd") & "' AND ruc='" & KEY_RUC & "'"
+Call ConfiguraRst(strCadena)
+If IsNull(rst(0)) = True Then
+    Saldo = 0
+Else
+    Saldo = rst(0)
+End If
+
+
+strCadena = "SELECT '" & Trim(Me.lblcuenta.Caption) & "','" & Format(Me.DtpInicio.Value, "dd-mm-YYYY") & "','" & Format(Me.DtpFin.Value, "dd-mm-YYYY") & "',fecha,'" & Saldo & "',id_tipo_movimiento,tipo_movimiento,id_persona,npersona,glosa,nombre_completo,montoreal,'" & KEY_VENDEDOR & "',operacion FROM view_detalle_caja WHERE  id_cuenta='" & Val(Me.txtIdcuenta.Text) & "' AND ruc='" & KEY_RUC & "' AND fecha>='" & Format(Me.DtpInicio.Value, "YYYY-mm-dd") & "'AND fecha<='" & Format(Me.DtpFin.Value, "YYYY-mm-dd") & "'"
+Call ConfiguraRst(strCadena)
+Ans = ShowMultiReport(rst, "RptCuenta_detalle", , App.Path + "\Reportes\")
+   
+End Sub
+
+Private Sub cmdsalir_Click()
+Me.frmdetalle.Visible = False
+End Sub
+
+Private Sub DtcCuentaDestino_KeyPress(KeyAscii As Integer)
+If KeyAscii = 13 Then
+    Me.DtcFormaPago.SetFocus
+End If
+End Sub
+
+Private Sub DtcCuentaOrigen_KeyPress(KeyAscii As Integer)
+If KeyAscii = 13 Then
+    If Me.DtcCuentaDestino.Visible = True Then
+        Me.DtcCuentaDestino.SetFocus
+    Else
+        Me.DtcFormaPago.SetFocus
+    End If
+End If
+End Sub
+
+Private Sub DtcFlujo_KeyPress(KeyAscii As Integer)
+If KeyAscii = 13 Then
+    Call Resalta(Me.TxtOperacion)
+End If
+End Sub
+
+Private Sub DtcFormaPago_KeyPress(KeyAscii As Integer)
+If KeyAscii = 13 Then
+    Me.DtcFlujo.SetFocus
+End If
+End Sub
+
+Private Sub DtcTipomovimiento_Change()
+If Me.DtcTipomovimiento.BoundText = "00003" Then
+   strCadena = "SELECT id_cuenta as Codigo, CONCAT(descripcion,'-',numero_cuenta,'    [',moneda,']') as Descripcion FROM view_cuenta_banco WHERE id_cuenta<>'" & Me.DtcCuentaOrigen.BoundText & "' and  ruc='" & KEY_RUC & "' ORDER BY id_cuenta"
+   Call ConfiguraRstT(strCadena)
+   Call LlenaDataComboT(Me.DtcCuentaDestino)
+   Me.DtcCuentaDestino.Visible = True
+   Me.lbldestino.Visible = True
+   Me.lblproveedorn.Visible = False
+   Me.txtrucproveedor.Visible = False
+Else
+   Me.DtcCuentaDestino.Visible = False
+   Me.lbldestino.Visible = False
+   Me.lblproveedorn.Visible = True
+   Me.txtrucproveedor.Visible = True
+End If
+End Sub
+
+Private Sub DtcTipomovimiento_KeyPress(KeyAscii As Integer)
+If KeyAscii = 13 Then
+    If Me.DtcCuentaDestino.Visible = True Then
+        Me.DtcCuentaDestino.SetFocus
+    Else
+        Me.DtcFormaPago.SetFocus
+    End If
+End If
+End Sub
+
+Private Sub Form_KeyDown(KeyCode As Integer, Shift As Integer)
+If (KeyCode = 27) Then
+    Unload Me
+End If
+End Sub
+
+Private Sub Form_Load()
+CenterForm Me
+Me.Top = 100
+Me.DtpInicio.Value = KEY_FECHA
+Me.DtpFin.Value = KEY_FECHA
+
+
+strCadena = "SELECT id_moneda as Codigo, descripcion as Descripcion FROM moneda ORDER BY id_moneda"
+Call ConfiguraRst(strCadena)
+Call LlenaDataCombo(Me.DtcMoneda)
+
+strCadena = "SELECT id_mov as Codigo, descripcion as Descripcion FROM tipo_movimiento_caja ORDER BY id_mov"
+Call ConfiguraRst(strCadena)
+Call LlenaDataCombo(Me.DtcTipomovimiento)
+
+Me.txtIdcuenta.Text = Val(FrmMiscuentas.HfgDetalle.TextMatrix(FrmMiscuentas.HfgDetalle.Row, 0))
+
+strCadena = "SELECT id_cuenta as Codigo, CONCAT(descripcion,'-',numero_cuenta,'    [',moneda,']') as Descripcion FROM view_cuenta_banco WHERE ruc='" & KEY_RUC & "' ORDER BY id_cuenta"
+Call ConfiguraRst(strCadena)
+Call LlenaDataCombo(Me.DtcCuentaOrigen)
+Me.DtcCuentaOrigen.BoundText = Val(Me.txtIdcuenta.Text)
+strCadena = "SELECT id as Codigo,Descripcion  as Descripcion FROM vw_mediopago_nombre  "
+Call ConfiguraRst(strCadena)
+Call LlenaDataCombo(Me.DtcFormaPago)
+
+strCadena = "SELECT id as Codigo,Nombre  as Descripcion FROM adm_flujocaja ORDER BY Nombre  "
+Call ConfiguraRst(strCadena)
+Call LlenaDataCombo(Me.DtcFlujo)
+
+strCadena = "select id_mov as Codigo, descripcion as Descripcion from tipo_movimiento_caja ORDER BY id_mov"
+Call ConfiguraRst(strCadena)
+Call LlenaDataCombo(Me.DtcTipomov)
+
+
+
+
+Me.txtcambio.Text = KEY_CAMBIO_COMPRA
+
+
+
+
+Call recientes(Val(Me.txtIdcuenta.Text), KEY_FECHA, KEY_FECHA)
+End Sub
+Private Sub Transferencia(ByVal in_tipo As String)
+
+If in_tipo = "00003" Then ' transferencia
+   Me.lbldestino.Visible = True
+   Me.DtcCuentaDestino.Visible = True
+Else
+   Me.lbldestino.Visible = False
+   Me.DtcCuentaDestino.Visible = False
+End If
+
+End Sub
+Private Sub llenarGrid(ByVal Grilla As MSHFlexGrid, ByVal id_cuenta As Double, ByVal Saldo As Double)
+On Error GoTo salir
+Dim tTotal As Double, denominacion As String
+
+Call ConfiguraRst(strCadena)
+If rst.RecordCount < 1 Then
+           Grilla.Rows = 0
+           Grilla.ColWidth(0) = 0
+           Grilla.ColWidth(1) = 1100
+           Grilla.ColWidth(2) = 2200
+           Grilla.ColWidth(3) = 1200
+           Grilla.ColWidth(4) = 3500
+           Grilla.ColWidth(5) = 3500
+           Grilla.ColWidth(6) = 2500
+           Grilla.ColWidth(7) = 1300
+           Grilla.ColWidth(8) = 1300
+           Grilla.ColWidth(9) = 1400
+        cabecera = "ID_DETALLE" & vbTab & "EMISION" & vbTab & "MOVIMIENTO" & vbTab & "DNI/RUC" & vbTab & "NOMBRE/RAZON SOCIAL" & vbTab & "CONCEPTO" & vbTab & "OPERADOR" & vbTab & "DEBE" & vbTab & "HABER" & vbTab & "SALDO"
+        Grilla.AddItem cabecera
+         For k = 1 To 9
+                                Grilla.col = k
+                                Grilla.Row = 0
+                                Grilla.CellBackColor = &HDFDFE0
+        Next k
+        cabecera = "" & vbTab & "" & vbTab & "" & vbTab & "" & vbTab & "" & vbTab & "============   SALDO INICIAL  ============" & vbTab & " " & vbTab & " " & vbTab & " " & vbTab & Format(Saldo, "#,##0.00")
+        Grilla.AddItem cabecera
+        For k = 7 To 9
+                                Grilla.col = k
+                                Grilla.Row = 1
+                                Grilla.CellBackColor = &H80FF&
+         Next k
+    Exit Sub
+End If
+ 
+   
+       Grilla.Rows = 0
+       ReDim arrColWidth(1 To rst.Fields.Count)
+       For Each Campo In rst.Fields
+           Grilla.ColWidth(0) = 0
+           Grilla.ColWidth(1) = 1100
+           Grilla.ColWidth(2) = 2200
+           Grilla.ColWidth(3) = 1200
+           Grilla.ColWidth(4) = 3500
+           Grilla.ColWidth(5) = 3500
+           Grilla.ColWidth(6) = 2500
+           Grilla.ColWidth(7) = 1300
+           Grilla.ColWidth(8) = 1300
+           Grilla.ColWidth(9) = 1400
+       Next
+        cabecera = "ID_DETALLE" & vbTab & "EMISION" & vbTab & "MOVIMIENTO" & vbTab & "DNI/RUC" & vbTab & "NOMBRE/RAZON SOCIAL" & vbTab & "CONCEPTO" & vbTab & "OPERADOR" & vbTab & "DEBE" & vbTab & "HABER" & vbTab & "SALDO"
+        Grilla.AddItem cabecera
+         For k = 1 To 9
+                                Grilla.col = k
+                                Grilla.Row = 0
+                                Grilla.CellBackColor = &HDFDFE0
+        Next k
+        cabecera = "" & vbTab & "" & vbTab & "" & vbTab & "" & vbTab & "" & vbTab & "============   SALDO INICIAL  ============" & vbTab & " " & vbTab & " " & vbTab & " " & vbTab & Format(Saldo, "#,##0.00")
+        Grilla.AddItem cabecera
+         For k = 7 To 9
+                                Grilla.col = k
+                                Grilla.Row = 1
+                                Grilla.CellBackColor = &H80FF&
+         Next k
+                           
+        rst.MoveFirst
+        For i = 0 To rst.RecordCount - 1
+        
+        If rst("montoreal") > 0 Then
+            tdebe = rst("monto")
+            thaber = 0
+        Else
+            tdebe = 0
+            thaber = rst("monto")
+        End If
+            
+            If rst("anulado") = "no" Then
+                Saldo = Saldo + rst("montoreal")
+            End If
+            
+            
+            If rst("id_tipo_movimiento") = "00003" Then
+                If rst("id_cuenta_destino") <> 0 Then
+                   npersona = rst("cuenta_destino") 'get_nombre_cuenta(rst("id_cuenta_destino"))
+                Else
+                   npersona = get_nombre_cuenta(rst("id_cuenta"))
+                End If
+            Else
+                npersona = rst("npersona")
+            End If
+            
+            Fila = rst("id") & vbTab & Format(rst("fecha"), "dd-mm-YYYY") & vbTab & rst("tipo_movimiento") & vbTab & rst("id_persona") & vbTab & npersona & vbTab & rst("glosa") & vbTab & Mid(rst("nombre_completo"), 1, 25) & vbTab & Format(tdebe, "#,##0.00") & vbTab & Format(thaber, "#,##0.00") & vbTab & Format(Saldo, "#,##0.00")
+            Grilla.AddItem Fila
+            
+            If rst("anulado") = "si" Then
+                
+            
+                For k = 1 To 9
+                                Grilla.col = k
+                                Grilla.Row = i + 2
+                                Grilla.CellBackColor = &HDFDFE0
+                Next k
+            End If
+            
+            For l = 7 To 9
+                                Grilla.col = l
+                                Grilla.Row = i + 2
+                                Grilla.CellBackColor = &H80FF&
+            Next l
+          
+            rst.MoveNext
+           
+        Next i
+    
+    
+   Me.cmddetalle.Enabled = False
+   
+    
+  Exit Sub
+salir: MsgBox "Por Favor Digite Correctamente", vbInformation, "Mensaje para el usuario"
+
+
+End Sub
+
+
+Private Sub HfDetalle_DblClick()
+If Val(Me.Hfdetalle.TextMatrix(Me.Hfdetalle.Row, 0)) > 0 Then
+        If Val(Me.Hfdetalle.TextMatrix(Me.Hfdetalle.Row, 6)) > 0 Then
+        strCadena = "SELECT     Comprobantes.doc_abrev, movimiento_caja.serie, movimiento_caja.numero, movimiento_caja.cPersona, " & _
+        "movimiento_caja.descripcion_per, Persona.sDireccionCliente1, Persona.Per_Ruc, movimiento_caja.fecha_valor," & _
+        "movimiento_caja.cambio , movimiento_caja.glosa, centro_costos.descripcion, movimiento_caja.Monto,movimiento_caja.monto_letras " & _
+        "FROM movimiento_caja INNER JOIN Comprobantes ON movimiento_caja.doc_cod = Comprobantes.doc_cod INNER JOIN " & _
+        "centro_costos ON movimiento_caja.id_costo = centro_costos.id_costo INNER JOIN " & _
+        "Persona ON movimiento_caja.cPersona = Persona.cPersona WHERE movimiento_caja.codigo='" & Val(Me.Hfdetalle.TextMatrix(Me.Hfdetalle.Row, 9)) & "'  AND Ruc='" & KEY_RUC & "'"
+        Call ConfiguraRst(strCadena)
+        Ans = ShowMultiReport(rst, "RptReciboIngreso", , App.Path + "\Reportes\")
+        Set rst = Nothing
+        End If
+
+     '
+End If
+End Sub
+
+Private Sub TlbAcciones_ButtonClick(ByVal Button As MSComctlLib.Button)
+'On Error GoTo Error
+  Select Case Button.key
+    Case KEY_NEW
+        Procedencia = nuevo
+        frmNuevoComprobante.Show
+    Case KEY_DELETE
+       If MsgBox(MSGANULAR, vbQuestion + vbYesNo, MSGVERIFICACION) = vbYes Then
+        Procedencia = anular
+        FrmSeguridad.Show
+       End If
+    Case KEY_EXIT
+        Unload Me
+'Error:
+ ' MsgBox Err.Number & " " & Err.Description, vbCritical, MSGERROR
+  
+  Exit Sub
+End Select
+End Sub
+
+Private Sub HfDetalle_SelChange()
+If Val(Me.Hfdetalle.TextMatrix(Me.Hfdetalle.Row, 0)) > 0 Then
+   Me.cmddetalle.Enabled = True
+   
+Else
+    Me.cmddetalle.Enabled = False
+   
+End If
+End Sub
+
+Private Sub TxtFecha_emision_KeyPress(KeyAscii As Integer)
+If KeyAscii = 13 Then
+    Call Resalta(Me.txtMonto)
+End If
+
+
+End Sub
+
+Private Sub txtFormaPago_Change()
+strCadena = "SELECT id as Codigo,Descripcion  as Descripcion FROM vw_mediopago_nombre WHERE Descripcion LIKE '%" & Trim(Me.txtFormaPago.Text) & "%'  "
+Call ConfiguraRst(strCadena)
+Call LlenaDataCombo(Me.DtcFormaPago)
+End Sub
+
+Private Sub TxtMonto_KeyPress(KeyAscii As Integer)
+If KeyAscii = 13 Then
+    If Me.txtrucproveedor.Visible = True Then
+       Call Resalta(Me.txtrucproveedor)
+    End If
+    
+End If
+End Sub
+
+Private Sub TxtOperacion_KeyPress(KeyAscii As Integer)
+If KeyAscii = 13 Then
+    Call Resalta(Me.TxtObservacion)
+End If
+End Sub
+
+Private Sub txtrucproveedor_KeyPress(KeyAscii As Integer)
+If KeyAscii = 13 Then
+   strCadena = "SELECT * FROM view_entidad WHERE dni='" & Trim(Me.txtrucproveedor.Text) & "' and ruc='" & KEY_RUC & "'"
+   Call ConfiguraRst(strCadena)
+   If rst.RecordCount > 0 Then
+      Me.lblproveedor.Caption = rst("nombre_completo")
+      Me.DtcTipomovimiento.SetFocus
+   Else
+      Procedencia = Selecionar
+      FrmPersona.Show
+      Exit Sub
+   End If
+End If
+End Sub
+
+Private Sub txtTipoFlujo_Change()
+strCadena = "SELECT id as Codigo,Nombre  as Descripcion FROM adm_flujocaja WHERE Nombre LIKE '%" & Trim(Me.txtTipoFlujo.Text) & "%' ORDER BY Nombre  "
+Call ConfiguraRst(strCadena)
+Call LlenaDataCombo(Me.DtcFlujo)
+End Sub

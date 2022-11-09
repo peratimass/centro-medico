@@ -1,0 +1,14 @@
+id	Number
+emision	Date
+proximo	Date
+observacion	String	300
+kilometraje	Number
+kilometraje_prox	Number
+costo	Number
+dni	String	20
+propietario	String	100
+placa	String	20
+marca	String	40
+serie	String	40
+tecnico	String	100
+

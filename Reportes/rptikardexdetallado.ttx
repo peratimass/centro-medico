@@ -1,0 +1,11 @@
+in_kardex	Number
+in_movimiento	Number
+fecha	Date
+documento	String	20
+cantidad	Number
+cantidadreal	Number
+costo_uni	Number
+in_proveedor	String	11
+proveedor	String	50
+id_producto	String	5
+in_ruc	String	11

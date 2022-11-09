@@ -1,0 +1,7 @@
+Linea	String	20	
+TipoProducto	String	20	
+Laboratorio	String	30	
+Distribuidora	String	80
+sDescripcionProducto	String	80	
+nStockActual	Number		
+Unidad	String	20

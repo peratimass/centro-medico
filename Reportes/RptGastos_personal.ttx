@@ -1,0 +1,7 @@
+dni	String	11
+trabajador	String	100
+monto	Number
+fecha	Date
+comprobante	String	60
+cuentacontable	String	20
+

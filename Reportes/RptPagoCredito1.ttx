@@ -1,0 +1,20 @@
+fecha	Date
+des_comprobante	String	12
+serie	String	5
+numero	String	10
+Persona	String	50
+Ruc	String	11
+Direccion	String	80
+des_comprobante2	String	12
+serie2	String	5
+numero2	String	10
+total_venta	Number
+pagado	number
+saldo	number
+monto_letras	String	100
+cProducto	String	5
+Producto	String	50
+Und	String	4
+Precio	Number
+Cantidad	Number
+Total	Number

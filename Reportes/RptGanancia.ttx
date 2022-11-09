@@ -1,0 +1,5 @@
+demisionventa	Date
+sdescripcionproducto	String	80
+ncantidad	Number
+nprecioventa	Number
+npreciocompra	Number

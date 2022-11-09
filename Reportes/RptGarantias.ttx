@@ -1,0 +1,9 @@
+fecha	Date
+numero	String	11
+dni	String	11
+paciente	String	150
+dni_garante	String	11
+garante	String	150
+descripcion	String	150
+monto	Number
+

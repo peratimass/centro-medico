@@ -1,0 +1,6 @@
+dni	String	11
+paciente	String	150
+fecha	Date
+especialidad	String	80
+medico	String	80
+seguro	String	50

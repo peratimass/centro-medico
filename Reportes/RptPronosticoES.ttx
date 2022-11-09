@@ -1,0 +1,13 @@
+dni	String	11
+medico	String	150
+titulo	String	60
+observacion	String	100
+especialidad	String	200
+pacientes	Number
+horas_efectivas	Number
+horas_programadas	Number
+exedente	Number
+promedio	Number
+necesidad	Number
+pronostico	Number
+turnos	Number

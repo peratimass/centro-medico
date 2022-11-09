@@ -1,0 +1,18 @@
+id_producto	String	10
+producto	String	100
+unidad	String	40
+linea	String	40
+comprobante	String	40
+id_doc	String	2
+cliente	String	100
+emision	Date
+cantidad	Number
+valor_venta	Number
+valor_costo	Number
+precio_venta	Number
+
+
+
+
+
+

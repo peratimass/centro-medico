@@ -1,0 +1,9 @@
+fecha	Date
+Hora	String	20
+comprobante	String	40
+dni_cliente	String	11
+cliente	String	60
+monto	Number
+operador	String	60
+
+

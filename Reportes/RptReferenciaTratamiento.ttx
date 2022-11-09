@@ -1,0 +1,16 @@
+fecha	Datetime
+hora	Datetime
+obser		String	80
+dias		Number
+dosis		String	20
+dosis_por_dia	Number
+fecha_inicio	Datetime
+hora_inicio		Datetime
+intervalo		Number
+nro_dosis		Number
+observacion		String	200
+id_medicamento	String	10
+nombre_generico	String	600
+medico		String	130
+via			String	20
+id_medicacion	Number

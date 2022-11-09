@@ -1,0 +1,14 @@
+id_producto	String	String	10
+descripcion_producto	String	60
+linea	String	40
+unidad	String	10
+saldo_inicial	Number
+ingresos	Number
+salidas	Number
+saldo	Number
+
+
+
+
+
+

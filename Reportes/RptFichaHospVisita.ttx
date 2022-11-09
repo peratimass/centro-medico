@@ -1,0 +1,13 @@
+fecha	Datetime
+hora	Datetime
+codigo  	String	500
+diagnostico	String	300
+plan		String	1000
+observacion	String	1500
+medico	String	130
+subjetiva	String	2000
+objetiva	String	2000
+apreciacion	String	2000
+alta		String	2
+fecha_est_alta	Datetime
+descripcion	String	50

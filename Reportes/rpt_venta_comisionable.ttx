@@ -1,0 +1,17 @@
+id_venta	Number
+documento	String	30
+fecha	DateTime
+id_cliente	String	11
+ncliente	String	60
+producto	String	120
+color	String	50
+chasis	String	25
+motor	String	25
+total	Number
+id_alm	String	5
+nota	String	25
+monto_nota	Number
+dni_vendedor	String	11
+vendedor	String	50
+ruc	String	11
+	

@@ -1,0 +1,18 @@
+dni	String	11
+a_paterno	String	50
+a_materno	String	50
+nombres		String	80
+nombre_completo	String	120
+nacimiento	Date
+pais	String	50
+departamento	String	80
+provincia	String	80
+distrito	String	80
+meses	Number
+anios	Number
+sexo	String	30
+domicilio	String	150
+telefono	String	10
+estado_civil	String	50	
+tipo_seguro	String	150
+fecha_registro	Date

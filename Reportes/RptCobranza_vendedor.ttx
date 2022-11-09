@@ -1,0 +1,13 @@
+id_venta	Number
+emision	Date
+vencimiento	Date
+id_cliente	String	16
+cliente	String	60
+documento	String	30
+total	Number
+dias_pasados	Number
+pagado	Number
+dni_vendedor	String	16
+vendedor	String	60
+
+

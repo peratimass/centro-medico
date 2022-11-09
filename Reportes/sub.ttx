@@ -1,0 +1,4 @@
+Codigo	String	20	
+sDescripcionProducto	String	100	
+Cantidad	Number		
+Importe	Number

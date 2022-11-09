@@ -1,0 +1,11 @@
+id_hospitalizacion	Number
+numero	String	11
+dni_paciente	String	11
+dni_pagador	String	11
+nombre_paciente	String	120
+nombre_pagador	String	120
+monto_garantia	Number
+monto_letras	String	150
+fecha	Date
+usuario	String	100
+hora	String	50

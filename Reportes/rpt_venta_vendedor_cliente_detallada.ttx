@@ -1,0 +1,10 @@
+fecha	DateTime
+comprobante	String	40
+cliente	String	60
+producto	String	60
+cantidad	Number
+precio	Number
+total	Number
+vendedor	String	60
+
+

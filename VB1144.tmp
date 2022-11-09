@@ -1,0 +1,490 @@
+Attribute VB_Name = "ModAjustes"
+Public Sub verificar_versionsoft()
+
+strCadena = "SELECT version_actual FROM vitekey_version WHERE version_actual<>'" & KEY_VERSION & "' LIMIT 1"
+Call ConfiguraRstUpdate(strCadena)
+If rstUpdate.RecordCount > 0 Then
+    If MsgBox("HAY UNA VERSION MAS RECIENTE DEL SOFTWARE." + Chr(13) + Chr(13) + "VERSION INSTALADA  :" + KEY_VERSION + Chr(13) + "VERSION ACTUAL       :" + str(rstUpdate("version_actual")) + Chr(13) + Chr(13) + "DESEA ACTUALIZAR AHORA ?", vbQuestion + vbYesNo, KEY_VENDEDOR) = vbYes Then
+        Dim in_ruta_aplicacion As String
+        in_ruta_aplicacion = App.Path & "\Vitekey Business.exe"
+        
+        Shell in_ruta_aplicacion, vbNormalFocus
+        DoEvents
+        End
+    End If
+End If
+
+   
+
+End Sub
+
+Public Sub Mayusculas(KeyAscii As Integer)
+If KeyAscii >= 97 And KeyAscii <= 122 Then
+    KeyAscii = KeyAscii - 32
+End If
+End Sub
+
+
+ Function FormatosCeros(ByVal cod As String, ByVal longitud As Integer) As String
+Dim x As Integer
+Dim Formato As String
+  Formato = ""
+  For x = 1 To longitud
+    Formato = Formato + "0"
+  Next x
+    cod = Format(Trim(str(Val(Right(cod, longitud)))), Formato)
+
+FormatosCeros = cod
+
+
+
+End Function
+Public Sub ingresar_tramite(ByVal in_venta As Double)
+
+End Sub
+
+Public Function correlativo_comprobante(ByVal in_doc As String, ByVal in_serie As String, ByVal in_numero As String) As Boolean
+
+strCadena = "SELECT numero FROM movimiento_venta where id_doc='" & in_doc & "' and  serie='" & in_serie & "' and ruc='" & KEY_RUC & "' ORDER BY numero DESC LIMIT 1"
+Call ConfiguraRstK(strCadena)
+If rstK.RecordCount > 0 Then
+    If Val(in_numero) <= Val(rstK("numero")) Then
+        'MsgBox "Numero de Comprobante inferior al numero Actual", vbInformation, KEY_EMPRESA
+        correlativo_comprobante = True
+        Exit Function
+    End If
+Else
+    correlativo_comprobante = False
+End If
+
+End Function
+Public Sub generar_mantenimientos(ByVal in_venta As Double, ByVal in_dni As String, ByVal fecha_venta As Date)
+Dim in_mantenimiento As Double
+Dim nfecha As Date
+strCadena = "SELECT * FROM movimiento_venta_mantenimiento WHERE id_venta='" & in_venta & "' and ruc='" & KEY_RUC & "'"
+Call ConfiguraRst(strCadena)
+If rst.RecordCount < 1 Then
+     strCadena = "SELECT * FROM view_movimiento_venta WHERE id_venta='" & in_venta & "' and afecto_garantia='si' and mantenimientos>0 and ruc='" & KEY_RUC & "' "
+     Call ConfiguraRstK(strCadena)
+     If rstK.RecordCount > 0 Then
+                 strCadena = "INSERT INTO movimiento_venta_mantenimiento(`id_venta`,`dni_cliente`,`id_producto`,`fecha_venta`,`dni_save`,`imp_detalle`,`ruc`)VALUES " & _
+                "('" & in_venta & "','" & in_dni & "','" & rstK("id_producto") & "','" & Format(fecha_venta, "YYYY-mm-dd") & "','" & KEY_USUARIO & "','" & rstK("id_detalle_serie") & "','" & KEY_RUC & "')"
+                CnBd.Execute (strCadena)
+                 
+                strCadena = "SELECT * FROM movimiento_venta_mantenimiento ORDER BY id_mantenimiento DESC LIMIT 1"
+                Call ConfiguraRst(strCadena)
+                If rst.RecordCount > 0 Then
+                    in_mantenimiento = rst("id_mantenimiento") ' ID MANTENIMIENTO
+                End If
+                
+                strCadena = "SELECT * FROM linea_mantenimiento WHERE id_linea='" & rstK("id_linea") & "' and ruc='" & KEY_RUC & "' ORDER BY id_mantenimiento ASC"
+                Call ConfiguraRst(strCadena)
+                If rst.RecordCount > 0 Then
+                        nfecha = fecha_venta
+                        For i = 1 To rst.RecordCount - 1
+                            nfecha = DateAdd("d", rst("dias"), nfecha)
+                            strCadena = "INSERT INTO movimiento_venta_mantenimiento_listado(`id_mantenimiento`,`fecha_aproximada`,`id_venta`,`dni_save`,`ruc`)VALUES('" & in_mantenimiento & "','" & Format(nfecha, "YYYY-mm-dd") & "','" & in_venta & "','" & KEY_USUARIO & "','" & KEY_RUC & "')"
+                            CnBd.Execute (strCadena)
+                             
+                            strCadena = "SELECT * FROM movimiento_venta_mantenimiento_listado ORDER BY id DESC LIMIT 1"
+                            Call ConfiguraRstL(strCadena)
+                            Call generar_insumos(rst("id_mantenimiento"), rstL("id"))
+                            rst.MoveNext
+                        Next i
+               End If
+     End If
+     
+End If
+Call reporte_matenimiento(in_venta)
+
+
+
+End Sub
+Private Sub reporte_matenimiento(ByVal in_venta As Double)
+strCadena = "SELECT id_cliente,ncliente,documento,'-',nombre_prod,placa,nro_chasis,nro_motor,fecha_emision,fecha_mantenimiento,id,fecha_aproximada,nombre_completo,estado FROM  view_repor_mantenimiento WHERE id_venta='" & in_venta & "'"
+
+Call ConfiguraRstK(strCadena)
+Ans = ShowMultiReport(rstK, "RptMantenimientos", , App.Path + "\Reportes\")
+End Sub
+Private Sub generar_insumos(ByVal in_detalle As Double, ByVal in_listado As Double)
+strCadena = "SELECT * FROM linea_mantenimiento_detalle WHERE id_mantenimiento='" & in_detalle & "'"
+Call ConfiguraRstL(strCadena)
+If rstL.RecordCount > 0 Then
+    For i = 0 To rstL.RecordCount - 1
+        strCadena = "INSERT INTO movimiento_venta_mantenimiento_insumos(`id_listado`,`id_producto`,`cantidad`,`pagado`,`ruc`) VALUES " & _
+        " ('" & in_listado & "','" & rstL("id_producto") & "','" & rstL("cantidad") & "','" & rstL("pagado") & "','" & KEY_RUC & "')"
+        CnBd.Execute (strCadena)
+         
+        rstL.MoveNext
+    Next i
+End If
+End Sub
+Public Sub generar_mantenimiento(ByVal in_venta As Double)
+strCadena = "SELECT  FROM movimiento_venta_detalle d,linea l,producto p WHERE id_venta='" & in_venta & "' and d.id_producto=p.id_producto and p.id_linea=l.id_linea and p.ruc=l.id_usu and p.ruc='" & KEY_RUC & "'  "
+
+End Sub
+Public Sub manejador_error()
+MsgBox "A ocurrido un Fallo en la Red" + Chr(13) + Chr(13) + "Disuclpe las molestias." + Chr(13) + KEY_VENDEDOR, vbInformation
+Exit Sub
+End Sub
+Public Sub actualizar_credito(ByVal in_dni As String, ByVal monto_pagado As Single)
+
+strCadena = "UPDATE entidad_empresa SET monto_credito=monto_credito+'" & monto_pagado & "' WHERE cod_unico='" & in_dni & "' and id_empresa='" & KEY_RUC & "'"
+CnBd.Execute (strCadena)
+'
+End Sub
+Function DigitoVerificadorRUC(m_sRUC As String) As String
+Dim m_sRUCC As Double
+     If Not IsNumeric(m_sRUC) Then
+        m_sErrValRUC = "El valor no es numérico"
+     Else
+        If Len(m_sRUC) <> 10 Then
+            m_sErrValRUC = "Número de dígitos inválido"
+        Else
+        
+            Dim dig01 As Integer
+            Dim dig02 As Integer
+            Dim dig03 As Integer
+            Dim dig04 As Integer
+            Dim dig05 As Integer
+            Dim dig06 As Integer
+            Dim dig07 As Integer
+            Dim dig08 As Integer
+            Dim dig09 As Integer
+            Dim dig10 As Integer
+            Dim dig11 As Integer
+            Dim suma As Integer
+            Dim residuo As Integer
+            Dim resta As Integer
+            Dim digChk As Integer
+    
+            dig01 = CInt(Mid$(m_sRUC, 1, 1)) * 5
+            dig02 = CInt(Mid$(m_sRUC, 2, 1)) * 4
+            dig03 = CInt(Mid$(m_sRUC, 3, 1)) * 3
+            dig04 = CInt(Mid$(m_sRUC, 4, 1)) * 2
+            dig05 = CInt(Mid$(m_sRUC, 5, 1)) * 7
+            dig06 = CInt(Mid$(m_sRUC, 6, 1)) * 6
+            dig07 = CInt(Mid$(m_sRUC, 7, 1)) * 5
+            dig08 = CInt(Mid$(m_sRUC, 8, 1)) * 4
+            dig09 = CInt(Mid$(m_sRUC, 9, 1)) * 3
+            dig10 = CInt(Mid$(m_sRUC, 10, 1)) * 2
+            'dig11 = CInt(Mid$(m_sRUC, 11, 1))
+            
+            suma = dig01 + dig02 + dig03 + dig04 + dig05 + dig06 + dig07 + dig08 + dig09 + dig10
+            residuo = suma Mod 11
+            resta = 11 - residuo
+            
+            If resta = 11 Then
+                digChk = 1
+            ElseIf resta = 10 Then
+                digChk = 0
+            Else
+                digChk = resta
+            End If
+            dig11 = digChk
+            
+            If dig11 = digChk Then
+                RUC_EsValido = True
+            Else
+                m_sErrValRUC = "El número de RUC no es válido"
+            End If
+          
+        End If
+    End If
+DigitoVerificadorRUC = Trim(m_sRUC) & Trim(str(dig11))
+End Function
+Public Function RUC_valido(ByVal m_sRUC As String) As Boolean
+
+    If Not IsNumeric(m_sRUC) Then
+        m_sErrValRUC = "El valor no es numérico"
+    Else
+        If Len(m_sRUC) <> 11 Then
+            m_sErrValRUC = "Número de dígitos inválido"
+        Else
+        
+            Dim dig01 As Integer
+            Dim dig02 As Integer
+            Dim dig03 As Integer
+            Dim dig04 As Integer
+            Dim dig05 As Integer
+            Dim dig06 As Integer
+            Dim dig07 As Integer
+            Dim dig08 As Integer
+            Dim dig09 As Integer
+            Dim dig10 As Integer
+            Dim dig11 As Integer
+            
+            Dim suma As Integer
+            Dim residuo As Integer
+            Dim resta As Integer
+            
+            Dim digChk As Integer
+    
+            dig01 = CInt(Mid$(m_sRUC, 1, 1)) * 5
+            dig02 = CInt(Mid$(m_sRUC, 2, 1)) * 4
+            dig03 = CInt(Mid$(m_sRUC, 3, 1)) * 3
+            dig04 = CInt(Mid$(m_sRUC, 4, 1)) * 2
+            dig05 = CInt(Mid$(m_sRUC, 5, 1)) * 7
+            dig06 = CInt(Mid$(m_sRUC, 6, 1)) * 6
+            dig07 = CInt(Mid$(m_sRUC, 7, 1)) * 5
+            dig08 = CInt(Mid$(m_sRUC, 8, 1)) * 4
+            dig09 = CInt(Mid$(m_sRUC, 9, 1)) * 3
+            dig10 = CInt(Mid$(m_sRUC, 10, 1)) * 2
+            dig11 = CInt(Mid$(m_sRUC, 11, 1))
+            
+            suma = dig01 + dig02 + dig03 + dig04 + dig05 + dig06 + dig07 + dig08 + dig09 + dig10
+            residuo = suma Mod 11
+            resta = 11 - residuo
+            
+            If resta = 11 Then
+                digChk = 1
+            ElseIf resta = 10 Then
+                digChk = 0
+            Else
+                digChk = resta
+            End If
+            
+            
+            If dig11 = digChk Then
+                RUC_valido = True
+            Else
+                RUC_valido = False
+            End If
+          
+        End If
+    End If
+End Function
+Public Function formato_fecha(ByVal strfecha As String) As String
+formato_fecha = Format(strfecha, "YYYY-mm-dd")
+End Function
+Public Function get_marca(ByVal id_producto As String)
+strCadena = "SELECT m.descripcion as marca FROM producto p,marca m WHERE p.id_producto='" & id_producto & "' and  p.id_marca=m.id_marca and p.ruc=m.id_usu and p.ruc='" & KEY_RUC & "'"
+Call ConfiguraRstF(strCadena)
+If rstF.RecordCount > 0 Then
+    get_marca = rstF("marca")
+Else
+    get_marca = "----"
+End If
+End Function
+Public Sub actualizar_cloud()
+Call conexion_cloud
+strCadena = "SELECT * FROM entidad_acciones WHERE actualizado='no' and  ruc='" & KEY_RUC & "' ORDER BY id ASC"
+Call ConfiguraRstlocal(strCadena)
+If rstLocal.RecordCount > 0 Then
+   rstLocal.MoveFirst
+   For i = 0 To rstLocal.RecordCount - 1
+       CnBd2.Execute (Replace(rstLocal("cadena"), "´", "'"))
+       DoEvents
+       strCadena = "UPDATE entidad_acciones SET actualizado='si' WHERE id='" & rstLocal("id") & "'"
+       CnBd.Execute (strCadena)
+       
+       rstLocal.MoveNext
+       DoEvents
+   Next i
+End If
+'MDIFrmPrincipal.timer_cloud.Enabled = True
+CnBd2.Close
+End Sub
+Public Function numero_registros_cloud(ByVal in_registros As Double) As Double
+Dim Num_registros As String
+strRuta_reloj = App.Path & "\archivos\vitekeycloud.ini"
+FileName = Dir(strRuta_reloj)
+If FileName = "" Then
+    Num_registros = Trim(str(in_registros))
+    Open strRuta_reloj For Output As #1
+    Print #1, Num_registros
+    Close #1
+    
+Else
+    Open strRuta_reloj For Input As #1
+    Line Input #1, Num_registros
+    Close #1
+End If
+
+numero_registros_cloud = Val(Num_registros)
+
+End Function
+Public Sub listar_telefono(ByVal Grilla As MSHFlexGrid, ByVal in_dni As String)
+On Error GoTo salir
+Dim tTotal As Double
+strCadena = "SELECT * from view_telefono WHERE dni='" & in_dni & "'"
+Call ConfiguraRstT(strCadena)
+
+If rstT.RecordCount < 1 Then
+    Grilla.Rows = 1
+    Grilla.Clear
+    Exit Sub
+End If
+   Grilla.Clear
+   Grilla.Rows = 0
+       ReDim arrColWidth(1 To rstT.Fields.Count)
+       For Each Campo In rstT.Fields
+            Grilla.ColWidth(0) = 0
+            Grilla.ColWidth(1) = 1500
+            Grilla.ColWidth(2) = 1250
+            Grilla.ColWidth(3) = 1400
+        Next
+        cabecera = "REFERENCIA" & vbTab & "REFERENCIA" & vbTab & "TELEFONO"
+        Grilla.AddItem cabecera
+         For k = 0 To 3
+            Grilla.col = k
+            Grilla.Row = 0
+            Grilla.CellBackColor = &HDFDFE0
+        Next k
+        rstT.MoveFirst
+        
+        For i = 0 To rstT.RecordCount - 1
+            Fila = rstT("id_telefono") & vbTab & rstT("referencia") & vbTab & rstT("descripcion") & vbTab & rstT("telefono")
+            Grilla.AddItem Fila
+            rstT.MoveNext
+        Next i
+    Exit Sub
+salir: MsgBox "Ocurrio un Error en la Conexion", vbInformation, "Mensaje para el usuario"
+
+End Sub
+
+Private Sub update_saldo_inicial(ByVal in_producto As String)
+strCadena = "SELECT * FROM ginsac WHERE id_producto='" & in_producto & "' and  ruc='" & KEY_RUC & "'"
+Call ConfiguraRstZ(strCadena)
+If rstZ.RecordCount > 0 Then
+            in_alm1 = "00001"
+            in_alm2 = "00002"
+            strInventario = Format(ConsultaUltimoRegistro("inventario", "id_inventario", "ruc", KEY_RUC), "000000")
+            In_fecha = "2018-01-01"
+            strCadena = "INSERT INTO inventario(id_inventario,id_producto,id_doc,id_serie,id_numero,precio_costo,fecha,id_alm,cantidad,id_usuario,nusuario,ruc)VALUES " & _
+            "('" & strInventario & "','" & in_producto & "','0106','001','" & strInventario & "','" & rstZ("precio_costo") & "','2018-01-01','" & in_alm1 & "','" & rstZ("stock_alm1") & "','" & KEY_USUARIO & "','" & KEY_VENDEDOR & "','" & KEY_RUC & "')"
+            CnBd.Execute (strCadena)
+        
+            strCadena = "call put_kardex_stock_vitekey('06','" & Format(In_fecha, "YYYY-mm-dd") & "','" & Val(strInventario) & "','0106','001','" & strInventario & "','" & KEY_RUC & "','" & in_producto & "','" & rstZ("stock_alm1") & "','" & rstZ("precio_costo") & "','" & in_alm1 & "','" & KEY_RUC & "','" & KEY_RUC & "')"
+            CnBd.Execute (strCadena)
+        
+        'Almacen 2
+        
+            strInventario = Format(ConsultaUltimoRegistro("inventario", "id_inventario", "ruc", KEY_RUC), "000000")
+            In_fecha = "2018-01-01"
+            
+            strCadena = "INSERT INTO inventario(id_inventario,id_producto,id_doc,id_serie,id_numero,precio_costo,fecha,id_alm,cantidad,id_usuario,nusuario,ruc)VALUES " & _
+            "('" & strInventario & "','" & in_producto & "','0106','001','" & strInventario & "','" & in_costo & "','2018-01-01','" & in_alm2 & "','" & rstZ("stock_alm2") & "','" & KEY_USUARIO & "','" & KEY_VENDEDOR & "','" & KEY_RUC & "')"
+            CnBd.Execute (strCadena)
+        
+            strCadena = "call put_kardex_stock_vitekey('06','" & Format(In_fecha, "YYYY-mm-dd") & "','" & Val(strInventario) & "','0106','001','" & strInventario & "','" & KEY_RUC & "','" & in_producto & "','" & rstZ("stock_alm2") & "','" & rstZ("precio_costo") & "','" & in_alm2 & "','" & KEY_RUC & "','" & KEY_RUC & "')"
+            CnBd.Execute (strCadena)
+End If
+End Sub
+
+Public Sub update_kardex(ByVal in_producto As String)
+    Dim in_dias As Integer
+    
+    strCadena = "DELETE FROM kardex WHERE id_producto='" & in_producto & "' and ruc='" & KEY_RUC & "'"
+    CnBd.Execute (strCadena)
+    
+    
+    
+    Call update_saldo_inicial(in_producto)
+    
+    strCadena = "SELECT fecha_emision FROM kardex WHERE id_producto='" & in_producto & "' and  ruc='" & KEY_RUC & "' ORDER BY fecha_emision ASC LIMIT 1"
+    Call ConfiguraRstZ(strCadena)
+    If rstZ.RecordCount > 0 Then
+        in_fechai = Format(rstZ("fecha_emision"), "dd-mm-YYYY")
+    Else
+        in_fechai = "01-01-2018"
+    End If
+    
+            
+            
+            in_dias = DateDiff("d", in_fechai, KEY_FECHA)
+            For m = 0 To in_dias
+                If in_fechai <= KEY_FECHA Then
+                
+                'COMPRAS
+                strCadena = "select * from view_kardex_compra_existe WHERE fecha_emision='" & Format(in_fechai, "YYYY-mm-dd") & "' and  id_producto='" & in_producto & "'  and ruc='" & KEY_RUC & "' LIMIT 1"
+                Call ConfiguraRstL(strCadena)
+                If rstL.RecordCount > 0 Then
+                    Call compras_producto(in_fechai, in_producto)
+                End If
+
+               
+                
+                ' transferencias ingreso
+                strCadena = "select id_transferencia from movimiento_transferencia WHERE fecha='" & Format(in_fechai, "YYYY-mm-dd") & "'and ruc='" & KEY_RUC & "' LIMIT 1"
+                Call ConfiguraRstZ(strCadena)
+                If rstZ.RecordCount > 0 Then
+                
+                strCadena = "select * from view_transferencia_existe WHERE fecha_emision='" & Format(in_fechai, "YYYY-mm-dd") & "' and  id_producto='" & in_producto & "'  and ruc='" & KEY_RUC & "' LIMIT 1"
+                Call ConfiguraRstL(strCadena)
+                If rstL.RecordCount > 0 Then
+                  Call transferencia_ingreso_producto(in_fechai, in_producto)
+                  Call transferencia_salida_producto(in_fechai, in_producto)
+                End If
+               End If
+                
+               
+                'ventas salida
+       
+                
+                strCadena = "select * from view_kardex_ventas_existe WHERE fecha_emision='" & Format(in_fechai, "YYYY-mm-dd") & "' and  id_producto='" & in_producto & "'  and ruc='" & KEY_RUC & "' LIMIT 1"
+                Call ConfiguraRstL(strCadena)
+                If rstL.RecordCount > 0 Then
+                    Call ventas_producto(in_fechai, in_producto)
+                End If
+                
+              
+                
+                'notas salida
+                
+                strCadena = "select * from view_kardex_notas_existe WHERE fecha_emision='" & Format(in_fechai, "YYYY-mm-dd") & "' and  id_producto='" & in_producto & "'  and ruc='" & KEY_RUC & "' LIMIT 1"
+                Call ConfiguraRstL(strCadena)
+                If rstL.RecordCount > 0 Then
+                    Call notas_producto(in_fechai, in_producto)
+                End If
+                
+                End If
+                
+
+                in_fechai = DateAdd("d", 1, in_fechai)
+                
+                
+            Next m
+    
+       
+       MsgBox "PROCESADO.....", vbInformation, KEY_VENDEDOR
+        
+
+
+End Sub
+
+
+Public Function get_comprobante_sunat(ByVal in_doc As String)
+
+strCadena = "SELECT * FROM comprobantes WHERE id_doc='" & in_doc & "'"
+Call ConfiguraRstZ(strCadena)
+If rstZ.RecordCount > 0 Then
+   get_comprobante_sunat = rstZ("doc_abrev")
+Else
+   get_comprobante_sunat = ""
+End If
+End Function
+
+
+Public Sub put_vincular_pagos(ByVal in_origen As String)
+
+strCadena = "SELECT * FROm comprobante_asociado WHERE  id_venta='" & Val(in_origen) & "' and  dni_save='" & KEY_USUARIO & "' and ruc='" & KEY_RUC & "'"
+Call ConfiguraRst(strCadena)
+If rst.RecordCount > 0 Then
+   rst.MoveFirst
+   
+   strCadena = "DELETE FROM mis_cuentas_det_detalle WHERE id_movimiento='" & Val(in_rigen) & "'"
+   CnBd.Execute (strCadena)
+   
+   
+   For i = 0 To rst.RecordCount - 1
+        strCadena = "SELECT * FROM movimiento_venta where id_venta='" & rst("id_asociado") & "'"
+        Call ConfiguraRstZ(strCadena)
+        If rstZ.RecordCount > 0 Then
+            strCadena = "CALL p_insert_pago_factura_ultimate_ii('" & rst("id_asociado") & "','" & Val(in_origen) & "','" & rstZ("total") & "','" & rstZ("total") & "','" & rstZ("id_moneda") & "','" & rstZ("id_moneda") & "','" & rstZ("tc") & "')"
+            CnBd.Execute (strCadena)
+        End If
+        rst.MoveNext
+   Next i
+End If
+End Sub

@@ -1,0 +1,13 @@
+in_producto	String	5
+producto	String	60
+linea	String	30
+sublinea	String	30
+sem1	Number
+sem2	Number
+sem3	Number
+sem4	Number
+sem5	Number
+sem6	Number
+stock	Number
+pventa	Number
+pcosto	Number

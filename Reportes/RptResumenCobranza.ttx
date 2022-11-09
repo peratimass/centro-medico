@@ -1,0 +1,4 @@
+id_doc	String	4
+comprobante	String	30
+forma_pago	String	40
+acumulado	Number

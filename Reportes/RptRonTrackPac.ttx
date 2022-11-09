@@ -1,0 +1,12 @@
+nombre_completo	String	130
+descripcion	String	300
+fecha	Datetime
+hora	Datetime
+cama	String	50
+dni	String	11
+observacion	String	200
+edad	String	20
+seguro	String	200
+fecha_nacimiento	String	10
+autor	String	130
+genero	String	15

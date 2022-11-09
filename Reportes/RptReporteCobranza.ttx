@@ -1,0 +1,11 @@
+id_manifiesto	String	20
+emision	Date
+documento	String	40
+id_cliente	String	16
+cliente	String	100
+saldo	Number
+forma_pago	String	20
+vendedor	String	60
+
+
+

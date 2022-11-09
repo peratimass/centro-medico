@@ -1,0 +1,11 @@
+fecha_emision	Date
+fecha_vencimiento	Date
+comprobante	String	35
+id_cliente	String	11
+ncliente	String	100
+total	Number
+saldo	Number
+id_moneda	String	5
+tc	Number
+ultima_fecha	String	20
+

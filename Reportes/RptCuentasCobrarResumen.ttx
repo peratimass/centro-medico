@@ -1,0 +1,8 @@
+dni	String	16
+razonsocial	String	100
+direccion	String	100
+total	Number
+monto_pagado	Number
+cambio	Number
+
+

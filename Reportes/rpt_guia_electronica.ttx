@@ -1,0 +1,38 @@
+in_transferencia	Number
+motivo	String	50
+motivo_descripcion	String	100
+in_numero	String	40
+fecha_emision	Date
+fecha_envio	Date
+id_remitente	String	16
+remitente		String	100
+direccion	String	120
+ubigeo_origen	String	100
+id_destinatario	String	16
+destinatario	String	100
+direccion_fiscal	String	120
+direccion_destino	String	120
+ubigeo_destino	String	100
+observacion	String	200
+bultos	Number
+peso_total	Number
+id_transporte	String	16
+transporte	String	100
+sunat_key	String	120
+marca	String	40
+placa	String	40
+id_chofer	String	16
+chofer	String	100
+licencia	String	16
+operador	String	100	
+id_doc_origen	String	1
+doc_relacionado	String	40
+contenedor	String	20
+tipo_traslado	String	30
+constancia	String	30
+idatencion	String	16
+atencion	String	100
+
+
+
+

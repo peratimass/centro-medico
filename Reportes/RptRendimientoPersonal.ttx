@@ -1,0 +1,27 @@
+dni	String	16
+cliente	String	200
+direccion	String	150
+celular	String	20
+dni_vendedor	String	16
+vendedor	String	120
+fecha_suscripcion	Date
+id_plan	String	5
+plan	String	100
+monto	Number
+mensual	String	2
+3meses	String	2
+6meses	String	2
+anual	String	2
+estado	String	40
+medio_contacto	String	40
+prioridad	String	40
+observacion	String	80
+
+
+
+
+
+
+
+
+

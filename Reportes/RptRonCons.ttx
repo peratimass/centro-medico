@@ -1,0 +1,16 @@
+TIPO	String	20
+NOMBRE	String	600
+CANTIDAD	Number
+PRECIO	Number
+SUBTOTAL	Number
+ID_HOSPITALIZACION	Number
+PACIENTE	String	302
+FECHA	DateTime
+HORA	DateTime
+fecha_ingreso	Datetime
+fecha_alta	Datetime
+seguro	String	200
+sexo	String	15
+dni	String	11
+fecha_nacimiento	String	10
+edad	String	20

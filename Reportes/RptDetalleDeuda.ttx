@@ -1,0 +1,13 @@
+CodProd	String	4
+Articulo	String	70
+abrev	String	4
+canti	Number
+precio	Number
+total	Number
+saldo	Number
+cPersona	String	5
+Persona	String	40
+doc_cod	String	5
+serie	String	4
+numero	String	10
+doc_abrev	String	10

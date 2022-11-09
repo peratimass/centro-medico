@@ -1,0 +1,10 @@
+Alm	String	70
+CodProd	String	5
+Fecha	Date
+Doc	String	10
+Numero	String	20
+DescripcionProducto	String	80	
+Precio	Number
+CantIng	Number
+ImpIng	Number
+Persona	String	80

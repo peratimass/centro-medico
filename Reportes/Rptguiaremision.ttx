@@ -1,0 +1,28 @@
+id_transferencia	String	10
+numero	String	15
+fecha	Datetime
+fecha_traslado	Datetime
+partida	String	80
+destino	String	80
+id_direccion	Number	
+id_destinatario	String	11
+destinatario	String	80
+id_motivo	Number
+documento	String	20
+fecha_emision	Datetime
+id_producto	String	10
+detalle	String	80
+cantidad	Number
+abreviatura	String	8
+peso	Number
+id_transporte	String	11
+transporte	String	80
+direccion_transporte	String	80
+marca_placa	String	20
+placa	String	10
+id_chofer	String	11
+chofer	String	11
+licencia	String	15
+certificado	String	15
+ubigeo	String	60
+ruc	String	11

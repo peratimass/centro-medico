@@ -1,0 +1,7 @@
+cantidad	Number	
+sDescripcionProducto	String	100	
+precio	Number
+Total_parcial	Number
+SubTotal	Number		
+Igv	Number
+Total	Number

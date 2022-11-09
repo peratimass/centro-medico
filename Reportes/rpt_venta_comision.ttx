@@ -1,0 +1,9 @@
+id_vendedor	String	11
+documento	String	30
+fecha	Date
+cliente	String	60
+total	Number
+notacredito	String	30
+monto_nota	Number
+vendedor	String	60
+ruc	String	11

@@ -1,0 +1,30 @@
+id_manifiesto	Number
+id_anio	String	4
+id_numero	String	10
+id_fecha	Date
+ruc_propietario	String	11
+npropietario	String	60
+ndireccionpropietario	String	100
+in_chofer	String	50
+in_licencia	String	30
+marca	String	40
+placa	String	40
+in_distrito	String	50
+doc_venta	String	40
+doc_guia	String	40
+in_remitente	String	60
+in_destinatario	String	60
+in_bultos	Number
+in_peso	Number
+in_flete	Number
+in_campo1	String	100
+in_campo2	String	100
+in_campo3	String	100
+in_campo4	String	100
+in_campo5	String	100
+in_campo6	String	100
+in_ruc	String	11
+
+
+
+

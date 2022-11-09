@@ -1,0 +1,11 @@
+documento	String	10
+cPersona	String	5
+Persona	String	50
+serie	String	4
+Numero	String	8
+cBarra	String	20
+Producto	String	50
+Unidad	String	4
+Cantidad	Number
+glosa	String	100
+fecha	Date

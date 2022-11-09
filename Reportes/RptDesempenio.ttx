@@ -1,0 +1,17 @@
+id_vendedor	String	16
+vendedor	String	80
+factura	Number
+boleta	Number
+nota	Number
+proforma	Number
+clientes	Number
+valor_venta	Number
+valor_total	Number
+valor_venta_c	Number
+valor_total_c	Number
+
+
+
+
+
+

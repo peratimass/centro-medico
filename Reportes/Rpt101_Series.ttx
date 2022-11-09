@@ -1,0 +1,10 @@
+id_producto	String	5
+in_producto	String	45
+in_linea	String	30
+cantidad	Number
+costo	Number
+serie	String	20
+
+
+
+

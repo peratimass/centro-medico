@@ -1,0 +1,4 @@
+potencia	String	40
+cilindros	String	4
+cilindrada	String	20
+combustible	String	30

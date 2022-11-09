@@ -1,0 +1,14 @@
+ruc	String	16
+empresa	String	100
+fecha	Date
+hora	String	20
+observacion	String	250
+operador	String	60
+
+
+
+
+
+
+
+

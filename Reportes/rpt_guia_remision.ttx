@@ -1,0 +1,32 @@
+in_transferencia	Number
+fecha_emision	Date
+fecha_envio	Date
+in_doc	String	10
+comprobante	String	40
+id_remitente	String	11
+remitente	String	80
+id_destinatario	String	11
+destinatario	String	80
+direccion_origen	String	100
+direccion_destino	String	100
+ubigeo	String	60
+dni_atencion	String	11
+atencion	String	60
+almacen_origen	String	100
+almacen_destino	String	100	
+id_transporte	String	11
+transporte	String	100
+marca	String	30
+placa	String	30
+mtc	String	20
+certificado	String	20
+id_chofer		String	11
+chofer	String	60
+licencia	String	20
+id_motivo	String	5
+peso_total	Number
+valor_mercaderia	Number
+observacion2	String	100
+Observacion3	String	100
+Observacion4	String	100
+ruc	String	11

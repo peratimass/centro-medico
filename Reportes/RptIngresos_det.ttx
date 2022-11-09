@@ -1,0 +1,12 @@
+fecha	Date
+cProducto	String	5
+Cbarra	String	20
+Producto	String	80
+und	String	3
+cant	Number
+p_unit	Number
+Stock	Number
+costo	Number
+venta	Number
+cPersona	String	5
+Persona	String	60

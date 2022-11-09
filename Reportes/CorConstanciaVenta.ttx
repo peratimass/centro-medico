@@ -1,0 +1,15 @@
+cliente			String	130
+dni				String	11
+direccion			String	200
+numero			String	10
+fecha_emision		Datetime
+anio_modelo			String	20
+nro_chasis			String	20
+nro_motor			String	20
+nombre_prod			String	600
+marca				String	80
+color				String	50
+nom_marca			String	50
+ruc				String	11
+miempresa			String	130
+modelo			String	50

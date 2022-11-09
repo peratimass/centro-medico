@@ -1,0 +1,1283 @@
+VERSION 5.00
+Object = "{F0D2F211-CCB0-11D0-A316-00AA00688B10}#1.0#0"; "msdatlst.ocx"
+Object = "{86CF1D34-0C5F-11D2-A9FC-0000F8754DA1}#2.0#0"; "mscomct2.ocx"
+Object = "{0ECD9B60-23AA-11D0-B351-00A0C9055D8E}#6.0#0"; "mshflxgd.ocx"
+Begin VB.Form FrmReporteRegistroVentas 
+   BorderStyle     =   0  'None
+   Caption         =   "Registro Ventas"
+   ClientHeight    =   9240
+   ClientLeft      =   0
+   ClientTop       =   0
+   ClientWidth     =   20145
+   LinkTopic       =   "Form1"
+   MaxButton       =   0   'False
+   MDIChild        =   -1  'True
+   MinButton       =   0   'False
+   ScaleHeight     =   9240
+   ScaleWidth      =   20145
+   ShowInTaskbar   =   0   'False
+   Begin VB.TextBox txtserial 
+      Appearance      =   0  'Flat
+      BackColor       =   &H00C0FFFF&
+      BeginProperty Font 
+         Name            =   "Calibri"
+         Size            =   9
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      ForeColor       =   &H00C00000&
+      Height          =   330
+      Left            =   14160
+      TabIndex        =   28
+      Top             =   600
+      Visible         =   0   'False
+      Width           =   1815
+   End
+   Begin VB.CheckBox chkserial 
+      Appearance      =   0  'Flat
+      BackColor       =   &H000080FF&
+      Caption         =   "CHASIS"
+      BeginProperty Font 
+         Name            =   "Calibri"
+         Size            =   9
+         Charset         =   0
+         Weight          =   700
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      ForeColor       =   &H00800000&
+      Height          =   255
+      Left            =   14160
+      TabIndex        =   27
+      Top             =   240
+      Width           =   1815
+   End
+   Begin VB.Timer timier_despacho 
+      Interval        =   2000
+      Left            =   18960
+      Top             =   240
+   End
+   Begin VB.Frame framerecibos 
+      BackColor       =   &H00808080&
+      BorderStyle     =   0  'None
+      Height          =   8055
+      Left            =   2400
+      TabIndex        =   21
+      Top             =   1080
+      Visible         =   0   'False
+      Width           =   16215
+      Begin MSHierarchicalFlexGridLib.MSHFlexGrid Hfrecibos 
+         Height          =   6855
+         Left            =   240
+         TabIndex        =   22
+         Top             =   480
+         Width           =   15735
+         _ExtentX        =   27755
+         _ExtentY        =   12091
+         _Version        =   393216
+         ForeColor       =   8388608
+         Rows            =   0
+         FixedRows       =   0
+         FixedCols       =   0
+         ForeColorFixed  =   8388608
+         BackColorBkg    =   16777215
+         GridColor       =   8388608
+         SelectionMode   =   1
+         Appearance      =   0
+         BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+            Name            =   "Calibri"
+            Size            =   9
+            Charset         =   0
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         _NumberOfBands  =   1
+         _Band(0).Cols   =   2
+      End
+      Begin VitekeySoft.ChameleonBtn cmdcerrar 
+         Height          =   420
+         Left            =   14160
+         TabIndex        =   23
+         Top             =   7440
+         Width           =   1815
+         _ExtentX        =   3201
+         _ExtentY        =   741
+         BTYPE           =   3
+         TX              =   "CERRAR PANTALLA "
+         ENAB            =   -1  'True
+         BeginProperty FONT {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+            Name            =   "Calibri"
+            Size            =   8.25
+            Charset         =   0
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         COLTYPE         =   1
+         FOCUSR          =   -1  'True
+         BCOL            =   14215660
+         BCOLO           =   14215660
+         FCOL            =   0
+         FCOLO           =   0
+         MCOL            =   12632256
+         MPTR            =   1
+         MICON           =   "FrmReporteRegVentas.frx":0000
+         PICN            =   "FrmReporteRegVentas.frx":001C
+         UMCOL           =   -1  'True
+         SOFT            =   0   'False
+         PICPOS          =   0
+         NGREY           =   0   'False
+         FX              =   0
+         HAND            =   0   'False
+         CHECK           =   0   'False
+         VALUE           =   0   'False
+      End
+      Begin VitekeySoft.ChameleonBtn cmdgenerarreporte 
+         Height          =   420
+         Left            =   12240
+         TabIndex        =   24
+         Top             =   7440
+         Width           =   1815
+         _ExtentX        =   3201
+         _ExtentY        =   741
+         BTYPE           =   3
+         TX              =   "GENERAR REPORTE"
+         ENAB            =   -1  'True
+         BeginProperty FONT {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+            Name            =   "Calibri"
+            Size            =   8.25
+            Charset         =   0
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         COLTYPE         =   1
+         FOCUSR          =   -1  'True
+         BCOL            =   14215660
+         BCOLO           =   14215660
+         FCOL            =   0
+         FCOLO           =   0
+         MCOL            =   12632256
+         MPTR            =   1
+         MICON           =   "FrmReporteRegVentas.frx":3031
+         PICN            =   "FrmReporteRegVentas.frx":304D
+         UMCOL           =   -1  'True
+         SOFT            =   0   'False
+         PICPOS          =   0
+         NGREY           =   0   'False
+         FX              =   0
+         HAND            =   0   'False
+         CHECK           =   0   'False
+         VALUE           =   0   'False
+      End
+      Begin VB.Label Label8 
+         Alignment       =   2  'Center
+         AutoSize        =   -1  'True
+         BackStyle       =   0  'Transparent
+         Caption         =   "LISTADO DE PAGOS REALIZADOS"
+         BeginProperty Font 
+            Name            =   "Calibri"
+            Size            =   8.25
+            Charset         =   0
+            Weight          =   700
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         ForeColor       =   &H00FFFFFF&
+         Height          =   195
+         Left            =   300
+         TabIndex        =   25
+         Top             =   240
+         Width           =   2205
+      End
+   End
+   Begin VitekeySoft.ChameleonBtn cmdamortizar 
+      Height          =   975
+      Left            =   18840
+      TabIndex        =   18
+      Top             =   1080
+      Width           =   1095
+      _ExtentX        =   1931
+      _ExtentY        =   1720
+      BTYPE           =   5
+      TX              =   "AMORTIZAR"
+      ENAB            =   0   'False
+      BeginProperty FONT {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+         Name            =   "Calibri"
+         Size            =   9
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      COLTYPE         =   2
+      FOCUSR          =   -1  'True
+      BCOL            =   16777215
+      BCOLO           =   16777215
+      FCOL            =   8388608
+      FCOLO           =   8388608
+      MCOL            =   12632256
+      MPTR            =   1
+      MICON           =   "FrmReporteRegVentas.frx":30DA
+      PICN            =   "FrmReporteRegVentas.frx":30F6
+      UMCOL           =   -1  'True
+      SOFT            =   0   'False
+      PICPOS          =   2
+      NGREY           =   0   'False
+      FX              =   0
+      HAND            =   0   'False
+      CHECK           =   0   'False
+      VALUE           =   0   'False
+   End
+   Begin VB.CheckBox chkTipoComprobante 
+      Appearance      =   0  'Flat
+      BackColor       =   &H000080FF&
+      Caption         =   "TIPO COMPROBANTE"
+      BeginProperty Font 
+         Name            =   "Calibri"
+         Size            =   9
+         Charset         =   0
+         Weight          =   700
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      ForeColor       =   &H00800000&
+      Height          =   255
+      Left            =   11880
+      TabIndex        =   16
+      Top             =   240
+      Width           =   2055
+   End
+   Begin MSDataListLib.DataCombo dtcalmacen 
+      Height          =   330
+      Left            =   8520
+      TabIndex        =   14
+      Top             =   600
+      Width           =   3255
+      _ExtentX        =   5741
+      _ExtentY        =   582
+      _Version        =   393216
+      Appearance      =   0
+      ForeColor       =   8388608
+      Text            =   "DataCombo1"
+      BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+         Name            =   "Calibri"
+         Size            =   9
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+   End
+   Begin VitekeySoft.ChameleonBtn cmdBuscar 
+      Height          =   345
+      Left            =   16320
+      TabIndex        =   10
+      Top             =   120
+      Width           =   2175
+      _ExtentX        =   3836
+      _ExtentY        =   609
+      BTYPE           =   5
+      TX              =   "BUSCAR                        "
+      ENAB            =   -1  'True
+      BeginProperty FONT {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+         Name            =   "Calibri"
+         Size            =   8.25
+         Charset         =   0
+         Weight          =   700
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      COLTYPE         =   2
+      FOCUSR          =   -1  'True
+      BCOL            =   8421631
+      BCOLO           =   8421631
+      FCOL            =   8388608
+      FCOLO           =   8388608
+      MCOL            =   12632256
+      MPTR            =   1
+      MICON           =   "FrmReporteRegVentas.frx":59E0
+      PICN            =   "FrmReporteRegVentas.frx":59FC
+      UMCOL           =   -1  'True
+      SOFT            =   0   'False
+      PICPOS          =   0
+      NGREY           =   0   'False
+      FX              =   0
+      HAND            =   0   'False
+      CHECK           =   0   'False
+      VALUE           =   0   'False
+   End
+   Begin VB.TextBox txtrazonsocial 
+      Appearance      =   0  'Flat
+      BackColor       =   &H00C0FFFF&
+      BeginProperty Font 
+         Name            =   "Tahoma"
+         Size            =   8.25
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      ForeColor       =   &H00C00000&
+      Height          =   285
+      Left            =   5625
+      TabIndex        =   8
+      Top             =   240
+      Width           =   1575
+   End
+   Begin VB.TextBox txtruc 
+      Appearance      =   0  'Flat
+      BackColor       =   &H00C0FFFF&
+      BeginProperty Font 
+         Name            =   "Tahoma"
+         Size            =   8.25
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      ForeColor       =   &H00C00000&
+      Height          =   285
+      Left            =   1800
+      TabIndex        =   2
+      Top             =   555
+      Width           =   1335
+   End
+   Begin VB.TextBox TxtNumero 
+      Appearance      =   0  'Flat
+      BackColor       =   &H00C0FFFF&
+      BeginProperty Font 
+         Name            =   "Tahoma"
+         Size            =   8.25
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      ForeColor       =   &H00C00000&
+      Height          =   285
+      Left            =   1800
+      TabIndex        =   1
+      Top             =   200
+      Width           =   1335
+   End
+   Begin MSComCtl2.DTPicker DtpDesde 
+      Height          =   315
+      Left            =   8520
+      TabIndex        =   0
+      Top             =   240
+      Width           =   1455
+      _ExtentX        =   2566
+      _ExtentY        =   556
+      _Version        =   393216
+      BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+         Name            =   "Tahoma"
+         Size            =   8.25
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      Format          =   128516097
+      CurrentDate     =   41251
+   End
+   Begin MSComCtl2.DTPicker DtpHasta 
+      Height          =   315
+      Left            =   10440
+      TabIndex        =   6
+      Top             =   240
+      Width           =   1335
+      _ExtentX        =   2355
+      _ExtentY        =   556
+      _Version        =   393216
+      BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+         Name            =   "Tahoma"
+         Size            =   8.25
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      Format          =   128516097
+      CurrentDate     =   41251
+   End
+   Begin VitekeySoft.ChameleonBtn cmdcuentasporcobrar 
+      Height          =   345
+      Left            =   16320
+      TabIndex        =   11
+      Top             =   600
+      Width           =   2175
+      _ExtentX        =   3836
+      _ExtentY        =   609
+      BTYPE           =   5
+      TX              =   " CUENTAS POR COBRAR"
+      ENAB            =   -1  'True
+      BeginProperty FONT {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+         Name            =   "Calibri"
+         Size            =   8.25
+         Charset         =   0
+         Weight          =   700
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      COLTYPE         =   2
+      FOCUSR          =   -1  'True
+      BCOL            =   8421631
+      BCOLO           =   8421631
+      FCOL            =   8388608
+      FCOLO           =   8388608
+      MCOL            =   12632256
+      MPTR            =   1
+      MICON           =   "FrmReporteRegVentas.frx":5F96
+      PICN            =   "FrmReporteRegVentas.frx":5FB2
+      UMCOL           =   -1  'True
+      SOFT            =   0   'False
+      PICPOS          =   0
+      NGREY           =   0   'False
+      FX              =   0
+      HAND            =   0   'False
+      CHECK           =   0   'False
+      VALUE           =   0   'False
+   End
+   Begin MSDataListLib.DataCombo dtcComprobante 
+      Height          =   330
+      Left            =   11880
+      TabIndex        =   17
+      Top             =   600
+      Visible         =   0   'False
+      Width           =   2055
+      _ExtentX        =   3625
+      _ExtentY        =   582
+      _Version        =   393216
+      Appearance      =   0
+      ForeColor       =   8388608
+      Text            =   "DataCombo1"
+      BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+         Name            =   "Calibri"
+         Size            =   9
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+   End
+   Begin MSHierarchicalFlexGridLib.MSHFlexGrid HfdPersona 
+      Height          =   8055
+      Left            =   120
+      TabIndex        =   3
+      Top             =   1080
+      Width           =   18495
+      _ExtentX        =   32623
+      _ExtentY        =   14208
+      _Version        =   393216
+      ForeColor       =   8388608
+      Rows            =   0
+      FixedRows       =   0
+      FixedCols       =   0
+      ForeColorFixed  =   8388608
+      BackColorBkg    =   16777215
+      GridColor       =   8388608
+      SelectionMode   =   1
+      Appearance      =   0
+      BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+         Name            =   "Calibri"
+         Size            =   9
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      _NumberOfBands  =   1
+      _Band(0).Cols   =   2
+   End
+   Begin VitekeySoft.ChameleonBtn cmdhistorial 
+      Height          =   975
+      Left            =   18840
+      TabIndex        =   19
+      Top             =   5400
+      Width           =   1095
+      _ExtentX        =   1931
+      _ExtentY        =   1720
+      BTYPE           =   5
+      TX              =   "HISTORIAL"
+      ENAB            =   0   'False
+      BeginProperty FONT {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+         Name            =   "Calibri"
+         Size            =   9
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      COLTYPE         =   2
+      FOCUSR          =   -1  'True
+      BCOL            =   16777215
+      BCOLO           =   16777215
+      FCOL            =   8388608
+      FCOLO           =   8388608
+      MCOL            =   12632256
+      MPTR            =   1
+      MICON           =   "FrmReporteRegVentas.frx":654C
+      PICN            =   "FrmReporteRegVentas.frx":6568
+      UMCOL           =   -1  'True
+      SOFT            =   0   'False
+      PICPOS          =   2
+      NGREY           =   0   'False
+      FX              =   0
+      HAND            =   0   'False
+      CHECK           =   0   'False
+      VALUE           =   0   'False
+   End
+   Begin VitekeySoft.ChameleonBtn cmdcerrarpantalla 
+      Height          =   975
+      Left            =   18840
+      TabIndex        =   20
+      Top             =   6480
+      Width           =   1095
+      _ExtentX        =   1931
+      _ExtentY        =   1720
+      BTYPE           =   5
+      TX              =   "CERRAR"
+      ENAB            =   -1  'True
+      BeginProperty FONT {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+         Name            =   "Calibri"
+         Size            =   9
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      COLTYPE         =   2
+      FOCUSR          =   -1  'True
+      BCOL            =   16777215
+      BCOLO           =   16777215
+      FCOL            =   8388608
+      FCOLO           =   8388608
+      MCOL            =   12632256
+      MPTR            =   1
+      MICON           =   "FrmReporteRegVentas.frx":9B71
+      PICN            =   "FrmReporteRegVentas.frx":9B8D
+      UMCOL           =   -1  'True
+      SOFT            =   0   'False
+      PICPOS          =   2
+      NGREY           =   0   'False
+      FX              =   0
+      HAND            =   0   'False
+      CHECK           =   0   'False
+      VALUE           =   0   'False
+   End
+   Begin VitekeySoft.ChameleonBtn cmdreporte 
+      Height          =   975
+      Left            =   18840
+      TabIndex        =   26
+      Top             =   2160
+      Width           =   1095
+      _ExtentX        =   1931
+      _ExtentY        =   1720
+      BTYPE           =   5
+      TX              =   "REPORTE"
+      ENAB            =   0   'False
+      BeginProperty FONT {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+         Name            =   "Calibri"
+         Size            =   9
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      COLTYPE         =   2
+      FOCUSR          =   -1  'True
+      BCOL            =   16777215
+      BCOLO           =   16777215
+      FCOL            =   8388608
+      FCOLO           =   8388608
+      MCOL            =   12632256
+      MPTR            =   1
+      MICON           =   "FrmReporteRegVentas.frx":9F7D
+      PICN            =   "FrmReporteRegVentas.frx":9F99
+      UMCOL           =   -1  'True
+      SOFT            =   0   'False
+      PICPOS          =   2
+      NGREY           =   0   'False
+      FX              =   0
+      HAND            =   0   'False
+      CHECK           =   0   'False
+      VALUE           =   0   'False
+   End
+   Begin VitekeySoft.ChameleonBtn cmdproduccion 
+      Height          =   975
+      Left            =   18840
+      TabIndex        =   29
+      Top             =   4320
+      Width           =   1095
+      _ExtentX        =   1931
+      _ExtentY        =   1720
+      BTYPE           =   5
+      TX              =   "PRODUCCION"
+      ENAB            =   -1  'True
+      BeginProperty FONT {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+         Name            =   "Calibri"
+         Size            =   9
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      COLTYPE         =   2
+      FOCUSR          =   -1  'True
+      BCOL            =   16777215
+      BCOLO           =   16777215
+      FCOL            =   8388608
+      FCOLO           =   8388608
+      MCOL            =   12632256
+      MPTR            =   1
+      MICON           =   "FrmReporteRegVentas.frx":C891
+      PICN            =   "FrmReporteRegVentas.frx":C8AD
+      UMCOL           =   -1  'True
+      SOFT            =   0   'False
+      PICPOS          =   2
+      NGREY           =   0   'False
+      FX              =   0
+      HAND            =   0   'False
+      CHECK           =   0   'False
+      VALUE           =   0   'False
+   End
+   Begin VitekeySoft.ChameleonBtn cmdReportedetallado 
+      Height          =   975
+      Left            =   18840
+      TabIndex        =   30
+      Top             =   3240
+      Width           =   1095
+      _ExtentX        =   1931
+      _ExtentY        =   1720
+      BTYPE           =   5
+      TX              =   "REPORT-DET"
+      ENAB            =   0   'False
+      BeginProperty FONT {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+         Name            =   "Calibri"
+         Size            =   9
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      COLTYPE         =   2
+      FOCUSR          =   -1  'True
+      BCOL            =   16777215
+      BCOLO           =   16777215
+      FCOL            =   8388608
+      FCOLO           =   8388608
+      MCOL            =   12632256
+      MPTR            =   1
+      MICON           =   "FrmReporteRegVentas.frx":CCFF
+      PICN            =   "FrmReporteRegVentas.frx":CD1B
+      UMCOL           =   -1  'True
+      SOFT            =   0   'False
+      PICPOS          =   2
+      NGREY           =   0   'False
+      FX              =   0
+      HAND            =   0   'False
+      CHECK           =   0   'False
+      VALUE           =   0   'False
+   End
+   Begin VB.Label Label7 
+      Alignment       =   2  'Center
+      AutoSize        =   -1  'True
+      BackStyle       =   0  'Transparent
+      Caption         =   "SUCURSAL :"
+      BeginProperty Font 
+         Name            =   "Calibri"
+         Size            =   9
+         Charset         =   0
+         Weight          =   700
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      ForeColor       =   &H00800000&
+      Height          =   210
+      Left            =   7470
+      TabIndex        =   15
+      Top             =   720
+      Width           =   915
+   End
+   Begin VB.Label Label6 
+      BackColor       =   &H0080C0FF&
+      Caption         =   "  CON SALDO"
+      BeginProperty Font 
+         Name            =   "Calibri"
+         Size            =   9
+         Charset         =   0
+         Weight          =   700
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      Height          =   255
+      Left            =   18840
+      TabIndex        =   13
+      Top             =   8160
+      Width           =   1095
+   End
+   Begin VB.Label Label5 
+      BackColor       =   &H008080FF&
+      Caption         =   "  ANULADAS"
+      BeginProperty Font 
+         Name            =   "Calibri"
+         Size            =   9
+         Charset         =   0
+         Weight          =   700
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      Height          =   255
+      Left            =   18840
+      TabIndex        =   12
+      Top             =   7800
+      Width           =   1095
+   End
+   Begin VB.Label Label3 
+      Alignment       =   2  'Center
+      AutoSize        =   -1  'True
+      BackStyle       =   0  'Transparent
+      Caption         =   "NOMBRE / RAZON SOCIAL :"
+      BeginProperty Font 
+         Name            =   "Calibri"
+         Size            =   9
+         Charset         =   0
+         Weight          =   700
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      ForeColor       =   &H00800000&
+      Height          =   210
+      Left            =   3450
+      TabIndex        =   9
+      Top             =   285
+      Width           =   2085
+   End
+   Begin VB.Label Label2 
+      Alignment       =   2  'Center
+      AutoSize        =   -1  'True
+      BackStyle       =   0  'Transparent
+      Caption         =   "FECHAS :"
+      BeginProperty Font 
+         Name            =   "Calibri"
+         Size            =   9
+         Charset         =   0
+         Weight          =   700
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      ForeColor       =   &H00800000&
+      Height          =   210
+      Left            =   7515
+      TabIndex        =   7
+      Top             =   285
+      Width           =   705
+   End
+   Begin VB.Label Label4 
+      Alignment       =   2  'Center
+      AutoSize        =   -1  'True
+      BackStyle       =   0  'Transparent
+      Caption         =   "DNI/ RUC :"
+      BeginProperty Font 
+         Name            =   "Calibri"
+         Size            =   9
+         Charset         =   0
+         Weight          =   700
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      ForeColor       =   &H00800000&
+      Height          =   210
+      Left            =   735
+      TabIndex        =   5
+      Top             =   600
+      Width           =   825
+   End
+   Begin VB.Label Label1 
+      Alignment       =   2  'Center
+      AutoSize        =   -1  'True
+      BackStyle       =   0  'Transparent
+      Caption         =   "N° DOCUMENTO :"
+      BeginProperty Font 
+         Name            =   "Calibri"
+         Size            =   9
+         Charset         =   0
+         Weight          =   700
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      ForeColor       =   &H00800000&
+      Height          =   210
+      Left            =   270
+      TabIndex        =   4
+      Top             =   240
+      Width           =   1365
+   End
+   Begin VB.Shape ShpDatos 
+      BackColor       =   &H00FFFFFF&
+      BorderColor     =   &H00C0C0C0&
+      BorderStyle     =   6  'Inside Solid
+      FillColor       =   &H00FFFFFF&
+      FillStyle       =   0  'Solid
+      Height          =   915
+      Left            =   120
+      Top             =   60
+      Width           =   18495
+   End
+   Begin VB.Shape Shape1 
+      BackStyle       =   1  'Opaque
+      BorderColor     =   &H00C0C0C0&
+      Height          =   9240
+      Left            =   0
+      Top             =   0
+      Width           =   20145
+   End
+End
+Attribute VB_Name = "FrmReporteRegistroVentas"
+Attribute VB_GlobalNameSpace = False
+Attribute VB_Creatable = False
+Attribute VB_PredeclaredId = True
+Attribute VB_Exposed = False
+Public Procedencia As EnumProcede
+Dim strCadenaII As String
+
+Public Sub pendientes_despacho()
+On Error GoTo salir
+strCadena = "SELECT funct_pendiente_despacho('" & KEY_ALM & "','" & Format(KEY_FECHA, "YYYY-mm-dd") & "','" & KEY_RUC & "')"
+Call ConfiguraRstI(strCadena)
+If rstI(0) > 0 Then
+    PlaySound App.Path & "\sonidos\dingding.wav"
+    PlaySound App.Path & "\sonidos\dingding.wav"
+    strCadena = "SELECT id_venta FROM movimiento_venta WHERE fecha_emision ='" & KEY_FECHA & "' and pendiente='si' and  id_doc IN('0001','0003') and id_alm='" & KEY_ALM & "' and ruc='" & KEY_RUC & "' LIMIT 10"
+    Call ConfiguraRstT(strCadena)
+    If rstT.RecordCount > 0 Then
+       Me.timier_despacho.Enabled = False
+       rstT.MoveFirst
+       For i = 0 To rstT.RecordCount - 1
+           Call impresion_despacho(rstT("id_venta"))
+           strCadena = "p_update_despacho('" & rstT("id_venta") & "')"
+           CnBd.Execute (strCadena)
+           rstT.MoveNext
+       Next i
+       Me.timier_despacho.Enabled = True
+    End If
+   Exit Sub
+End If
+salir:
+Me.timier_despacho.Enabled = True
+End Sub
+
+Private Sub chkserial_Click()
+If Me.chkserial.Value = 1 Then
+   Me.txtserial.Visible = True
+   Call Resalta(Me.txtserial)
+Else
+   Me.txtserial.Visible = False
+End If
+End Sub
+
+Private Sub chkTipoComprobante_Click()
+If Me.chkTipoComprobante.Value = 1 Then
+    Me.dtcComprobante.Visible = True
+Else
+    Me.dtcComprobante.Visible = False
+End If
+End Sub
+
+Private Sub ClbAcciones_HeightChanged(ByVal NewHeight As Single)
+
+End Sub
+
+Private Sub cmdamortizar_Click()
+Procedencia = nuevo
+frmVentasPagos.Show
+End Sub
+
+Private Sub cmdbuscar_Click()
+
+
+If Me.chkTipoComprobante.Value = 1 Then
+    strCadena = "SELECT * FROM view_listado_comprobanteii WHERE id_cliente LIKE '%" & Trim(Me.txtRUC.Text) & "%' AND  id_doc='" & Me.dtcComprobante.BoundText & "' and ruc='" & KEY_RUC & "' and fecha_emision>='" & Format(Me.DtpDesde.Value, "YYYY-mm-dd") & "' AND fecha_emision<='" & Format(Me.DtpHasta.Value, "YYYY-mm-dd") & "' and id_alm='" & Me.DtcAlmacen.BoundText & "'"
+    strCadenaII = "SELECT * FROM view_listado_comprobante_iii WHERE id_cliente LIKE '%" & Trim(Me.txtRUC.Text) & "%' AND  id_doc='" & Me.dtcComprobante.BoundText & "' and ruc='" & KEY_RUC & "' and fecha_emision>='" & Format(Me.DtpDesde.Value, "YYYY-mm-dd") & "' AND fecha_emision<='" & Format(Me.DtpHasta.Value, "YYYY-mm-dd") & "' and id_alm='" & Me.DtcAlmacen.BoundText & "'"
+Else
+    strCadena = "SELECT * FROM view_listado_comprobanteii WHERE id_cliente LIKE '%" & Trim(Me.txtRUC.Text) & "%' AND  ruc='" & KEY_RUC & "' and fecha_emision>='" & Format(Me.DtpDesde.Value, "YYYY-mm-dd") & "' AND fecha_emision<='" & Format(Me.DtpHasta.Value, "YYYY-mm-dd") & "' and id_alm='" & Me.DtcAlmacen.BoundText & "'"
+    strCadenaII = "SELECT * FROM view_listado_comprobante_iii WHERE id_cliente LIKE '%" & Trim(Me.txtRUC.Text) & "%' AND  ruc='" & KEY_RUC & "' and fecha_emision>='" & Format(Me.DtpDesde.Value, "YYYY-mm-dd") & "' AND fecha_emision<='" & Format(Me.DtpHasta.Value, "YYYY-mm-dd") & "' and id_alm='" & Me.DtcAlmacen.BoundText & "'"
+End If
+
+
+If Me.chkserial.Value = 1 Then
+    strCadena = "SELECT * FROM view_venta_chasis WHERE ruc='" & KEY_RUC & "' and nro_chasis LIKE '%" & Trim(Me.txtserial.Text) & "%'"
+End If
+Call llenar_grid(Me.HfdPersona)
+
+Me.cmdreporte.Enabled = True
+Me.cmdReportedetallado.Enabled = True
+End Sub
+
+
+
+Private Sub cmdCliente_Click()
+
+End Sub
+
+Private Sub cmdfechas_Click()
+ 
+End Sub
+
+Private Sub Command1_Click()
+Call llenar_numero
+End Sub
+
+
+
+Private Sub cmdCerrar_Click()
+Me.framerecibos.Visible = False
+End Sub
+
+Private Sub cmdcerrarpantalla_Click()
+Unload Me
+End Sub
+
+Private Sub cmdcuentasporcobrar_Click()
+    strCadena = "SELECT * FROM view_listado_comprobanteii WHERE ruc='" & KEY_RUC & "' and saldo>0 and id_cliente LIKE '%" & Trim(Me.txtRUC.Text) & "%'"
+    Call llenar_grid(Me.HfdPersona)
+    
+    strCadenaII = "SELECT * FROM view_listado_comprobante_iii WHERE ruc='" & KEY_RUC & "' and saldo>0 and id_cliente LIKE '%" & Trim(Me.txtRUC.Text) & "%'"
+
+End Sub
+
+Private Sub cmdgenerarreporte_Click()
+strCadena = "SELECT fecha_emision,hora,documento,id_cliente,ncliente,total FROM movimiento_venta v WHERE v.id_comprobante='" & Val(Me.HfdPersona.TextMatrix(Me.HfdPersona.Row, 0)) & "' and id_recibo='0' and v.ruc='" & KEY_RUC & "'"
+Call ConfiguraRst(strCadena)
+Ans = ShowMultiReport(rst, "Rptpagos_realizados", , App.Path + "\Reportes\")
+End Sub
+
+Private Sub cmdhistorial_Click()
+           strCadena = "SELECT * FROM movimiento_venta v WHERE v.id_comprobante='" & Val(Me.HfdPersona.TextMatrix(Me.HfdPersona.Row, 0)) & "' and id_recibo='0' and v.ruc='" & KEY_RUC & "'"
+           Call llenar_recibos(Me.HfRecibos)
+           Me.framerecibos.Visible = True
+End Sub
+
+Private Sub cmdproduccion_Click()
+strCadena = "SELECT id_venta,documento,fecha_emision,id_cliente,ncliente,total,id_vendedor,nombre_completo,id_linea,descripcion,nro_chasis,serie " & _
+"  FROM view_venta_produccion WHERE nro_chasis<>'-' and   id_alm =  '" & Me.DtcAlmacen.BoundText & "' and  fecha_emision>='" & Format(Me.DtpDesde.Value, "YYYY-mm-dd") & "' and fecha_emision<='" & Format(Me.DtpHasta.Value, "YYYY-mm-dd") & "' AND ruc='" & KEY_RUC & "'"
+
+Call ConfiguraRst(strCadena)
+Ans = ShowMultiReport(rst, "rpt_ventas_produccion", param, App.Path + "\Reportes\")
+
+End Sub
+
+Private Sub cmdreporte_Click()
+
+
+
+Call ConfiguraRst(strCadena)
+Ans = ShowMultiReport(rst, "rpt_cliente_detalle", "", App.Path + "\Reportes\")
+End Sub
+
+Private Sub cmdReportedetallado_Click()
+
+'strCadena = "SELECT * FROM view_listado_comprobante_iii WHERE id_cliente LIKE '%46795130%' AND ruc='20479779598'"
+Call ConfiguraRst(strCadenaII)
+Ans = ShowMultiReport(rst, "rpt_cliente_detalle_ii", "", App.Path + "\Reportes\")
+
+End Sub
+
+Private Sub Form_Load()
+CenterForm Me
+Me.Top = 50
+Me.DtpDesde.Value = KEY_FECHA
+Me.DtpHasta.Value = KEY_FECHA
+
+strCadena = "SELECT id_alm as Codigo,descripcion as Descripcion FROM almacen WHERE id_tipoentidad<>'00012' and  ruc='" & KEY_RUC & "'"
+Call ConfiguraRst(strCadena)
+Call LlenaDataCombo(Me.DtcAlmacen)
+Me.DtcAlmacen.BoundText = KEY_ALM
+
+strCadena = "SELECT  DISTINCT a.id_doc as Codigo,c.doc_des as Descripcion FROM almacen_comprobante a, comprobantes c WHERE  a.id_doc=c.id_doc and   ruc='" & KEY_RUC & "' AND a.venta='si'"
+Call ConfiguraRst(strCadena)
+Call LlenaDataCombo(Me.dtcComprobante)
+
+Call actualizar
+End Sub
+Private Sub actualizar()
+    strCadena = "SELECT * FROM view_listado_comprobanteii WHERE ruc='" & KEY_RUC & "' LIMIT 28"
+    Call llenar_grid(Me.HfdPersona)
+End Sub
+Private Sub llenar_grid(ByVal Grilla As MSHFlexGrid)
+Dim nsaldo As Double
+Dim in_operador As String
+On Error GoTo salir
+Call ConfiguraRst(strCadena)
+If rst.RecordCount < 1 Then
+    Grilla.Rows = 0
+
+    Me.cmdamortizar.Enabled = False
+    
+    Exit Sub
+End If
+   
+
+    Grilla.Rows = 0
+   
+   ReDim arrColWidth(1 To rst.Fields.Count)
+       For Each Campo In rst.Fields
+           Grilla.ColWidth(0) = 0
+           Grilla.ColWidth(1) = 1100
+           Grilla.ColWidth(2) = 1100
+           Grilla.ColWidth(3) = 2200
+           Grilla.ColWidth(4) = 1200
+           Grilla.ColWidth(5) = 3500
+           Grilla.ColWidth(6) = 1300
+           Grilla.ColWidth(7) = 1000
+           Grilla.ColWidth(8) = 2600
+           Grilla.ColWidth(9) = 2600
+           Grilla.ColWidth(10) = 1400
+        Next
+         cabecera = "IDVENTA" & vbTab & "F.EMISION" & vbTab & "H.REGISTRO" & vbTab & "COMPROBANTE" & vbTab & "DNI CLIENTE" & vbTab & "DATOS CLIENTE" & vbTab & "TOTAL" & vbTab & "SALDO" & vbTab & "OPERADOR" & vbTab & "SEGURO" & vbTab & "%SEGURO"
+         Grilla.AddItem cabecera
+         For k = 1 To 10
+            Grilla.col = k
+            Grilla.Row = 0
+            Grilla.CellBackColor = &HDFDFE0
+         Next k
+        rst.MoveFirst
+        nfactor = 0
+        in_acumulado = 0
+        For i = 0 To rst.RecordCount - 1
+             in_tseguro = rst("tseguro") * rst("factor") / 100
+             If IsNull(rst("guia")) = True Then
+                in_operador = Mid(UCase(rst("nombre_completo")), 1, 25)
+             Else
+                in_operador = rst("guia") & Space(4) & "[ S/." & rst("tseguro") & " ]"
+             End If
+             
+             
+             Fila = rst("id_venta") & vbTab & Format(rst("fecha_emision"), "dd-mm-YYYY") & vbTab & Format(rst("hora"), "HH:mm am/pm") & vbTab & rst("comprobante") & vbTab & rst("id_cliente") & vbTab & rst("ncliente") & vbTab & rst("simbolo") & Space(3) & Format(rst("total"), "#,##0.00") & vbTab & rst("simbolo") & Space(3) & Format(rst("saldo"), "#,##0.00") & vbTab & in_operador & vbTab & rst("seguro") & vbTab & "[" & rst("factor") & "% ]" & Space(3) & Format(in_tseguro, "###0.00")
+             Grilla.AddItem Fila
+             
+                If IsNull(in_tseguro) = True Then
+                    in_factor = 0
+                    in_tseguro = 0
+                Else
+                    in_factor = in_tseguro
+                End If
+                If rst("id_moneda") = "00002" Then
+                    in_saldo = rst("saldo") * rst("tc")
+                    in_factor = in_tseguro * rst("tc")
+                Else
+                    in_saldo = rst("saldo")
+                    in_factor = in_tseguro
+                End If
+                nsaldo = nsaldo + in_saldo
+                nfactor = nfactor + in_tseguro
+            If rst("saldo") > 0 Then
+            For k = 1 To 8
+                Grilla.col = k
+                Grilla.Row = i + 1
+                Grilla.CellBackColor = &H80C0FF
+            Next k
+            End If
+            
+            If rst("anulado") = "si" Then
+           
+            For k = 1 To 8
+                Grilla.col = k
+                Grilla.Row = i + 1
+                Grilla.CellBackColor = &H8080FF
+            Next k
+            End If
+            rst.MoveNext
+        Next i
+        Fila = "" & vbTab & "" & vbTab & "" & vbTab & "" & vbTab & "" & vbTab & "SALDO A COBRAR:" & vbTab & "" & vbTab & "S/.  " & Format(nsaldo, "#,##0.00") & vbTab & "" & vbTab & "" & vbTab & Format(nfactor, "#,##0.00")
+        Grilla.AddItem Fila
+ ' Grilla.Row = 1
+ ' Grilla.col = 0
+ ' Grilla.ColSel = 1
+ ' Grilla.RowSel = 1
+         
+Exit Sub
+salir: MsgBox "Por Favor Digite Correctamente", vbInformation, "Mensaje para el usuario"
+
+End Sub
+
+Private Sub llenar_recibos(ByVal Grilla As MSHFlexGrid)
+Dim nsaldo As Double
+On Error GoTo salir
+Call ConfiguraRst(strCadena)
+If rst.RecordCount < 1 Then
+    Grilla.Rows = 1
+    Grilla.Clear
+    
+    Exit Sub
+End If
+   
+    Grilla.Clear
+   Grilla.Rows = rst.RecordCount - 1
+   Grilla.Rows = 0
+   ReDim arrColWidth(1 To rst.Fields.Count)
+       For Each Campo In rst.Fields
+           Grilla.ColWidth(0) = 0
+           Grilla.ColWidth(1) = 1200
+           Grilla.ColWidth(2) = 1200
+           Grilla.ColWidth(3) = 2200
+           Grilla.ColWidth(4) = 1200
+           Grilla.ColWidth(5) = 4000
+           Grilla.ColWidth(6) = 2000
+           
+           
+           
+        Next
+         cabecera = "IDVENTA" & vbTab & "F.EMISION" & vbTab & "H.REGISTRO" & vbTab & "COMPROBANTE" & vbTab & "DNI CLIENTE" & vbTab & "DATOS CLIENTE" & vbTab & "TOTAL CANCELADO"
+         Grilla.AddItem cabecera
+         For k = 1 To 6
+            Grilla.col = k
+            Grilla.Row = 0
+            Grilla.CellBackColor = &HDFDFE0
+         Next k
+        rst.MoveFirst
+        nsaldo = 0
+        For i = 0 To rst.RecordCount - 1
+             Fila = rst("id_venta") & vbTab & Format(rst("fecha_emision"), "dd-mm-YYYY") & vbTab & Format(rst("hora"), "HH:mm:ss am/pm") & vbTab & rst("documento") & vbTab & rst("id_cliente") & vbTab & rst("ncliente") & vbTab & Format(rst("total"), "#,##0.00")
+             Grilla.AddItem Fila
+             nsaldo = nsaldo + rst("total")
+             rst.MoveNext
+        Next i
+        Fila = "" & vbTab & "" & vbTab & "" & vbTab & "" & vbTab & "" & vbTab & "TOTAL CANCELADO:" & vbTab & Format(nsaldo, "#,##0.00")
+        Grilla.AddItem Fila
+        For k = 1 To 6
+                Grilla.col = k
+                Grilla.Row = i + 1
+                Grilla.CellBackColor = &H8080FF
+            Next k
+ ' Grilla.Row = 1
+ ' Grilla.col = 0
+ ' Grilla.ColSel = 1
+ ' Grilla.RowSel = 1
+         
+Exit Sub
+salir: MsgBox "Por Favor Digite Correctamente", vbInformation, "Mensaje para el usuario"
+
+End Sub
+
+
+Private Sub HfdPersona_DblClick()
+If Val(Me.HfdPersona.TextMatrix(Me.HfdPersona.Row, 0)) > 0 Then
+    Procedencia = Selecionar
+    FrmDetalleventa.Show
+End If
+End Sub
+
+Private Sub Text1_Change()
+
+End Sub
+
+Private Sub TlbAcciones_ButtonClick(ByVal Button As MSComctlLib.Button)
+
+End Sub
+
+
+
+
+Private Sub txtEmpresa_Change()
+
+End Sub
+
+
+
+Private Sub HfdPersona_SelChange()
+If Val(Me.HfdPersona.TextMatrix(Me.HfdPersona.Row, 0)) > 0 Then
+    If Val(Replace(Me.HfdPersona.TextMatrix(Me.HfdPersona.Row, 7), "S/.", "")) > 0 Then
+        Me.cmdamortizar.Enabled = True
+    Else
+        Me.cmdamortizar.Enabled = False
+    End If
+   
+    Me.cmdhistorial.Enabled = True
+ Else
+    Me.cmdamortizar.Enabled = False
+    Me.cmdhistorial.Enabled = False
+End If
+End Sub
+
+Private Sub Timer1_Timer()
+
+End Sub
+
+Private Sub timier_despacho_Timer()
+'Call pendientes_despacho
+End Sub
+
+Private Sub TxtNumero_KeyPress(KeyAscii As Integer)
+If KeyAscii = 13 Then
+    Call llenar_numero
+End If
+End Sub
+Private Sub llenar_numero()
+  strCadena = "SELECT * FROM view_listado_comprobanteii WHERE  numero LIKE '%" & Trim(Me.txtnumero.Text) & "%' AND ruc='" & KEY_RUC & "' "
+  Call llenar_grid(Me.HfdPersona)
+  
+  
+  strCadenaII = "SELECT * FROM view_listado_comprobante_iii WHERE numero LIKE '%" & Trim(Me.txtnumero.Text) & "%' AND ruc='" & KEY_RUC & "' "
+  Me.cmdreporte.Enabled = True
+  Me.cmdReportedetallado.Enabled = True
+End Sub
+
+Private Sub TxtRazonSocial_KeyPress(KeyAscii As Integer)
+If KeyAscii = 13 Then
+
+    strCadena = "SELECT * FROM view_listado_comprobanteii WHERE ncliente LIKE '%" & Trim(Me.txtRazonSocial.Text) & "%' AND ruc='" & KEY_RUC & "'"
+    Call llenar_grid(Me.HfdPersona)
+    Me.cmdreporte.Enabled = True
+    Me.cmdReportedetallado.Enabled = True
+    strCadenaII = "SELECT * FROM view_listado_comprobante_iii WHERE ncliente LIKE '%" & Trim(Me.txtRazonSocial.Text) & "%' AND ruc='" & KEY_RUC & "'"
+    Me.cmdreporte.Enabled = True
+    Me.cmdReportedetallado.Enabled = True
+End If
+
+End Sub
+
+Private Sub txtruc_KeyPress(KeyAscii As Integer)
+If KeyAscii = 13 Then
+    strCadena = "SELECT * FROM view_listado_comprobanteii WHERE id_cliente LIKE '%" & Trim(Me.txtRUC.Text) & "%' AND ruc='" & KEY_RUC & "'"
+    Call llenar_grid(Me.HfdPersona)
+
+End If
+strCadenaII = "SELECT * FROM view_listado_comprobante_iii WHERE id_cliente LIKE '%" & Trim(Me.txtRUC.Text) & "%' AND ruc='" & KEY_RUC & "'"
+Me.cmdreporte.Enabled = True
+Me.cmdReportedetallado.Enabled = True
+End Sub

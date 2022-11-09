@@ -1,0 +1,19 @@
+in_memo	Number
+in_moneda	String	5
+in_numero	String	20
+in_dni	String	11
+in_cliente	String	60
+in_emisor	String	60
+in_receptor	String	60
+in_asunto	String	200
+in_fecha	Date
+in_detalle	String	500
+in_monto	Number
+in_anulado	String	2
+in_ruc	String	11
+
+
+
+
+
+

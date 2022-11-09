@@ -1,0 +1,9 @@
+codigo		String 	10
+observacion		String	100
+fecha			Datetime
+fecha_save		Datetime
+hora_save		Datetime
+medico		String	130
+item			String	600
+descripcion		String	20
+estado		String	20

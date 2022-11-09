@@ -1,0 +1,17 @@
+dni	String	11
+alumno	String	60
+periodo	String	40
+nivel	String	40
+grado	String	20
+dni_apoderado	String	11
+apoderado	String	60
+direccion	String	70
+telefono	String	20
+estado	String	15
+
+
+
+
+
+
+

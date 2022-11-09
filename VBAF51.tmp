@@ -1,0 +1,1061 @@
+Attribute VB_Name = "ModPrincipal"
+
+Sub Main()
+ 
+ 'frmprecarga.Show
+ 
+  'If (GetMACAddress() = "00 51 FC 73 1E CB") Then
+  'End If
+' FrmFechaTrabajo.Show
+'if
+Call conexion("")
+'FrmEnvaseCargo.Show
+'FrmHuellaDigital.Show
+End Sub
+Public Sub reiniciar_conexion()
+'On Error GoTo reintentar
+   Set CnBd = New ADODB.Connection
+   Set CnBd2 = New ADODB.Connection
+   Dim sys_DataBase As String
+   'Dim sys_DataBase1 As String
+   Dim sys_SUser As String
+   Dim sys_SPassword As String
+   Dim sys_ConString As String
+   
+   'Dim sys_ConString1 As String
+   Dim sys_Server As String
+   'Dim sys_Server2 As String
+   
+'CnBd.Open "Provider=Microsoft.Jet.OLEDB.4.0;Data Source=" & StrRuta & "; "
+'cnbd1.Open "Provider=SQLOLEDB.1;Integrated Security=SSPI;Persist Security Info=False;Initial Catalog=lhorna_serv"
+'CONEXION SQL2005
+'CnBd.Open "Provider=SQLNCLI; " & _
+             "Initial Catalog=Pacifico; " & _
+             "Data Source=192.168.3.212\SQLEXPRESS; " & _
+             "integrated security=SSPI; persist security info=True;"
+            
+'sys_Server = "190.223.204.246"
+
+strRuta_ini = App.Path & "\archivos\vitekey.ini"
+'strRuta_ini = App.Path & "\vitekey.ini"
+FileName = Dir(strRuta_ini)
+If FileName = "" Then
+    strServer_ini = "158.69.74.64"
+    Open strRuta_ini For Output As #1
+    Print #1, strServer_ini
+    sys_Server = strServer_ini
+    Close #1
+Else
+    Open strRuta_ini For Input As #1
+    Line Input #1, sys_Server
+    sys_Server = sys_Server
+    Close #1
+End If
+
+
+If sys_Server = "158.69.74.64" Then
+   KEY_CLOUD = "si"
+Else
+    KEY_CLOUD = "no"
+End If
+
+
+'sys_Server = "54.149.121.113"
+'sys_Server = "localhost"
+
+'sys_Server = "srv-ca.isn.bz"
+
+'sys_Server = "7.75.65.209"
+
+'sys_Server = "dbbasedatos.cyd9c2r3mxxp.sa-east-1.rds.amazonaws.com"
+'sys_Server = "192.168.1.106"
+'sys_Server = "10.10.6.208"
+conectar_nuevamente:
+
+'sys_DataBase = "bd_vitekey_demo" 'ConfigRead("DataBase")
+sys_DataBase = "bd_vitekey_aurora" 'ConfigRead("DataBase")
+'sys_DataBase = "bd_vitekey_aurora_contable" 'ConfigRead("DataBase")
+'sys_DataBase = "bd_vitekey_repos_ii" 'ConfigRead("DataBase")'
+'sys_DataBase = "bd_vitekey_conta" 'ConfigRead("DataBase")
+ 'sys_DataBase = "bd_vitekey_manager" 'ConfigRead("DataBase")
+ 'sys_DataBase1 = "gigane" 'ConfigRead("DataBase")
+sys_SUser = "user_cord" 'DecryptString(ConfigRead("SUser"))
+
+'sys_SPassword = "password" 'DecryptString(ConfigRead("SPassword"))
+' sys_SUser = "user1" 'DecryptString(ConfigRead("SUser"))
+' sys_SPassword = "@02021974abc2016@123@cord" 'DecryptString(ConfigRead("SPassword"))
+
+'sys_SPassword = "02021974abc2016" 'DecryptString(ConfigRead("SPassword"))
+
+sys_SPassword = "vitekey2018" 'DecryptString(ConfigRead("SPassword"))
+' sys_SPassword = "123456" 'DecryptString(ConfigRead("SPassword"))
+ db_port = "3306"
+' sys_SPassword = "u9ugejuza" 'DecryptString(ConfigRead("SPassword"))
+  sys_ConString = "" & _
+            "DRIVER={MySQL ODBC 5.1 Driver};" & _
+            "Server=" & sys_Server & ";" & _
+            "Database=" & sys_DataBase & ";" & _
+            "UID=" & sys_SUser & ";" & _
+            "PWD=" & sys_SPassword & ";" & _
+            " PORT=" & db_port & ";OPTION=" & 1 + 2 + 8 + 32 + 2048 + 16384 & ";"
+        
+   'Set conConnection = New ADODB.Connection
+   'sys_ConString1 = "" & _
+            "DRIVER={MySQL ODBC 5.1 Driver};" & _
+            "Server=" & sys_Server & ";" & _
+            "Database=" & sys_DataBase1 & ";" & _
+            "UID=" & sys_SUser & ";" & _
+            "PWD=" & sys_SPassword & ";" & _
+            "OPTION=" & 1 + 2 + 8 + 32 + 2048 + 16384 & ";"
+            
+    
+    
+    CnBd.ConnectionString = sys_ConString
+    CnBd.Open
+    
+    
+    
+    
+End Sub
+
+Public Sub conexion(ByVal strRuta As String)
+'On Error GoTo reintentar
+   Set CnBd = New ADODB.Connection
+   Set CnBd2 = New ADODB.Connection
+   Dim sys_DataBase As String
+   'Dim sys_DataBase1 As String
+   Dim sys_SUser As String
+   Dim sys_SPassword As String
+   Dim sys_ConString As String
+   
+   'Dim sys_ConString1 As String
+   Dim sys_Server As String
+  
+   Dim sys_Server2 As String
+   
+'CnBd.Open "Provider=Microsoft.Jet.OLEDB.4.0;Data Source=" & StrRuta & "; "
+'cnbd1.Open "Provider=SQLOLEDB.1;Integrated Security=SSPI;Persist Security Info=False;Initial Catalog=lhorna_serv"
+'CONEXION SQL2005
+'CnBd.Open "Provider=SQLNCLI; " & _
+             "Initial Catalog=Pacifico; " & _
+             "Data Source=192.168.3.212\SQLEXPRESS; " & _
+             "integrated security=SSPI; persist security info=True;"
+            
+'sys_Server = "190.223.204.246"
+
+
+strRuta_ini = App.Path & "\archivos\vitekey.ini"
+'strRuta_ini = App.Path & "\vitekey.ini"
+FileName = Dir(strRuta_ini)
+If FileName = "" Then
+    strServer_ini = "158.69.74.64"
+    Open strRuta_ini For Output As #1
+    Print #1, strServer_ini
+    sys_Server = strServer_ini
+    Close #1
+Else
+    'Open strRuta_ini For Input As #1
+    'Line Input #1, sys_Server
+    'sys_Server = sys_Server
+    'Close #1
+    
+    fnum = FreeFile
+    Open strRuta_ini For Input As fnum
+    i = 0
+    Do While Not EOF(fnum)
+        
+        Select Case i
+            Case 0
+                 Line Input #fnum, file_line
+                  sys_Server = file_line
+            Case 1
+                 Line Input #fnum, file_line
+                  sys_Server2 = file_line
+            Case 2
+                 Line Input #fnum, file_line
+                 KEY_VERSION = file_line
+        End Select
+        i = i + 1
+    Loop
+    Close #fnum
+    
+    
+    
+End If
+
+
+If sys_Server = "158.69.74.64" Then
+   KEY_CLOUD = "si"
+Else
+    KEY_CLOUD = "no"
+End If
+
+'sys_Server = "54.149.121.113"
+'sys_Server = "localhost"
+'sys_Server = "srv-ca.isn.bz"
+'sys_Server = "7.75.65.209"
+'sys_Server = "dbbasedatos.cyd9c2r3mxxp.sa-east-1.rds.amazonaws.com"
+'sys_Server = "192.168.1.106"
+'sys_Server = "10.10.6.208"
+
+conectar_nuevamente:
+
+
+
+' sys_DataBase = "bd_vitekey_repos_ii" 'ConfigRead("DataBase")
+'sys_DataBase = "bd_vitekey_demo" 'ConfigRead("DataBase")'
+sys_DataBase = "bd_vitekey_aurora" 'ConfigRead("DataBase")
+' sys_DataBase = "bd_vitekey_aurora_contable" 'ConfigRead("DataBase")
+' sys_DataBase = "bd_vitekey_conta" 'ConfigRead("DataBase")
+ 'sys_DataBase1 = "gigane" 'ConfigRead("DataBase")
+ sys_SUser = "user_cord" 'DecryptString(ConfigRead("SUser"))
+'sys_SPassword = "password" 'DecryptString(ConfigRead("SPassword"))
+'sys_SUser = "user1" 'DecryptString(ConfigRead("SUser"))
+'sys_SPassword = "@02021974abc2016@123@cord" 'DecryptString(ConfigRead("SPassword"))
+ 
+
+'sys_SPassword = "02021974abc2016" 'DecryptString(ConfigRead("SPassword"))'
+
+sys_SPassword = "vitekey2018" 'DecryptString(ConfigRead("SPassword"))
+'sys_SPassword = "123456" 'DecryptString(ConfigRead("SPassword"))
+db_port = "3306"
+' sys_SPassword = "u9ugejuza" 'DecryptString(ConfigRead("SPassword"))
+sys_ConString = "" & _
+            "DRIVER={MySQL ODBC 5.1 Driver};" & _
+            "Server=" & sys_Server & ";" & _
+            "Database=" & sys_DataBase & ";" & _
+            "UID=" & sys_SUser & ";" & _
+            "PWD=" & sys_SPassword & ";" & _
+            " PORT=" & db_port & ";OPTION=" & 1 + 2 + 8 + 32 + 2048 + 16384 & ";"
+        
+
+
+   'Set conConnection = New ADODB.Connection
+   ' sys_ConString1 = "" & _
+            "DRIVER={MySQL ODBC 5.1 Driver};" & _
+            "Server=" & sys_Server & ";" & _
+            "Database=" & sys_DataBase1 & ";" & _
+            "UID=" & sys_SUser & ";" & _
+            "PWD=" & sys_SPassword & ";" & _
+            "OPTION=" & 1 + 2 + 8 + 32 + 2048 + 16384 & ";"
+            
+            
+            
+            
+    CnBd.ConnectionString = sys_ConString
+    CnBd.Open
+    
+   'Call frmprecarga.cerrar
+   
+    FrmClave.Show
+    FrmClave.lblversion.Caption = "VERSION:  " & KEY_VERSION
+    FrmClave.lblversion_barra.Caption = "00" & KEY_VERSION
+    'FrmHuellaDigital.Show
+    ''cnbd1.ConnectionString = sys_ConString1
+    'cnbd1.Open
+    
+    
+
+'strCadena = "SELECT * FROM persona where cpersona='1000'"
+'Call ConfiguraRst(strCadena)
+'MsgBox Str(rst("cpersona"))
+'CnBd.Open "Provider=SQLOLEDB.1;Integrated Security=SSPI;Persist Security Info=False;Initial Catalog=factusoft_inventario" ';Data Source=192.168.1.33"
+  'CnBd.Open "Provider=SQLOLEDB.1;Integrated Security=SSPI;Persist Security Info=False;Initial Catalog=lhorna_tienda"
+  'CnBd.Open "Provider=SQLOLEDB.1;Integrated Security=SSPI;Persist Security Info=False;Initial Catalog=lhorna_tienda;Data Source=PEP-SERV01"
+  'CnBd.Open "Provider=SQLOLEDB.1;Integrated Security=SSPI;Persist Security Info=False;Initial Catalog=lhorna_serv;Data Source=PEP-SERV01"
+  'CnBd.Open "Provider=SQLOLEDB.1;Integrated Security=SSPI;Persist Security Info=False;Initial Catalog=lhorna_tienda;Data Source=acc-serv01"
+  
+  'conectarese a una intranet remota
+  'cnbd1.Open "Provider=SQLOLEDB.1;Integrated Security=SSPI;Persist Security Info=False;Initial Catalog=factusoft_cont;Data Source=25.12.226.213"
+  
+  'CADENA CONEXION SQL2005
+ Exit Sub
+'reintentar:
+ 
+  
+'  If MsgBox("Hay un problema con la CONEXION." + Chr(13) + Chr(13) + "Desea Trabajar de Manera Local", vbInformation + vbYesNo, " Disculpe las Molestias") = vbYes Then
+'       sys_Server = "localhost"
+'      GoTo conectar_nuevamente
+'  Else
+        
+'  Exit Sub
+'End If
+  
+  
+  
+End Sub
+Public Sub verificar_version()
+
+End Sub
+Public Sub conexion_cloud()
+On Error GoTo reintentar
+   Set CnBd2 = New ADODB.Connection
+   Dim sys_DataBase As String
+   Dim sys_DataBase2 As String
+   Dim sys_SUser2 As String
+   Dim sys_SPassword2 As String
+   Dim sys_ConString2 As String
+   Dim sys_Server2 As String
+   
+
+strRuta_ini = App.Path & "\archivos\vitekey.ini"
+
+FileName = Dir(strRuta_ini)
+If FileName = "" Then
+    strServer_ini = "54.149.121.113"
+    Open strRuta_ini For Output As #2
+    Print #2, strServer_ini
+    Close #2
+    sys_Server2 = strServer_ini
+Else
+    fnum = FreeFile
+    Open strRuta_ini For Input As fnum
+    Do While Not EOF(fnum)
+        Line Input #fnum, file_line
+        sys_Server2 = file_line
+    Loop
+     Close #2
+End If
+
+ sys_DataBase2 = "bd_vitekey_repos" 'ConfigRead("DataBase")
+ sys_SUser2 = "user_vitekey" 'DecryptString(ConfigRead("SUser"))
+ sys_SPassword2 = "02021974abc2014@" 'DecryptString(ConfigRead("SPassword"))
+ db_port = "3306"
+  sys_ConString2 = "" & _
+            "DRIVER={MySQL ODBC 5.1 Driver};" & _
+            "Server=" & sys_Server2 & ";" & _
+            "Database=" & sys_DataBase2 & ";" & _
+            "UID=" & sys_SUser2 & ";" & _
+            "PWD=" & sys_SPassword2 & ";" & _
+            " PORT=" & db_port & ";OPTION=" & 1 + 2 + 8 + 32 + 2048 + 16384 & ";"
+        CnBd2.ConnectionString = sys_ConString2
+        CnBd2.Open
+    
+
+reintentar:
+Exit Sub
+   
+End Sub
+
+'----------------FUNCION ULTIMO REGISTRO SQL
+Public Function IdInsert(ByVal Tabla As String) As Double
+    strCadena = "SELECT IDENT_CURRENT('" & Tabla & "')"
+    Call ConfiguraRstT(strCadena)
+    
+    If IsNull(rstT(0)) = False Then
+        IdInsert = rstT(0)
+    Else
+        IdInsert = 1
+    End If
+    
+    
+End Function
+
+'----------------FUNCION ULTIMO REGISTRO SQL
+Public Function ConsultaUltimoRegistro(ByVal Tabla As String, ByVal Campo As String, ByVal campoRuc As String, ByVal ruc As String) As String
+    strCadena = "SELECT * FROM " & Tabla & " WHERE " & campoRuc & "='" & ruc & "' ORDER BY  " & Campo & " DESC LIMIT 1"
+    Call ConfiguraRstT(strCadena)
+    
+    If IsNull(rstT(0)) = False And rstT.RecordCount > 0 Then
+        rstT.MoveFirst
+        ConsultaUltimoRegistro = Val(rstT(0) + 1)
+    Else
+        ConsultaUltimoRegistro = 1
+    End If
+    
+    
+End Function
+
+Public Function LastRegistro(ByVal Tabla As String, ByVal Campo As String) As String
+strCadena = "SELECT " & Campo & " FROM " & Tabla & " WHERE ruc='" & KEY_RUC & "'  ORDER BY  " & Campo & " DESC LIMIT 1"
+Call ConfiguraRstT(strCadena)
+If rstT.RecordCount > 0 Then
+    LastRegistro = rstT(0)
+Else
+    LastRegistro = 1
+End If
+End Function
+Public Function LastRegistroRUC(ByVal Tabla As String, ByVal Campo As String) As String
+strSQL = "SELECT " & Campo & " FROM " & Tabla & " WHERE ruc='" & KEY_RUC & "'  ORDER BY  " & Campo & " DESC LIMIT 1"
+Call ConfiguraRstT(strSQL)
+If rstT.RecordCount > 0 Then
+    LastRegistroRUC = rstT(0)
+Else
+    LastRegistroRUC = 1
+End If
+End Function
+Public Function LastRegistroCloud(ByVal Tabla As String, ByVal Campo As String) As String
+strSQL = "SELECT " & Campo & " FROM " & Tabla & " WHERE ruc='" & KEY_RUC & "'  ORDER BY  " & Campo & " DESC LIMIT 1"
+Call ConfiguraRstCloud(strSQL)
+If rstCloud.RecordCount > 0 Then
+    LastRegistroCloud = Val(rstCloud(0) + 1)
+Else
+    LastRegistroCloud = 1
+End If
+End Function
+Public Function BdAcumuladoCampo(ByVal Tabla As String, ByVal CampoCriterio As String, ByVal Criterio As String, ByVal Campo As String) As String
+strCadena = "SELECT Sum(" & Campo & ")  FROM " & Tabla & " WHERE ruc='" & KEY_RUC & "' AND " & CampoCriterio & "='" & Criterio & "' "
+Call ConfiguraRstT(strCadena)
+If IsNull(rstT(0)) = True Then
+    BdAcumuladoCampo = 0
+Else
+    BdAcumuladoCampo = rstT(0)
+End If
+End Function
+
+
+'----------------FUNCION ULTIMO REGISTRO MYSQL
+Public Function ConsultaUltInsert(strSQL As String) As Long
+    Dim rsResult As ADODB.Recordset
+    Dim adoCommand As ADODB.Command
+    Set adoCommand = New ADODB.Command
+    
+    With adoCommand
+        .ActiveConnection = CnBd
+        .CommandText = strSQL
+        .CommandType = adCmdText
+        .Execute
+        .CommandText = "SELECT LAST_INSERT_ID()"
+        .CommandType = adCmdText
+        Set rsResult = .Execute
+    End With
+   
+    Set adoCommand = Nothing
+    
+
+    If Not rsResult.EOF Then
+        ConsultaUltInsert = rsResult(0)
+    End If
+    
+End Function
+Public Sub ConfiguraRst(ByVal strCadena As String)
+On Error GoTo salir
+reiniciar:
+  Set rst = New ADODB.Recordset
+  rst.CursorLocation = adUseClient
+  rst.Open strCadena, CnBd, adOpenKeyset, adLockOptimistic
+  rst.ActiveConnection = Nothing
+  Exit Sub
+salir:
+  
+  Call reiniciar_conexion
+  GoTo reiniciar
+  Exit Sub
+'  MsgBox "PROBLEMA DE RED DETECTADO ..." + Chr(13) + Chr(13) + "COMUNIQUESE CON EL PERSONAL DE INFORMATICA" + Chr(13) + "SE CERRARA EL SISTEMA VITEKEY SALUD...", vbInformation, KEY_EMPRESA
+  
+ ' rst.ActiveConnection = Nothing
+  
+  Exit Sub
+End Sub
+
+
+Public Sub ConfiguraRstUpdate(ByVal strCadena As String)
+On Error GoTo salir
+reiniciar:
+  Set rstUpdate = New ADODB.Recordset
+  rstUpdate.CursorLocation = adUseClient
+  rstUpdate.Open strCadena, CnBd, adOpenKeyset, adLockOptimistic
+  rstUpdate.ActiveConnection = Nothing
+  Exit Sub
+salir:
+  
+  Call reiniciar_conexion
+  GoTo reiniciar
+  Exit Sub
+'  MsgBox "PROBLEMA DE RED DETECTADO ..." + Chr(13) + Chr(13) + "COMUNIQUESE CON EL PERSONAL DE INFORMATICA" + Chr(13) + "SE CERRARA EL SISTEMA VITEKEY SALUD...", vbInformation, KEY_EMPRESA
+  
+ ' rst.ActiveConnection = Nothing
+  
+  Exit Sub
+End Sub
+
+
+
+Public Sub ConfiguraRstCloud(ByVal strCadena As String)
+  Set rstCloud = New ADODB.Recordset
+  rstCloud.CursorLocation = adUseClient
+  rstCloud.Open strCadena, CnBd2, adOpenKeyset, adLockOptimistic
+  rstCloud.ActiveConnection = Nothing
+End Sub
+Public Sub ConfiguraRstlocal(ByVal strCadena As String)
+  Set rstLocal = New ADODB.Recordset
+  rstLocal.CursorLocation = adUseClient
+  rstLocal.Open strCadena, CnBd, adOpenKeyset, adLockOptimistic
+  rstLocal.ActiveConnection = Nothing
+End Sub
+Public Sub ConfiguraRst2(ByVal strCadena As String)
+
+  Set rst2 = New ADODB.Recordset
+  rst2.CursorLocation = adUseClient
+  rst2.Open strCadena, CnBd2, adOpenKeyset, adLockOptimistic
+  rst2.ActiveConnection = Nothing
+End Sub
+Public Sub ConfiguraRst3(ByVal strCadena As String)
+
+  Set rst3 = New ADODB.Recordset
+  rst3.CursorLocation = adUseClient
+  rst3.Open strCadena, CnBd2, adOpenKeyset, adLockOptimistic
+  rst3.ActiveConnection = Nothing
+  
+  
+End Sub
+Public Sub ConfiguraRstF(ByVal strCadena As String)
+
+  Set rstF = New ADODB.Recordset
+  rstF.CursorLocation = adUseClient
+  rstF.Open strCadena, CnBd, adOpenKeyset, adLockOptimistic
+  rstF.ActiveConnection = Nothing
+End Sub
+
+Public Sub ConfiguraRstZ(ByVal strCadena As String)
+On Error GoTo salir
+reiniciar:
+  Set rstZ = New ADODB.Recordset
+  rstZ.CursorLocation = adUseClient
+  rstZ.Open strCadena, CnBd, adOpenKeyset, adLockOptimistic
+  rstZ.ActiveConnection = Nothing
+  Exit Sub
+salir:
+  
+  Call reiniciar_conexion
+  GoTo reiniciar
+  Exit Sub
+  MsgBox "PROBLEMA DE RED DETECTADO ..." + Chr(13) + Chr(13) + "COMUNIQUESE CON EL PERSONAL DE INFORMATICA" + Chr(13) + "SE CERRARA EL SISTEMA VITEKEY SALUD...", vbInformation, KEY_EMPRESA
+  
+  rstZ.ActiveConnection = Nothing
+  'End
+  Exit Sub
+  
+  
+
+
+
+
+End Sub
+Public Sub ConfiguraRstP(ByVal strCadena As String)
+  Set rstP = New ADODB.Recordset
+  rstP.CursorLocation = adUseClient
+  rstP.Open strCadena, CnBd, adOpenKeyset, adLockOptimistic
+  rstP.ActiveConnection = Nothing
+End Sub
+
+Public Sub ConfiguraRstL(ByVal strCadena As String)
+On Error GoTo salir
+reiniciar:
+  Set rstL = New ADODB.Recordset
+  rstL.CursorLocation = adUseClient
+  rstL.Open strCadena, CnBd, adOpenKeyset, adLockOptimistic
+  rstL.ActiveConnection = Nothing
+  
+  Exit Sub
+salir:
+  
+  Call reiniciar_conexion
+  GoTo reiniciar
+  Exit Sub
+  MsgBox "PROBLEMA DE RED DETECTADO ..." + Chr(13) + Chr(13) + "COMUNIQUESE CON EL PERSONAL DE INFORMATICA" + Chr(13) + "SE CERRARA EL SISTEMA VITEKEY SALUD...", vbInformation, KEY_EMPRESA
+  
+  rstT.ActiveConnection = Nothing
+End Sub
+Public Sub ConfiguraRstChat(ByVal strCadena As String)
+  Set rstChat = New ADODB.Recordset
+  rstChat.CursorLocation = adUseClient
+  rstChat.Open strCadena, CnBd, adOpenKeyset, adLockOptimistic
+  rstChat.ActiveConnection = Nothing
+End Sub
+Public Sub ConfiguraRstChat2(ByVal strCadena As String)
+  Set rstchat2 = New ADODB.Recordset
+  rstchat2.CursorLocation = adUseClient
+  rstchat2.Open strCadena, CnBd, adOpenKeyset, adLockOptimistic
+  rstchat2.ActiveConnection = Nothing
+End Sub
+
+Public Sub ConfiguraRstT(ByVal strCadena As String)
+  On Error GoTo salir
+reiniciar:
+  Set rstT = New ADODB.Recordset
+  rstT.CursorLocation = adUseClient
+  rstT.Open strCadena, CnBd, adOpenKeyset, adLockOptimistic
+  rstT.ActiveConnection = Nothing
+  Exit Sub
+salir:
+  
+  Call reiniciar_conexion
+  GoTo reiniciar
+  Exit Sub
+  MsgBox "PROBLEMA DE RED DETECTADO ..." + Chr(13) + Chr(13) + "COMUNIQUESE CON EL PERSONAL DE INFORMATICA" + Chr(13) + "SE CERRARA EL SISTEMA VITEKEY SALUD...", vbInformation, KEY_EMPRESA
+  
+  rstT.ActiveConnection = Nothing
+  
+  Exit Sub
+    
+End Sub
+Public Sub ConfiguraRstAux(ByVal strCadena As String)
+  Set rstAux = New ADODB.Recordset
+  rstAux.CursorLocation = adUseClient
+  rstAux.Open strCadena, CnBd, adOpenKeyset, adLockOptimistic
+  rstAux.ActiveConnection = Nothing
+End Sub
+Public Sub ConfiguraRstC(ByVal strCadena As String)
+  Set rstc = New ADODB.Recordset
+  rstc.CursorLocation = adUseClient
+  rstc.Open strCadena, CnBd, adOpenKeyset, adLockOptimistic
+  rstc.ActiveConnection = Nothing
+End Sub
+Public Sub ConfiguraRstPP(ByVal strCadena As String)
+On Error GoTo salir
+reiniciar:
+  Set rstPP = New ADODB.Recordset
+  rstPP.CursorLocation = adUseClient
+  rstPP.Open strCadena, CnBd, adOpenKeyset, adLockOptimistic
+  rstPP.ActiveConnection = Nothing
+  Exit Sub
+salir:
+  
+  Call reiniciar_conexion
+  GoTo reiniciar
+  Exit Sub
+  MsgBox "PROBLEMA DE RED DETECTADO ..." + Chr(13) + Chr(13) + "COMUNIQUESE CON EL PERSONAL DE INFORMATICA" + Chr(13) + "SE CERRARA EL SISTEMA VITEKEY SALUD...", vbInformation, KEY_EMPRESA
+  
+  rstPP.ActiveConnection = Nothing
+  
+  Exit Sub
+
+
+
+
+
+
+
+
+
+'  Set rstPP = New ADODB.Recordset
+'  rstPP.CursorLocation = adUseClient
+'  rstPP.Open strCadena, CnBd, adOpenKeyset, adLockOptimistic
+'  rstPP.ActiveConnection = Nothing
+End Sub
+
+Public Sub ConfiguraRstK(ByVal strCadena As String)
+  
+  
+  
+  
+  
+  
+  
+  On Error GoTo salir
+reiniciar:
+  Set rstK = New ADODB.Recordset
+  rstK.CursorLocation = adUseClient
+  rstK.Open strCadena, CnBd, adOpenKeyset, adLockOptimistic
+  rstK.ActiveConnection = Nothing
+  Exit Sub
+salir:
+  
+  Call reiniciar_conexion
+  GoTo reiniciar
+  Exit Sub
+  MsgBox "PROBLEMA DE RED DETECTADO ..." + Chr(13) + Chr(13) + "COMUNIQUESE CON EL PERSONAL DE INFORMATICA" + Chr(13) + "SE CERRARA EL SISTEMA VITEKEY SALUD...", vbInformation, KEY_EMPRESA
+  
+  rstK.ActiveConnection = Nothing
+  'End
+  Exit Sub
+  
+  
+  
+End Sub
+Public Sub ConfiguraRstI(ByVal strCadena As String)
+  
+  
+  
+  
+  On Error GoTo salir
+reiniciar:
+  Set rstI = New ADODB.Recordset
+  rstI.CursorLocation = adUseClient
+  rstI.Open strCadena, CnBd, adOpenKeyset, adLockOptimistic
+  rstI.ActiveConnection = Nothing
+  Exit Sub
+salir:
+  
+  Call reiniciar_conexion
+  GoTo reiniciar
+  Exit Sub
+  MsgBox "PROBLEMA DE RED DETECTADO ..." + Chr(13) + Chr(13) + "COMUNIQUESE CON EL PERSONAL DE INFORMATICA" + Chr(13) + "SE CERRARA EL SISTEMA VITEKEY SALUD...", vbInformation, KEY_EMPRESA
+  rstI.ActiveConnection = Nothing
+  Exit Sub
+  
+  
+  
+  
+  
+  
+  
+  
+End Sub
+Public Sub ConfiguraRstM(ByVal strCadena As String)
+  Set rstM = New ADODB.Recordset
+  rstM.CursorLocation = adUseClient
+  rstM.Open strCadena, cnbd1, adOpenKeyset, adLockOptimistic
+  rstM.ActiveConnection = Nothing
+End Sub
+
+Public Sub EjecutaRST(ByVal strCadena As String)
+  Set RstEjecuta = CnBd.Execute(strCadena)
+End Sub
+
+Public Sub ConfiguraTemporal(ByVal strCadena As String)
+  
+  
+  
+  On Error GoTo salir
+reiniciar:
+  Set rstTemporal = New ADODB.Recordset
+  rstTemporal.CursorLocation = adUseClient
+  rstTemporal.Open strCadena, CnBd, adOpenKeyset, adLockOptimistic
+  rstTemporal.ActiveConnection = Nothing
+  Exit Sub
+salir:
+  
+  Call reiniciar_conexion
+  GoTo reiniciar
+  Exit Sub
+  MsgBox "PROBLEMA DE RED DETECTADO ..." + Chr(13) + Chr(13) + "COMUNIQUESE CON EL PERSONAL DE INFORMATICA" + Chr(13) + "SE CERRARA EL SISTEMA VITEKEY SALUD...", vbInformation, KEY_EMPRESA
+  
+  rstTemporal.ActiveConnection = Nothing
+  Exit Sub
+  
+  
+  
+  
+  
+  
+  
+End Sub
+
+Public Function salir() As Integer
+On Error GoTo nsalir
+  PlaySound App.Path & "\sonidos\salir.wav"
+  salir = MsgBox("Desea salir de la aplicación", vbQuestion + vbYesNo, _
+  "Salir del sistema")
+  Select Case salir
+    Case vbYes
+        PlaySound App.Path & "\sonidos\pronto.wav"
+       strCadena = "UPDATE almacen SET dni_save='0' WHERE dni_save='" & KEY_USUARIO & "' and id_alm='" & KEY_VENTANILLA & "' and id_sucursal='" & KEY_ALM & "' and ruc='" & KEY_RUC & "'"
+       CnBd.Execute (strCadena)
+       
+       
+       strCadena = "DELETE FROM gig_usuarios_online WHERE id_gigane='" & KEY_USUARIO & "'"
+       CnBd.Execute (strCadena)
+       CnBd.Close
+      End
+    Case vbNo
+      salir = vbCancel
+  End Select
+  
+  Exit Function
+nsalir:
+  End
+  
+  
+End Function
+Public Function ValorItem(ByVal Valor As Double) As String
+    If Valor <> 0 Then
+        ValorItem = Format(Valor, "#,##0.00")
+    Else
+        ValorItem = ""
+    End If
+End Function
+Public Function ValorItem_v(ByVal Valor As Double) As String
+    
+        ValorItem_v = Format(Valor, "#,##0.00")
+    
+End Function
+
+Public Function ValorItemII(ByVal Valor As Double) As String
+    If Valor <> 0 Then
+        ValorItemII = Format(Valor, "#,##0.00000000")
+    Else
+        ValorItemII = ""
+    End If
+End Function
+
+Public Function ValorItemIII(ByVal Valor As Double) As String
+    
+        ValorItemIII = Format(Valor, "#,##0.00000000")
+    
+End Function
+
+
+Public Sub CenterForm(ByRef ifrmFormulario As Form)
+    ifrmFormulario.Move (Screen.Width - ifrmFormulario.Width) / 2, (Screen.Height - ifrmFormulario.Height) / 2
+End Sub
+Public Function AlineaString( _
+                ByVal Cadena As String, _
+                ByVal TamRef As Integer, _
+                Optional ByVal Alinea As prntAlineacion = pAlnIzquierda, _
+                Optional ByVal CharRelleno As String = " ") As String
+                
+    Dim TamCad As Integer
+    TamCad = Len(Cadena)
+    
+    If TamCad > TamRef Then
+        AlineaString = Mid$(Cadena, 1, TamRef)
+        
+    ElseIf TamCad = TamRef Then
+        AlineaString = Cadena
+        
+    Else
+        Select Case Alinea
+            Case pAlnIzquierda
+                AlineaString = Cadena & String$(TamRef - TamCad, CharRelleno)
+            Case pAlnDerecha
+                AlineaString = String$(TamRef - TamCad, CharRelleno) & Cadena
+            Case pAlnCentro
+                Cadena = String$(Fix((TamRef - TamCad) / 2), CharRelleno) & Cadena
+                AlineaString = Cadena & String(TamRef - Len(Cadena), CharRelleno)
+        End Select
+        
+    End If
+
+End Function
+
+Public Function Comillas(strDato) As String
+    strDato = Replace(strDato, ChrW$(92), ChrW$(92) & ChrW$(92))
+    Comillas = ChrW$(34) & Replace(strDato, ChrW$(34), ChrW$(92) & ChrW$(34)) & ChrW$(34)
+End Function
+Public Function GetCodigoInternoProd(ByVal barra As String) As String
+    strCadena = "SELECT id_producto FROM producto_barras WHERE cod_barra='" & Trim(barra) & "' AND ruc='" & KEY_EMPRESA & "'"
+    Call ConfiguraRstT(strCadena)
+    If rstT.RecordCount > 0 Then
+        GetCodigoInternoProd = rstT("id_producto")
+    Else
+        GetCodigoInternoProd = "0"
+    End If
+End Function
+Public Function GetCodigoBarraProd(ByVal id_producto As String) As String
+    strCadena = "SELECT cod_barra FROM producto_barras WHERE id_producto='" & Trim(id_producto) & "' AND ruc='" & KEY_EMPRESA & "'"
+    Call ConfiguraRstT(strCadena)
+    If rstT.RecordCount > 0 Then
+        GetCodigoBarraProd = rstT("cod_barra")
+    Else
+        GetCodigoBarraProd = "0"
+    End If
+End Function
+Public Function VerificarFichero(ByVal ruta As String) As Boolean
+
+    Dim fso As Object
+   ' carpeta = "F:\Factusoft1.0 Inventario\archivos\42546269"
+    'Instanciar el objeto FSO para poder _
+     usar las funciones FileExists y FolderExists
+    Set fso = CreateObject("Scripting.FileSystemObject")
+    
+    ' Comprobar archivo
+  '  MsgBox fso.FileExists("c:\windows\notepad.exe")
+    
+    
+    ' Comprobar directorio
+   ' MsgBox fso.FolderExists("c:\windows\")
+    
+    'MsgBox fso.FolderExists("c:\windows\system32")
+     VerificarFichero = fso.FolderExists(ruta)
+    'MsgBox fso.FolderExists(carpeta)
+    Set fso = Nothing
+
+'Exit Sub
+
+End Function
+Public Function VerificarArchivo(ByVal ruta As String) As Boolean
+
+    Dim fso As Object
+   ' carpeta = "F:\Factusoft1.0 Inventario\archivos\42546269"
+    'Instanciar el objeto FSO para poder _
+     usar las funciones FileExists y FolderExists
+    Set fso = CreateObject("Scripting.FileSystemObject")
+    
+    ' Comprobar archivo
+  '  MsgBox fso.FileExists("c:\windows\notepad.exe")
+    
+    
+    ' Comprobar directorio
+   ' MsgBox fso.FolderExists("c:\windows\")
+    
+    'MsgBox fso.FolderExists("c:\windows\system32")
+     VerificarArchivo = fso.FileExists(ruta)
+    'MsgBox fso.FolderExists(carpeta)
+    Set fso = Nothing
+
+'Exit Sub
+
+End Function
+Public Function nombre_mes(ByVal id_mes As String) As String
+Select Case id_mes
+    Case "01"
+        nombre_mes = "ENERO"
+    Case "02"
+        nombre_mes = "FEBRERO"
+    Case "03"
+        nombre_mes = "MARZO"
+    Case "04"
+        nombre_mes = "ABRIL"
+    Case "05"
+        nombre_mes = "MAYO"
+    Case "06"
+        nombre_mes = "JUNIO"
+    Case "07"
+        nombre_mes = "JULIO"
+    Case "08"
+        nombre_mes = "AGOSTO"
+    Case "09"
+        nombre_mes = "SETIEMBRE"
+    Case "10"
+        nombre_mes = "OCTUBRE"
+    Case "11"
+        nombre_mes = "NOVIEMBRE"
+    Case "12"
+        nombre_mes = "DICIEMBRE"
+    End Select
+End Function
+Public Function BDBuscarCampo(Tabla As String, CampoRetorno As String, CampoCondicion As String, Condicion As Variant) As Variant
+
+    Dim SqlStr As String
+    
+    SqlStr = "SELECT " & CampoRetorno & " FROM " & Tabla & " WHERE " & CampoCondicion & " = " & DatoToBDString(Condicion)
+    
+    BDBuscarCampo = ConsultaCampo(SqlStr)
+    
+End Function
+Public Function BDBuscarCampoUsu(Tabla As String, CampoRetorno As String, CampoCondicion As String, Condicion As Variant) As Variant
+
+    Dim SqlStr As String
+    
+    SqlStr = "SELECT " & CampoRetorno & " FROM " & Tabla & " WHERE id_usu='" & KEY_RUC & "' AND " & CampoCondicion & " = " & DatoToBDString(Condicion)
+    
+    BDBuscarCampoUsu = ConsultaCampo(SqlStr)
+    
+End Function
+
+Public Function BDBuscarCampoRuc(Tabla As String, CampoRetorno As String, CampoCondicion As String, Condicion As Variant) As Variant
+
+    Dim SqlStr As String
+    
+    SqlStr = "SELECT " & CampoRetorno & " FROM " & Tabla & " WHERE ruc='" & KEY_RUC & "' AND " & CampoCondicion & " = " & DatoToBDString(Condicion)
+    
+    BDBuscarCampoRuc = ConsultaCampo(SqlStr)
+    
+End Function
+Public Function BDBuscarCampoEmpresa(Tabla As String, CampoRetorno As String, CampoCondicion As String, Condicion As Variant, ByVal ruc As String) As Variant
+
+    Dim SqlStr As String
+    
+    SqlStr = "SELECT " & CampoRetorno & " FROM " & Tabla & " WHERE ruc='" & ruc & "' AND " & CampoCondicion & " = " & DatoToBDString(Condicion)
+    
+    BDBuscarCampoEmpresa = ConsultaCampo(SqlStr)
+    
+End Function
+Public Function ConsultaCampo(strSQL As String) As Variant
+    Dim rsResult As ADODB.Recordset
+    Dim adoCommand As ADODB.Command
+    Set adoCommand = New ADODB.Command
+    
+    With adoCommand
+        .ActiveConnection = CnBd
+        .CommandText = strSQL
+        .CommandType = adCmdText
+        Set rsResult = .Execute
+    End With
+    Set adoCommand = Nothing
+    
+    If Not rsResult.EOF Then
+        If Not IsNull(rsResult(0)) Then
+            ConsultaCampo = rsResult(0)
+        End If
+    End If
+    Set rsResult = Nothing
+    
+End Function
+Public Function DatoToBDString(Dato As Variant) As String
+    If Dato = vbNullString Then
+        DatoToBDString = vbNullString
+        
+    ElseIf Dato = "BDNullValue" Then
+        DatoToBDString = "NULL"
+        
+    ElseIf IsNumeric(Dato) Then
+        DatoToBDString = Dato
+        
+    ElseIf IsDate(Dato) Then
+        DatoToBDString = Comillas(Format$(Dato, "yyyy-mm-dd"))
+        
+    Else
+        DatoToBDString = Comillas(Dato)
+    End If
+End Function
+Public Function ConsultaRegsOpen(strSQL As String) As ADODB.Recordset
+    Dim adoCommand As ADODB.Command
+    Set adoCommand = New ADODB.Command
+    
+    With adoCommand
+        .ActiveConnection = CnBd
+        .CommandText = strSQL
+        .CommandType = adCmdText
+    End With
+    
+    Set ConsultaRegsOpen = New ADODB.Recordset
+    
+    With ConsultaRegsOpen
+        .CursorType = adOpenStatic
+        .CursorLocation = adUseClient
+        .LockType = adLockOptimistic
+        .Open adoCommand
+    End With
+    
+    Set adoCommand = Nothing
+    
+End Function
+Public Function get_persona(ByVal dni As String) As String
+strCadena = "SELECT nombre_completo FROM persona where dni='" & dni & "'"
+Call ConfiguraRstZ(strCadena)
+If rstZ.RecordCount > 0 Then
+    get_persona = rstZ("nombre_completo")
+Else
+    get_persona = "-"
+End If
+End Function
+Public Function GetCambio(ByVal fecha As Date) As Single
+
+strCadena = "SELECT valor FROM tipo_cambio WHERE fecha='" & Format(fecha, "YYYY-mm-dd") & "' AND id_creador='" & KEY_RUC & "'"
+Call ConfiguraRstF(strCadena)
+If rstF.RecordCount > 0 Then
+    GetCambio = rstF("valor")
+Else
+    GetCambio = 0
+End If
+
+End Function
+
+Public Function get_id_compra(ByVal in_doc As String, ByVal in_serie As String, ByVal in_numero As String, ByVal id_proveedor As String) As Double
+
+strCadena = "SELECT id_compra FROM movimiento_compra WHERE id_doc='" & in_doc & "' and serie='" & in_serie & "' and numero='" & in_numero & "' and id_proveedor='" & id_proveedor & "' and ruc='" & KEY_RUC & "' LIMIT 1"
+Call ConfiguraRstZ(strCadena)
+If rstZ.RecordCount > 0 Then
+    get_id_compra = rstZ("id_compra")
+Else
+    get_id_compra = 0
+End If
+End Function
+
+Public Function get_forma_pago_anterior(ByVal in_moneda As String)
+
+strCadena = "SELECT * FROM forma_pago_detalle WHERE id_detalle='10' and id_moneda='" & in_moneda & "' and ruc='" & KEY_RUC & "' LIMIT 1"
+Call ConfiguraRstL(strCadena)
+If rstL.RecordCount > 0 Then
+   get_forma_pago_anterior = rstL("id_registro")
+Else
+   get_forma_pago_anterior = 0
+End If
+
+
+
+End Function
+

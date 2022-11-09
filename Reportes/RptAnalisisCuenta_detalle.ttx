@@ -1,0 +1,13 @@
+id	String	20
+emision	Date
+glosa	String	120
+documento	String	40
+id_cliente	String	16
+ncliente	String	100
+debe	Number
+haber	Number
+id_movimiento	Number
+cta_contable	String	16
+des_cuenta	String	100
+id_moneda	String	5
+saldo_ini	Number

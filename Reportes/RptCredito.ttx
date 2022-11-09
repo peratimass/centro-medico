@@ -1,0 +1,9 @@
+Documento	String	10
+Entidad	String	101
+dVencimiento	Date
+dPago	Date
+Total	Number
+Estado	String	20
+Cuota	String	3
+dCuota	Date
+nTotalPagoCuota	Number

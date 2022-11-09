@@ -1,0 +1,9 @@
+in_venta	Number
+chasis	String	20
+motor	String	20
+marca	String	40
+modelo	String	40
+anio_fabrica	String	10
+color	String	20
+dua	String	20
+nro_item	String	10

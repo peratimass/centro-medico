@@ -1,0 +1,436 @@
+VERSION 5.00
+Object = "{F0D2F211-CCB0-11D0-A316-00AA00688B10}#1.0#0"; "MSDATLST.OCX"
+Object = "{86CF1D34-0C5F-11D2-A9FC-0000F8754DA1}#2.0#0"; "MSCOMCT2.OCX"
+Object = "{0ECD9B60-23AA-11D0-B351-00A0C9055D8E}#6.0#0"; "mshflxgd.ocx"
+Begin VB.Form frmComprobantesCaja 
+   BorderStyle     =   0  'None
+   Caption         =   "Form1"
+   ClientHeight    =   8520
+   ClientLeft      =   0
+   ClientTop       =   0
+   ClientWidth     =   15285
+   LinkTopic       =   "Form1"
+   MaxButton       =   0   'False
+   MDIChild        =   -1  'True
+   MinButton       =   0   'False
+   ScaleHeight     =   8520
+   ScaleWidth      =   15285
+   ShowInTaskbar   =   0   'False
+   Begin VB.TextBox txtcliente 
+      Appearance      =   0  'Flat
+      BeginProperty Font 
+         Name            =   "Tahoma"
+         Size            =   8.25
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      ForeColor       =   &H00800000&
+      Height          =   285
+      Left            =   1680
+      TabIndex        =   2
+      Top             =   480
+      Width           =   4335
+   End
+   Begin VB.CheckBox chk_vendedor 
+      Appearance      =   0  'Flat
+      BackColor       =   &H000080FF&
+      Caption         =   "VENDEDOR :"
+      BeginProperty Font 
+         Name            =   "Calibri"
+         Size            =   8.25
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      ForeColor       =   &H00800000&
+      Height          =   315
+      Left            =   360
+      TabIndex        =   1
+      Top             =   840
+      Width           =   1215
+   End
+   Begin MSDataListLib.DataCombo DtcVendedor 
+      Height          =   330
+      Left            =   1680
+      TabIndex        =   0
+      Top             =   840
+      Width           =   4335
+      _ExtentX        =   7646
+      _ExtentY        =   582
+      _Version        =   393216
+      Appearance      =   0
+      Text            =   "DataCombo1"
+      BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+         Name            =   "Calibri"
+         Size            =   9
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+   End
+   Begin VitekeySoft.ChameleonBtn cmdconsultar 
+      Height          =   660
+      Left            =   6360
+      TabIndex        =   3
+      Top             =   540
+      Width           =   2895
+      _ExtentX        =   5106
+      _ExtentY        =   1164
+      BTYPE           =   5
+      TX              =   "CONSULTAR"
+      ENAB            =   -1  'True
+      BeginProperty FONT {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+         Name            =   "Calibri"
+         Size            =   8.25
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      COLTYPE         =   2
+      FOCUSR          =   -1  'True
+      BCOL            =   16777215
+      BCOLO           =   16777215
+      FCOL            =   8388608
+      FCOLO           =   8388608
+      MCOL            =   12632256
+      MPTR            =   1
+      MICON           =   "frmComprobantesCaja.frx":0000
+      PICN            =   "frmComprobantesCaja.frx":001C
+      UMCOL           =   -1  'True
+      SOFT            =   0   'False
+      PICPOS          =   0
+      NGREY           =   0   'False
+      FX              =   0
+      HAND            =   0   'False
+      CHECK           =   0   'False
+      VALUE           =   0   'False
+   End
+   Begin MSComCtl2.DTPicker DTPicker1 
+      Height          =   315
+      Left            =   1680
+      TabIndex        =   4
+      Top             =   120
+      Width           =   1575
+      _ExtentX        =   2778
+      _ExtentY        =   556
+      _Version        =   393216
+      BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+         Name            =   "Calibri"
+         Size            =   9.75
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      CalendarForeColor=   8388608
+      CalendarTitleForeColor=   8388608
+      Format          =   176750593
+      CurrentDate     =   42236
+   End
+   Begin MSHierarchicalFlexGridLib.MSHFlexGrid HfPendientes 
+      Height          =   6975
+      Left            =   240
+      TabIndex        =   5
+      Top             =   1320
+      Width           =   13335
+      _ExtentX        =   23521
+      _ExtentY        =   12303
+      _Version        =   393216
+      ForeColor       =   8388608
+      FixedCols       =   0
+      ForeColorFixed  =   8388608
+      BackColorBkg    =   16777215
+      SelectionMode   =   1
+      Appearance      =   0
+      BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+         Name            =   "Calibri"
+         Size            =   9
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      _NumberOfBands  =   1
+      _Band(0).Cols   =   2
+   End
+   Begin VitekeySoft.ChameleonBtn cmdsalir 
+      Height          =   285
+      Left            =   14640
+      TabIndex        =   6
+      Top             =   120
+      Width           =   375
+      _ExtentX        =   661
+      _ExtentY        =   503
+      BTYPE           =   5
+      TX              =   ""
+      ENAB            =   -1  'True
+      BeginProperty FONT {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+         Name            =   "Calibri"
+         Size            =   9
+         Charset         =   0
+         Weight          =   700
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      COLTYPE         =   2
+      FOCUSR          =   -1  'True
+      BCOL            =   16777215
+      BCOLO           =   16777215
+      FCOL            =   8388608
+      FCOLO           =   8388608
+      MCOL            =   12632256
+      MPTR            =   1
+      MICON           =   "frmComprobantesCaja.frx":2601
+      PICN            =   "frmComprobantesCaja.frx":261D
+      UMCOL           =   -1  'True
+      SOFT            =   0   'False
+      PICPOS          =   0
+      NGREY           =   0   'False
+      FX              =   0
+      HAND            =   0   'False
+      CHECK           =   0   'False
+      VALUE           =   0   'False
+   End
+   Begin VitekeySoft.ChameleonBtn cmdGenerarasiento 
+      Height          =   885
+      Left            =   13680
+      TabIndex        =   9
+      Top             =   1320
+      Width           =   1455
+      _ExtentX        =   2566
+      _ExtentY        =   1561
+      BTYPE           =   5
+      TX              =   "GENERAR ASIENTO CAJA BANCOS"
+      ENAB            =   0   'False
+      BeginProperty FONT {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+         Name            =   "Calibri"
+         Size            =   8.25
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      COLTYPE         =   2
+      FOCUSR          =   -1  'True
+      BCOL            =   16777215
+      BCOLO           =   16777215
+      FCOL            =   8388608
+      FCOLO           =   8388608
+      MCOL            =   12632256
+      MPTR            =   1
+      MICON           =   "frmComprobantesCaja.frx":54D1
+      PICN            =   "frmComprobantesCaja.frx":54ED
+      UMCOL           =   -1  'True
+      SOFT            =   0   'False
+      PICPOS          =   2
+      NGREY           =   0   'False
+      FX              =   0
+      HAND            =   0   'False
+      CHECK           =   0   'False
+      VALUE           =   0   'False
+   End
+   Begin VB.Label Label1 
+      BackColor       =   &H00FFFFFF&
+      Caption         =   "FECHA     :"
+      BeginProperty Font 
+         Name            =   "Calibri"
+         Size            =   8.25
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      ForeColor       =   &H00400000&
+      Height          =   255
+      Left            =   720
+      TabIndex        =   8
+      Top             =   120
+      Width           =   1095
+   End
+   Begin VB.Label Label2 
+      BackColor       =   &H00FFFFFF&
+      Caption         =   "CLIENTE  :"
+      BeginProperty Font 
+         Name            =   "Calibri"
+         Size            =   8.25
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      ForeColor       =   &H00400000&
+      Height          =   255
+      Left            =   720
+      TabIndex        =   7
+      Top             =   480
+      Width           =   1095
+   End
+   Begin VB.Shape Shape1 
+      BackColor       =   &H00FFFFFF&
+      BackStyle       =   1  'Opaque
+      BorderColor     =   &H00000000&
+      BorderWidth     =   2
+      Height          =   8505
+      Left            =   0
+      Top             =   0
+      Width           =   15285
+   End
+End
+Attribute VB_Name = "frmComprobantesCaja"
+Attribute VB_GlobalNameSpace = False
+Attribute VB_Creatable = False
+Attribute VB_PredeclaredId = True
+Attribute VB_Exposed = False
+
+Private Sub cmdconsultar_Click()
+
+If Me.chk_vendedor.Value = 0 Then
+    strCadena = "SELECT * FROM view_listado_comprobantes_caja WHERE fecha_emision='" & Format(Me.DTPicker1.Value, "YYYY-mm-dd") & "' AND ruc='" & KEY_RUC & "'"
+Else
+    strCadena = "SELECT * FROM view_listado_comprobantes_caja WHERE fecha_emision='" & Format(Me.DTPicker1.Value, "YYYY-mm-dd") & "' and id_vendedor='" & Me.DtcVendedor.BoundText & "' AND ruc='" & KEY_RUC & "'"
+End If
+
+Call actualizar(Me.HfPendientes)
+
+
+End Sub
+
+Private Sub cmdGenerarasiento_Click()
+
+Call generar_caja(Me.HfPendientes.TextMatrix(Me.HfPendientes.Row, 0))
+
+If Me.chk_vendedor.Value = 0 Then
+    strCadena = "SELECT * FROM view_listado_comprobantes_caja WHERE fecha_emision='" & Format(Me.DTPicker1.Value, "YYYY-mm-dd") & "' AND ruc='" & KEY_RUC & "'"
+Else
+    strCadena = "SELECT * FROM view_listado_comprobantes_caja WHERE fecha_emision='" & Format(Me.DTPicker1.Value, "YYYY-mm-dd") & "' and id_vendedor='" & Me.DtcVendedor.BoundText & "' AND ruc='" & KEY_RUC & "'"
+End If
+
+Call actualizar(Me.HfPendientes)
+
+End Sub
+Private Sub generar_caja(ByVal in_venta As String)
+Dim in_mis_cuentas_det As String
+
+strCadena = "SELECT * FROM movimiento_venta WHERE id_venta='" & Val(in_venta) & "' and ruc='" & KEY_RUC & "'"
+Call ConfiguraRstL(strCadena)
+If rstL.RecordCount > 0 Then
+
+strCadena = "SELECT * FROM movimiento_venta_monto WHERE id_venta='" & Val(in_venta) & "' and ruc='" & KEY_RUC & "'"
+Call ConfiguraRstK(strCadena)
+If rstK.RecordCount > 0 Then
+   rstK.MoveFirst
+   For i = 0 To rstK.RecordCount - 1
+       in_documento = rstL("documento")
+       in_glosa = "PAGO :" & in_documento
+     
+        in_flujo = "1CIX000000000078"
+        in_documento = rstL("documento")
+        in_doc = rstL("id_doc")
+        in_cliente = rstL("id_cliente")
+       in_mis_cuentas_det = procesar_transaccion_venta(rstK("id_forma_pago"), KEY_ALM, get_cuenta_pago(rstK("id_forma_pago")), KEY_FECHA, "00001", Trim(in_cliente), get_persona(in_cliente), in_glosa, rstK("monto_caja"), "0", in_venta, "0", in_documento, Val(KEY_CAMBIO), rstK("id_tarjeta_operacion"), "1CIX000000000174", in_flujo, KEY_USUARIO, in_doc, KEY_RUC)
+       strCadena = "call sp_insertar_transaccion_caja('" & Val(in_mis_cuentas_det) & "')"
+       CnBd.Execute (strCadena)
+       rstK.MoveNext
+   Next i
+   strCadena = "UPDATE movimiento_venta SET asiento_caja='si' WHERE id_venta='" & Val(in_venta) & "' and ruc='" & KEY_RUC & "'"
+   CnBd.Execute (strCadena)
+   
+End If
+End If
+End Sub
+Private Sub cmdsalir_Click()
+Unload Me
+End Sub
+
+Private Sub Form_Load()
+CenterForm Me
+Me.Top = 150
+Me.DTPicker1.Value = KEY_FECHA
+strCadena = "SELECT * FROM view_listado_comprobantes_caja WHERE fecha_emision='" & KEY_FECHA & "' AND ruc='" & KEY_RUC & "'"
+Call actualizar(Me.HfPendientes)
+
+
+strCadena = "SELECT dni as Codigo,nombre_completo as Descripcion FROM view_entidad  WHERE  id_personal='si' and habilitado='si' and  ruc='" & KEY_RUC & "'"
+Call ConfiguraRst(strCadena)
+Call LlenaDataCombo(Me.DtcVendedor)
+
+
+End Sub
+Public Sub actualizar(ByVal Grilla As MSHFlexGrid)
+Dim Anulado As String
+
+
+Call ConfiguraRstL(strCadena)
+If rstL.RecordCount < 1 Then
+
+    Grilla.Rows = 0
+    
+    Exit Sub
+End If
+  
+   Grilla.Rows = 0
+       ReDim arrColWidth(1 To rstL.Fields.Count)
+       For Each Campo In rstL.Fields
+           Grilla.ColWidth(0) = 0
+           Grilla.ColWidth(1) = 1100
+           Grilla.ColWidth(2) = 2500
+           Grilla.ColWidth(3) = 1200
+           Grilla.ColWidth(4) = 3500
+           Grilla.ColWidth(5) = 1200
+           Grilla.ColWidth(6) = 2000
+           Grilla.ColWidth(7) = 1400
+           
+       Next
+        cabecera = "IDVENTA" & vbTab & "FECHA" & vbTab & "COMPROBANTE" & vbTab & "DNI/RUC" & vbTab & "CLIENTE" & vbTab & "TOTAL" & vbTab & "FORMA PAGO" & vbTab & "ASIENTO CAJA"
+        Grilla.AddItem cabecera
+         For k = 0 To 7
+            Grilla.col = k
+            Grilla.Row = 0
+            Grilla.CellBackColor = &HDFDFE0
+        Next k
+        rstL.MoveFirst
+        For i = 0 To rstL.RecordCount - 1
+            If rstL("asiento_caja") = "si" Then
+                asiento_caja = "GENERADO"
+            Else
+                asiento_caja = "SIN GENERAR"
+            End If
+            Fila = rstL("id_venta") & vbTab & Format(rstL("fecha_emision"), "dd-mm-YYYY") & vbTab & rstL("documento") & vbTab & rstL("id_cliente") & vbTab & rstL("ncliente") & vbTab & Format(rstL("total"), "#,##0.00") & vbTab & rstL("forma_pago") & vbTab & asiento_caja
+            Grilla.AddItem Fila
+            If rstL("asiento_caja") = "no" Then
+              
+                    Grilla.col = 7
+                    Grilla.Row = i + 1
+                    Grilla.CellBackColor = &H8080FF
+           
+            End If
+                rstL.MoveNext
+        Next i
+                            
+        
+    
+  
+End Sub
+
+Private Sub HfPendientes_SelChange()
+If Val(Me.HfPendientes.TextMatrix(Me.HfPendientes.Row, 0)) > 0 Then
+   Me.cmdGenerarasiento.Enabled = True
+Else
+   Me.cmdGenerarasiento.Enabled = False
+End If
+End Sub

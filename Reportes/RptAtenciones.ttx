@@ -1,0 +1,12 @@
+fecha	Date
+id_hora	DateTime
+especialidad	String	100
+medico	String	150
+dni_paciente	String	11
+paciente	String	150
+sexo	String	1
+edad	Number
+atencion	String	50
+cie10	String	10
+cie10descripcion	String	300
+id_tipo	String	2

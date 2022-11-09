@@ -1,0 +1,17 @@
+id_venta	Number
+dni	String	16
+cliente	String	100
+emision	Date
+comprobante	String	40
+total	Number
+id_producto	String	10
+producto	String	100
+cantidad	Number
+precio	Number
+ntotal	Number
+operador	String	50
+
+
+
+
+

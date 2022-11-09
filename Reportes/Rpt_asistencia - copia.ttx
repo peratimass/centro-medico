@@ -1,0 +1,9 @@
+dni	String	11
+fecha	Date
+hora	DateTime
+horas_trabajo	Number
+id_acceso	String	2
+nombre_usuario	String	60
+
+
+

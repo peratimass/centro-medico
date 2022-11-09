@@ -1,0 +1,27 @@
+dni_vendedor	String	11
+vendedor		String	60
+fecha_emision	Date
+documento	String	25
+cliente	String	60
+id_alm	String	5
+almacen	String	50
+cantidad	Number
+detalle	String	60
+color	String	60
+serie	String	25
+chasis	String	25
+forma_pago	String	2
+id_linea	String	5
+linea	String	50
+total	Number
+monto_nota	Number
+nota_doc	String	30
+in_fecha_ini	String	20
+in_fecha_fin	String	20
+contado	Number
+credito	Number
+cuotas	Number
+interes	Number
+ruc	String	11
+
+

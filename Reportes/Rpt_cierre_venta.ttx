@@ -1,0 +1,16 @@
+fecha	Date
+id_doc	String	4
+tipo_doc	String	20
+comprobante	String	30
+id_cliente	String	16
+cliente	String	60
+forma_pago	String	2
+forma_pago_des	String	30
+monto	Number
+
+
+
+
+
+
+

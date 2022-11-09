@@ -1,0 +1,1825 @@
+VERSION 5.00
+Object = "{F0D2F211-CCB0-11D0-A316-00AA00688B10}#1.0#0"; "MSDATLST.OCX"
+Object = "{0ECD9B60-23AA-11D0-B351-00A0C9055D8E}#6.0#0"; "mshflxgd.ocx"
+Begin VB.Form FrmPersona 
+   BackColor       =   &H00FFFFFF&
+   BorderStyle     =   0  'None
+   Caption         =   "Clientes-Proveedores-Transportistas"
+   ClientHeight    =   9240
+   ClientLeft      =   240
+   ClientTop       =   75
+   ClientWidth     =   20145
+   Icon            =   "FrmCliente.frx":0000
+   KeyPreview      =   -1  'True
+   LinkTopic       =   "Form2"
+   MaxButton       =   0   'False
+   MDIChild        =   -1  'True
+   MinButton       =   0   'False
+   ScaleHeight     =   9240
+   ScaleWidth      =   20145
+   ShowInTaskbar   =   0   'False
+   Begin VitekeySoft.ChameleonBtn cmdBuscar 
+      Height          =   300
+      Left            =   18960
+      TabIndex        =   18
+      Top             =   240
+      Visible         =   0   'False
+      Width           =   735
+      _ExtentX        =   1296
+      _ExtentY        =   529
+      BTYPE           =   3
+      TX              =   "BUSCAR"
+      ENAB            =   -1  'True
+      BeginProperty FONT {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+         Name            =   "Calibri"
+         Size            =   8.25
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      COLTYPE         =   1
+      FOCUSR          =   -1  'True
+      BCOL            =   15790320
+      BCOLO           =   15790320
+      FCOL            =   0
+      FCOLO           =   0
+      MCOL            =   12632256
+      MPTR            =   1
+      MICON           =   "FrmCliente.frx":030A
+      UMCOL           =   -1  'True
+      SOFT            =   0   'False
+      PICPOS          =   0
+      NGREY           =   0   'False
+      FX              =   0
+      HAND            =   0   'False
+      CHECK           =   0   'False
+      VALUE           =   0   'False
+   End
+   Begin MSDataListLib.DataCombo DtcPlanes 
+      Height          =   315
+      Left            =   15840
+      TabIndex        =   17
+      Top             =   240
+      Visible         =   0   'False
+      Width           =   3015
+      _ExtentX        =   5318
+      _ExtentY        =   556
+      _Version        =   393216
+      Appearance      =   0
+      ForeColor       =   4194304
+      Text            =   "DataCombo1"
+      BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+         Name            =   "Calibri"
+         Size            =   8.25
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+   End
+   Begin VB.CheckBox chk_planes_empresa 
+      Appearance      =   0  'Flat
+      BackColor       =   &H000080FF&
+      Caption         =   "PLANES EMPRESA"
+      BeginProperty Font 
+         Name            =   "Calibri"
+         Size            =   8.25
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      ForeColor       =   &H00400000&
+      Height          =   250
+      Left            =   14160
+      TabIndex        =   15
+      Top             =   240
+      Width           =   1575
+   End
+   Begin VB.CheckBox chk_proveedor 
+      Appearance      =   0  'Flat
+      BackColor       =   &H000080FF&
+      Caption         =   "PROVEEDOR"
+      BeginProperty Font 
+         Name            =   "Calibri"
+         Size            =   8.25
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      ForeColor       =   &H00400000&
+      Height          =   250
+      Left            =   11040
+      TabIndex        =   14
+      Top             =   510
+      Width           =   2055
+   End
+   Begin VB.CheckBox chk_cliente 
+      Appearance      =   0  'Flat
+      BackColor       =   &H000080FF&
+      Caption         =   "CLIENTE"
+      BeginProperty Font 
+         Name            =   "Calibri"
+         Size            =   8.25
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      ForeColor       =   &H00400000&
+      Height          =   250
+      Left            =   11040
+      TabIndex        =   13
+      Top             =   240
+      Width           =   2055
+   End
+   Begin VB.PictureBox pbImageFrame 
+      Appearance      =   0  'Flat
+      BackColor       =   &H80000005&
+      ForeColor       =   &H80000008&
+      Height          =   3615
+      Left            =   -2040
+      ScaleHeight     =   239
+      ScaleMode       =   3  'Pixel
+      ScaleWidth      =   127
+      TabIndex        =   5
+      Top             =   0
+      Visible         =   0   'False
+      Width           =   1935
+   End
+   Begin VB.TextBox TxtApellido 
+      Appearance      =   0  'Flat
+      BackColor       =   &H00FFFFFF&
+      BeginProperty Font 
+         Name            =   "Calibri"
+         Size            =   9
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      ForeColor       =   &H00C00000&
+      Height          =   315
+      Left            =   1635
+      TabIndex        =   0
+      Top             =   360
+      Width           =   2895
+   End
+   Begin VB.TextBox TxtRuc 
+      Appearance      =   0  'Flat
+      BackColor       =   &H00FFFFFF&
+      BeginProperty Font 
+         Name            =   "Calibri"
+         Size            =   9
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      ForeColor       =   &H00C00000&
+      Height          =   315
+      Left            =   6195
+      TabIndex        =   1
+      Top             =   360
+      Width           =   2295
+   End
+   Begin MSHierarchicalFlexGridLib.MSHFlexGrid HfdPersona 
+      Height          =   7935
+      Left            =   120
+      TabIndex        =   4
+      Top             =   1080
+      Width           =   18735
+      _ExtentX        =   33046
+      _ExtentY        =   13996
+      _Version        =   393216
+      ForeColor       =   8388608
+      Rows            =   0
+      FixedRows       =   0
+      FixedCols       =   0
+      ForeColorFixed  =   8388608
+      BackColorBkg    =   16777215
+      GridColor       =   8388608
+      SelectionMode   =   1
+      Appearance      =   0
+      BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+         Name            =   "Calibri"
+         Size            =   9
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      _NumberOfBands  =   1
+      _Band(0).Cols   =   2
+   End
+   Begin VitekeySoft.ChameleonBtn cmdexit 
+      Height          =   855
+      Left            =   18960
+      TabIndex        =   6
+      Top             =   8130
+      Width           =   975
+      _ExtentX        =   1720
+      _ExtentY        =   1508
+      BTYPE           =   5
+      TX              =   "SALIR"
+      ENAB            =   -1  'True
+      BeginProperty FONT {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+         Name            =   "Calibri"
+         Size            =   8.25
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      COLTYPE         =   2
+      FOCUSR          =   -1  'True
+      BCOL            =   16777215
+      BCOLO           =   16777215
+      FCOL            =   12582912
+      FCOLO           =   12582912
+      MCOL            =   12632256
+      MPTR            =   1
+      MICON           =   "FrmCliente.frx":0326
+      PICN            =   "FrmCliente.frx":0342
+      UMCOL           =   -1  'True
+      SOFT            =   0   'False
+      PICPOS          =   2
+      NGREY           =   0   'False
+      FX              =   0
+      HAND            =   0   'False
+      CHECK           =   0   'False
+      VALUE           =   0   'False
+   End
+   Begin VitekeySoft.ChameleonBtn cmddelete 
+      Height          =   855
+      Left            =   18960
+      TabIndex        =   7
+      Top             =   2850
+      Width           =   975
+      _ExtentX        =   1720
+      _ExtentY        =   1508
+      BTYPE           =   5
+      TX              =   "ELIMINAR"
+      ENAB            =   -1  'True
+      BeginProperty FONT {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+         Name            =   "Calibri"
+         Size            =   8.25
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      COLTYPE         =   2
+      FOCUSR          =   -1  'True
+      BCOL            =   16777215
+      BCOLO           =   16777215
+      FCOL            =   12582912
+      FCOLO           =   12582912
+      MCOL            =   12632256
+      MPTR            =   1
+      MICON           =   "FrmCliente.frx":0732
+      PICN            =   "FrmCliente.frx":074E
+      UMCOL           =   -1  'True
+      SOFT            =   0   'False
+      PICPOS          =   2
+      NGREY           =   0   'False
+      FX              =   0
+      HAND            =   0   'False
+      CHECK           =   0   'False
+      VALUE           =   0   'False
+   End
+   Begin VitekeySoft.ChameleonBtn cmdupdate 
+      Height          =   855
+      Left            =   18960
+      TabIndex        =   8
+      Top             =   1965
+      Width           =   975
+      _ExtentX        =   1720
+      _ExtentY        =   1508
+      BTYPE           =   5
+      TX              =   "MODIFICAR"
+      ENAB            =   -1  'True
+      BeginProperty FONT {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+         Name            =   "Calibri"
+         Size            =   8.25
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      COLTYPE         =   2
+      FOCUSR          =   -1  'True
+      BCOL            =   16777215
+      BCOLO           =   16777215
+      FCOL            =   12582912
+      FCOLO           =   12582912
+      MCOL            =   12632256
+      MPTR            =   1
+      MICON           =   "FrmCliente.frx":2B98
+      PICN            =   "FrmCliente.frx":2BB4
+      UMCOL           =   -1  'True
+      SOFT            =   0   'False
+      PICPOS          =   2
+      NGREY           =   0   'False
+      FX              =   0
+      HAND            =   0   'False
+      CHECK           =   0   'False
+      VALUE           =   0   'False
+   End
+   Begin VitekeySoft.ChameleonBtn cmdnuevo 
+      Height          =   855
+      Left            =   18960
+      TabIndex        =   9
+      Top             =   1080
+      Width           =   975
+      _ExtentX        =   1720
+      _ExtentY        =   1508
+      BTYPE           =   5
+      TX              =   "NUEVO"
+      ENAB            =   -1  'True
+      BeginProperty FONT {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+         Name            =   "Calibri"
+         Size            =   8.25
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      COLTYPE         =   2
+      FOCUSR          =   -1  'True
+      BCOL            =   16777215
+      BCOLO           =   16777215
+      FCOL            =   12582912
+      FCOLO           =   12582912
+      MCOL            =   12632256
+      MPTR            =   1
+      MICON           =   "FrmCliente.frx":2ECE
+      PICN            =   "FrmCliente.frx":2EEA
+      UMCOL           =   -1  'True
+      SOFT            =   0   'False
+      PICPOS          =   2
+      NGREY           =   0   'False
+      FX              =   0
+      HAND            =   0   'False
+      CHECK           =   0   'False
+      VALUE           =   0   'False
+   End
+   Begin VitekeySoft.ChameleonBtn cmdmatricula 
+      Height          =   855
+      Left            =   18960
+      TabIndex        =   10
+      Top             =   4600
+      Width           =   975
+      _ExtentX        =   1720
+      _ExtentY        =   1508
+      BTYPE           =   5
+      TX              =   "PAGOS"
+      ENAB            =   -1  'True
+      BeginProperty FONT {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+         Name            =   "Calibri"
+         Size            =   8.25
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      COLTYPE         =   2
+      FOCUSR          =   -1  'True
+      BCOL            =   16777215
+      BCOLO           =   16777215
+      FCOL            =   12582912
+      FCOLO           =   12582912
+      MCOL            =   12632256
+      MPTR            =   1
+      MICON           =   "FrmCliente.frx":333C
+      PICN            =   "FrmCliente.frx":3358
+      UMCOL           =   -1  'True
+      SOFT            =   0   'False
+      PICPOS          =   2
+      NGREY           =   0   'False
+      FX              =   0
+      HAND            =   0   'False
+      CHECK           =   0   'False
+      VALUE           =   0   'False
+   End
+   Begin VitekeySoft.ChameleonBtn cmdficha 
+      Height          =   855
+      Left            =   18960
+      TabIndex        =   11
+      Top             =   3720
+      Width           =   975
+      _ExtentX        =   1720
+      _ExtentY        =   1508
+      BTYPE           =   5
+      TX              =   "MATRICULA"
+      ENAB            =   -1  'True
+      BeginProperty FONT {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+         Name            =   "Calibri"
+         Size            =   8.25
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      COLTYPE         =   2
+      FOCUSR          =   -1  'True
+      BCOL            =   16777215
+      BCOLO           =   16777215
+      FCOL            =   12582912
+      FCOLO           =   12582912
+      MCOL            =   12632256
+      MPTR            =   1
+      MICON           =   "FrmCliente.frx":5C50
+      PICN            =   "FrmCliente.frx":5C6C
+      UMCOL           =   -1  'True
+      SOFT            =   0   'False
+      PICPOS          =   2
+      NGREY           =   0   'False
+      FX              =   0
+      HAND            =   0   'False
+      CHECK           =   0   'False
+      VALUE           =   0   'False
+   End
+   Begin VitekeySoft.ChameleonBtn cmdContrato 
+      Height          =   855
+      Left            =   18960
+      TabIndex        =   12
+      Top             =   5520
+      Width           =   975
+      _ExtentX        =   1720
+      _ExtentY        =   1508
+      BTYPE           =   5
+      TX              =   "CONTRATO"
+      ENAB            =   -1  'True
+      BeginProperty FONT {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+         Name            =   "Calibri"
+         Size            =   8.25
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      COLTYPE         =   2
+      FOCUSR          =   -1  'True
+      BCOL            =   16777215
+      BCOLO           =   16777215
+      FCOL            =   12582912
+      FCOLO           =   12582912
+      MCOL            =   12632256
+      MPTR            =   1
+      MICON           =   "FrmCliente.frx":7EC5
+      PICN            =   "FrmCliente.frx":7EE1
+      UMCOL           =   -1  'True
+      SOFT            =   0   'False
+      PICPOS          =   2
+      NGREY           =   0   'False
+      FX              =   0
+      HAND            =   0   'False
+      CHECK           =   0   'False
+      VALUE           =   0   'False
+   End
+   Begin VB.Label lblacount 
+      BackColor       =   &H000080FF&
+      BeginProperty Font 
+         Name            =   "Calibri"
+         Size            =   8.25
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      Height          =   255
+      Left            =   14160
+      TabIndex        =   16
+      Top             =   555
+      Width           =   1575
+   End
+   Begin VB.Label Label2 
+      Alignment       =   2  'Center
+      AutoSize        =   -1  'True
+      BackStyle       =   0  'Transparent
+      Caption         =   "RAZON SOCIAL :"
+      BeginProperty Font 
+         Name            =   "Calibri"
+         Size            =   9
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      ForeColor       =   &H00800000&
+      Height          =   210
+      Left            =   255
+      TabIndex        =   3
+      Top             =   360
+      Width           =   1245
+   End
+   Begin VB.Label Label4 
+      Alignment       =   2  'Center
+      AutoSize        =   -1  'True
+      BackStyle       =   0  'Transparent
+      Caption         =   "RUC/DNI :"
+      BeginProperty Font 
+         Name            =   "Calibri"
+         Size            =   9
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      ForeColor       =   &H00800000&
+      Height          =   210
+      Left            =   5325
+      TabIndex        =   2
+      Top             =   360
+      Width           =   795
+   End
+   Begin VB.Shape ShpDatos 
+      BackColor       =   &H00FFFFFF&
+      BorderColor     =   &H00C0C0C0&
+      FillColor       =   &H00FFFFFF&
+      FillStyle       =   0  'Solid
+      Height          =   800
+      Left            =   120
+      Top             =   100
+      Width           =   19815
+   End
+   Begin VB.Shape Shape1 
+      BackStyle       =   1  'Opaque
+      BorderColor     =   &H00C0C0C0&
+      Height          =   9240
+      Left            =   0
+      Top             =   0
+      Width           =   20055
+   End
+End
+Attribute VB_Name = "FrmPersona"
+Attribute VB_GlobalNameSpace = False
+Attribute VB_Creatable = False
+Attribute VB_PredeclaredId = True
+Attribute VB_Exposed = False
+Public EnumFrmCliente As EnumCliente
+Public Procedencia As EnumProcede
+
+Private Sub ChkMondoAdelantado_Click()
+
+End Sub
+
+Private Sub cmdvehiculos_Click()
+
+End Sub
+
+
+
+Private Sub chk_planes_empresa_Click()
+If Me.chk_planes_empresa.Value = 1 Then
+    
+    strCadena = "SELECT id_plan as Codigo,descripcion as Descripcion FROM plan_servicio WHERE  ruc='" & KEY_RUC & "'"
+    Call ConfiguraRst(strCadena)
+    Call LlenaDataCombo(Me.DtcPlanes)
+    Me.DtcPlanes.Visible = True
+    Me.cmdBuscar.Visible = True
+Else
+    Me.DtcPlanes.Visible = False
+    Me.cmdBuscar.Visible = False
+    
+End If
+End Sub
+
+Private Sub cmdBuscar_Click()
+
+Call Me.llenarGrid_plan(Me.HfdPersona, "")
+
+End Sub
+
+Private Sub cmdContrato_Click()
+If KEY_RUBRO = "00025" Then
+strCadena = "SELECT * FROM view_contrato_colegio  WHERE dni='" & Trim(Me.HfdPersona.TextMatrix(Me.HfdPersona.Row, 0)) & "' and id_parentesco='4' LIMIT 1 "
+Call ConfiguraRst(strCadena)
+If rst.RecordCount > 0 Then
+    Ans = ShowMultiReport(rst, "rpt_contrato", , App.Path + "\Reportes\")
+End If
+Else
+
+strCadena = "SELECT id_venta,fecha_emision,documento,id_cliente,ncliente,id_producto,detalle,cantidad,tptal_parcial,total,saldo,id_venta_pago,forma_pago,monto FROM view_ventas_cliente WHERE id_cliente='" & Trim(Me.HfdPersona.TextMatrix(Me.HfdPersona.Row, 0)) & "' and ruc='" & KEY_RUC & "'"
+Call ConfiguraRst(strCadena)
+
+
+                
+Ans = ShowMultiReport(rst, "RptIVenta_cliente", , App.Path + "\Reportes\")
+End If
+End Sub
+
+Private Sub cmddelete_Click()
+If MsgBox(MSGELIMINAR, vbQuestion + vbYesNo, MSGVERIFICACION) = vbYes Then
+        strCadena = "SELECT * FROM movimiento_venta WHERE id_cliente='" & Trim(Me.HfdPersona.TextMatrix(Me.HfdPersona.Row, 0)) & "' and ruc='" & KEY_RUC & "' "
+        Call ConfiguraRst(strCadena)
+        If rst.RecordCount < 1 Then
+         strCadena = "call p_delete_persona('" & Trim(Me.HfdPersona.TextMatrix(Me.HfdPersona.Row, 0)) & "','" & KEY_RUC & "')"
+         CnBd.Execute (strCadena)
+          
+         Call actualizar
+         Else
+            MsgBox "Imposible Eliminar a este Usuario, esta Vinculado a Movimientos"
+         End If
+      End If
+End Sub
+
+Private Sub cmdexit_Click()
+Unload Me
+End Sub
+
+Private Sub cmdficha_Click()
+Dim in_dni As String
+in_dni = Trim(Me.HfdPersona.TextMatrix(Me.HfdPersona.Row, 0))
+
+
+strCadena = "SELECT `dni`,`id_anio`,`fecha`,`a_paterno`,`a_materno`,`nombres`,`nacimiento`,`departamento`,`provincia`,`distrito`,`vive_papa`,`vive_mama`,`estatura`,`peso`,`tipo_nacimiento`, " & _
+"`enfermedades`,`vacunas`,`alergias`" & get_familiar(in_dni, "1") & get_familiar(in_dni, "2") & get_familiar(in_dni, "4") & ", `procedencia`,`promovido`,`requiere_recuperacion`,`tercio_estudiantil`,`habilidad`,`grado`,`nivel` " & _
+" FROM view_ficha_matricula WHERE dni='" & Trim(Me.HfdPersona.TextMatrix(Me.HfdPersona.Row, 0)) & "'"
+Call ConfiguraRst(strCadena)
+Ans = ShowMultiReport(rst, "rpt_ficha_matricula", param, App.Path + "\Reportes\")
+
+
+End Sub
+
+Private Sub cmdmatricula_Click()
+Dim in_dni As String
+'Call FrmVentas.Show
+Call FrmVentas.activar
+strCadena = "P_nueva_venta('" & KEY_USUARIO & "','" & KEY_RUC & "')"
+CnBd.Execute (strCadena)
+in_dni = Trim(Me.HfdPersona.TextMatrix(Me.HfdPersona.Row, 0))
+FrmVentas.TxtCodCliente.Text = in_dni
+Call FrmVentas.precionar_cliente
+strCadena = "SELECT * FROM college_servicio_persona WHERE dni='" & in_dni & "' and saldo>0 and ruc='" & KEY_RUC & "' ORDER BY id_detalle ASC"
+Call ConfiguraRst(strCadena)
+If rst.RecordCount > 0 Then
+   rst.MoveFirst
+   For i = 0 To rst.RecordCount - 1
+       strCadena = "INSERT INTO temporal_ventas(ruc,id_dni,id_alm,id_doc,id_serie,numero,id_producto,cantidad,precio,total,peso,igv,detalle,dni_save) VALUES " & _
+        "('" & KEY_RUC & "','" & in_dni & "','" & KEY_ALM & "','" & FrmVentas.DtcTipoDoc.BoundText & "','" & Trim(FrmVentas.DtcSerieDoc.BoundText) & "','" & Trim(FrmVentas.TxtNumeroDoc.Text) & "','" & rst("id_servicio") & "','1'," & _
+        "'" & Val(rst("saldo")) & " ','" & Val(rst("saldo")) & "','0','si','" & rst("detalle") & "','" & KEY_USUARIO & "')"
+        CnBd.Execute (strCadena)
+        rst.MoveNext
+   Next i
+End If
+'strCadena = "SELECT * FROM almacen_producto WHERE id_producto='00001' and  ruc='" & KEY_RUC & "' limit 1"
+'Call ConfiguraRstK(strCadena)
+'If rstK.RecordCount > 0 Then
+'       in_detalle = "MENSUALIDAD [ENERO -2017 ]"
+'       strCadena = "INSERT INTO temporal_ventas(ruc,id_dni,id_alm,id_doc,id_serie,numero,id_producto,cantidad,precio,total,peso,igv,detalle,dni_save) VALUES " & _
+'        "('" & KEY_RUC & "','" & Trim(Me.HfdPersona.TextMatrix(Me.HfdPersona.Row, 0)) & "','" & KEY_ALM & "','" & FrmVentas.DtcTipoDoc.BoundText & "','" & Trim(frmventas.DtcSerieDoc.BoundText ) & "','" & Trim(FrmVentas.TxtNumeroDoc.Text) & "','00001','1'," & _
+'        "'" & Val(rstK("precio_venta")) & " ','" & Val(rstK("precio_venta")) & "','0','si','" & in_detalle & "','" & KEY_USUARIO & "')"
+'        CnBd.Execute (strCadena)
+'End If
+
+ Call FrmVentas.llenarGrid_det(FrmVentas.HfdDetalle, FrmVentas.TxtNumeroDoc.Text, FrmVentas.DtcSerieDoc.BoundText, FrmVentas.DtcTipoDoc.BoundText, Trim(FrmVentas.txtformato_impresion.Text))
+       
+    
+End Sub
+
+Private Sub cmdNuevo_Click()
+ Procedencia = nuevo
+      FrmDetallePersona.Show
+      'Call Resalta(FrmDetallePersona.TxtRuc)
+      Exit Sub
+End Sub
+
+Private Sub cmdupdate_Click()
+ Procedencia = modificar
+      FrmDetallePersona.Show
+End Sub
+
+Private Sub Form_KeyDown(KeyCode As Integer, Shift As Integer)
+If KeyCode = 27 Then
+    FrmDetallesParametros.Procedencia = Neutro
+    Unload Me
+    
+End If
+If KeyCode = 40 Then
+    Me.HfdPersona.SetFocus
+End If
+End Sub
+Public Sub actualizarPersonal()
+  strCadena = "SELECT cPersona,NombrePersona, sDireccionCliente1 ,Per_Ruc,puntos FROM Persona WHERE personal='V' ORDER BY NombrePersona ASC"
+  Call llenarGrid(Me.HfdPersona)
+
+  Exit Sub
+End Sub
+Public Sub actualizar()
+
+If KEY_RUBRO = "00026" Then ' INVESTIGACION
+   strCadena = "SELECT * FROM view_investigacion WHERE ruc='" & KEY_RUC & "' limit 30"
+   Call Me.llenarGrid_investigacion(Me.HfdPersona)
+   Exit Sub
+End If
+
+
+
+
+
+If KEY_RUBRO = "00025" Then
+   strCadena = "SELECT * FROM view_estudiante WHERE id_empresa='" & KEY_RUC & "' limit 30"
+Else
+   strCadena = "SELECT * FROM view_cliente WHERE id_cliente='si' and  id_empresa='" & KEY_RUC & "' limit 30"
+End If
+
+Call llenarGrid(Me.HfdPersona)
+End Sub
+
+
+
+
+Public Sub actualizar_contadores()
+strCadena = "SELECT P.dni,P.nombre_completo,P.direccion,P.id_departamento FROM entidad_empresa E,persona P WHERE  E.cod_unico=P.dni AND E.id_tipo_per='00022' AND id_empresa='0' ORDER BY nombre_completo"
+Call llenarGridContador(Me.HfdPersona, Me)
+End Sub
+Private Sub Form_Load()
+ CenterForm Me
+ Me.Top = 50
+ If KEY_RUBRO = "00025" Then
+    Me.cmdmatricula.Enabled = True
+    Me.cmdficha.Enabled = True
+    Me.cmdContrato.Caption = "CONTRATO"
+Else
+    Me.cmdmatricula.Enabled = False
+    Me.cmdficha.Enabled = False
+    Me.cmdContrato.Caption = "COMPROBANTES"
+ End If
+ 
+ If FrmDetallesParametros.Procedencia = buscar Then
+    strCadena = "SELECT * FROM entidad_empresa WHERE id_tipo_per='00022' AND id_empresa='0'"
+    Call ConfiguraRst(strCadena)
+    
+    Call actualizar_contadores
+    Exit Sub
+ End If
+ 
+ 'strCadena = "SELECT count(*) FROM entidad_empresa WHERE id_cliente='si' and  id_empresa='" & KEY_RUC & "'"
+ 'Call ConfiguraRst(strCadena)
+ 'Me.lblAcoount.Caption = str(rst(0)) + Space(2) + "REGISTRADOS"
+ If FrmDetalleAlmacen.Procedencia = Selecionar Then
+    Call actualizarPersonal
+ Else
+ Call actualizar
+ End If
+End Sub
+Private Sub OptApellido_Click()
+End Sub
+
+
+
+Private Sub HfdPersona_Click()
+If Val(Me.HfdPersona.TextMatrix(Me.HfdPersona.Row, 0)) > 0 Or Trim(Me.HfdPersona.TextMatrix(Me.HfdPersona.Row, 0)) = "00000000" Then
+    
+  
+
+  
+     Me.cmdnuevo.Enabled = True
+     Me.cmdupdate.Enabled = True
+     Me.cmddelete.Enabled = True
+     Exit Sub
+Else
+  
+     Me.cmdupdate.Enabled = False
+     Me.cmddelete.Enabled = False
+
+End If
+End Sub
+
+Private Sub HfdPersona_DblClick()
+
+Call disabled_form(Me)
+frmpersonaDeuda.Show
+Call frmpersonaDeuda.llenarGrid_deuda(frmpersonaDeuda.HfdPersona, Me.HfdPersona.TextMatrix(Me.HfdPersona.Row, 0))
+Exit Sub
+
+End Sub
+
+Private Sub HfdPersona_KeyPress(KeyAscii As Integer)
+If KeyAscii = 13 Then
+    If FrmVentas.Procedencia = Selecionar Then
+          FrmVentas.TxtCodCliente.Text = Trim(Me.HfdPersona.TextMatrix(Me.HfdPersona.Row, 0))
+          Call FrmVentas.precionar_cliente
+          FrmVentas.Procedencia = Neutro
+          Unload Me
+          Exit Sub
+    End If
+     
+   If FrmVentas.Procedencia = seleccionar_otro Then
+      FrmVentas.txtdni_copropietario.Text = Trim(Me.HfdPersona.TextMatrix(Me.HfdPersona.Row, 0))
+      FrmVentas.lblcopropietario.Caption = Trim(Me.HfdPersona.TextMatrix(Me.HfdPersona.Row, 1))
+      FrmVentas.Procedencia = Neutro
+      Unload Me
+      Exit Sub
+   End If
+    
+    If frmCajaEgreso.Procedencia = Selecionar Then
+       frmCajaEgreso.txtrucproveedor.Text = Me.HfdPersona.TextMatrix(Me.HfdPersona.Row, 0)
+       frmCajaEgreso.lblProveedor.Caption = Me.HfdPersona.TextMatrix(Me.HfdPersona.Row, 1)
+       frmCajaEgreso.Procedencia = Neutro
+       Unload Me
+       Exit Sub
+    End If
+    
+    
+    If frmMemorandun.Procedencia = Selecionar Then
+       frmMemorandun.Procedencia = Neutro
+       frmMemorandun.txtDni.Text = Trim(Me.HfdPersona.TextMatrix(Me.HfdPersona.Row, 0))
+       frmMemorandun.TxtRazon.Text = Trim(Me.HfdPersona.TextMatrix(Me.HfdPersona.Row, 1))
+       Call frmMemorandun.put_estado_cuenta_temp(Trim(Me.HfdPersona.TextMatrix(Me.HfdPersona.Row, 0)))
+       Unload Me
+       Exit Sub
+    End If
+    
+    
+    If frmHotel.Procedencia = Selecionar Then
+       frmHotel.Procedencia = Neutro
+       frmHotel.txtDni.Text = Trim(Me.HfdPersona.TextMatrix(Me.HfdPersona.Row, 0))
+       frmHotel.txtCliente.Text = Trim(Me.HfdPersona.TextMatrix(Me.HfdPersona.Row, 1))
+       Unload Me
+       Exit Sub
+    End If
+    
+    
+    If FrmReporteRegistroVentas.Procedencia = Selecionar Then
+       FrmReporteRegistroVentas.Procedencia = Neutro
+       FrmReporteRegistroVentas.txtCliente.Text = Trim(Me.HfdPersona.TextMatrix(Me.HfdPersona.Row, 0))
+       Unload Me
+       Exit Sub
+    End If
+    
+    
+    If frmAnalisisporCuenta.Procedencia = Selecionar Then
+       frmAnalisisporCuenta.Procedencia = Neutro
+       frmAnalisisporCuenta.txtruc.Text = Trim(Me.HfdPersona.TextMatrix(Me.HfdPersona.Row, 0))
+       frmAnalisisporCuenta.lblcliente.Caption = Trim(Me.HfdPersona.TextMatrix(Me.HfdPersona.Row, 1))
+       Unload Me
+       Exit Sub
+    End If
+    
+    
+    
+    If FrmOrdenCompraDet.Procedencia = Selecionar Then
+       FrmOrdenCompraDet.Procedencia = Neutro
+       strCadena = "SELECT * FROM view_entidad WHERE dni='" & Me.HfdPersona.TextMatrix(Me.HfdPersona.Row, 0) & "' and ruc='" & KEY_RUC & "'"
+       Call ConfiguraRstL(strCadena)
+       If rstL.RecordCount > 0 Then
+          FrmOrdenCompraDet.txtruc.Text = Me.HfdPersona.TextMatrix(Me.HfdPersona.Row, 0)
+          FrmOrdenCompraDet.TxtProveedor.Text = rstL("nombre_completo")
+          If rstL("afecto_igv") = "si" Then
+             FrmOrdenCompraDet.chk_igv.Value = 1
+          Else
+             FrmOrdenCompraDet.chk_igv.Value = 0
+          End If
+          
+       End If
+       
+       
+       
+       Unload Me
+       Exit Sub
+    End If
+    
+    If FrmDetallePedido.Procedencia = Selecionar Then
+       FrmDetallePedido.Procedencia = Neutro
+       FrmDetallePedido.txtruc.Text = Me.HfdPersona.TextMatrix(Me.HfdPersona.Row, 0)
+       FrmDetallePedido.TxtProveedor.Text = Me.HfdPersona.TextMatrix(Me.HfdPersona.Row, 1)
+       Unload Me
+       Exit Sub
+    End If
+    
+    
+    
+    If FrmCambioAceite.Procedencia = Selecionar Then
+       FrmCambioAceite.txtDni.Text = Me.HfdPersona.TextMatrix(Me.HfdPersona.Row, 0)
+       FrmCambioAceite.lblpropietario.Caption = Me.HfdPersona.TextMatrix(Me.HfdPersona.Row, 1)
+       FrmCambioAceite.Procedencia = Neutro
+       Unload Me
+       Exit Sub
+       
+    End If
+    
+    If FrmTransferencias.Procedencia = seleccionar_atencion Then
+       FrmTransferencias.txt_dni_atencion.Text = Me.HfdPersona.TextMatrix(Me.HfdPersona.Row, 0)
+       FrmTransferencias.txt_atencion.Text = Me.HfdPersona.TextMatrix(Me.HfdPersona.Row, 1)
+       FrmTransferencias.Procedencia = Neutro
+       Unload Me
+       Exit Sub
+    End If
+    If FrmTransferencias.Procedencia = seleccionar_otro Then
+       FrmTransferencias.Procedencia = Neutro
+       FrmTransferencias.txt_idremitente.Text = Me.HfdPersona.TextMatrix(Me.HfdPersona.Row, 0)
+       FrmTransferencias.txtremitente.Text = Me.HfdPersona.TextMatrix(Me.HfdPersona.Row, 1)
+       Unload Me
+       Exit Sub
+    End If
+        
+    If frmmanifiesto.Procedencia = Selecionar Then
+       frmmanifiesto.Procedencia = Neutro
+       frmmanifiesto.txtruc.Text = Me.HfdPersona.TextMatrix(Me.HfdPersona.Row, 0)
+       frmmanifiesto.txtpropietario.Text = Me.HfdPersona.TextMatrix(Me.HfdPersona.Row, 1)
+       frmmanifiesto.txtDireccion.Text = Me.HfdPersona.TextMatrix(Me.HfdPersona.Row, 2)
+       Unload Me
+       Exit Sub
+    End If
+    
+    If frmmanifiesto.Procedencia = seleccionar_per Then
+       frmmanifiesto.Procedencia = Neutro
+       Call frmmanifiesto.BuscarChofer(Trim(Me.HfdPersona.TextMatrix(Me.HfdPersona.Row, 0)))
+       Unload Me
+       Exit Sub
+    End If
+    
+    If frmCorTramite.Procedencia = Selecionar Then
+       frmCorTramite.txtDni.Text = Me.HfdPersona.TextMatrix(Me.HfdPersona.Row, 0)
+       frmCorTramite.lblNombre.Caption = Me.HfdPersona.TextMatrix(Me.HfdPersona.Row, 1)
+       frmCorTramite.Procedencia = Neutro
+       Call frmCorTramite.actualizaLista(frmCorTramite.gridTramites, "01")
+       
+       Unload Me
+       Exit Sub
+    End If
+    
+    
+    
+    If FrmVentasPersonalizada.Procedencia = Selecionar Then
+        strCadena = "SELECT * FROM persona WHERE dni='" & Me.HfdPersona.TextMatrix(Me.HfdPersona.Row, 0) & "'"
+        Call ConfiguraRst(strCadena)
+        FrmVentasPersonalizada.txtruc.Text = rst("dni")
+        FrmVentasPersonalizada.txtrazonsocial.Text = rst("nombre_completo")
+        FrmVentasPersonalizada.txtDireccion.Text = rst("direccion")
+        
+        If IsNull(rst("foto")) = False And Len(rst("foto")) > 5 Then
+                If VerificarFichero(App.Path & "\archivos\" & rst("dni")) = True Then
+                    FrmVentasPersonalizada.imgFoto.Picture = LoadPicture(App.Path + "\archivos\" + rst("dni") + "\" + Trim(rst("foto")))
+                Else
+                    FrmVentasPersonalizada.imgFoto.Picture = LoadPicture(App.Path + "\archivos\no_photo.jpg")
+                End If
+        Else
+            FrmVentasPersonalizada.imgFoto.Picture = LoadPicture(App.Path + "\archivos\no_photo.jpg")
+        End If
+        FrmVentasPersonalizada.Procedencia = Neutro
+        Unload Me
+        Exit Sub
+    End If
+    
+    
+    
+    If FrmDetallesParametros.Procedencia = buscar Then
+        FrmDetallesParametros.TxtRucContador.Text = Me.HfdPersona.TextMatrix(Me.HfdPersona.Row, 0)
+        FrmDetallesParametros.lblRazonContador.Caption = Me.HfdPersona.TextMatrix(Me.HfdPersona.Row, 1)
+        
+        FrmDetallesParametros.Procedencia = Neutro
+        Unload Me
+        Exit Sub
+    End If
+    
+    If frmVentasPagos.Procedencia = Selecionar Then
+        frmVentasPagos.txtruc.Text = Me.HfdPersona.TextMatrix(Me.HfdPersona.Row, 0)
+        frmVentasPagos.txtCliente.Text = Me.HfdPersona.TextMatrix(Me.HfdPersona.Row, 1)
+        frmVentasPagos.txtDireccion.Text = Me.HfdPersona.TextMatrix(Me.HfdPersona.Row, 2)
+        Call Resalta(frmVentasPagos.TxtMontoPago)
+        frmVentasPagos.Procedencia = Neutro
+        Unload Me
+        Exit Sub
+    End If
+    
+    If FrmTransferencias.Procedencia = Selecionar Then
+        FrmTransferencias.TxtRucDestino.Text = Me.HfdPersona.TextMatrix(Me.HfdPersona.Row, 0)
+        FrmTransferencias.TxtNombreDestino.Text = Me.HfdPersona.TextMatrix(Me.HfdPersona.Row, 1)
+        FrmTransferencias.TxtDireccionDestino.Text = Me.HfdPersona.TextMatrix(Me.HfdPersona.Row, 2)
+        FrmTransferencias.txtubigueo.Text = get_ubigueo_persona(Me.HfdPersona.TextMatrix(Me.HfdPersona.Row, 0), "0")
+        Call Resalta(FrmTransferencias.TxtRucTransporte)
+        FrmTransferencias.Procedencia = Neutro
+        Unload Me
+        Exit Sub
+    End If
+    
+    
+    
+    If FrmParteMaterial.Procedencia = Selecionar Then
+        FrmParteMaterial.TxtRucDestino.Text = Me.HfdPersona.TextMatrix(Me.HfdPersona.Row, 0)
+        FrmParteMaterial.TxtNombreDestino.Text = Me.HfdPersona.TextMatrix(Me.HfdPersona.Row, 1)
+        FrmParteMaterial.TxtDireccionDestino.Text = Me.HfdPersona.TextMatrix(Me.HfdPersona.Row, 2)
+        FrmParteMaterial.TxtLugarDescarga.Text = Me.HfdPersona.TextMatrix(Me.HfdPersona.Row, 2)
+        FrmParteMaterial.DtcTransporte.SetFocus
+        FrmParteMaterial.Procedencia = Neutro
+        Unload Me
+        Exit Sub
+    End If
+    
+    If FrmParteMaterial.Procedencia = buscar Then
+        FrmParteMaterial.TxtIdConductor.Text = Me.HfdPersona.TextMatrix(Me.HfdPersona.Row, 0)
+        FrmParteMaterial.lblRazonTransporte.Caption = Me.HfdPersona.TextMatrix(Me.HfdPersona.Row, 1)
+        Call Resalta(FrmParteMaterial.TxtIdConductor)
+        FrmParteMaterial.Procedencia = Neutro
+        Unload Me
+        Exit Sub
+    End If
+    
+    If FrmParteDiaria.Procedencia = Selecionar Then
+        FrmParteDiaria.TxtRucDestino.Text = Me.HfdPersona.TextMatrix(Me.HfdPersona.Row, 0)
+        FrmParteDiaria.TxtNombreDestino.Text = Me.HfdPersona.TextMatrix(Me.HfdPersona.Row, 1)
+        FrmParteDiaria.TxtDireccionDestino.Text = Me.HfdPersona.TextMatrix(Me.HfdPersona.Row, 2)
+        FrmParteDiaria.DtcTransporte.SetFocus
+        FrmParteDiaria.Procedencia = Neutro
+        
+        Unload Me
+        Exit Sub
+    End If
+    
+    If FrmTransferencias.Procedencia = buscar Then
+        FrmTransferencias.TxtRucTransporte.Text = Me.HfdPersona.TextMatrix(Me.HfdPersona.Row, 0)
+        FrmTransferencias.lblRazonTransporte.Caption = Me.HfdPersona.TextMatrix(Me.HfdPersona.Row, 1)
+        Call Resalta(FrmTransferencias.TxtMarcayPlaca)
+        FrmTransferencias.Procedencia = Neutro
+        Unload Me
+        Exit Sub
+    End If
+    If FrmTransferencias.Procedencia = modificar Then
+        FrmTransferencias.TxtRucChofer.Text = Me.HfdPersona.TextMatrix(Me.HfdPersona.Row, 0)
+        FrmTransferencias.lblRazonChofer.Caption = Me.HfdPersona.TextMatrix(Me.HfdPersona.Row, 1)
+        strCadena = "SELECT * FROM persona WHERE dni='" & Me.HfdPersona.TextMatrix(Me.HfdPersona.Row, 0) & "'"
+        Call ConfiguraRst(strCadena)
+        If IsNull(rst("licencia")) = True Then
+            FrmTransferencias.TxtLicencia.Text = ""
+        Else
+            FrmTransferencias.TxtLicencia.Text = rst("licencia")
+        End If
+        Call Resalta(FrmTransferencias.TxtLicencia)
+        FrmTransferencias.Procedencia = Neutro
+        Unload Me
+        Exit Sub
+    End If
+    
+     If FrmTransferencias.Procedencia = buscar Then
+        FrmTransferencias.TxtRucTransporte.Text = Me.HfdPersona.TextMatrix(Me.HfdPersona.Row, 0)
+        FrmTransferencias.lblRazonTransporte.Caption = Me.HfdPersona.TextMatrix(Me.HfdPersona.Row, 1)
+        Call Resalta(FrmTransferencias.TxtMarcayPlaca)
+        FrmTransferencias.Procedencia = Neutro
+        Unload Me
+        Exit Sub
+    End If
+     If FrmChequeNuevo.Procedencia = buscar Then
+        FrmChequeNuevo.txtruc.Text = Me.HfdPersona.TextMatrix(Me.HfdPersona.Row, 0)
+        FrmChequeNuevo.txtrazonsocial.Text = Me.HfdPersona.TextMatrix(Me.HfdPersona.Row, 1)
+        FrmChequeNuevo.txtDireccion.Text = Me.HfdPersona.TextMatrix(Me.HfdPersona.Row, 2)
+        FrmChequeNuevo.Procedencia = Neutro
+        Call Resalta(FrmChequeNuevo.Txtcentrocosto)
+        Unload Me
+        Exit Sub
+    End If
+    
+      If FrmSolicitudViaticosDeclarar.Procedencia = Selecionar Then
+        FrmSolicitudViaticosDeclarar.txtruc.Text = Me.HfdPersona.TextMatrix(Me.HfdPersona.Row, 0)
+        FrmSolicitudViaticosDeclarar.txtrazonsocial.Text = Me.HfdPersona.TextMatrix(Me.HfdPersona.Row, 1)
+        FrmSolicitudViaticosDeclarar.Procedencia = Neutro
+       ' FrmSolicitudViaticosDeclarar.cmdagregar.SetFocus
+        Unload Me
+        Exit Sub
+    End If
+     
+  
+    
+    
+    If FrmDetalleAlmacen.Procedencia = Selecionar Then
+       strCadena = "SELECT cPersona,NombrePersona,sDireccionCliente1,Per_Ruc FROM " & _
+       " Persona WHERE cPersona='" & Trim(Me.HfdPersona.Text) & "'"
+       Call ConfiguraRst(strCadena)
+        If rst.RecordCount > 0 Then
+          FrmDetalleAlmacen.TxtCodCliente.Text = rst("cPersona")
+          FrmDetalleAlmacen.txtEncargado.Text = rst("NombrePersona")
+        End If
+        FrmDetalleAlmacen.Procedencia = Neutro
+       Unload Me
+       Set rst = Nothing
+       Exit Sub
+    End If
+    
+     If FrmVigilante.Procedencia = Selecionar Then
+       strCadena = "SELECT cPersona,NombrePersona,sDireccionCliente1,Per_Ruc FROM " & _
+       " Persona WHERE cPersona='" & Trim(Me.HfdPersona.Text) & "'"
+       Call ConfiguraRst(strCadena)
+        If rst.RecordCount > 0 Then
+          FrmVigilante.TxtCPersona.Text = rst("cPersona")
+          FrmVigilante.txtDescripcion.Text = rst("NombrePersona")
+          FrmVigilante.cmdagregar.SetFocus
+        End If
+        FrmVigilante.Procedencia = Neutro
+       Unload Me
+       Set rst = Nothing
+       Exit Sub
+    End If
+    
+'    If FrmOrdenCompraDet.Procedencia = buscar Then
+ '      strCadena = "SELECT cPersona,NombrePersona  FROM " & _
+  '     " Persona WHERE cPersona='" & Trim(Me.HfdPersona.text) & "'"
+   '    Call ConfiguraRst(strCadena)
+    '    If rst.RecordCount > 0 Then
+     '     FrmOrdenCompraDet.TxtcodProveedor.text = rst("cPersona")
+      '    FrmOrdenCompraDet.TxtProveedor.text = rst("NombrePersona")
+       '   FrmOrdenCompraDet.DtcTipoTransporte.SetFocus
+        'End If
+ '       FrmOrdenCompraDet.Procedencia = Neutro
+  '     Unload Me
+   '    Set rst = Nothing
+    '   Exit Sub
+    'End If
+     
+     
+   
+    
+    If FrmPlanta.Procedencia = Selecionar Then
+       strCadena = "SELECT * FROM Persona WHERE cPersona='" & Trim(Me.HfdPersona.Text) & "'"
+       Call ConfiguraRst(strCadena)
+        If rst.RecordCount > 0 Then
+            FrmPlanta.TxtCodCliente.Text = rst("cPersona")
+            FrmPlanta.txtCliente.Text = rst("NombrePersona")
+            FrmPlanta.txtDireccion.Text = rst("sDireccionCliente1")
+            
+        End If
+        FrmPlanta.Procedencia = Neutro
+       Unload Me
+       Set rst = Nothing
+       Exit Sub
+    End If
+    
+     
+     
+     'If FrmOrdenCompraDet.Procedencia = Selecionar Then
+     '  strCadena = "SELECT cPersona,NombrePersona,licencia FROM " & _
+     '  " Persona WHERE cPersona='" & Trim(Me.HfdPersona.text) & "'"
+     '  Call ConfiguraRst(strCadena)
+     '   If rst.RecordCount > 0 Then
+     '     FrmOrdenCompraDet.TxtCPersona.text = rst("cPersona")
+     '     FrmOrdenCompraDet.TxtChofer.text = rst("NombrePersona")
+     '     FrmOrdenCompraDet.TxtLicencia.text = rst("licencia")
+     '     Call Resalta(FrmOrdenCompraDet.TxtLicencia)
+     '   End If
+     '   FrmOrdenCompraDet.Procedencia = Neutro
+     '  Unload Me
+     '  Set rst = Nothing
+     '  Exit Sub
+    'End If
+    
+    If FrmCompras.Procedencia = Selecionar Then
+          FrmCompras.txtruc.Text = Me.HfdPersona.TextMatrix(Me.HfdPersona.Row, 0)
+          Call FrmCompras.buscar_comprobante
+          FrmCompras.TxtProveedor.Text = UCase(Me.HfdPersona.TextMatrix(Me.HfdPersona.Row, 1))
+          FrmCompras.txtDireccion.Text = Me.HfdPersona.TextMatrix(Me.HfdPersona.Row, 2)
+          Unload Me
+          FrmCompras.DtTipoCompra.SetFocus
+          FrmCompras.Procedencia = Neutro
+          Exit Sub
+    End If
+     If FrmComprasGastos.Procedencia = Selecionar Then
+          FrmComprasGastos.txtDni.Text = Me.HfdPersona.TextMatrix(Me.HfdPersona.Row, 0)
+          FrmComprasGastos.lblcliente.Caption = UCase(Me.HfdPersona.TextMatrix(Me.HfdPersona.Row, 1))
+          Call Resalta(FrmComprasGastos.txtMonto)
+          FrmComprasGastos.Procedencia = Neutro
+          Unload Me
+          Exit Sub
+    End If
+    
+    
+     If FrmOrdenCompraDet.Procedencia = buscar Then
+          FrmOrdenCompraDet.txtDni.Text = Me.HfdPersona.TextMatrix(Me.HfdPersona.Row, 0)
+          FrmOrdenCompraDet.lblcliente.Caption = UCase(Me.HfdPersona.TextMatrix(Me.HfdPersona.Row, 1))
+          Call Resalta(FrmOrdenCompraDet.txtMonto)
+          FrmOrdenCompraDet.Procedencia = Neutro
+          Unload Me
+          Exit Sub
+    End If
+    
+    
+  If frmNuevoComprobante.Procedencia = buscar Then
+       strCadena = "SELECT Per_Ruc FROM  Persona WHERE Per_Ruc='" & Trim(Me.HfdPersona.TextMatrix(Me.HfdPersona.Row, 3)) & "'"
+       Call ConfiguraRst(strCadena)
+       If rst.RecordCount > 0 Then
+                
+            frmNuevoComprobante.txtruc.Text = rst(0)
+            
+       End If
+       Set rst = Nothing
+       Unload Me
+       frmNuevoComprobante.txtruc.SetFocus
+       frmNuevoComprobante.Procedencia = Neutro
+       Exit Sub
+    End If
+    
+If FrmListadoFacturasCompra.Procedencia = buscar Then
+       strCadena = "SELECT cPersona FROM  Persona WHERE cPersona='" & Trim(Me.HfdPersona.Text) & "'"
+       Call ConfiguraRst(strCadena)
+       FrmListadoFacturasCompra.TxtcodProveedor.Text = Trim(rst(0))
+       Call FrmListadoFacturasCompra.llenarGrid_Proveedor
+       FrmListadoFacturasCompra.Procedencia = Neutro
+       Unload Me
+       Set rst = Nothing
+        Exit Sub
+End If
+If FrmBusquedaDocumentos.Procedencia = buscar Then
+       FrmBusquedaDocumentos.txtDni.Text = Me.HfdPersona.TextMatrix(Me.HfdPersona.Row, 0)
+       FrmBusquedaDocumentos.txtCliente.Text = Me.HfdPersona.TextMatrix(Me.HfdPersona.Row, 1)
+       FrmBusquedaDocumentos.Procedencia = Neutro
+       FrmBusquedaDocumentos.cmdBuscarCliente.Enabled = True
+       FrmBusquedaDocumentos.cmdBuscarCliente.SetFocus
+       Unload Me
+       Exit Sub
+End If
+
+
+    
+    If FrmDetalleGuia.Procedencia = Selecionar Then
+       strCadena = "SELECT cPersona,NombrePersona,sDireccionCliente1,Per_Ruc FROM " & _
+       " Persona WHERE cPersona='" & Trim(Me.HfdPersona.Text) & "'"
+       Call ConfiguraRst(strCadena)
+       
+          FrmDetalleGuia.TxtCodigoEmpresaTransporte.Text = rst(0)
+          FrmDetalleGuia.TxtNombreEmpresaTransporte.Text = rst(1)
+          FrmDetalleGuia.TxtDireccionTransporte.Text = rst(2)
+          FrmDetalleGuia.TxtRuc_Transportes.Text = rst(3)
+          Unload Me
+       
+       Set rst = Nothing
+       FrmDetalleGuia.Procedencia = Neutro
+       Exit Sub
+    End If
+    If FrmAdelantoPersonal.Procedencia = Selecionar Then
+       strCadena = "SELECT dni,nombre_completo,direccion FROM " & _
+       " persona WHERE dni='" & Trim(Me.HfdPersona.TextMatrix(Me.HfdPersona.Row, 0)) & "'"
+       Call ConfiguraRst(strCadena)
+       
+      
+          'FrmAdelantoPersonal.TxtCodCliente.text = rst("cPersona")
+          FrmAdelantoPersonal.txtCliente.Text = rst("nombre_completo")
+          FrmAdelantoPersonal.txtDireccion.Text = rst("direccion")
+          FrmAdelantoPersonal.txtruc.Text = rst("dni")
+          FrmAdelantoPersonal.Procedencia = Neutro
+          'Call FrmAdelantoPersonal.Resalta(FrmAdelantoPersonal.TxtObservacion)
+      Set rst = Nothing
+       Unload Me
+       
+       
+      
+       Exit Sub
+    End If
+    If FrmreciboIngresos.Procedencia = Selecionar Then
+       strCadena = "SELECT dni,nombre_completo,direccion FROM " & _
+       " persona WHERE dni='" & Trim(Me.HfdPersona.TextMatrix(Me.HfdPersona.Row, 0)) & "'"
+       Call ConfiguraRst(strCadena)
+       
+      
+          'FrmreciboIngresos.TxtCodCliente.text = rst(0)
+          FrmreciboIngresos.txtCliente.Text = rst(1)
+          FrmreciboIngresos.txtDireccion.Text = rst("direccion")
+          FrmreciboIngresos.txtruc.Text = rst("dni")
+          FrmreciboIngresos.txtObservacion.Text = ""
+          FrmreciboIngresos.Procedencia = Neutro
+          FrmreciboIngresos.TxtMontoPago.SetFocus
+          
+      Set rst = Nothing
+       Unload Me
+       FrmreciboIngresos.Procedencia = Neutro
+       
+      
+       Exit Sub
+    End If
+      If FrmIngresoDinero.Procedencia = Selecionar Then
+       strCadena = "SELECT cPersona,NombrePersona,sDireccionCliente1,Per_Ruc,Observacion FROM " & _
+       " Persona WHERE cPersona='" & Trim(Me.HfdPersona.Text) & "'"
+       Call ConfiguraRst(strCadena)
+      
+          FrmIngresoDinero.TxtCodCliente.Text = rst(0)
+          FrmIngresoDinero.txtCliente.Text = rst(1)
+          FrmIngresoDinero.txtDireccion.Text = rst(2)
+          FrmIngresoDinero.txtruc.Text = rst(3)
+          FrmIngresoDinero.txtObservacion.Text = rst(4)
+          
+      
+       Unload Me
+       FrmIngresoDinero.txtObservacion.SetFocus
+       Set rst = Nothing
+       FrmIngresoDinero.Procedencia = Neutro
+       Exit Sub
+    End If
+    If FrmDetalleAdelanto.Procedencia = Selecionar Then
+       strCadena = "SELECT cPersona,NombrePersona,sRazonSocial,sDireccionCliente1,Per_Ruc,Observacion,MontoAdelantado FROM " & _
+       " Persona WHERE cPersona='" & Trim(Me.HfdPersona.Text) & "'"
+       Call ConfiguraRst(strCadena)
+       If Trim(rst(6)) = "N" Then
+          FrmDetalleAdelanto.TxtCodCliente.Text = rst(0)
+          FrmDetalleAdelanto.txtCliente.Text = rst(1)
+          FrmDetalleAdelanto.txtDireccion.Text = rst(3)
+          FrmDetalleAdelanto.txtruc.Text = rst(4)
+          FrmDetalleAdelanto.txtsaldo.Text = rst(7)
+        Else
+          FrmDetalleAdelanto.TxtCodCliente.Text = rst(0)
+          FrmDetalleAdelanto.txtCliente.Text = rst(2)
+          FrmDetalleAdelanto.txtDireccion.Text = rst(3)
+          FrmDetalleAdelanto.txtruc.Text = rst(4)
+          FrmDetalleAdelanto.txtsaldo.Text = rst(7)
+          
+       End If
+       Unload Me
+       
+       Set rst = Nothing
+       FrmDetalleAdelanto.Procedencia = Neutro
+       Exit Sub
+    End If
+End If
+End Sub
+
+Public Sub llenarGrid(ByVal Grilla As MSHFlexGrid)
+On Error GoTo salir
+Call ConfiguraRst(strCadena)
+If rst.RecordCount < 1 Then
+    Grilla.Rows = 0
+    
+    Exit Sub
+End If
+  
+   Grilla.Rows = 0
+  
+         
+         If KEY_RUBRO = "00025" Then ' COLEGIO
+           ReDim arrColWidth(1 To rst.Fields.Count)
+           For Each Campo In rst.Fields
+            Grilla.ColWidth(0) = 1200
+            Grilla.ColWidth(1) = 5000
+            Grilla.ColWidth(2) = 4500
+            Grilla.ColWidth(3) = 1800
+            Grilla.ColWidth(4) = 1800
+            Grilla.ColWidth(5) = 2000
+            Grilla.ColWidth(6) = 2000
+          Next
+            cabecera = "DNI" & vbTab & "NOMBRE ESTUDIANTE" & vbTab & "DIRECCION CLIENTE" & vbTab & "TELEFONO" & vbTab & "NIVEL" & vbTab & "GRADO ACADEMICO" & vbTab & "ESTADO"
+            Grilla.AddItem cabecera
+            For k = 0 To 6
+                Grilla.col = k
+                Grilla.Row = 0
+                Grilla.CellBackColor = &HDFDFE0
+            Next k
+            rst.MoveFirst
+        For i = 0 To rst.RecordCount - 1
+            
+            If rst("habilitado") = "si" Then
+                in_habilitado = "ACTIVO"
+            Else
+                in_habilitado = "INACTIVO"
+            End If
+             Fila = rst("dni") & vbTab & UCase(rst("nombre_completo")) & vbTab & UCase(rst("direccion")) & vbTab & rst("celular") & vbTab & rst("nivel") & vbTab & rst("grado") & vbTab & in_habilitado
+             Grilla.AddItem Fila
+            
+        rst.MoveNext
+        Next i
+  Else
+              ReDim arrColWidth(1 To rst.Fields.Count)
+            For Each Campo In rst.Fields
+                Grilla.ColWidth(0) = 1500
+                Grilla.ColWidth(1) = 5500
+                Grilla.ColWidth(2) = 5500
+                Grilla.ColWidth(3) = 2000
+                Grilla.ColWidth(4) = 2500
+                Grilla.ColWidth(5) = 1200
+            Next
+            cabecera = "DNI/RUC" & vbTab & "NOMBRE CLIENTE" & vbTab & "DIRECCION CLIENTE" & vbTab & "CELULAR" & vbTab & "E-MAIL" & vbTab & "ESTADO"
+        
+         Grilla.AddItem cabecera
+         For k = 0 To 5
+            Grilla.col = k
+            Grilla.Row = 0
+            Grilla.CellBackColor = &HDFDFE0
+         Next k
+        rst.MoveFirst
+        For i = 0 To rst.RecordCount - 1
+            If rst("habilitado") = "si" Then
+                in_habilitado = "ACTIVO"
+            Else
+                in_habilitado = "INACTIVO"
+            End If
+            
+             Fila = rst("dni") & vbTab & Trim(rst("nombre_completo")) & vbTab & UCase(rst("direccion")) & vbTab & rst("celular") & vbTab & rst("mail") & vbTab & in_habilitado
+             Grilla.AddItem Fila
+             If rst("habilitado") = "no" Then
+                For k = 1 To 5
+                    Grilla.col = k
+                    Grilla.Row = i + 1
+                    Grilla.CellBackColor = &H8080FF
+               Next k
+             End If
+        rst.MoveNext
+        Next i
+  End If
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+   
+     Me.cmdupdate.Enabled = False
+     Me.cmddelete.Enabled = False
+     
+  Grilla.ColAlignment(0) = 1
+  Grilla.ColAlignment(1) = 1
+  Grilla.Row = 1
+  Grilla.col = 0
+  Grilla.ColSel = 1
+  Grilla.RowSel = 1
+         
+         
+Exit Sub
+salir: MsgBox "Por Favor Digite Correctamente", vbInformation, "Mensaje para el usuario"
+End Sub
+
+Public Sub llenarGrid_plan(ByVal Grilla As MSHFlexGrid, ByVal in_parametro As String)
+Dim in_monto_acumulado As Double
+Dim in_monto_deuda As Double
+
+On Error GoTo salir
+
+If in_parametro <> "" Then
+    strCadena = "SELECT * FROM view_empresa_planes WHERE ruc='" & KEY_RUC & "' and (dni LIKE '%" & in_parametro & "%' OR nombre_completo LIKE '%" & in_parametro & "%' OR id_plan LIKE '%" & in_parametro & "%') "
+Else
+    strCadena = "SELECT * FROM view_empresa_planes WHERE id_plan='" & Me.DtcPlanes.BoundText & "' and  ruc='" & KEY_RUC & "'"
+End If
+
+
+Call ConfiguraRst(strCadena)
+ Me.lblacount.Caption = "EMP.AFILIADAS :  " & rst.RecordCount
+If rst.RecordCount < 1 Then
+    Grilla.Rows = 0
+    
+    Exit Sub
+End If
+  
+   Grilla.Rows = 0
+            ReDim arrColWidth(1 To rst.Fields.Count)
+            For Each Campo In rst.Fields
+                Grilla.ColWidth(0) = 1200
+                Grilla.ColWidth(1) = 3500
+                Grilla.ColWidth(2) = 2800
+                Grilla.ColWidth(3) = 1200
+                Grilla.ColWidth(4) = 1200
+                Grilla.ColWidth(5) = 1500
+                Grilla.ColWidth(6) = 1500
+                Grilla.ColWidth(7) = 1800
+                Grilla.ColWidth(8) = 2400
+                Grilla.ColWidth(9) = 1000
+            Next
+            cabecera = "DNI/RUC" & vbTab & "NOMBRE CLIENTE" & vbTab & "PLAN CONTRATADO" & vbTab & "CELULAR" & vbTab & "CELULAR" & vbTab & "PRECIO SERVICIO" & vbTab & "DEUDA FECHA" & vbTab & "FECHA CORTE" & vbTab & "ENCARGADO" & vbTab & "ESTADO"
+        
+         Grilla.AddItem cabecera
+         For k = 0 To 9
+            Grilla.col = k
+            Grilla.Row = 0
+            Grilla.CellBackColor = &HDFDFE0
+         Next k
+        in_monto_acumulado = 0
+        rst.MoveFirst
+        For i = 0 To rst.RecordCount - 1
+            If rst("habilitado") = "si" Then
+                in_habilitado = "ACTIVO"
+            Else
+                in_habilitado = "INACTIVO"
+            End If
+            
+            If rst("pago_mensual") = "si" Then
+               in_forma = "MENSUAL"
+            End If
+            If rst("pago_3meses") = "si" Then
+               in_forma = "[3] MESES"
+            End If
+            If rst("pago_6meses") = "si" Then
+               in_forma = "[6] MESES"
+            End If
+            If rst("pago_anual") = "si" Then
+               in_forma = "[12] MESES"
+            End If
+             in_monto_deuda = get_deuda_fecha(rst("dni"))
+             Fila = rst("dni") & vbTab & Trim(rst("nombre_completo")) & vbTab & rst("descripcion") & vbTab & rst("celular") & vbTab & in_forma & vbTab & Format(rst("monto"), "#,##0.00") & vbTab & Format(in_monto_deuda, "#,##0.00") & vbTab & rst("fecha_corte") & vbTab & rst("operador") & vbTab & in_habilitado
+             Grilla.AddItem Fila
+             If rst("habilitado") = "no" Then
+                For k = 1 To 9
+                    Grilla.col = k
+                    Grilla.Row = i + 1
+                    Grilla.CellBackColor = &H8080FF
+               Next k
+            Else
+                in_monto_acumulado = in_monto_acumulado + rst("monto")
+                
+            End If
+            in_acumulado_deuda = in_monto_deuda + in_acumulado_deuda
+        rst.MoveNext
+        DoEvents
+        Next i
+        
+         Fila = "" & vbTab & "" & vbTab & "" & vbTab & "" & vbTab & "" & vbTab & Format(in_monto_acumulado, "#,##0.00") & vbTab & Format(in_acumulado_deuda, "#,##0.00") & vbTab & "" & vbTab & "" & vbTab & ""
+         Grilla.AddItem Fila
+             
+                For k = 5 To 6
+                    Grilla.col = k
+                    Grilla.Row = i + 1
+                    Grilla.CellBackColor = &H8080FF
+               Next k
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+   
+     Me.cmdupdate.Enabled = False
+     Me.cmddelete.Enabled = False
+     
+  Grilla.ColAlignment(0) = 1
+  Grilla.ColAlignment(1) = 1
+  Grilla.Row = 1
+  Grilla.col = 0
+  Grilla.ColSel = 1
+  Grilla.RowSel = 1
+         
+         
+Exit Sub
+salir: MsgBox "Por Favor Digite Correctamente", vbInformation, "Mensaje para el usuario"
+End Sub
+
+Public Sub llenarGrid_investigacion(ByVal Grilla As MSHFlexGrid)
+On Error GoTo salir
+Call ConfiguraRst(strCadena)
+If rst.RecordCount < 1 Then
+    Grilla.Rows = 0
+    
+    Exit Sub
+End If
+  
+   Grilla.Rows = 0
+  
+         
+ 
+           ReDim arrColWidth(1 To rst.Fields.Count)
+           For Each Campo In rst.Fields
+            Grilla.ColWidth(0) = 1200
+            Grilla.ColWidth(1) = 3500
+            Grilla.ColWidth(2) = 7500
+            Grilla.ColWidth(3) = 1500
+            Grilla.ColWidth(4) = 1500
+            Grilla.ColWidth(5) = 3000
+            
+          Next
+            cabecera = "DNI" & vbTab & "NOMBRE TESISTA" & vbTab & "DESCRIPCION TESIS" & vbTab & "TIPO" & vbTab & "% AVANCE" & vbTab & "ASESOR"
+            Grilla.AddItem cabecera
+            For k = 0 To 5
+                Grilla.col = k
+                Grilla.Row = 0
+                Grilla.CellBackColor = &HDFDFE0
+            Next k
+            rst.MoveFirst
+        For i = 0 To rst.RecordCount - 1
+            
+            If rst("habilitado") = "si" Then
+                in_habilitado = "ACTIVO"
+            Else
+                in_habilitado = "INACTIVO"
+            End If
+             Fila = rst("dni") & vbTab & UCase(rst("nombre_completo")) & vbTab & UCase(rst("nombre_prod")) & vbTab & rst("descripcion") & vbTab & "" & vbTab & rst("asesor")
+             Grilla.AddItem Fila
+            
+        rst.MoveNext
+        Next i
+     Me.cmdupdate.Enabled = False
+     Me.cmddelete.Enabled = False
+     
+  Grilla.ColAlignment(0) = 1
+  Grilla.ColAlignment(1) = 1
+  Grilla.Row = 1
+  Grilla.col = 0
+  Grilla.ColSel = 1
+  Grilla.RowSel = 1
+         
+         
+Exit Sub
+salir: MsgBox "Por Favor Digite Correctamente", vbInformation, "Mensaje para el usuario"
+End Sub
+
+Private Sub llenarGridContador(ByVal Grilla As MSHFlexGrid, ByVal Formulario As Form)
+On Error GoTo salir
+Call ConfiguraRst(strCadena)
+If rst.RecordCount < 1 Then
+    Grilla.Rows = 1
+    Grilla.Clear
+    Exit Sub
+End If
+  n = 1
+   Grilla.Clear
+   Grilla.Refresh
+   Grilla.Rows = 0
+   ReDim arrColWidth(1 To rst.Fields.Count)
+       For Each Campo In rst.Fields
+           Grilla.ColWidth(0) = 1100
+           Grilla.ColWidth(1) = 5000
+           Grilla.ColWidth(2) = 6000
+           Grilla.ColWidth(3) = 1100
+           
+          Next
+         cabecera = "DNI/RUC" & vbTab & "NOMBRE/RAZON SOCIAL" & vbTab & "DIRECCION FISCAL" & vbTab & "DEPARTAMENTO"
+         Grilla.AddItem cabecera
+         For k = 0 To 3
+            Grilla.col = k
+            Grilla.Row = 0
+            Grilla.CellBackColor = &HDFDFE0
+         Next k
+        rst.MoveFirst
+        For i = 0 To rst.RecordCount - 1
+             strCadena = "SELECT * FROM departamentos WHERE id_depa='" & rst("id_departamento") & "'"
+             Call ConfiguraRstT(strCadena)
+             If rstT.RecordCount > 0 Then
+                departamento = UCase(rstT("descripcion"))
+            Else
+                departamento = "NO REGISTRADO"
+             End If
+             Fila = rst("dni") & vbTab & UCase(rst("nombre_completo")) & vbTab & UCase(rst("direccion")) & vbTab & departamento
+             Grilla.AddItem Fila
+            Fila = ""
+        rst.MoveNext
+        Next i
+  Grilla.Row = 1
+  Grilla.col = 0
+  Grilla.ColSel = 1
+  Grilla.RowSel = 1
+         TlbAcciones.Buttons(KEY_UPDATE).Enabled = False
+         TlbAcciones.Buttons(KEY_NEW).Enabled = False
+         TlbAcciones.Buttons(KEY_DELETE).Enabled = False
+         TlbAcciones.Buttons(KEY_MAIL).Enabled = False
+Exit Sub
+salir: MsgBox "Por Favor Digite Correctamente", vbInformation, "Mensaje para el usuario"
+End Sub
+
+Private Sub MATRICULA_Click()
+
+
+
+
+
+End Sub
+
+Private Sub HfdPersona_SelChange()
+
+If KEY_CARGO <> "00004" Then
+    Me.cmdupdate.Enabled = False
+Else
+    Me.cmdupdate.Enabled = True
+End If
+
+End Sub
+
+Private Sub TxtApellido_KeyPress(KeyAscii As Integer)
+    Call Mayusculas(KeyAscii)
+in_cliente = "no"
+    in_proveedor = "no"
+    
+    
+    If Me.chk_cliente.Value = 1 Then
+        in_cliente = "si"
+    End If
+    
+    If Me.chk_proveedor.Value = 1 Then
+        in_proveedor = "si"
+    End If
+    
+    
+    If in_cliente = "no" And in_proveedor = "no" Then
+        in_cliente = "si"
+    in_proveedor = "si"
+    End If
+    
+    If KeyAscii = 13 Then
+       If KEY_RUBRO = "00025" Then
+            strCadena = "SELECT * FROM view_estudiante WHERE nombre_completo LIKE '%" & Trim(Me.TxtApellido.Text) & "%' and  id_empresa='" & KEY_RUC & "'"
+       Else
+            strCadena = "SELECT * FROM view_cliente WHERE nombre_completo LIKE '%" & Trim(Me.TxtApellido.Text) & "%' and (id_cliente='" & in_cliente & "' or  id_proveedor='" & in_proveedor & "')  and id_empresa='" & KEY_RUC & "'"
+       End If
+        
+        Call llenarGrid(Me.HfdPersona)
+    End If
+End Sub
+
+
+
+Private Sub TxtRazonSocial_KeyPress(KeyAscii As Integer)
+Call Mayusculas(KeyAscii)
+End Sub
+
+Private Sub txtRuc_KeyPress(KeyAscii As Integer)
+Dim nruc As String
+If KeyAscii = 13 Then
+
+If Len(Me.txtruc.Text) > 0 Then
+      If KEY_RUBRO = "00025" Then
+            strCadena = "SELECT * FROM view_estudiante WHERE dni= '" & Trim(Me.txtruc.Text) & "' AND id_empresa='" & KEY_RUC & "' "
+      Else
+            strCadena = "SELECT * FROM view_cliente WHERE dni  LIKE  '" & Trim(Me.txtruc.Text) & "%' and  id_cliente='si' AND id_empresa='" & KEY_RUC & "'"
+      End If
+      
+    Call ConfiguraRst(strCadena)
+    If rst.RecordCount < 1 Then
+       
+        If Len(Trim(Me.txtruc.Text)) = 8 Then
+        If get_dni_reniec(Trim(Me.txtruc.Text)) = True Then
+            GoTo siguiente
+        End If
+        End If
+siguiente:
+        Procedencia = nuevo
+        FrmDetallePersona.Show
+       
+        If Len(Trim(Me.txtruc.Text)) = 8 Then
+            strCadena = "SELECT * FROM persona WHERE dni='" & Trim(Me.txtruc.Text) & "'"
+            Call ConfiguraRstK(strCadena)
+            If rstK.RecordCount > 0 Then
+               FrmDetallePersona.txtruc.Text = rstK("dni")
+               Call FrmDetallePersona.LLENA(rstK("dni"))
+               Exit Sub
+            Else
+            nruc = "10" & Trim(Me.txtruc.Text)
+            FrmDetallePersona.txtruc.Text = DigitoVerificadorRUC(Trim(nruc))
+            End If
+        Else
+        FrmDetallePersona.txtruc.Text = Trim(Me.txtruc.Text)
+        End If
+        
+        FrmDetallePersona.ChkCliente.Value = 1
+        Call FrmDetallePersona.precionar
+        Exit Sub
+    Else
+       ' If KEY_RUBRO = "00025" Then
+       '       strCadena = "SELECT * FROM view_estudiante WHERE dni LIKE  '%" & Trim(Me.TxtRuc.Text) & "%' AND id_empresa='" & KEY_RUC & "' ORDER BY nombre_completo"
+       ' Else
+       '       strCadena = "SELECT * FROM view_cliente WHERE dni LIKE  '" & Trim(Me.TxtRuc.Text) & "%' AND id_empresa='" & KEY_RUC & "' ORDER BY nombre_completo LIMIT 100"
+       ' End If
+       Call llenarGrid(Me.HfdPersona)
+       Exit Sub
+    End If
+Else
+    
+        If KEY_RUBRO = "00025" Then
+            strCadena = "SELECT * FROM view_estudiante WHERE dni LIKE '%" & Trim(Me.txtruc.Text) & "%' AND id_empresa='" & KEY_RUC & "' ORDER BY nombre_completo"
+      Else
+            strCadena = "SELECT * FROM view_cliente WHERE dni= '%" & Trim(Me.txtruc.Text) & "' AND id_empresa='" & KEY_RUC & "' ORDER BY nombre_completo"
+      End If
+        Call llenarGrid(Me.HfdPersona)
+   Exit Sub
+End If
+End If
+End Sub
+
+
+Private Sub TxtTelefono_KeyPress(KeyAscii As Integer)
+
+End Sub

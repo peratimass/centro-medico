@@ -1,0 +1,497 @@
+VERSION 5.00
+Object = "{38911DA0-E448-11D0-84A3-00DD01104159}#1.1#0"; "COMCT332.OCX"
+Object = "{0ECD9B60-23AA-11D0-B351-00A0C9055D8E}#6.0#0"; "mshflxgd.ocx"
+Object = "{BDC217C8-ED16-11CD-956C-0000C04E4C0A}#1.1#0"; "TABCTL32.OCX"
+Object = "{F9043C88-F6F2-101A-A3C9-08002B2F49FB}#1.2#0"; "Comdlg32.ocx"
+Object = "{831FDD16-0C5C-11D2-A9FC-0000F8754DA1}#2.1#0"; "mscomctl.OCX"
+Begin VB.Form FrmReportePersonas 
+   BorderStyle     =   0  'None
+   Caption         =   "Reportes Personas"
+   ClientHeight    =   5805
+   ClientLeft      =   0
+   ClientTop       =   0
+   ClientWidth     =   12765
+   LinkTopic       =   "Form1"
+   MaxButton       =   0   'False
+   MDIChild        =   -1  'True
+   MinButton       =   0   'False
+   ScaleHeight     =   5805
+   ScaleWidth      =   12765
+   ShowInTaskbar   =   0   'False
+   Begin TabDlg.SSTab SstKardex 
+      Height          =   5655
+      Left            =   0
+      TabIndex        =   0
+      Top             =   0
+      Width           =   11535
+      _ExtentX        =   20346
+      _ExtentY        =   9975
+      _Version        =   393216
+      Tabs            =   2
+      Tab             =   1
+      TabHeight       =   520
+      ForeColor       =   8388608
+      BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+         Name            =   "Tahoma"
+         Size            =   8.25
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      TabCaption(0)   =   "REPORTE DE CLIENTES"
+      TabPicture(0)   =   "FrmReporteClientesProveedores.frx":0000
+      Tab(0).ControlEnabled=   0   'False
+      Tab(0).Control(0)=   "ChkTransportista"
+      Tab(0).Control(1)=   "OptCodigo"
+      Tab(0).Control(2)=   "OptDescripcion"
+      Tab(0).Control(3)=   "chkProveedor"
+      Tab(0).Control(4)=   "chkCliente"
+      Tab(0).Control(5)=   "ChkPersonal"
+      Tab(0).Control(6)=   "Label2"
+      Tab(0).Control(7)=   "Shape2"
+      Tab(0).Control(8)=   "Shape1"
+      Tab(0).ControlCount=   9
+      TabCaption(1)   =   "CLIENTES CREDITOS"
+      TabPicture(1)   =   "FrmReporteClientesProveedores.frx":001C
+      Tab(1).ControlEnabled=   -1  'True
+      Tab(1).Control(0)=   "Label1"
+      Tab(1).Control(0).Enabled=   0   'False
+      Tab(1).Control(1)=   "HfdPersona"
+      Tab(1).Control(1).Enabled=   0   'False
+      Tab(1).Control(2)=   "txtRazonSocial"
+      Tab(1).Control(2).Enabled=   0   'False
+      Tab(1).ControlCount=   3
+      Begin VB.TextBox txtRazonSocial 
+         Appearance      =   0  'Flat
+         BeginProperty Font 
+            Name            =   "Tahoma"
+            Size            =   8.25
+            Charset         =   0
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         ForeColor       =   &H00800000&
+         Height          =   285
+         Left            =   1800
+         TabIndex        =   11
+         Top             =   600
+         Width           =   2655
+      End
+      Begin VB.CheckBox ChkTransportista 
+         Appearance      =   0  'Flat
+         BackColor       =   &H80000005&
+         Caption         =   "Transportistas"
+         ForeColor       =   &H80000008&
+         Height          =   255
+         Left            =   -73920
+         TabIndex        =   9
+         Top             =   2400
+         Width           =   1335
+      End
+      Begin VB.OptionButton OptCodigo 
+         Appearance      =   0  'Flat
+         BackColor       =   &H80000005&
+         Caption         =   "DNI"
+         BeginProperty Font 
+            Name            =   "Tahoma"
+            Size            =   8.25
+            Charset         =   0
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         ForeColor       =   &H00800000&
+         Height          =   255
+         Left            =   -74040
+         TabIndex        =   8
+         Top             =   960
+         Width           =   1455
+      End
+      Begin VB.OptionButton OptDescripcion 
+         Appearance      =   0  'Flat
+         BackColor       =   &H80000005&
+         Caption         =   "RAZON SOCIAL"
+         BeginProperty Font 
+            Name            =   "Tahoma"
+            Size            =   8.25
+            Charset         =   0
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         ForeColor       =   &H00800000&
+         Height          =   255
+         Left            =   -72240
+         TabIndex        =   7
+         Top             =   960
+         Value           =   -1  'True
+         Width           =   1935
+      End
+      Begin VB.CheckBox chkProveedor 
+         Appearance      =   0  'Flat
+         BackColor       =   &H80000005&
+         Caption         =   "Proveedores"
+         ForeColor       =   &H80000008&
+         Height          =   255
+         Left            =   -73920
+         TabIndex        =   3
+         Top             =   2010
+         Width           =   1335
+      End
+      Begin VB.CheckBox chkCliente 
+         Appearance      =   0  'Flat
+         BackColor       =   &H80000005&
+         Caption         =   "Clientes"
+         ForeColor       =   &H80000008&
+         Height          =   255
+         Left            =   -73920
+         TabIndex        =   2
+         Top             =   1620
+         Value           =   1  'Checked
+         Width           =   1335
+      End
+      Begin VB.CheckBox ChkPersonal 
+         Appearance      =   0  'Flat
+         BackColor       =   &H80000005&
+         Caption         =   "Personal"
+         ForeColor       =   &H80000008&
+         Height          =   255
+         Left            =   -73920
+         TabIndex        =   1
+         Top             =   2760
+         Width           =   1335
+      End
+      Begin MSHierarchicalFlexGridLib.MSHFlexGrid HfdPersona 
+         Height          =   5775
+         Left            =   120
+         TabIndex        =   12
+         Top             =   960
+         Width           =   10935
+         _ExtentX        =   19288
+         _ExtentY        =   10186
+         _Version        =   393216
+         ForeColor       =   8388608
+         FixedCols       =   0
+         ForeColorFixed  =   8388608
+         SelectionMode   =   1
+         Appearance      =   0
+         BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+            Name            =   "Tahoma"
+            Size            =   8.25
+            Charset         =   0
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         _NumberOfBands  =   1
+         _Band(0).Cols   =   2
+      End
+      Begin VB.Label Label1 
+         Caption         =   "RAZON SOCIAL  :"
+         BeginProperty Font 
+            Name            =   "Tahoma"
+            Size            =   8.25
+            Charset         =   0
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         ForeColor       =   &H00800000&
+         Height          =   255
+         Left            =   360
+         TabIndex        =   10
+         Top             =   600
+         Width           =   1935
+      End
+      Begin VB.Label Label2 
+         AutoSize        =   -1  'True
+         BackStyle       =   0  'Transparent
+         Caption         =   "ORDENAR POR"
+         BeginProperty Font 
+            Name            =   "Tahoma"
+            Size            =   8.25
+            Charset         =   0
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         ForeColor       =   &H00800000&
+         Height          =   195
+         Left            =   -72960
+         TabIndex        =   4
+         Top             =   600
+         Width           =   1095
+      End
+      Begin VB.Shape Shape2 
+         BackColor       =   &H00FFFFFF&
+         BackStyle       =   1  'Opaque
+         BorderColor     =   &H00C0C0C0&
+         BorderStyle     =   6  'Inside Solid
+         FillColor       =   &H00FFFFFF&
+         Height          =   855
+         Left            =   -74400
+         Top             =   480
+         Width           =   4815
+      End
+      Begin VB.Shape Shape1 
+         BackColor       =   &H00FFFFFF&
+         BackStyle       =   1  'Opaque
+         BorderColor     =   &H00C0C0C0&
+         BorderStyle     =   6  'Inside Solid
+         FillColor       =   &H00C0C0C0&
+         Height          =   1695
+         Left            =   -74400
+         Top             =   1440
+         Width           =   4815
+      End
+   End
+   Begin ComCtl3.CoolBar ClbAcciones 
+      Height          =   3225
+      Left            =   11760
+      TabIndex        =   5
+      Top             =   555
+      Width           =   900
+      _ExtentX        =   1588
+      _ExtentY        =   5689
+      BandCount       =   1
+      ForeColor       =   -2147483635
+      ImageList       =   "ImgIconos"
+      FixedOrder      =   -1  'True
+      VariantHeight   =   0   'False
+      Orientation     =   1
+      EmbossPicture   =   -1  'True
+      _CBWidth        =   900
+      _CBHeight       =   3225
+      _Version        =   "6.0.8169"
+      Child1          =   "TlbAcciones"
+      MinHeight1      =   840
+      Width1          =   3180
+      FixedBackground1=   0   'False
+      NewRow1         =   0   'False
+      Begin MSComctlLib.Toolbar TlbAcciones 
+         Height          =   810
+         Left            =   30
+         TabIndex        =   6
+         Top             =   30
+         Width           =   840
+         _ExtentX        =   1482
+         _ExtentY        =   1429
+         ButtonWidth     =   1826
+         ButtonHeight    =   1429
+         Style           =   1
+         ImageList       =   "ImgIconos"
+         _Version        =   393216
+         BeginProperty Buttons {66833FE8-8583-11D1-B16A-00C0F0283628} 
+            NumButtons      =   3
+            BeginProperty Button1 {66833FEA-8583-11D1-B16A-00C0F0283628} 
+               Caption         =   "&Visualizar "
+               Key             =   "(Imprimir)"
+               ImageKey        =   "(Imprimir)"
+            EndProperty
+            BeginProperty Button2 {66833FEA-8583-11D1-B16A-00C0F0283628} 
+               Style           =   3
+            EndProperty
+            BeginProperty Button3 {66833FEA-8583-11D1-B16A-00C0F0283628} 
+               Caption         =   "Salir"
+               Key             =   "(Cancelar)"
+               Object.ToolTipText     =   "Salir"
+               ImageKey        =   "(Salir)"
+            EndProperty
+         EndProperty
+         OLEDropMode     =   1
+      End
+   End
+   Begin MSComctlLib.ImageList ImgIconos 
+      Left            =   0
+      Top             =   1200
+      _ExtentX        =   1005
+      _ExtentY        =   1005
+      BackColor       =   -2147483643
+      ImageWidth      =   32
+      ImageHeight     =   32
+      MaskColor       =   12632256
+      _Version        =   393216
+      BeginProperty Images {2C247F25-8591-11D1-B16A-00C0F0283628} 
+         NumListImages   =   14
+         BeginProperty ListImage1 {2C247F27-8591-11D1-B16A-00C0F0283628} 
+            Picture         =   "FrmReporteClientesProveedores.frx":0038
+            Key             =   "(Nuevo)"
+         EndProperty
+         BeginProperty ListImage2 {2C247F27-8591-11D1-B16A-00C0F0283628} 
+            Picture         =   "FrmReporteClientesProveedores.frx":048C
+            Key             =   "(Excel)"
+         EndProperty
+         BeginProperty ListImage3 {2C247F27-8591-11D1-B16A-00C0F0283628} 
+            Picture         =   "FrmReporteClientesProveedores.frx":0866
+            Key             =   "(Modificar)"
+         EndProperty
+         BeginProperty ListImage4 {2C247F27-8591-11D1-B16A-00C0F0283628} 
+            Picture         =   "FrmReporteClientesProveedores.frx":0B86
+            Key             =   "(Eliminar)"
+         EndProperty
+         BeginProperty ListImage5 {2C247F27-8591-11D1-B16A-00C0F0283628} 
+            Picture         =   "FrmReporteClientesProveedores.frx":0FDA
+            Key             =   "(Salir)"
+         EndProperty
+         BeginProperty ListImage6 {2C247F27-8591-11D1-B16A-00C0F0283628} 
+            Picture         =   "FrmReporteClientesProveedores.frx":142E
+            Key             =   "(Cancelar)"
+         EndProperty
+         BeginProperty ListImage7 {2C247F27-8591-11D1-B16A-00C0F0283628} 
+            Picture         =   "FrmReporteClientesProveedores.frx":174E
+            Key             =   "(Imprimir)"
+         EndProperty
+         BeginProperty ListImage8 {2C247F27-8591-11D1-B16A-00C0F0283628} 
+            Picture         =   "FrmReporteClientesProveedores.frx":1BA2
+            Key             =   "(Anular)"
+         EndProperty
+         BeginProperty ListImage9 {2C247F27-8591-11D1-B16A-00C0F0283628} 
+            Picture         =   "FrmReporteClientesProveedores.frx":1CFE
+            Key             =   "(Aceptar)"
+         EndProperty
+         BeginProperty ListImage10 {2C247F27-8591-11D1-B16A-00C0F0283628} 
+            Picture         =   "FrmReporteClientesProveedores.frx":2152
+            Key             =   "(Reporte)"
+         EndProperty
+         BeginProperty ListImage11 {2C247F27-8591-11D1-B16A-00C0F0283628} 
+            Picture         =   "FrmReporteClientesProveedores.frx":246E
+            Key             =   "(Pagar)"
+         EndProperty
+         BeginProperty ListImage12 {2C247F27-8591-11D1-B16A-00C0F0283628} 
+            Picture         =   "FrmReporteClientesProveedores.frx":2D4A
+            Key             =   "(Quitar)"
+         EndProperty
+         BeginProperty ListImage13 {2C247F27-8591-11D1-B16A-00C0F0283628} 
+            Picture         =   "FrmReporteClientesProveedores.frx":306A
+            Key             =   "(Agregar)"
+         EndProperty
+         BeginProperty ListImage14 {2C247F27-8591-11D1-B16A-00C0F0283628} 
+            Picture         =   "FrmReporteClientesProveedores.frx":338A
+            Key             =   "(Buscar)"
+         EndProperty
+      EndProperty
+   End
+   Begin MSComDlg.CommonDialog CmdlExcel 
+      Left            =   120
+      Top             =   240
+      _ExtentX        =   847
+      _ExtentY        =   847
+      _Version        =   393216
+   End
+End
+Attribute VB_Name = "FrmReportePersonas"
+Attribute VB_GlobalNameSpace = False
+Attribute VB_Creatable = False
+Attribute VB_PredeclaredId = True
+Attribute VB_Exposed = False
+Dim StrCliente As String * 2
+Dim strProveedor As String * 2
+Dim StrTransportista As String * 2
+Dim StrPersonal As String * 2
+
+Private Sub Form_Load()
+CenterForm Me
+Me.Top = 500
+
+End Sub
+
+Private Sub TlbAcciones_ButtonClick(ByVal Button As MSComctlLib.Button)
+Dim StrProducto As String, StrCriterio As String
+Dim Ans As Boolean
+
+Select Case Button.key
+  Case KEY_PRINT
+    StrCliente = ""
+    strProveedor = ""
+    StrTransportista = ""
+    StrPersonal = ""
+    
+   
+    If Me.ChkCliente.Value = 1 Then
+      StrCliente = "si"
+    End If
+    If Me.chkProveedor.Value = 1 Then
+      strProveedor = "si"
+    End If
+    If Me.ChkTransportista.Value = 1 Then
+      StrTransportista = "si"
+    End If
+    If Me.ChkPersonal.Value = 1 Then
+      StrPersonal = "si"
+    End If
+    
+    If Me.OptCodigo.Value = True Then
+        strCadena = "SELECT dni,nombre_completo,direccion,celular,cuenta FROM view_entidad_cuenta  WHERE ruc='" & KEY_RUC & "' AND (id_cliente LIKE '%" & Trim(StrCliente) & "%' AND id_proveedor LIKE '%" & Trim(strProveedor) & "%' AND id_personal LIKE '%" & Trim(StrPersonal) & "%') ORDER BY dni"
+    Else
+        strCadena = "SELECT dni,nombre_completo,direccion,celular,cuenta FROM view_entidad_cuenta  WHERE ruc='" & KEY_RUC & "' AND (id_cliente LIKE '%" & Trim(StrCliente) & "%' AND id_proveedor LIKE '%" & Trim(strProveedor) & "%' AND id_personal LIKE '%" & Trim(StrPersonal) & "%') ORDER BY nombre_completo"
+    End If
+    Call ConfiguraRst(strCadena)
+    Ans = ShowMultiReport(rst, "RptPersona", , App.Path + "\Reportes\")
+       
+Case KEY_CANCEL
+    Unload Me
+End Select
+End Sub
+Private Sub llenarGrid(ByVal Grilla As MSHFlexGrid)
+On Error GoTo salir
+Dim tTotal As Double
+
+strCadena = "SELECT P.dni,P.nombre_completo,P.direccion,E.monto_credito FROM persona P,entidad_empresa E WHERE P.dni=E.cod_unico AND E.id_empresa='" & KEY_RUC & "' AND E.id_credito='si'"
+Call ConfiguraRst(strCadena)
+ 
+If rst.RecordCount < 1 Then
+    Grilla.Rows = 1
+    Grilla.Clear
+    Exit Sub
+
+End If
+   Grilla.Clear
+   Grilla.Refresh
+   Grilla.Rows = 0
+   ReDim arrColWidth(1 To rst.Fields.Count)
+       For Each Campo In rst.Fields
+           Grilla.ColWidth(0) = 1000
+           Grilla.ColWidth(1) = 3500
+           Grilla.ColWidth(2) = 2500
+           Grilla.ColWidth(3) = 1200
+           Grilla.ColWidth(4) = 1200
+       Next
+         
+         cabecera = "DNI" & vbTab & "RAZON SOCIAL" & vbTab & "DIRECCION" & vbTab & "MONTO CREDITO" & vbTab & "M.CONSUMO"
+         Grilla.AddItem cabecera
+         For k = 0 To 4
+                                Grilla.col = k
+                                Grilla.Row = 0
+                                Grilla.CellBackColor = &HDFDFE0
+                            Next k
+                            
+        rst.MoveFirst
+        For i = 1 To rst.RecordCount
+            tTotal = 0
+            strCadena = "SELECT sum(saldo) FROM movimiento_venta WHERE id_forma_pago='02' AND ruc='" & KEY_RUC & "' AND id_cliente='" & rst("dni") & "' AND saldo>0"
+            Call ConfiguraRstT(strCadena)
+            If IsNull(rstT(0)) = False Then
+                tTotal = rstT(0)
+            Else
+                tTotal = 0
+            End If
+            Fila = rst("dni") & vbTab & rst("nombre_completo") & vbTab & rst("direccion") & vbTab & Format(rst("monto_credito"), "#,##0.00") & vbTab & Format(tTotal, "#,##0.00")
+            Grilla.AddItem Fila
+            Fila = ""
+            rst.MoveNext
+        Next i
+Exit Sub
+salir: MsgBox "Por Favor Digite Correctamente", vbInformation, "Mensaje para el usuario"
+End Sub
+
+
+

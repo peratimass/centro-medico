@@ -1,0 +1,8 @@
+id_venta	String	20	
+fecha_emision	Date
+id_vendedor	String	11
+vendedor	String	70
+monto_pago	Number
+turno	String	2
+
+

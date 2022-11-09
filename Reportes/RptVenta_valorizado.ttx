@@ -1,0 +1,25 @@
+fecha_ini	Date
+fecha_fin	Date
+almacen	String	60
+id_producto	String	10
+producto	String	100
+cantidad	Number
+linea	String	40
+marca	String	40
+id_vendedor	String	11
+comprobante	String	40
+precio_comprobante	Number
+precio_compra	Number
+precio_lista	Number
+fecha	Date
+campo1	String	50
+campo2	String	50
+campo3	String	50
+campo4	String	50
+campo5	String	50
+campo6	Number	
+campo7	Number
+
+
+
+

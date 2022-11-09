@@ -1,0 +1,7 @@
+id_producto	String	10
+detalle	String	1200
+linea	String	40
+unidad	String	40
+peso	Number
+cantidad	Number
+total	Number

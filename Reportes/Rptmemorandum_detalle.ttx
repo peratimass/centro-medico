@@ -1,0 +1,14 @@
+in_id	Number
+fecha_emision	Date
+vencimiento	Date
+comprobante	String	20
+id_moneda	String	5
+in_total	Number
+in_saldo	Number
+referencia	String	20
+
+
+
+
+
+

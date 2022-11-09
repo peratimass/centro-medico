@@ -1,0 +1,8 @@
+in_venta	Number
+in_vendedor	String	16
+vendedor	String	60
+fecha	Date
+ncliente	String	100
+comprobante	String	30
+monto	Number
+in_tipo	String	2

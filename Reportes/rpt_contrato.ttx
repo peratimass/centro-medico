@@ -1,0 +1,9 @@
+dni	String	11
+dni_familia	String	11
+nombre_completo	String	100
+direccion	String	100
+celular	String	10
+departamento	String	40
+provincia	String	40
+distrito	String	40
+id_parentesco	String	2

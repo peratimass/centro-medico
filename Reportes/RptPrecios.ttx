@@ -1,0 +1,7 @@
+codigo	String	5	
+barra	String	20
+clinea	String	5
+Linea	String	20		
+producto	String	80	
+Unidad	String	20
+nPrecioVenta	Number		

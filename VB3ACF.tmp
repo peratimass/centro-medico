@@ -1,0 +1,2273 @@
+Attribute VB_Name = "modSeguridad"
+Public Declare Function URLDownloadToFile Lib "urlmon" Alias "URLDownloadToFileA" (ByVal pCaller As Long, ByVal szURL As String, ByVal szFileName As String, ByVal dwReserved As Long, ByVal lpfnCB As Long) As Long
+Public Function eliminar_informe_I(ByVal in_forme As Double) As Boolean
+eliminar_informe_I = False
+strCadena = "DELETE FROM proyecto_informe WHERE id_informe='" & in_forme & "'"
+CnBd.Execute (strCadena)
+eliminar_informe_I = True
+End Function
+Public Function get_ubigueo(ByVal in_departamento As String, ByVal in_provincia As String, ByVal in_distrito As String) As String
+strCadena = "SELECT ubigueo FROM view_ubigeo WHERE id_depa='" & in_departamento & "' and id_provincia='" & in_provincia & "' and id_distrito='" & in_distrito & "'"
+Call ConfiguraRstL(strCadena)
+If rstL.RecordCount > 0 Then
+    get_ubigueo = rstL("ubigueo")
+Else
+    get_ubigueo = ""
+
+End If
+End Function
+Public Function anular_memorandum(ByVal in_memo As String)
+strCadena = "UPDATE memorandun SET anulado='si' WHERE id_memo='" & Val(in_memo) & "'"
+CnBd.Execute (strCadena)
+End Function
+
+Public Function get_forma_pago_contado() As Integer
+strCadena = "SELECT * FROM forma_pago_detalle WHERE ruc='" & KEY_RUC & "' and id='01' and id_detalle='01' LIMIT 1"
+Call ConfiguraRstP(strCadena)
+If rstP.RecordCount > 0 Then
+   get_forma_pago_contado = rstP("id_registro")
+Else
+   get_forma_pago_contado = 0
+End If
+End Function
+Public Function anular_orden_compra(ByVal in_orden As String) As Boolean
+
+Dim in_guia As String
+Dim in_flete As String
+Dim in_factura As String
+
+
+
+'****VERIFICACION SI HAY VARIAS RECEPCIONES
+strCadena = "SELECT * FROM orden_compra WHERE id_orden='" & Val(in_orden) & "' and ruc='" & KEY_RUC & "' "
+Call ConfiguraRstL(strCadena)
+If rstL.RecordCount > 0 Then
+   in_orden_compra = rstL("id_recepcion")
+    in_compra_flete = rstL("id_factura_flete")
+    in_serie_guia = rstL("guia_serie")
+    in_numero_guia = rstL("guia_numero")
+    in_factura_unica = rstL("id_compra")
+    
+End If
+strCadena = "SELECT * FROM orden_compra WHERE id_recepcion='" & Val(in_orden_compra) & "' and ruc='" & KEY_RUC & "'"
+Call ConfiguraRstL(strCadena)
+If rstL.RecordCount = 1 Then
+
+strCadena = "SELECT * FROM orden_compra WHERE id_orden='" & Val(in_orden) & "' and ruc='" & KEY_RUC & "'"
+Call ConfiguraRstL(strCadena)
+If rstL.RecordCount > 0 Then
+    in_compra_flete = rstL("id_factura_flete")
+    in_serie_guia = rstL("guia_serie")
+    in_numero_guia = rstL("guia_numero")
+    in_compra = rstL("id_compra")
+            
+    If MsgBox("Esta Anulacion tendra Efecto Contable. " + Chr(13) + "Desea Continuar ?", vbQuestion + vbYesNo, KEY_VENDEDOR) = vbYes Then
+            in_compra_flete = rstL("id_factura_flete")
+            in_serie_guia = rstL("guia_serie")
+            in_numero_guia = rstL("guia_numero")
+            strCadena = "SELECT * FROM movimiento_compra WHERE id_compra='" & rstL("id_compra") & "' and ruc='" & KEY_RUC & "'"
+            Call ConfiguraRstZ(strCadena)
+            If rstZ.RecordCount > 0 Then
+               in_serie_compra = rstZ("serie")
+               in_numero_compra = rstZ("numero")
+               Call eliminar_compras_general(rstZ("id_doc"), rstZ("serie"), rstZ("numero"), rstZ("id_proveedor"))
+            End If
+            
+            
+            strCadena = "SELECT * FROM movimiento_compra WHERE id_compra='" & in_compra_flete & "' and ruc='" & KEY_RUC & "'"
+            Call ConfiguraRstZ(strCadena)
+            If rstZ.RecordCount > 0 Then
+               Call eliminar_compras_general(rstZ("id_doc"), rstZ("serie"), rstZ("numero"), rstZ("id_proveedor"))
+            End If
+            If in_serie_guia = "" And in_numero_guia = "" Then
+                Call put_delete_kardex_recepcion(in_orden, in_serie_compra, in_numero_compra)
+            Else
+                Call put_delete_kardex_recepcion(in_orden, in_serie_guia, in_numero_guia)
+            End If
+End If
+Else
+            strCadena = "SELECT * FROM movimiento_compra WHERE id_compra='" & in_compra_flete & "' and ruc='" & KEY_RUC & "'"
+            Call ConfiguraRstZ(strCadena)
+            If rstZ.RecordCount > 0 Then
+               Call eliminar_compras_general(rstZ("id_doc"), rstZ("serie"), rstZ("numero"), rstZ("id_proveedor"))
+            End If
+            Call put_delete_kardex_recepcion(in_orden, in_serie_guia, in_numero_guia)
+
+End If
+    Else
+           strCadena = "SELECT * FROM movimiento_compra WHERE id_compra='" & in_compra_flete & "' and ruc='" & KEY_RUC & "'"
+            Call ConfiguraRstZ(strCadena)
+            If rstZ.RecordCount > 0 Then
+               Call eliminar_compras_general(rstZ("id_doc"), rstZ("serie"), rstZ("numero"), rstZ("id_proveedor"))
+            End If
+            Call put_delete_kardex_recepcion(in_orden, in_serie_guia, in_numero_guia)
+    
+    
+    End If
+    
+
+
+strCadena = "UPDATE orden_compra SET id_estado='3' WHERE id_orden='" & Val(in_orden) & "' and ruc='" & KEY_RUC & "'"
+CnBd.Execute (strCadena)
+anular_orden_compra = True
+
+
+
+
+
+
+
+
+End Function
+
+
+Public Function verificar_password(ByVal in_password As String) As Boolean
+strCadena = "SELECT cod_unico FROM entidad_empresa WHERE cod_unico='" & KEY_USUARIO & "' and passwordaccesso='" & in_password & "' and id_empresa='" & KEY_RUC & "'"
+Call ConfiguraRst(strCadena)
+If rst.RecordCount > 0 Then
+    verificar_password = True
+Else
+    verificar_password = False
+End If
+End Function
+Public Function get_licencia(ByVal in_dni As String) As String
+strCadena = "SELECT * FROM persona WHERE dni='" & in_dni & "'"
+Call ConfiguraRstK(strCadena)
+If rstK.RecordCount > 0 Then
+    get_licencia = rstK("licencia")
+Else
+    get_licencia = "-"
+End If
+End Function
+Public Function verificar_password_admin(ByVal in_password As String) As String
+strCadena = "SELECT id_cargo FROM entidad_empresa WHERE  passwordaccesso='" & in_password & "' and id_empresa='" & KEY_RUC & "' LIMIT 1"
+Call ConfiguraRst(strCadena)
+If rst.RecordCount > 0 Then
+    verificar_password_admin = rst("id_cargo")
+Else
+    verificar_password_admin = "0"
+End If
+End Function
+
+Public Sub put_biblio(ByVal in_dni As String, ByVal in_facultad As String, ByVal in_tipo_acceso As String, ByVal in_ciclo As String)
+strCadena = "UPDATE entidad_empresa SET id_tipo_acceso='" & in_tipo_acceso & "',id_facultad='" & in_facultad & "',id_ciclo='" & in_ciclo & "' WHERE cod_unico='" & Trim(in_dni) & "' and id_empresa='" & KEY_RUC & "'"
+CnBd.Execute (strCadena)
+End Sub
+
+Public Function delete_formapago(ByVal in_forma_pago As String) As Boolean
+
+strCadena = "SELECT count(*) FROM movimiento_venta_monto WHERE id_forma_pago='" & Trim(in_forma_pago) & "' and ruc='" & KEY_RUC & "'"
+Call ConfiguraRst(strCadena)
+If rst(0) = 0 Then
+   strCadena = "DELETE FROM forma_pago_detalle WHERE id_registro='" & Trim(in_forma_pago) & "' and ruc='" & KEY_RUC & "'"
+   CnBd.Execute (strCadena)
+   delete_formapago = True
+Else
+   delete_formapago = False
+End If
+
+End Function
+
+Public Sub llenar_direccion(ByVal Grilla As MSHFlexGrid, ByVal in_dni As String)
+On Error GoTo salir
+Dim tTotal As Double
+strCadena = "SELECT * FROM persona_direccion WHERE dni='" & in_dni & "'"
+Call ConfiguraRst(strCadena)
+
+If rst.RecordCount < 1 Then
+    Grilla.Rows = 0
+    
+    Exit Sub
+End If
+
+   Grilla.Rows = 0
+       ReDim arrColWidth(1 To rst.Fields.Count)
+       For Each Campo In rst.Fields
+            Grilla.ColWidth(0) = 0
+            Grilla.ColWidth(1) = 500
+            Grilla.ColWidth(2) = 6000
+            Grilla.ColWidth(3) = 500
+        Next
+        cabecera = "COD" & vbTab & "COD" & vbTab & "DIRECCION" & vbTab & ""
+        Grilla.AddItem cabecera
+         For k = 1 To 3
+            Grilla.col = k
+            Grilla.Row = 0
+            Grilla.CellBackColor = &HDFDFE0
+        Next k
+        rst.MoveFirst
+        
+        For i = 0 To rst.RecordCount - 1
+            Fila = rst("id_direccion") & vbTab & Format(i + 1, "0000") & vbTab & rst("direccion") & vbTab & Chr(168)
+            Grilla.AddItem Fila
+           
+                        With Grilla
+                            .Row = i + 1 ' se posiciona en la fila
+                            .col = 3 '  .. en la columna
+                            ' cambia la fuente para esta celda
+                            
+                            .CellFontName = "Wingdings"
+                            .CellFontSize = 14
+                            .CellAlignment = flexAlignCenterCenter
+                            ' edita la celda
+                            ' If rstT("estado") = "no" Then
+                             '   estado = Chr(168)
+                            'Else
+                             '   estado = Chr(254)
+                            'End If
+                            
+                        End With
+      
+            rst.MoveNext
+            
+        Next i
+      
+      
+    
+  Exit Sub
+salir: MsgBox "Ocurrio un Error en la Conexion", vbInformation, "Mensaje para el usuario"
+Set rst = Nothing
+
+End Sub
+
+Public Sub update_temporal(ByVal in_doc As String, ByVal in_serie As String, ByVal in_numero As String, ByVal in_cliente As String, ByVal obj_serie As DataCombo, ByVal obj_numero As TextBox)
+strCadena = "UPDATE temporal_ventas SET id_doc='" & in_doc & "',id_serie='" & in_serie & "',numero='" & Format(in_numero, "000000") & "' WHERE id_dni='" & in_cliente & "' and  dni_save='" & KEY_USUARIO & "' and id_alm='" & KEY_ALM & "' and ruc='" & KEY_RUC & "' "
+CnBd.Execute (strCadena)
+
+strCadena = "UPDATE movimiento_venta_monto_temporal SET id_doc='" & in_doc & "',serie='" & in_serie & "',numero='" & Format(in_numero, "000000") & "' WHERE id_usuario='" & KEY_USUARIO & "' and ruc='" & KEY_RUC & "'"
+CnBd.Execute (strCadena)
+
+obj_serie.BoundText = in_serie
+obj_numero.Text = Format(in_numero, "000000")
+End Sub
+
+Public Function insertar_transferencia_nula(ByVal in_doc As String, ByVal in_serie As String, ByVal in_numero As String, ByVal in_almacen As String)
+
+strCadena = "INSERT INTO movimiento_transferencia(id_doc,dni_atencion,atencion,id_tipo_guia,serie,numero,fecha,direccion,id_destinatario,destinatario,id_transporte,marca_placa,id_chofer,id_alm_origen,id_alm_destino,id_motivo,motivo_otros,observacion,id_venta,dni_save,ruc) " & _
+        "VALUES('" & in_doc & "',' ',' ','01','" & in_serie & "','" & in_numero & "','" & KEY_FECHA & "','-','-','ANULADO'," & _
+        "'-','-','-','" & in_almacen & "','0','01','-','-','0','" & KEY_USUARIO & "','" & KEY_RUC & "')"
+        CnBd.Execute (strCadena)
+
+strCadena = "SELECT id_transferencia FROM movimiento_transferencia WHERE ruc='" & KEY_RUC & "'  ORDER BY id_transferencia DESC LIMIT 1"
+Call ConfiguraRst(strCadena)
+If rst.RecordCount > 0 Then
+   strCadena = "UPDATE movimiento_transferencia SET anulado='si' WHERE id_transferencia='" & rst("id_transferencia") & "' and ruc='" & KEY_RUC & "'"
+   CnBd.Execute (strCadena)
+End If
+End Function
+
+Public Function anular_guia(ByVal in_doc As String, ByVal in_serie As String, ByVal in_numero As String, ByVal in_alm As String)
+        strCadena = "SELECT id_transferencia,id_alm_origen as id_alm,id_alm_destino FROM movimiento_transferencia WHERE id_doc='" & in_doc & "' AND serie='" & in_serie & "' AND numero='" & in_numero & "' AND ruc='" & KEY_RUC & "'"
+        Call ConfiguraRstZ(strCadena)
+        If rstZ.RecordCount > 0 Then
+            anular_guia = True
+            strCadena = "UPDATE movimiento_transferencia SET anulado='si',id_estado='3' WHERE id_transferencia='" & rstZ("id_transferencia") & "' and ruc='" & KEY_RUC & "'"
+            CnBd.Execute (strCadena)
+            strCadena = "UPDATE movimiento_transferencia SET anulado='si',id_estado='3' WHERE id_doc='" & in_doc & "' AND serie='" & in_serie & "' AND numero='" & in_numero & "' AND ruc='" & KEY_RUC & "'"
+             
+            strCadena = "SELECT chasis,id_producto FROM movimiento_transferencia_series WHERE id_transferencia='" & rstZ("id_transferencia") & "'"
+            Call ConfiguraRstL(strCadena)
+            If rstL.RecordCount > 0 Then
+                For p = 0 To rstL.RecordCount - 1
+                    strCadena = "DELETE FROM imp_producto_detalle WHERE nro_chasis='" & rstL("chasis") & "' and id_alm='" & rstZ("id_alm_destino") & "' and ruc='" & KEY_RUC & "'"
+                    CnBd.Execute (strCadena)
+                    
+                    strCadena = "SELECT sum(cantidad_real),sum(cantidad_contable) FROM kardex where id_alm='" & rstZ("id_alm") & "' and  id_producto='" & rstL("id_producto") & "' and ruc='" & KEY_RUC & "'"
+                    Call ConfiguraRstK(strCadena)
+                    
+                    strCadena = "UPDATE almacen_producto set stock = '" & rstK(0) & "'  , `stock_contable` = '" & rstK(1) & "'  where ruc = '" & KEY_RUC & "' and id_alm ='" & rstZ("id_alm") & "' and id_producto = '" & rstL("id_producto") & "'"
+                    CnBd.Execute (strCadena)
+                                        
+                    strCadena = "SELECT sum(cantidad_real),sum(cantidad_contable) FROM kardex where id_alm='" & rstZ("id_alm_destino") & "' and  id_producto='" & rstL("id_producto") & "' and ruc='" & KEY_RUC & "'"
+                    Call ConfiguraRstK(strCadena)
+                    
+                    strCadena = "update almacen_producto set stock = '" & rstK(0) & "'  , `stock_contable` = '" & rstK(1) & "'  where ruc = '" & KEY_RUC & "' and id_alm ='" & rstZ("id_alm_destino") & "' and id_producto = '" & rstL("id_producto") & "'"
+                    CnBd.Execute (strCadena)
+                    rstL.MoveNext
+                Next p
+            End If
+        Else
+            If MsgBox("ESTA GUIA REMISION NO ESTA REGISTRADA" + Chr(13) + Chr(13) + "DESEA SEGUIR ANULANDO.", vbQuestion + vbYesNo) = vbYes Then
+                
+                Call insertar_transferencia_nula(in_doc, in_serie, in_numero, in_alm)
+            End If
+            
+        End If
+End Function
+
+Public Function reservar_comprobante(ByVal in_doc As String, ByVal in_serie As String, ByVal in_numero As String, ByVal in_alm As String) As String
+    strCadena = "SELECT nombre_completo FROM view_movimeinto_venta_reserva WHERE in_doc='" & in_doc & "' and in_serie='" & in_serie & "' and in_numero='" & in_numero & "' and ruc='" & KEY_RUC & "'"
+    Call ConfiguraRst(strCadena)
+    If rst.RecordCount > 0 Then
+           reservar_comprobante = True
+           MsgBox "COMPROBANTE ESTA SIENDO UTILIZADO      " + Chr(13) + Chr(13) + "POR: " + UCase(rst("nombre_completo")) + Chr(13) + "USAMOS EL CORRELATIVO ?", vbInformation + vbYesNo, KEY_EMPRESA
+           reservar_comprobante = Format(Val(in_numero) + 1, "000000")
+           Exit Function
+        
+        
+    Else
+        strCadena = "INSERT INTO movimiento_venta_reserva(`in_doc`,`in_serie`,`in_numero`,`in_alm`,`dni_save`,`ruc`)VALUES('" & in_doc & "','" & in_serie & "','" & in_numero & "','" & in_alm & "','" & KEY_USUARIO & "','" & KEY_RUC & "')"
+        CnBd.Execute (strCadena)
+        reservar_comprobante = False
+    End If
+
+End Function
+
+
+
+Public Function eliminar_reservar(ByVal in_doc As String, ByVal in_serie As String, ByVal in_numero As String)
+    strCadena = "DELETE FROM movimiento_venta_reserva WHERE dni_save='" & KEY_USUARIO & "' and ruc='" & KEY_RUC & "'"
+    CnBd.Execute (strCadena)
+    
+End Function
+Public Function verificar_duplicado(ByVal in_doc As String, ByVal in_serie As String, ByVal in_numero As String) As Boolean
+strCadena = "SELECT * FROM movimiento_venta WHERE id_doc='" & in_doc & "' and serie='" & in_serie & "' and numero='" & in_numero & "' and ruc='" & KEY_RUC & "' LIMIT 1"
+Call ConfiguraRstK(strCadena)
+If rstK.RecordCount > 0 Then
+    verificar_duplicado = True
+Else
+    verificar_duplicado = False
+End If
+End Function
+Public Function get_electronico(ByVal in_doc As String, ByVal in_serie As String) As String
+
+strCadena = "SELECT electronico FROM almacen_comprobante WHERE  id_doc='" & in_doc & "' and serie='" & in_serie & "'  and ruc='" & KEY_RUC & "' LIMIT 1"
+Call ConfiguraRstZ(strCadena)
+If rstZ.RecordCount > 0 Then
+   get_electronico = rstZ("electronico")
+Else
+   get_electronico = "no"
+End If
+
+End Function
+Public Function get_ndocumento(ByVal in_doc As String) As String
+get_ndocumento = "-"
+Select Case id_doc
+    Case "0003"
+        get_ndocumento = "BOLETA:"
+    Case "0001"
+        
+        get_ndocumento = "FACTURA:"
+        
+End Select
+
+
+End Function
+
+Public Function get_numero_comprobante(ByVal in_doc As String, ByVal in_serie As String) As String
+strCadena = "SELECT numero FROM movimiento_venta WHERE id_doc='" & in_doc & "' and  serie='" & in_serie & "' and ruc='" & KEY_RUC & "' ORDER BY numero DESC LIMIT 1"
+Call ConfiguraRstAux(strCadena)
+If rstAux.RecordCount > 0 Then
+    get_numero_comprobante = Format(Val(rstAux("numero")) + 1, "000000")
+Else
+    If KEY_FACTURACION_ELECTRONICA = "si" Then
+        get_numero_comprobante = "000001"
+    Else
+        get_numero_comprobante = get_numero_doc(in_doc, in_serie)
+    End If
+End If
+End Function
+Public Function get_numero_doc(ByVal in_doc As String, ByVal in_serie As String) As String
+strCadena = "SELECT numero FROM almacen_comprobante WHERE id_doc='" & in_doc & "' and serie='" & in_serie & "' and ruc='" & KEY_RUC & "' LIMIT 1"
+Call ConfiguraRstAux(strCadena)
+If rstAux.RecordCount > 0 Then
+   get_numero_doc = Format(rstAux("numero"), "000000")
+Else
+   get_numero_doc = "0"
+End If
+End Function
+
+Public Function get_comprobante(ByVal in_venta As String) As String
+strCadena = "SELECT fecha_emision,documento FROM movimiento_venta WHERE id_venta='" & in_venta & "' and ruc='" & KEY_RUC & "'"
+Call ConfiguraRstAux(strCadena)
+If rstAux.RecordCount > 0 Then
+    get_comprobante = rstAux("documento") & ":" & Format(rstAux("fecha_emision"), "dd-mm-YYYY")
+Else
+    get_comprobante = "--:--:--"
+End If
+End Function
+
+Public Sub disabled_form(ByVal Formulario As Form)
+        Formulario.Enabled = False
+       
+End Sub
+Public Sub enabled_form(ByVal Formulario As Form)
+        Formulario.Enabled = True
+End Sub
+Public Sub save_boceto(ByVal in_imagen As String, ByVal in_ruta_web As String, ByVal in_ruta_local As String, ByVal in_backlog As Integer, ByVal in_observacion As String)
+    strCadena = "INSERT INTO proyecto_backlog_img(`id_backlog`,`imagen`,in_ruta_web,in_ruta_local,observacion)values('" & in_backlog & "','" & in_imagen & "','" & in_ruta_web & "','" & in_ruta_local & "','" & in_observacion & "')"
+    CnBd.Execute (strCadena)
+End Sub
+Public Function ExisteArchivo(ByVal Archivo As String) As Boolean
+Dim Nombre As String ' Temporal para la búsqueda del archivo dado.
+ExisteArchivo = False ' Supone que no existe.
+
+    Nombre = Dir$(Archivo)
+    If Len(Nombre) > 0 Then
+        ExisteArchivo = True
+    End If
+
+End Function
+Public Function DownloadFile(Url As String, LocalFilename As String) As Boolean
+
+Dim lngRetVal As Long
+lngRetVal = URLDownloadToFile(0, Url, LocalFilename, 0, 0)
+If lngRetVal = 0 Then DownloadFile = True
+End Function
+Public Sub get_boceto(ByVal img_boceto As Image, ByVal ruta_web As String, ByVal in_ruta_local As String, ByVal in_imagen As String)
+On Error GoTo salir
+Dim str_ruta_img As String
+Dim in_img_server As String
+str_ruta_img = App.Path & "\archivos\" & KEY_RUC & "\download\" & Trim(in_imagen)
+in_img_server = ruta_web
+If Len(in_imagen) > 5 Then
+      If ExisteArchivo(Trim(str_ruta_img)) = True Then
+           img_boceto = LoadPicture(str_ruta_img)
+      Else
+           DownloadFile ruta_web, str_ruta_img
+           img_boceto = LoadPicture(str_ruta_img)
+      End If
+
+    
+End If
+Exit Sub
+salir:
+End Sub
+Public Sub get_bocetoO(ByVal img_boceto As Image, ByVal ruta_web As String, ByVal in_ruta_local As String, ByVal in_imagen As String)
+On Error GoTo salir
+Dim str_ruta_img As String
+Dim in_img_server As String
+str_ruta_img = App.Path & "\archivos\" & KEY_RUC & "\download\" & Trim(in_imagen)
+in_img_server = ruta_web
+If Len(in_imagen) > 5 Then
+      If ExisteArchivo(Trim(str_ruta_img)) = True Then
+           img_boceto = LoadPicture(str_ruta_img)
+      Else
+           DownloadFile ruta_web, str_ruta_img
+           img_boceto = LoadPicture(str_ruta_img)
+      End If
+
+    
+End If
+Exit Sub
+salir:
+End Sub
+
+Public Function get_pendientes() As Integer
+Dim in_cantidad As Integer
+strCadena = "SELECT  funct_backlog()"
+Call ConfiguraRstP(strCadena)
+get_pendientes = rstP(0)
+in_cantidad = rstP(0)
+If in_cantidad > 0 Then
+    PlaySound App.Path & "\sonidos\dingding.wav"
+End If
+
+End Function
+Public Function get_dni_reniec(ByVal in_dni As String) As Boolean
+
+Dim Nombre As String
+    On Error GoTo salir_cancel
+
+
+    Dim strHtml As String
+    'UrlStr = "https://soluciones.equifax.com.pe/e-commerce/flujo/validarPadron.htm?_HDIV_STATE_=33-1-43C78CD3FE0C2B14246C904C232C7E11"
+     urlstr = "http://facturacion.vitekey.com/api/utiles/consultar_dni?dni=" & in_dni
+     Set DomDoc = New XMLHTTP
+     'Parámetros en formato URLEncode
+    ' ventanilla = Split(rstaux("ventanilla"), "-")
+     
+     params = ""
+     '
+     'params = "tipoDocumento=" & 1 & "&nroDocumento=" & in_dni
+     'Metodo a usar, url, y true en caso de manejar la respuesta en modo asíncrono
+     DomDoc.Open "POST", urlstr, False
+     'encabezados
+     DomDoc.setRequestHeader "Content-type", "application/x-www-form-urlencoded"
+     DomDoc.setRequestHeader "Content-length", Len(params)
+     DomDoc.setRequestHeader "Connection", "close"
+     DomDoc.send params
+     
+    'La respuesta, en caso de existir, está en responseBody.
+    'También puedes especificar responseXml si tu aplicación devolviese XML
+    
+     strHtml = StrConv(DomDoc.responseBody, vbUnicode)
+     
+     
+     Dim p As Object
+     Set p = JSON.parse(strHtml)
+     Nombre = Trim(p.Item("apellidoPaterno")) & Space(1) & Trim(p.Item("apellidoMaterno")) & Space(1) & Trim(p.Item("nombres"))
+     If Trim(Nombre) <> "" Then
+        strCadena = " call P_insert_persona_ii('" & Trim(in_dni) & "','" & Trim(p.Item("apellidoPaterno")) & "','" & Trim(p.Item("apellidoMaterno")) & "','" & Trim(p.Item("nombres")) & "','" & Trim(Nombre) & "','-','','-','no','no','no','no','no','no','si','" & KEY_RUC & "')"
+        CnBd.Execute (strCadena)
+        get_dni_reniec = True
+    Else
+        get_dni_reniec = False
+    End If
+    
+
+
+     
+     
+     
+     Exit Function
+  get_dni_reniec = False
+salir_cancel:
+
+End Function
+
+Public Function get_dni_reniec_ii(ByVal in_dni As String) As Boolean
+
+Dim Nombre As String
+Dim strHtml As String
+Set DomDoc = New XMLHTTP
+     
+    On Error GoTo salir_cancel
+
+     urlstr = "http://facturacion.vitekey.com/api/utiles/consultar_dni?dni=" & in_dni
+     Set DomDoc = New XMLHTTP
+     'Parámetros en formato URLEncode
+     'Metodo a usar, url, y true en caso de manejar la respuesta en modo asíncrono
+     DomDoc.Open "GET", urlstr, False
+     'encabezados
+         
+     DomDoc.setRequestHeader "Connection", "close"
+     DomDoc.send params
+     'La respuesta, en caso de existir, está en responseBody.
+    'También puedes especificar responseXml si tu aplicación devolviese XML
+     strHtml = StrConv(DomDoc.responseBody, vbUnicode)
+     
+     Dim p As Object
+     Set p = JSON.parse(strHtml)
+     Nombre = Replace(Trim(p.Item("nombre")), "‘", " ")
+     Nombre = Replace(Nombre, "‘", " ")
+     Nombre = Replace(Nombre, "'", " ")
+     If Trim(Nombre) <> "" Then
+        strCadena = " call P_insert_persona_ii('" & Trim(in_dni) & "','-','-','-','" & Trim(Nombre) & "','-','','-','no','no','no','no','no','no','si','" & KEY_RUC & "')"
+        CnBd.Execute (strCadena)
+        get_dni_reniec_ii = True
+    Else
+        get_dni_reniec_ii = False
+    End If
+    
+
+     
+     Exit Function
+  get_dni_reniec_ii = False
+salir_cancel:
+
+End Function
+
+
+Public Sub put_insert_producto_alm(ByVal in_alm As String)
+On Error GoTo salir
+    strCadena = "SELECT * FROM producto WHERE ruc='" & KEY_RUC & "'"
+    Call ConfiguraRst(strCadena)
+    If rst.RecordCount > 0 Then
+        rst.MoveFirst
+        For i = 0 To rst.RecordCount - 1
+        strCadena = "INSERT INTO almacen_producto(id_alm,id_producto,stock,stock_factura,ruc) VALUES ('" & in_alm & "','" & rst("id_producto") & "','0','0','" & KEY_RUC & "')"
+        CnBd.Execute (strCadena)
+        
+        rst.MoveNext
+        Next i
+       
+    End If
+    Exit Sub
+salir:
+End Sub
+
+    
+
+Public Sub delete_almacen(ByVal in_alm As String)
+strCadena = "DELETE FROM almacen WHERE id_alm='" & in_alm & "' and ruc='" & KEY_RUC & "'"
+CnBd.Execute (strCadena)
+End Sub
+
+Public Sub delete_producto(ByVal in_producto As String)
+strCadena = "SELECT * FROM movimiento_venta_detalle WHERE id_producto='" & Trim(in_producto) & "' AND ruc='" & KEY_RUC & "'"
+        Call ConfiguraRst(strCadena)
+        If rst.RecordCount > 0 Then
+            MsgBox "ESTE PRODUCTO CUENTA CON DOCUMENTOS RELACIONADOS" + Chr(13) + "ELIMINE LOS COMPROBANTES ANTES DE ELIMINAR EL PRODUCTO", vbInformation, KEY_EMPRESA
+            
+            Exit Sub
+        End If
+            strCadena = "DELETE FROM producto WHERE id_producto='" & Trim(in_producto) & "' AND ruc='" & KEY_RUC & "'"
+            CnBd.Execute (strCadena)
+End Sub
+
+Public Function get_electronico_online(ByVal in_doc As String, ByVal in_serie As String) As String
+strCadena = "SELECT electronico,online FROM almacen_comprobante WHERE electronico='si' and  id_doc='" & in_doc & "' and serie='" & in_serie & "' and id_alm='" & KEY_VENTANILLA & "' and ruc='" & KEY_RUC & "' LIMIT 1"
+Call ConfiguraRstZ(strCadena)
+If rstZ.RecordCount > 0 Then
+   get_electronico_online = rstZ("online")
+Else
+   get_electronico_online = "no"
+End If
+
+End Function
+Public Function get_firma_online(ByVal in_doc As String, ByVal in_serie As String) As String
+
+    strCadena = "SELECT firmado_online FROM almacen_comprobante WHERE electronico='si' and  id_doc='" & in_doc & "' and serie='" & in_serie & "'  and ruc='" & KEY_RUC & "' LIMIT 1"
+    Call ConfiguraRstZ(strCadena)
+    If rstZ.RecordCount > 0 Then
+        get_firma_online = rstZ("firmado_online")
+    Else
+        get_firma_online = "no"
+    End If
+
+End Function
+
+Public Function get_comprobante_produccion(ByVal in_doc As String, ByVal in_serie As String) As String
+strCadena = "SELECT produccion FROM almacen_comprobante WHERE electronico='si' and  id_doc='" & in_doc & "' and serie='" & in_serie & "'  and ruc='" & KEY_RUC & "' LIMIT 1"
+Call ConfiguraRstZ(strCadena)
+If rstZ.RecordCount > 0 Then
+   get_comprobante_produccion = rstZ("produccion")
+Else
+   get_comprobante_produccion = "no"
+End If
+
+End Function
+
+Public Function json_facturacion_electronica(ByVal in_doc As String, ByVal in_serie As String, ByVal in_numero As String, ByVal In_fecha As String, ByVal in_cliente As String, ByVal in_cliente_nombre As String, ByVal in_tipo_cliente As String, ByVal in_descuento As Single)
+
+Dim in_monto As Single
+Dim in_detalle As String
+Dim menor_edad As Boolean
+Dim Item As String
+          
+      
+strCadena = "SELECT * FROM temporal_ventas WHERE dni_save='" & KEY_USUARIO & "' and id_alm='" & KEY_ALM & "' and ruc='" & KEY_RUC & "' ORDER BY id ASC"
+Call ConfiguraRst(strCadena)
+If rst.RecordCount > 0 Then
+   rst.MoveFirst
+ 
+   For i = 0 To rst.RecordCount - 1
+        
+        If i = 0 Then
+           Item = "{ codigo: '" & rst("id_producto") & "', descripcion: '" & rst("detalle") & "', cantidad: '" & rst("cantidad") & "', precio_unitario:'" & rst("precio") & "',tipo_precio:'01', descuento:'0.00',tax_code:10 }"
+        Else
+           Item = Item & "," & "{ codigo: '" & rst("id_producto") & "', descripcion: '" & rst("detalle") & "', cantidad: '" & rst("cantidad") & "', precio_unitario:'" & rst("precio") & "',tipo_precio:'01', descuento:'0.00',tax_code:10 }"
+        End If
+        
+        rst.MoveNext
+   Next i
+End If
+
+If in_cliente = "00000000" Then
+   in_cliente = "0"
+End If
+json_facturacion_electronica = "{ tipo_documento: '" & in_doc & "',serie: '" & in_serie & "',numero:'" & in_numero & "',ruc: '" & KEY_RUC & "',ubigeo: '140101', fecha: '" & Format(In_fecha, "YYYY-mm-dd") & "', id_cliente: '" & in_cliente & "', tipo_cliente:'" & in_tipo_cliente & "',nombre_cliente:'" & in_cliente_nombre & "',descuento_global:'" & Format(in_descuento, "#,##0.00") & "', items:[ " & Item & "  ]   }"
+
+
+    
+
+End Function
+Public Function json_facturacion_electronica_firmar(ByVal in_doc As String, ByVal in_serie As String, ByVal in_numero As String, ByVal In_fecha As String, ByVal in_cliente As String, ByVal in_cliente_nombre As String, ByVal in_cliente_direccion As String, ByVal in_tipo_cliente As String, ByVal in_descuento As Single, ByVal in_igv As Single, ByVal id_motivo_nota As String, ByVal motivo_nota As String, ByVal id_tipo_doc_afectado As String, ByVal in_serie_afectado As String, ByVal in_numero_afectado As String, ByVal in_moneda As String)
+Dim in_monto As Single
+Dim in_detalle As String
+Dim menor_edad As Boolean
+Dim Item As String
+Dim in_referencia As String
+Dim in_valor_venta As Single
+     
+strCadena = "SELECT * FROM temporal_ventas WHERE dni_save='" & KEY_USUARIO & "' and id_alm='" & KEY_ALM & "' and ruc='" & KEY_RUC & "' ORDER BY id ASC"
+'strCadena = "SELECT * FROM movimiento_venta_detalle WHERE id_venta='324051'"
+Call ConfiguraRst(strCadena)
+If rst.RecordCount > 0 Then
+   rst.MoveFirst
+ 
+   For i = 0 To rst.RecordCount - 1
+       If rst("igv") = "si" Then
+          in_valor_venta = rst("precio") / (1 + KEY_IGV)
+       Else
+          in_valor_venta = rst("precio")
+       End If
+        
+        '---- REFERENCIA
+        in_referencia = ""
+        If Len(rst("nro_chasis")) > 2 Then
+            in_referencia = "MARCA:" & get_marca(rst("id_producto")) & "\nCHASIS:" & rst("nro_chasis") & "\nMOTOR:" & rst("serie") & "\nCOLOR:" & get_color(rst("id_producto")) & "\nAÑO FABRICACION:" & rst("anio_fabricacion") & "\nNRO DUA:" & rst("nro_dua") & "\nNRO ITEM:" & rst("nro_item")
+        Else
+            in_referencia = ""
+        End If
+        '--- END REFERENCIA
+        
+        If i = 0 Then
+           Item = "{ codigo_producto: '" & rst("id_producto") & "', descripcion_producto: '" & rst("detalle") & "', cantidad: '" & rst("cantidad") & "', valor_unitario:'" & in_valor_venta & "',tipo_precio:'01',tipo_igv:'10',codigo_unidad_medida:'NIU',referencia_producto:'" & in_referencia & "', descuento:'0.00',tax_code:10 }"
+        Else
+           Item = Item & "," & "{ codigo_producto: '" & rst("id_producto") & "', descripcion_producto: '" & rst("detalle") & "', cantidad: '" & rst("cantidad") & "', valor_unitario:'" & in_valor_venta & "',tipo_precio:'01',tipo_igv:'10',codigo_unidad_medida:'NIU',referencia_producto:'" & in_referencia & "', descuento:'0.00',tax_code:10 }"
+        End If
+        
+        rst.MoveNext
+   Next i
+End If
+
+If in_cliente = "00000000" Then
+   in_cliente = "00000000"
+End If
+
+
+
+json_facturacion_electronica_firmar = "{ enviar_sunat: false, tipo: '" & in_doc & "',serie: '" & in_serie & "',numero:'" & in_numero & "',tipo_operacion:'01',ruc: '" & KEY_RUC & "', fecha_emision: '" & Format(In_fecha, "YYYY-mm-dd") & "', cliente_numero_doc: '" & in_cliente & "', cliente_tipo_doc:'" & in_tipo_cliente & "',cliente_nombre:'" & Replace(in_cliente_nombre, "&", " ") & "',cliente_direccion:'" & in_cliente_direccion & "',cliente_email:'" & get_mail(in_cliente) & "',tipo_moneda:'" & in_moneda & "',igv_factor:'" & in_igv & "',descuento_global:'" & Format(in_descuento, "#,##0.00") & "',codigo_motivo:'" & id_motivo_nota & "',descripcion_motivo:'" & motivo_nota & "',tipo_documento_afectado:'" & id_tipo_doc_afectado & "',serie_documento_afectado:'" & in_serie_afectado & "',numero_documento_afectado:'" & in_numero_afectado & "', detalle:[ " & Item & "  ]   }"
+    
+
+End Function
+Public Function json_facturacion_electronica_eliminar(ByVal in_doc As String, ByVal in_serie As String, ByVal in_numero As String)
+Dim in_monto As Single
+Dim in_detalle As String
+Dim menor_edad As Boolean
+Dim Item As String
+Dim in_referencia As String
+Dim in_valor_venta As Single
+     
+
+
+
+json_facturacion_electronica_eliminar = "{tipo: '" & in_doc & "',serie: '" & in_serie & "',numero:'" & in_numero & "',ruc: '" & KEY_RUC & "' }"
+    
+
+End Function
+Public Function json_facturacion_electronica_mail(ByVal ruc As String, ByVal in_key As String, in_asunto As String, ByVal in_mail As String)
+Dim in_monto As Single
+Dim in_detalle As String
+Dim menor_edad As Boolean
+Dim Item As String
+Dim in_referencia As String
+Dim in_valor_venta As Single
+     json_facturacion_electronica_mail = "{key: '" & in_key & "',asunto:'" & in_asunto & "',email: '" & in_mail & "',ruc: '" & KEY_RUC & "' }"
+   
+End Function
+
+Public Function json_facturacion_electronica_firmar_id_venta(ByVal in_venta As String, ByVal in_doc As String, ByVal in_serie As String, ByVal in_numero As String, ByVal In_fecha As String, ByVal in_cliente As String, ByVal in_cliente_nombre As String, ByVal in_cliente_direccion As String, ByVal in_tipo_cliente As String, ByVal in_descuento As Single, ByVal in_igv As Single, ByVal id_motivo_nota As String, ByVal motivo_nota As String, ByVal id_tipo_doc_afectado As String, ByVal in_serie_afectado As String, ByVal in_numero_afectado As String, ByVal in_moneda As String, ByVal in_observacion As String)
+Dim in_monto As Single
+Dim in_detalle As String
+Dim menor_edad As Boolean
+Dim Item As String
+Dim in_referencia As String
+Dim in_valor_venta As Single
+Dim in_tipo_igv As String
+
+     
+'strCadena = "SELECT * FROM temporal_ventas WHERE dni_save='" & KEY_USUARIO & "' and id_alm='" & KEY_ALM & "' and ruc='" & KEY_RUC & "' ORDER BY id ASC"
+strCadena = "SELECT * FROM movimiento_venta_detalle WHERE id_venta='" & Val(in_venta) & "' and total>0"
+Call ConfiguraRst(strCadena)
+If rst.RecordCount > 0 Then
+   rst.MoveFirst
+ 
+   For i = 0 To rst.RecordCount - 1
+       If KEY_CON_IGV = "si" Then
+          in_valor_venta = (rst("total") / rst("cantidad"))
+          in_valor_venta = in_valor_venta / (1 + KEY_IGV)
+          in_tipo_igv = "10"
+          in_igv = KEY_IGV
+       Else
+          in_valor_venta = (rst("total") / rst("cantidad"))
+          in_valor_venta = in_valor_venta
+          in_igv = 0
+          in_tipo_igv = "20"
+       End If
+        
+        '---- REFERENCIA
+        in_referencia = ""
+        If Len(rst("nro_chasis")) > 2 Then
+            in_referencia = "MARCA:" & get_marca(rst("id_producto")) & "\n" & in_chasis & rst("nro_chasis") & "\n" & in_motor & rst("serie") & "\nCOLOR:" & get_color(rst("id_producto")) & "\nAÑO FABRICACION:" & rst("anio_fabricacion") & "\nNRO DUA:" & rst("nro_dua") & "\nNRO ITEM:" & rst("nro_item")
+        Else
+            in_referencia = ""
+        End If
+        '--- END REFERENCIA
+        
+        If i = 0 Then
+           Item = "{ codigo_producto: '" & rst("id_producto") & "', descripcion_producto: '" & Replace(rst("detalle"), "&", " ") & "', cantidad: '" & rst("cantidad") & "', valor_unitario:'" & in_valor_venta & "',tipo_precio:'01',tipo_igv:'" & in_tipo_igv & "',codigo_unidad_medida:'NIU',referencia_producto:'" & in_referencia & "', descuento:'0.00',tax_code:10 }"
+        Else
+           Item = Item & "," & "{ codigo_producto: '" & rst("id_producto") & "', descripcion_producto: '" & Replace(rst("detalle"), "&", " ") & "', cantidad: '" & rst("cantidad") & "', valor_unitario:'" & in_valor_venta & "',tipo_precio:'01',tipo_igv:'" & in_tipo_igv & "',codigo_unidad_medida:'NIU',referencia_producto:'" & in_referencia & "', descuento:'0.00',tax_code:10 }"
+        End If
+        
+        rst.MoveNext
+   Next i
+End If
+
+If in_cliente = "00000000" Then
+   in_cliente = "00000000"
+End If
+
+
+
+If KEY_CON_IGV = "si" Then
+    json_facturacion_electronica_firmar_id_venta = "{ enviar_sunat: false, tipo: '" & in_doc & "',serie: '" & in_serie & "',numero:'" & in_numero & "',tipo_operacion:'01',ruc: '" & KEY_RUC & "', fecha_emision: '" & Format(In_fecha, "YYYY-mm-dd") & "', cliente_numero_doc: '" & in_cliente & "', cliente_tipo_doc:'" & in_tipo_cliente & "',cliente_nombre:'" & Replace(in_cliente_nombre, "&", " ") & "',cliente_direccion:'" & in_cliente_direccion & "',cliente_email:'" & get_mail(in_cliente) & "',tipo_moneda:'" & in_moneda & "',igv_factor:'" & in_igv & "',descuento_global_gravado:'" & Format(in_descuento / (1 + KEY_IGV), "#,##0.00") & "',codigo_motivo:'" & id_motivo_nota & "',descripcion_motivo:'" & motivo_nota & "',tipo_documento_afectado:'" & id_tipo_doc_afectado & "',serie_documento_afectado:'" & in_serie_afectado & "',numero_documento_afectado:'" & in_numero_afectado & "',observacion:'" & in_observacion & "', detalle:[ " & Item & "  ]   }"
+Else
+    json_facturacion_electronica_firmar_id_venta = "{ enviar_sunat: false, tipo: '" & in_doc & "',serie: '" & in_serie & "',numero:'" & in_numero & "',tipo_operacion:'01',ruc: '" & KEY_RUC & "', fecha_emision: '" & Format(In_fecha, "YYYY-mm-dd") & "', cliente_numero_doc: '" & in_cliente & "', cliente_tipo_doc:'" & in_tipo_cliente & "',cliente_nombre:'" & Replace(in_cliente_nombre, "&", " ") & "',cliente_direccion:'" & in_cliente_direccion & "',cliente_email:'" & get_mail(in_cliente) & "',tipo_moneda:'" & in_moneda & "',igv_factor:'" & in_igv & "',descuento_global_exonerado:'" & Format(in_descuento, "#,##0.00") & "',codigo_motivo:'" & id_motivo_nota & "',descripcion_motivo:'" & motivo_nota & "',tipo_documento_afectado:'" & id_tipo_doc_afectado & "',serie_documento_afectado:'" & in_serie_afectado & "',numero_documento_afectado:'" & in_numero_afectado & "',observacion:'" & in_observacion & "', detalle:[ " & Item & "  ]   }"
+End If
+    
+
+End Function
+
+
+
+Public Function get_ubigueo_persona(ByVal in_dni As String, ByVal in_direccion As String)
+If in_direccion > 0 Then
+            strCadena = "SELECT * FROM view_persona_direccion WHERE id_direccion='" & Val(in_direccion) & "'"
+            Call ConfiguraRstK(strCadena)
+            If rstK.RecordCount > 0 Then
+               get_ubigueo_persona = UCase(rstK("distrito") & Space(5) & rstK("provincia") & Space(5) & rstK("departamento"))
+            Else
+              get_ubigueo_persona = ""
+            End If
+Else
+    strCadena = "SELECT * FROM persona WHERE dni='" & in_dni & "'"
+    Call ConfiguraRstK(strCadena)
+    If rstK.RecordCount > 0 Then
+       get_ubigueo_persona = get_ubigueo(rstK("id_departamento"), rstK("id_provincia"), rstK("id_distrito"))
+    End If
+End If
+End Function
+Public Function verificar_finalizado(ByVal in_orden_compra As String) As Boolean
+verificar_finalizado = True
+strCadena = "SELECT * FROM orden_compra_detalle WHERE id_orden='" & Val(in_orden_compra) & "' ORDER BY id_detalle ASC"
+      Call ConfiguraRstL(strCadena)
+      If rstL.RecordCount > 0 Then
+         rstL.MoveFirst
+         For i = 0 To rstL.RecordCount - 1
+              in_pendiente = rstL("cantidad") - get_recepcionado(rstL("id_producto"), Val(in_orden_compra))
+              If in_pendiente > 0 Then
+                 verificar_finalizado = False
+                 Exit For
+              End If
+              rstL.MoveNext
+
+         Next i
+      End If
+End Function
+Private Function get_recepcionado(ByVal in_producto As String, ByVal in_orden As String) As Single
+strCadena = "SELECT sum(d.cantidad) FROM  orden_compra o,orden_compra_detalle d WHERE o.id_estado<>3 and  o.id_orden=d.id_orden and d.id_producto='" & in_producto & "' and o.id_recepcion='" & Val(in_orden) & "' and o.ruc='" & KEY_RUC & "'"
+Call ConfiguraRstP(strCadena)
+If IsNull(rstP(0)) = True Then
+    get_recepcionado = 0
+Else
+    get_recepcionado = rstP(0)
+End If
+
+
+End Function
+
+Public Function get_guia(ByVal in_guia As String) As String
+strCadena = "SELECT func_get_guia('" & Val(in_guia) & "')"
+Call ConfiguraRstK(strCadena)
+If rstK.RecordCount > 0 Then
+   get_guia = rstK(0)
+Else
+   get_guia = "-"
+End If
+End Function
+
+Public Function get_mail(ByVal in_dni As String) As String
+strCadena = "SELECT mail FROM persona where dni='" & in_dni & "' LIMIT 1"
+Call ConfiguraRstK(strCadena)
+If rstK.RecordCount > 0 Then
+   get_mail = rstK("mail")
+Else
+   get_mail = ""
+End If
+End Function
+Public Function get_telefonos(ByVal in_ruc As String) As String
+get_telefonos = ""
+strCadena = "SELECT * FROM persona_telefono WHERE dni='" & in_ruc & "'"
+Call ConfiguraRstK(strCadena)
+If rstK.RecordCount > 0 Then
+    rstK.MoveFirst
+    For i = 0 To rstK.RecordCount - 1
+        If i = 0 Then
+            get_telefonos = rstK("telefono")
+        Else
+            get_telefonos = get_telefonos & " / " & rstK("telefono")
+        End If
+        rstK.MoveNext
+    Next i
+End If
+KEY_TELEFONO = get_telefonos
+
+
+End Function
+
+Public Function get_telefono_sucursal(ByVal in_alm As String) As String
+get_telefono_sucursal = ""
+strCadena = "SELECT telefonos FROM almacen WHERE ruc='" & KEY_RUC & "' and id_alm='" & KEY_ALM & "'"
+Call ConfiguraRstK(strCadena)
+If rstK.RecordCount > 0 Then
+    KEY_TELEFONO = rstK("telefonos")
+End If
+get_telefono_sucursal = KEY_TELEFONO
+End Function
+
+Public Function get_direccion_alm(ByVal in_alm As String) As String
+strCadena = "SELECT * FROM almacen WHERE id_alm='" & in_alm & "' and ruc='" & KEY_RUC & "' LIMIT 1"
+Call ConfiguraRstK(strCadena)
+If rstK.RecordCount > 0 Then
+    get_direccion_alm = rstK("direccion")
+
+Else
+    get_direccion_alm = ""
+End If
+End Function
+Public Function get_moneda_documento(ByVal in_doc As String, ByVal in_serie As String) As String
+strCadena = "SELECT id_moneda FROM almacen_comprobante where id_doc='" & in_doc & "' and serie='" & in_serie & "' and ruc='" & KEY_RUC & "' LIMIT 1"
+Call ConfiguraRstI(strCadena)
+If rstI.RecordCount > 0 Then
+   get_moneda_documento = rstI("id_moneda")
+Else
+   get_moneda_documento = "00001"
+End If
+
+End Function
+
+Public Function get_moneda(ByVal in_moneda As String) As String
+If in_moneda = "00001" Then
+    get_moneda = "SOLES"
+Else
+    get_moneda = "DOLARES"
+End If
+
+End Function
+
+Public Function get_direccion(ByVal in_dni As String) As String
+strCadena = "SELECT direccion FROM persona where dni='" & in_dni & "'"
+Call ConfiguraRstL(strCadena)
+If rstL.RecordCount > 0 Then
+   get_direccion = rstL("direccion")
+End If
+End Function
+Public Function get_color(ByVal in_producto As String) As String
+strCadena = "SELECT c.descripcion  FROM producto p,imp_color c WHERE p.id_color=c.id_color and p.id_producto='" & in_producto & "' and ruc='" & KEY_RUC & "' LIMIT 1 "
+Call ConfiguraRstK(strCadena)
+If rstK.RecordCount > 0 Then
+   get_color = rstK("descripcion")
+Else
+   get_color = "SIN COLOR"
+End If
+End Function
+
+Public Function get_producto(ByVal in_producto As String) As String
+strCadena = "SELECT * FROM producto where id_producto='" & in_producto & "' and ruc='" & KEY_RUC & "' LIMIT 1"
+Call ConfiguraRstK(strCadena)
+If rstK.RecordCount > 0 Then
+    get_producto = rstK("nombre_prod")
+Else
+    get_producto = "-"
+End If
+End Function
+
+Public Sub put_tracking(ByVal in_venta As String, ByVal in_estado As String, ByVal in_observacion As String)
+
+strCadena = "CALL p_insert_tracking('" & Val(in_venta) & "','" & KEY_ALM & "','" & in_estado & "','" & KEY_USUARIO & "','" & in_observacion & "','" & KEY_RUC & "')"
+CnBd.Execute (strCadena)
+End Sub
+Public Function proceso_persona(ByVal in_dni As String, ByVal in_nombre As String, ByVal in_mail As String, ByVal in_direccion As String)
+
+strCadena = "SELECT * FROM persona WHERE dni='" & in_dni & "'"
+Call ConfiguraRstAux(strCadena)
+If rstAux.RecordCount > 0 Then
+    strCadena = "UPDATE persona SET direccion='" & in_direccion & "',nombre_completo='" & in_nombre & "',mail='" & in_mail & "' WHERE dni='" & in_dni & "'"
+Else
+    strCadena = " call P_insert_persona('" & in_dni & "','-','-','-','" & in_nombre & "','" & in_direccion & "','','" & in_mail & "','no','no','si','no','no','no','" & KEY_RUC & "')"
+End If
+CnBd.Execute (strCadena)
+End Function
+
+Public Function put_matricula(ByVal in_periodo As String, ByVal in_nivel As String, ByVal in_grado As Integer, ByVal in_dni As String, ByVal in_servicio As String)
+Dim in_detalle As String
+strCadena = "SELECT a.precio_venta,nombre_prod FROM almacen_producto a,producto p WHERE a.id_producto=p.id_producto and p.ruc=a.ruc and  a.id_producto='" & in_servicio & "' and  a.ruc='" & KEY_RUC & "' and id_alm='" & KEY_ALM & "' LIMIT 1"
+Call ConfiguraRstL(strCadena)
+If rstL.RecordCount > 0 Then
+    in_detalle = rstL("nombre_prod") & Space(1) & "PERIODO [2017]"
+    
+    strCadena = "call put_matricula('" & in_periodo & "','" & in_nivel & "','" & in_grado & "','" & in_dni & "','" & KEY_USUARIO & "','" & in_servicio & "','" & rstL("precio_venta") & "','" & in_detalle & "','" & KEY_ALM & "','" & KEY_RUC & "')"
+    CnBd.Execute (strCadena)
+End If
+End Function
+Public Function get_cuenta_contable(ByVal in_tarjeta As String, ByVal in_forma_pago As String) As String
+If in_tarjeta = "00" Then
+   strCadena = "SELECT * FROM forma_pago_detalle WHERE id_detalle='" & in_forma_pago & "' and ruc='" & KEY_RUC & "'"
+   Call ConfiguraRstK(strCadena)
+   If rstK.RecordCount > 0 Then
+      get_cuenta_contable = rstK("cuenta_contable")
+   Else
+      get_cuenta_contable = ""
+   End If
+   
+Else
+    strCadena = "SELECT * FROM targeta WHERE id='" & in_tarjeta & "' and ruc='" & KEY_RUC & "' LIMIT 1"
+    Call ConfiguraRstK(strCadena)
+    If rstK.RecordCount > 0 Then
+        get_cuenta_contable = rstK("numero_cuenta")
+    Else
+        get_cuenta_contable = " "
+    End If
+End If
+End Function
+
+Public Function get_cuenta_contable_caja(ByVal in_forma_pago_detalle As String) As String
+   strCadena = "SELECT * FROM forma_pago_detalle WHERE id_registro='" & Val(in_forma_pago_detalle) & "' and ruc='" & KEY_RUC & "'"
+   Call ConfiguraRstK(strCadena)
+   If rstK.RecordCount > 0 Then
+      get_cuenta_contable_caja = rstK("cuenta_contable")
+   Else
+      get_cuenta_contable_caja = ""
+   End If
+   
+End Function
+
+
+Public Function get_last() As String
+strCadena = "SELECT * FROM mis_cuentas_det ORDER BY id DESC LIMIT 1"
+Call ConfiguraRstK(strCadena)
+If rstK.RecordCount > 0 Then
+    get_last = rstK("id")
+End If
+End Function
+
+Public Function get_cuenta(ByVal in_cuenta As String) As String
+strCadena = "SELECT Descripcion FROM con_cuentacontable WHERE NroCuenta='" & in_cuenta & "' and IdEmpresaSis='" & KEY_RUC & "'"
+Call ConfiguraRstAux(strCadena)
+If rstAux.RecordCount > 0 Then
+    get_cuenta = rstAux("Descripcion")
+Else
+    get_cuenta = ""
+End If
+End Function
+
+Public Function put_verifica_cuenta_contable(ByVal in_doc As String, ByVal in_serie As String, ByVal in_numero As String, ByVal in_cta_compra As String, ByVal in_tipo_producto As String) As Boolean
+
+strCadena = "SELECT * FROM con_cuentacontable WHERE NroCuenta='" & in_cta_compra & "' and IdEmpresaSis='" & KEY_RUC & "' and Ejercicio='" & Year(KEY_FECHA) & "' LIMIT 1"
+Call ConfiguraRstK(strCadena)
+If rstK.RecordCount < 1 Then
+     MsgBox "CUENTA PAGO COMPRA NO EXISTE  : " + in_cta_compra + Chr(13) + "INGRESE UNA CONFIGURACION EN PANEL DE CONTROL", vbInformation
+     put_verifica_cuenta_contable = False
+     Exit Function
+End If
+
+'strCadena = "SELECT servicio FROM tipo_producto WHERE  id_tipoproducto='" & in_tipo_producto & "' and ruc='" & KEY_RUC & "'"
+'Call ConfiguraRstK(strCadena)
+'If rstK.RecordCount > 0 Then
+'        If rstK("servicio") = "si" Then
+'        strCadena = "SELECT id_linea, linea FROM view_temporal_compra_conta WHERE nro_cuenta='' and  numero='" & Trim(in_numero) & "' AND id_doc='" & Trim(in_doc) & "' AND serie='" & Trim(in_serie) & "' AND ruc='" & KEY_RUC & "' AND dni_save='" & KEY_USUARIO & "' ORDER BY id_temporal ASC"
+       ' Call ConfiguraRstK(strCadena)
+       ' If rstK.RecordCount > 0 Then
+        '   MsgBox "CONFIGURACION CONTABLE INCOMPLETA" + Chr(13) + str(rstK("id_linea")) & Space(2) & rstK("linea"), vbInformation
+        '   put_verifica_cuenta_contable = False
+        'Else
+ '          put_verifica_cuenta_contable = True
+        'End If
+'        Else
+            put_verifica_cuenta_contable = True
+ '       End If
+'End If
+End Function
+
+Public Function get_correlativo_table(ByVal in_tabla As String, ByVal in_campo As String) As String
+
+strCadena = "SELECT " & in_campo & " FROM " & in_tabla & " WHERE ruc='" & KEY_RUC & "' ORDER BY  " & in_campo & " LIMIT 1"
+Call ConfiguraRstL(strCadena)
+If rstL.RecordCount > 0 Then
+    get_correlativo_table = Format(Val(rstL(0)) + 1, "00000")
+Else
+    get_correlativo_table = "00001"
+End If
+
+End Function
+Private Function get_tipo_cambio_dia() As Boolean
+
+strCadena = "SELECT * FROM tipo_cambio WHERE fecha='" & KEY_FECHA & "'AND id_creador='" & KEY_RUC & "' LIMIT 1"
+Call ConfiguraRst(strCadena)
+If rst.RecordCount > 0 Then
+        
+Else
+
+End If
+    
+    
+End Function
+
+Public Sub get_cambio_sbs(ByVal In_fecha As Date)
+On Error GoTo salir
+Dim in_fecha_consulta As Date
+Dim fecha_parametro As String
+Dim in_compra As Single
+Dim in_venta As Single
+
+in_fecha_consulta = DateAdd("d", -1, Format(In_fecha, "YYYY-mm-dd"))
+
+If UCase(WeekdayName(Weekday(in_fecha_consulta))) = "SÁBADO" Then
+       in_fecha_consulta = DateAdd("d", -1, Format(in_fecha_consulta, "YYYY-mm-dd"))
+End If
+    
+ If UCase(WeekdayName(Weekday(in_fecha_consulta))) = "DOMINGO" Then
+        in_fecha_consulta = DateAdd("d", -1, Format(in_fecha_consulta, "YYYY-mm-dd"))
+        
+        If UCase(WeekdayName(Weekday(in_fecha_consulta))) = "SÁBADO" Then
+            in_fecha_consulta = DateAdd("d", -1, Format(in_fecha_consulta, "YYYY-mm-dd"))
+        End If
+End If
+fecha_parametro = Format(Day(in_fecha_consulta), "00") & Format(Month(in_fecha_consulta), "00") & Year(in_fecha_consulta)
+
+        strCadena = "SELECT * FROM tipo_cambio WHERE fecha='" & Format(In_fecha, "YYYY-mm-dd") & "'AND id_creador='" & KEY_RUC & "' LIMIT 1"
+        Call ConfiguraRst(strCadena)
+        If rst.RecordCount > 0 Then
+           If rst("valor_venta") > 0 Then
+                KEY_CAMBIO_VENTA = rst("valor_venta")
+                KEY_CAMBIO_COMPRA = rst("valor_compra")
+                KEY_CAMBIO = KEY_CAMBIO_COMPRA
+           End If
+           Exit Sub
+       End If
+        
+        
+     
+     Dim strHtml As String
+     urlstr = "https://intranet2.sbs.gob.pe/api/TipoCambio/" & fecha_parametro
+     'strHtml = "http://www.apilayer.net/api/live?access_key=6ed44bd69881fb4393b3ac8cc827c066&format=1&currencies=PEN"
+     Set DomDoc = New XMLHTTP
+     'Parámetros en formato URLEncode
+     'Metodo a usar, url, y true en caso de manejar la respuesta en modo asíncrono
+     DomDoc.Open "GET", urlstr, False
+     'encabezados
+         
+     DomDoc.setRequestHeader "Connection", "close"
+     DomDoc.send params
+     'La respuesta, en caso de existir, está en responseBody.
+    'También puedes especificar responseXml si tu aplicación devolviese XML
+     strHtml = StrConv(DomDoc.responseBody, vbUnicode)
+     
+     Dim json_r As Object
+     Set json_r = JSON.parse(strHtml)
+    
+     If Len(Trim(strHtml)) > 66 Then ' CON DATOS RECORDAR QUE SUNAT UN DIA ANTES QUE SBC
+        in_venta = json_r("resultados").Item(1).Item("venta")
+        in_compra = json_r("resultados").Item(1).Item("compra")
+        KEY_CAMBIO_VENTA = in_venta
+        KEY_CAMBIO_COMPRA = in_compra
+        
+        strCadena = "SELECT * FROM tipo_cambio WHERE fecha='" & Format(In_fecha, "YYYY-mm-dd") & "'AND id_creador='" & KEY_RUC & "' LIMIT 1"
+        Call ConfiguraRst(strCadena)
+        If rst.RecordCount < 1 Then
+                strCadena = "INSERT INTO tipo_cambio(descripcion,fecha,valor_venta,valor_compra,id_creador) VALUES ('Compra Dolar','" & Format(In_fecha, "YYYY-mm-dd") & "','" & in_venta & "','" & in_compra & "','" & KEY_RUC & "')"
+                CnBd.Execute (strCadena)
+        Else
+                strCadena = "UPDATE tipo_cambio SET valor_venta='" & in_venta & "',valor_compra='" & in_compra & "' WHERE id_tipocambio='" & rst("id_tipocambio") & "' and id_creador='" & KEY_RUC & "'"
+                CnBd.Execute (strCadena)
+        End If
+    Else
+        strCadena = "SELECT * FROM tipo_cambio WHERE fecha='" & KEY_FECHA & "'AND id_creador='" & KEY_RUC & "' LIMIT 1"
+        Call ConfiguraRst(strCadena)
+        If rst.RecordCount > 0 Then
+           KEY_CAMBIO_VENTA = rst("valor_venta")
+           KEY_CAMBIO_COMPRA = rst("valor_compra")
+        
+            
+        End If
+    End If
+      KEY_CAMBIO = KEY_CAMBIO_COMPRA
+
+            
+
+     
+     Exit Sub
+salir:
+        KEY_CAMBIO_VENTA = in_venta
+        KEY_CAMBIO_COMPRA = in_compra
+          KEY_CAMBIO = KEY_CAMBIO_COMPRA
+End Sub
+Public Sub get_cambio()
+On Error GoTo salir
+    Dim strHtml As String
+    strCadena = "SELECT * FROM tipo_cambio WHERE fecha='" & KEY_FECHA & "'AND id_creador='" & KEY_RUC & "' LIMIT 1"
+    Call ConfiguraRst(strCadena)
+    If rst.RecordCount > 0 Then
+        If rst("valor") < 1 Then
+            GoTo actualizar
+        Else
+            KEY_CAMBIO = rst("valor")
+            Exit Sub
+        End If
+    End If
+    
+actualizar:
+     urlstr = "http://www.apilayer.net/api/live?access_key=6ed44bd69881fb4393b3ac8cc827c066&format=1&currencies=PEN"
+     Set DomDoc = New XMLHTTP
+     'Parámetros en formato URLEncode
+     'Metodo a usar, url, y true en caso de manejar la respuesta en modo asíncrono
+     DomDoc.Open "GET", urlstr, False
+     'encabezados
+         
+     DomDoc.setRequestHeader "Connection", "close"
+     DomDoc.send params
+     'La respuesta, en caso de existir, está en responseBody.
+    'También puedes especificar responseXml si tu aplicación devolviese XML
+     strHtml = StrConv(DomDoc.responseBody, vbUnicode)
+     
+     Dim p As Object
+     Set p = JSON.parse(strHtml)
+     Valor = InStr(1, strHtml, "USDPEN")
+     Valor = Mid(strHtml, Valor + 8, 7)
+     If Val(Valor) > 0 Then
+        strCadena = "SELECT * FROM tipo_cambio WHERE fecha='" & KEY_FECHA & "'AND id_creador='" & KEY_RUC & "' LIMIT 0,1 "
+        Call ConfiguraRst(strCadena)
+            If rst.RecordCount < 1 Then
+                
+                KEY_CAMBIO = Valor
+                strCadena = "INSERT INTO tipo_cambio(descripcion,fecha,valor,id_creador) VALUES ('Compra Dolar','" & KEY_FECHA & "','" & Valor & "','" & KEY_RUC & "')"
+                Call Execute_Sql(strCadena)
+            Else
+                 strCadena = "UPDATE tipo_cambio SET valor='" & Val(Valor) & "' WHERE fecha='" & KEY_FECHA & "' and id_creador='" & KEY_RUC & "'"
+                  Call Execute_Sql(strCadena)
+                   KEY_CAMBIO = Valor
+                   
+            End If
+     End If
+     
+     Exit Sub
+salir:
+
+        strCadena = "SELECT * FROM tipo_cambio WHERE fecha='" & KEY_FECHA & "'AND id_creador='" & KEY_RUC & "' LIMIT 0,1 "
+        Call ConfiguraRst(strCadena)
+            If rst.RecordCount < 1 Then
+                strCadena = "SELECT * FROM tipo_cambio WHERE id_creador='" & KEY_RUC & "' ORDER BY fecha DESC LIMIT 0,1"
+                Call ConfiguraRst(strCadena)
+                If rst.RecordCount > 0 Then
+                    Valor = rst("valor")
+                Else
+                    Valor = 3.015
+                End If
+                KEY_CAMBIO = Valor
+                strCadena = "INSERT INTO tipo_cambio(descripcion,fecha,valor,id_creador) VALUES ('Compra Dolar','" & KEY_FECHA & "','" & Valor & "','" & KEY_RUC & "')"
+                Call Execute_Sql(strCadena)
+            Else
+                 strCadena = "UPDATE tipo_cambio SET valor='" & Val(Valor) & "' WHERE fecha='" & KEY_FECHA & "' and id_creador='" & KEY_RUC & "'"
+                  Call Execute_Sql(strCadena)
+                   KEY_CAMBIO = Valor
+                   
+            End If
+
+     
+     Exit Sub
+End Sub
+Public Sub put_ingreso(ByVal in_tipo As String)
+
+strCadena = "call put_ingreso_salida_ii('" & KEY_USUARIO & "','" & KEY_ALM & "','" & KEY_VENTANILLA & "','" & in_tipo & "','" & KEY_RUC & "')"
+Call ConfiguraRst(strCadena)
+KEY_IGV = get_igv
+
+strCadena = "SELECT direccion FROM persona_publico WHERE ruc='" & KEY_RUC & "' AND dni='00000000' LIMIT 1"
+Call ConfiguraRst(strCadena)
+If rst.RecordCount > 0 Then
+    KEY_DIR_PUBLIC = rst("direccion")
+Else
+    KEY_DIR_PUBLIC = "CHICLAYO"
+End If
+
+
+End Sub
+
+Private Function get_igv() As Single
+Dim in_aplica As String
+strCadena = "SELECT igv FROM entidad_parametros WHERE cod_unico='" & KEY_RUC & "'"
+Call ConfiguraRstK(strCadena)
+in_aplica = rstK("igv")
+    
+    strCadena = "SELECT * FROM entidad_igv WHERE ruc='" & KEY_RUC & "' and fecha=CURDATE() LIMIT 1"
+    Call ConfiguraRstP(strCadena)
+    If rstP.RecordCount < 1 Then
+        strCadena = "SELECT * FROM entidad_igv WHERE ruc='" & KEY_RUC & "' ORDER BY fecha DESC LIMIT 1"
+        Call ConfiguraRstK(strCadena)
+        If rstK.RecordCount > 0 Then
+            If rstK("igv") > 0 Then
+                strCadena = "INSERT INTO entidad_igv(fecha,igv,ruc)VALUES(CURDATE(),'" & rstK("igv") & "','" & KEY_RUC & "')"
+                get_igv = rstK("igv")
+            Else
+                
+                strCadena = "INSERT INTO entidad_igv(fecha,igv,ruc)VALUES(CURDATE(),'0.18','" & KEY_RUC & "')"
+                get_igv = 0.18
+            End If
+           
+       Else
+        strCadena = "INSERT INTO entidad_igv(fecha,igv,ruc)VALUES(CURDATE(),'0.18','" & KEY_RUC & "')"
+        CnBd.Execute (strCadena)
+        get_igv = 0.18
+        End If
+    Else
+        
+        get_igv = rstP("igv")
+    End If
+
+ 
+
+
+End Function
+
+Public Sub activacion_temporal(ByVal in_clave As String)
+Dim In_fecha As String
+strCadena = "SELECT CURDATE()"
+Call ConfiguraRstK(strCadena)
+In_fecha = rstK(0)
+strCadena = "SELECT * FROM entidad_parametros WHERE secure='" & in_clave & "' and  cod_unico='" & KEY_RUC & "'"
+Call ConfiguraRst(strCadena)
+If rst.RecordCount > 0 Then
+    strCadena = "UPDATE entidad_parametros SET activacion_permanente='no',caducidad='" & Format(In_fecha, "YYYY-mm-dd") & "' WHERE cod_unico='" & KEY_RUC & "'"
+    CnBd.Execute (strCadena)
+    Call FrmFechaTrabajo.verificacion_activacion
+End If
+End Sub
+
+
+Public Sub EliminarVentas(ByVal TipoDoc As String, ByVal serie As String, ByVal Numero As String, ByVal Almacen As String)
+ Dim in_venta As String
+ strCadena = "SELECT * FROM movimiento_venta WHERE id_alm='" & Almacen & "' AND id_doc='" & TipoDoc & "' AND serie='" & serie & "' AND numero='" & Numero & "' AND ruc='" & KEY_RUC & "' ORDER BY id_venta DESC LIMIT 1"
+ Call ConfiguraRst(strCadena)
+ If rst.RecordCount > 0 Then
+    in_venta = rst("id_venta")
+    If KEY_CONTABILIDAD = "si" Then
+    strCadena = "SELECT funct_validar_periodo_cierre('" & rst("id_venta") & "','" & KEY_RUC & "')"
+    Call ConfiguraRstK(strCadena)
+    If rstK(0) = 0 Then ' PERIODO ABIERTO
+        If Format(rst("fecha_emision"), "YYYY-mm-dd") < KEY_FECHA Then
+            MsgBox "Este comprobante tiene fecha anterior" + Chr(13) + Chr(13) + "Puede Anular este Comprobante." + Chr(13) + "Puede Generar Nota Credito.", vbInformation, KEY_EMPRESA
+            FrmVentas.Enabled = True
+            Exit Sub
+        End If
+   
+       strCadena = "call CON_EliminarVenta('" & rst("id_venta") & "','" & KEY_USUARIO & "') "
+       CnBd.Execute (strCadena)
+    Else      ' PERIODO CERRADO
+        
+    
+       MsgBox "Este comprobante tiene fecha anterior" + Chr(13) + Chr(13) + "Puede Anular este Comprobante." + Chr(13) + "Puede Generar Nota Credito.", vbInformation, KEY_EMPRESA
+       FrmVentas.Enabled = True
+       Exit Sub
+       Exit Sub
+    End If
+       
+    End If
+    
+        
+ 
+ 
+ 
+ 
+    If Format(rst("fecha_emision"), "YYYY-mm-dd") < KEY_FECHA Then
+       MsgBox "Este comprobante tiene fecha anterior" + Chr(13) + Chr(13) + "Puede Anular este Comprobante." + Chr(13) + "Puede Generar Nota Credito.", vbInformation, KEY_EMPRESA
+       FrmVentas.Enabled = True
+       Exit Sub
+    End If
+    
+    strCadena = "SELECT id_doc,serie,id_alm,numero FROM movimiento_venta WHERE id_venta='" & rst("id_recibo") & "' and  ruc='" & KEY_RUC & "'"
+    Call ConfiguraRstK(strCadena)
+    If rstK.RecordCount > 0 Then
+            in_numeron = rstK("numero")
+            strCadena = "DELETE FROM  movimiento_venta  WHERE id_venta='" & rst("id_recibo") & "' AND ruc='" & KEY_RUC & "'"
+            CnBd.Execute (strCadena)
+            strCadena = "SELECT numero FROM movimiento_venta WHERE id_alm='" & rstK("id_alm") & "' AND id_doc='" & rstK("id_doc") & "' AND serie='" & rstK("serie") & "' and ruc='" & KEY_RUC & "' ORDER BY numero DESC LIMIT 1"
+            Call ConfiguraRstL(strCadena)
+            If rstL.RecordCount > 0 Then
+                If Val(in_numeron) >= Val(rstL("numero")) Then
+                strCadena = "UPDATE almacen_comprobante SET numero='" & Format(Val(rstL("numero")) + 1, "000000") & "' WHERE id_alm='" & rstK("id_alm") & "' AND id_doc='" & rstK("id_doc") & "' AND serie='" & rstK("serie") & "' and ruc='" & KEY_RUC & "'"
+                CnBd.Execute (strCadena)
+                End If
+            End If
+    End If
+    
+    
+    
+    
+    strCadena = "SELECT * FROM movimiento_venta_detalle WHERE id_venta='" & rst("id_venta") & "' and ruc='" & KEY_RUC & "'"
+    Call ConfiguraRstZ(strCadena)
+    If rstZ.RecordCount > 0 Then
+        rstZ.MoveFirst
+        For m = 0 To rstZ.RecordCount - 1
+            strCadena = "UPDATE imp_producto_detalle SET vendido='no' WHERE id_detalle='" & rstZ("id_detalle_serie") & "' and ruc='" & KEY_RUC & "'"
+            CnBd.Execute (strCadena)
+            
+            If rst("afecta_factura") = "si" Then
+                strCadena = "UPDATE almacen_producto SET stock_factura=stock_factura+'" & rstZ("cantidad") & "' WHERE id_producto='" & rstZ("id_producto") & "' and id_alm='" & Almacen & "' and ruc='" & KEY_RUC & "'"
+                CnBd.Execute (strCadena)
+                
+            Else
+                If rst("id_doc") = "0001" Or rst("id_doc") = "0003" Then
+                    strCadena = "UPDATE almacen_producto SET stock_factura=stock_factura+'" & rstZ("cantidad") & "' WHERE id_producto='" & rstZ("id_producto") & "' and id_alm='" & Almacen & "' and ruc='" & KEY_RUC & "'"
+                    CnBd.Execute (strCadena)
+            
+                End If
+            End If
+            rstZ.MoveNext
+        Next m
+    End If
+ End If
+  
+ 
+ Call update_pago_comprobante(in_venta)
+ strCadena = "DELETE FROM movimiento_venta WHERE id_venta='" & in_venta & "' and ruc='" & KEY_RUC & "'"
+ CnBd.Execute (strCadena)
+ strCadena = "SELECT numero FROM movimiento_venta WHERE id_alm='" & Almacen & "' AND id_doc='" & TipoDoc & "' AND serie='" & serie & "' and ruc='" & KEY_RUC & "' ORDER BY numero DESC LIMIT 1"
+ Call ConfiguraRst(strCadena)
+ If rst.RecordCount > 0 Then
+      If Val(Numero) >= Val(rst("numero")) Then
+         strCadena = "UPDATE almacen_comprobante SET numero='" & Format(Val(rst("numero")) + 1, "000000") & "' WHERE id_alm='" & Almacen & "' AND id_doc='" & TipoDoc & "' AND serie='" & serie & "' and ruc='" & KEY_RUC & "'"
+         CnBd.Execute (strCadena)
+      End If
+ End If
+ 
+ 
+ FrmVentas.nuevo
+ 
+ 
+End Sub
+
+Public Sub update_pago_comprobante(ByVal in_venta As String)
+
+strCadena = "UPDATE   mis_cuentas_det SET id_cuenta='0' WHERE id_tipo_movimiento='00001' and id_venta='" & Val(in_venta) & "' and  ruc='" & KEY_RUC & "'"
+CnBd.Execute (strCadena)
+
+
+End Sub
+
+Public Sub load_usuario(ByVal in_combo As DataCombo, ByVal in_dni As String, ByVal in_criterio As String)
+
+If Trim(in_criterio) = "" Then
+    strCadena = "SELECT dni as Codigo,nombre_completo as Descripcion FROM persona where dni='" & in_dni & "'"
+Else
+    strCadena = "SELECT dni as Codigo,nombre_completo as Descripcion FROM view_entidad where nombre_completo LIKE '%" & in_criterio & "%' and ruc='" & KEY_RUC & "' and id_personal='si' order by nombre_completo"
+End If
+
+Call ConfiguraRstT(strCadena)
+Call LlenaDataComboT(in_combo)
+
+End Sub
+
+Public Function get_telefono(ByVal in_dni As String) As String
+strCadena = "SELECT celular FROM persona Where dni='" & in_dni & "'"
+Call ConfiguraRstT(strCadena)
+If rstT.RecordCount > 0 Then
+    get_telefono = rstT("celular")
+Else
+    get_telefono = ""
+End If
+
+End Function
+Public Sub delete_seguro(ByVal in_detalle As String)
+
+On Error GoTo errorhandler
+    
+    strCadena = "DELETE  FROM seguro_medico_detalle WHERE id_detalle='" & Trim(in_detalle) & "' and ruc='" & KEY_RUC & "'"
+    Call ConfiguraRst(strCadena)
+    
+    
+    Exit Sub
+
+
+errorhandler:
+
+
+
+End Sub
+Public Function get_periodo_actual(ByVal In_fecha As Date)
+strCadena = "SELECT id FROM con_periodo where Ejercicio='" & Year(In_fecha) & "' and Mes='" & Month(In_fecha) & "' LIMit 1"
+Call ConfiguraRstT(strCadena)
+If rstT.RecordCount > 0 Then
+   get_periodo_actual = rstT("id")
+Else
+   get_periodo_actual = 0
+End If
+End Function
+
+
+Public Function validar_periodo(ByVal in_mes As Integer, ByVal in_anio As Integer, ByVal in_periodo As String) As Boolean
+strCadena = "SELECT Mes,Ejercicio FROM con_periodo where id='" & in_periodo & "'"
+Call ConfiguraRstT(strCadena)
+If rstT.RecordCount > 0 Then
+   If in_mes <= rstT("Mes") And in_anio <= rstT("Ejercicio") Then
+       validar_periodo = True
+    Else
+        validar_periodo = False
+   End If
+Else
+   validar_periodo = False
+End If
+End Function
+Public Function validar_periodo_nocontable(ByVal In_fecha As String) As Boolean
+
+If Month(CVDate(In_fecha)) <> Month(KEY_FECHA) Then
+   validar_periodo_nocontable = False
+Else
+    validar_periodo_nocontable = True
+End If
+
+End Function
+
+
+Public Function put_delete_servicio(ByVal in_servicio As String) As Boolean
+On Error GoTo Errorhanlder
+strCadena = "DELETE FROM persona_plan_servicio WHERE id_plan_servicio='" & Val(in_servicio) & "'"
+CnBd.Execute (strCadena)
+put_delete_servicio = True
+Exit Function
+Errorhanlder:
+put_delete_servicio = False
+
+End Function
+Public Function get_dar_baja(ByVal in_venta As String) As Boolean
+    
+    strCadena = "SELECT * FROM movimiento_venta WHERE id_venta='" & Val(in_venta) & "' "
+    Call ConfiguraRstL(strCadena)
+    If rstL.RecordCount > 0 Then
+         If get_firma_online(rstL("id_doc"), rstL("serie")) = "si" And Len(Trim(rstL("sunat_key"))) > 1 Then
+                If DateDiff("d", KEY_FECHA, rst("fecha_emision")) >= 7 Then
+                    get_dar_baja = True
+                Else
+                    get_dar_baja = False
+                End If
+         Else
+            get_dar_baja = False
+         End If
+    End If
+    
+    
+    
+    
+    
+    
+
+End Function
+
+
+Public Function procesar_transaccion(ByVal in_alm As String, ByVal in_cta_origen As String, ByVal In_fecha As Date, ByVal in_tipo As String, ByVal in_proveedor As String, ByVal in_proveedor_des As String, ByVal in_observacion As String _
+, ByVal in_monto As Single, ByVal in_cta_destino As String, ByVal in_venta As String, ByVal in_compra As String, ByVal in_documento As String, ByVal in_tc As Single, ByVal in_operacion As String, ByVal in_forma_pago As String, ByVal in_tipo_flujo As String, ByVal in_moneda As String, ByVal in_dni_save As String, ByVal in_ruc As String) As Double
+Dim in_mis_cuentas_det As String
+procesar_transaccion = False
+
+strCadena = "call sp_procesar_transaccion_caja_demo_ii('" & in_alm & "','" & in_cta_origen & "','" & Format(In_fecha, "YYYY-mm-dd") & "','" & in_tipo & "','" & in_proveedor & "','" & in_observacion & "','" & in_monto & "','" & in_cta_destino & "','" & in_tc & "','" & in_operacion & "','" & in_dni_save & "','" & in_venta & "','" & in_compra & "','" & in_proveedor_des & "','" & in_documento & "','" & in_forma_pago & "','" & in_moneda & "','" & in_tipo_flujo & "','" & in_ruc & "')"
+Call ConfiguraRstPP(strCadena)
+in_mis_cuentas_det = rstPP("in_origen")
+
+
+
+
+procesar_transaccion = in_mis_cuentas_det
+
+End Function
+
+Public Function procesar_transaccion_caja(ByVal in_alm As String, ByVal in_cta_origen As String, ByVal In_fecha As Date, ByVal in_tipo As String, ByVal in_proveedor As String, ByVal in_proveedor_des As String, ByVal in_observacion As String _
+, ByVal in_monto As Single, ByVal in_cta_destino As String, ByVal in_venta As String, ByVal in_compra As String, ByVal in_documento As String, ByVal in_tc As Single, ByVal in_operacion As String, ByVal in_forma_pago As String, ByVal in_tipo_flujo As String, ByVal in_moneda As String, ByVal in_dni_save As String, ByVal in_ruc As String) As Double
+
+
+strCadena = "call sp_procesar_transaccion_caja_demo_ii('" & in_alm & "','" & in_cta_origen & "','" & Format(In_fecha, "YYYY-mm-dd") & "','" & in_tipo & "','" & in_proveedor & "','" & in_observacion & "','" & in_monto & "','" & in_cta_destino & "','" & in_tc & "','" & in_operacion & "','" & in_dni_save & "','" & in_venta & "','" & in_compra & "','" & in_proveedor_des & "','" & in_documento & "','" & in_tipo_flujo & "','" & in_forma_pago & "','" & in_moneda & "','" & in_ruc & "')"
+Call ConfiguraRstP(strCadena)
+procesar_transaccion_caja = rstP(0)
+
+
+End Function
+
+Public Function procesar_transaccion_venta(ByVal in_detalle_forma_pago As String, ByVal in_alm As String, ByVal in_cta_origen As String, ByVal In_fecha As Date, ByVal in_tipo As String, ByVal in_proveedor As String, ByVal in_proveedor_des As String, ByVal in_observacion As String _
+, ByVal in_monto As Single, ByVal in_cta_destino As String, ByVal in_venta As String, ByVal in_compra As String, ByVal in_documento As String, ByVal in_tc As Single, ByVal in_operacion As String, ByVal in_forma_pago As String, ByVal in_tipo_flujo As String, ByVal in_dni_save As String, ByVal in_ruc As String) As Boolean
+procesar_transaccion_venta = False
+
+
+strCadena = "call sp_procesar_transaccion_caja_venta('" & in_alm & "','" & in_cta_origen & "','" & Format(In_fecha, "YYYY-mm-dd") & "','" & in_tipo & "','" & in_proveedor & "','" & in_observacion & "','" & in_monto & "','" & in_cta_destino & "','" & in_tc & "','" & in_operacion & "','" & in_dni_save & "','" & in_venta & "','" & in_compra & "','" & in_proveedor_des & "','" & in_documento & "','" & in_forma_pago & "','" & in_tipo_flujo & "','" & in_ruc & "')"
+Call ConfiguraRstPP(strCadena)
+
+strCadena = "CALL sp_mis_cuentas_det_detalle('" & in_venta & "','" & rstPP(0) & "','" & in_monto & "','" & in_monto & "','" & in_venta & "')"
+CnBd.Execute (strCadena)
+
+
+procesar_transaccion_venta = True
+
+End Function
+
+Public Function put_actualizar_saldo_nota(ByVal in_nota As String, ByVal in_monto As Single, ByVal in_serie As String, ByVal in_numero As String, ByVal in_dni As String) As Boolean
+put_actualizar_saldo_nota = False
+If in_monto < 0 Then
+   in_monto = in_monto * -1
+End If
+strCadena = "UPDATE movimiento_venta SET saldo=saldo+'" & Format(in_monto, "#,##0.00") & "' WHERE id_doc='0007' and  serie='" & Trim(in_serie) & "' and numero='" & in_numero & "' and id_cliente='" & in_dni & "' and ruc='" & KEY_RUC & "'"
+CnBd.Execute (strCadena)
+put_actualizar_saldo_nota = True
+
+End Function
+
+
+Public Function get_cuenta_caja(ByVal in_cuenta As String) As String
+strCadena = "SELECT id_cuenta_caja FROM mis_cuentas WHERE cuenta_ctble='" & in_cuenta & "' and ruc='" & KEY_RUC & "' LIMIT 1"
+Call ConfiguraRstL(strCadena)
+If rstL.RecordCount > 0 Then
+   get_cuenta_caja = rstL("id_cuenta_caja")
+Else
+   get_cuenta_caja = 0
+End If
+End Function
+Public Function get_nombre_cuenta(ByVal in_cuenta As String) As String
+strCadena = "SELECT * FROM view_cuenta_descripcion WHERE id_cuenta='" & in_cuenta & "' and ruc='" & KEY_RUC & "' LIMIT 1"
+Call ConfiguraRstL(strCadena)
+If rstL.RecordCount > 0 Then
+   get_nombre_cuenta = rstL("descripcion")
+Else
+   get_nombre_cuenta = 0
+End If
+End Function
+Public Function get_cuenta_pago(ByVal in_registro As String) As String
+On Error GoTo salir
+strCadena = "SELECT id_cuenta_caja FROM forma_pago_detalle WHERE id_registro='" & in_registro & "' and ruc='" & KEY_RUC & "' LIMIT 1"
+Call ConfiguraRstL(strCadena)
+If rstL.RecordCount > 0 Then
+   get_cuenta_pago = rstL("id_cuenta_caja")
+Else
+   get_cuenta_pago = 0
+End If
+Exit Function
+salir:
+
+End Function
+
+
+Public Function put_persona(ByVal in_dni As String)
+                
+                strCadena = "put_entidad_empresa('" & in_dni & "','" & KEY_RUC & "')"
+                CnBd.Execute (strCadena)
+                
+End Function
+Public Function anular_solicitud(ByVal in_solicitud As String) As Boolean
+On Error GoTo salir
+strCadena = "UPDATE solicitud_dinero SET anulado='si' where id_solicitud='" & Val(in_solicitud) & "'"
+CnBd.Execute (strCadena)
+anular_solicitud = True
+Exit Function
+salir:
+anular_solicitud = False
+
+End Function
+Public Function eliminar_proyecto(ByVal in_proyecto As String) As Boolean
+On Error GoTo salir
+strCadena = "DELETE FROM  mis_proyectos WHERE id_proyecto='" & Val(in_proyecto) & "' and ruc='" & KEY_RUC & "'"
+CnBd.Execute (strCadena)
+eliminar_proyecto = True
+Exit Function
+salir:
+eliminar_proyecto = False
+
+End Function
+Public Function get_unidad_producto(ByVal in_producto As String) As String
+strCadena = "SELECT id_unidad FROM producto where id_producto='" & in_producto & "' and ruc='" & KEY_RUC & "'"
+Call ConfiguraRstL(strCadena)
+If rstL.RecordCount > 0 Then
+   get_unidad_producto = rstL("id_unidad")
+Else
+    get_unidad_producto = "00001"
+End If
+End Function
+Public Sub put_interes_comprobante(ByVal in_incremento As Single, ByVal in_doc As String, ByVal in_serie As String)
+Dim in_detalle As String
+If in_incremento > 0 Then
+in_detalle = get_producto(KEY_PRODUCTO_INTERES)
+
+
+strCadena = "INSERT INTO temporal_ventas(ruc,id_unidad,id_alm,id_doc,id_serie,id_producto,cantidad,precio,total,peso,detalle,dni_save,servicio,obsequio,costo) VALUES " & _
+"('" & KEY_RUC & "','" & get_unidad_producto(KEY_PRODUCTO_INTERES) & "','" & KEY_ALM & "','" & in_doc & "','" & in_serie & "','" & KEY_PRODUCTO_INTERES & "','1'," & _
+"'" & in_incremento & " ','" & in_incremento & "','0','" & in_detalle & "','" & KEY_USUARIO & "','si','no','" & get_precio_costo(codigoP) & "')"
+CnBd.Execute (strCadena)
+        End If
+        
+End Sub
+Public Sub put_interes_venta_credito(ByVal in_monto As Single, ByVal in_total As Double, ByVal in_monto_pagado As Double, ByVal in_porcentaje As Single)
+Dim in_precio As Single
+Dim in_incremento As Single
+Dim incremento_total  As Single
+Dim in_doc As String
+Dim in_serie As String
+On Error GoTo errorhandler
+
+strCadena = "call sp_interes_venta_credito('" & KEY_ALM & "','" & KEY_USUARIO & "','" & in_porcentaje & "','" & KEY_RUC & "')"
+CnBd.Execute (strCadena)
+
+
+
+
+strCadena = "SELECT * FROM temporal_ventas WHERE id_alm='" & KEY_ALM & "' and dni_save='" & KEY_USUARIO & "' and ruc='" & KEY_RUC & "' LIMIT 1"
+Call ConfiguraRstK(strCadena)
+If rstK.RecordCount > 0 Then
+    rst.MoveFirst
+    incremento_total = 0
+    in_doc = rstK("id_doc")
+    in_serie = rstK("id_serie")
+    'incremento_total = (in_total - Val(in_monto)) * (in_porcentaje / 100)
+    incremento_total = (Val(in_monto)) * (in_porcentaje / 100)
+    strCadena = "DELETE  FROM temporal_ventas WHERE id_producto='" & KEY_PRODUCTO_INTERES & "' and  id_alm='" & KEY_ALM & "' and dni_save='" & KEY_USUARIO & "' and ruc='" & KEY_RUC & "'"
+    CnBd.Execute (strCadena)
+    Call put_interes_comprobante(incremento_total, in_doc, in_serie)
+    
+End If
+
+
+
+Exit Sub
+errorhandler:
+strCadena = "call sp_interes_venta_credito('" & KEY_ALM & "','" & KEY_USUARIO & "','0','" & KEY_RUC & "')"
+CnBd.Execute (strCadena)
+
+End Sub
+
+
+
+Public Function get_telefono_last(ByVal in_dni As String) As String
+
+strCadena = "SELECT telefono FROM persona_telefono WHERE dni='" & in_dni & "' ORDER BY id_telefono DESC LIMIT 1"
+Call ConfiguraRstK(strCadena)
+If rstK.RecordCount > 0 Then
+   get_telefono_last = rstK("telefono")
+Else
+   get_telefono_last = ""
+End If
+
+End Function
+
+Public Function get_cuotas(ByVal in_venta As String) As Boolean
+
+strCadena = "SELECT * FROM movimiento_venta WHERE cuotas>0 and  id_venta='" & Val(in_venta) & "'"
+Call ConfiguraRstK(strCadena)
+If rstK.RecordCount > 0 Then
+   get_cuotas = True
+Else
+    get_cuotas = False
+End If
+
+End Function
+
+Public Function get_comprobante_des(ByVal in_doc As String) As String
+strCadena = "SELECT doc_des FROM comprobantes WHERE id_doc='" & in_doc & "' LIMIT 1"
+Call ConfiguraRstK(strCadena)
+If rstK.RecordCount > 0 Then
+   get_comprobante_des = rstK("doc_des")
+Else
+   get_comprobante_des = "-"
+End If
+End Function
+Public Function get_id_registro_forma_pago(ByVal forma_pago As String, ByVal in_forma_pago As String) As String
+strCadena = "SELECT id_registro FROM forma_pago_detalle WHERE id_detalle='" & forma_pago & "' and id='" & in_forma_pago & "' and ruc='" & KEY_RUC & "' LIMIT 1"
+Call ConfiguraRstK(strCadena)
+If rstK.RecordCount > 0 Then
+    get_id_registro_forma_pago = rstK("id_registro")
+Else
+    get_id_registro_forma_pago = "01"
+End If
+End Function
+
+Public Sub put_pagar_servicio_cobranza(ByVal in_venta As String, ByVal in_monto As Single, ByVal in_ruc As String)
+    On Error GoTo salir
+    strCadena = "put_pago_servicio_cobranza('" & Val(in_venta) & "','" & in_monto & "','" & in_ruc & "')"
+    CnBd.Execute (strCadena)
+    Exit Sub
+salir:
+End Sub
+
+Public Function get_documento_referencia(ByVal in_venta As String) As String
+strCadena = "SELECT documento FROM movimiento_venta WHERE id_venta='" & Val(in_venta) & "' LIMIT 1"
+Call ConfiguraRstK(strCadena)
+If rstK.RecordCount > 0 Then
+    get_documento_referencia = rstK("documento")
+Else
+    get_documento_referencia = "-"
+End If
+
+
+End Function
+
+
+
+Public Function get_documento_venta(ByVal in_venta As String) As String
+strCadena = "SELECT id_venta FROM movimiento_transferencia WHERE id_transferencia='" & Val(in_venta) & "' LIMIT 1"
+Call ConfiguraRstK(strCadena)
+If rstK.RecordCount > 0 Then
+strCadena = "SELECT * FROM movimiento_venta where id_venta='" & Val(rstK("id_venta")) & "'"
+Call ConfiguraRstK(strCadena)
+If rstK.RecordCount > 0 Then
+   get_documento_venta = rstK("documento")
+Else
+   get_documento_venta = "-"
+End If
+
+End If
+End Function
+Public Function get_marca_2(ByVal in_marca As String) As String
+strCadena = "SELECT marca FROM persona_transporte WHERE id='" & Val(in_marca) & "'"
+Call ConfiguraRstL(strCadena)
+If rstL.RecordCount > 0 Then
+   get_marca_2 = rstL("marca")
+End If
+End Function
+Public Sub get_cobranza()
+On Error GoTo salir
+Dim in_resultado() As String
+Dim in_fecha_servidor As String
+strCadena = "SELECT function_cobranza('" & KEY_RUC & "'),CURDATE()"
+Call ConfiguraRstC(strCadena)
+
+If Format(rstc(1), "YYYY-mm-dd") < "2017-12-01" Then
+   Exit Sub
+End If
+If IsNull(rstc(0)) = False Then
+    in_resultado = Split(rstc(0), ":")
+    If UBound(in_resultado) > 0 Then
+       If IsNull(in_resultado(0)) = False Then
+            
+            Call SlideForm(frmNotificacion, mostrar, 200, 5, Format(in_resultado(1), "YYYY-mm-dd"), "DEUDA A LA FECHA")
+            MDIFrmPrincipal.timer_cobranza.Enabled = False
+            If in_resultado(2) = "no" Then
+                If DateDiff("d", KEY_FECHA, Format(in_resultado(1), "YYYY-mm-dd")) < 0 Then
+                     MDIFrmPrincipal.timer_cobranza.Enabled = False
+                     MDIFrmPrincipal.Enabled = False
+                End If
+            End If
+       End If
+    End If
+ Else
+    strCadena = "SELECT * FROM entidad_parametros WHERE cod_unico='" & KEY_RUC & "'"
+    Call ConfiguraRstC(strCadena)
+    If rstc.RecordCount > 0 Then
+        If rstc("activacion_permanente") = "no" Then
+            If Format(rstc("caducidad"), "YYYY-mm-dd") <= KEY_FECHA Then
+                Call SlideForm(frmNotificacion, mostrar, 200, 5, Format(rstc("caducidad"), "YYYY-mm-dd"), "BLOQUEADO.")
+                MDIFrmPrincipal.timer_cobranza.Enabled = False
+                MDIFrmPrincipal.Enabled = True
+            End If
+        End If
+    End If
+    
+End If
+Exit Sub
+salir:
+End Sub
+Public Function get_producto_habilitado(ByVal in_habilitado As String) As Boolean
+    
+    If in_habilitado = "si" Then
+       get_producto_habilitado = True
+    Else
+       get_producto_habilitado = False
+       MsgBox "Producto Desabilitado [NO ACTIVO]" + Chr(13) + Chr(13) + "Configure su CONFIGURACION", vbInformation, KEY_VENDEDOR
+    End If
+
+End Function
+
+Public Function get_cuenta_contable_producto(ByVal in_producto As String) As String
+
+strCadena = "SELECT cta_contable FROM producto WHERE id_producto='" & in_producto & "' and ruc='" & KEY_RUC & "'"
+Call ConfiguraRstK(strCadena)
+If rstK.RecordCount > 0 Then
+   get_cuenta_contable_producto = rstK("cta_contable")
+Else
+   get_cuenta_contable_producto = ""
+End If
+
+
+
+End Function
+
+Public Sub put_correlativo_venta(ByVal in_doc As String, ByVal in_serie As String, ByVal in_numero As String)
+
+strCadena = "UPDATE almacen_comprobante SET numero='" & Format(Val(in_numero) + 1, "000000") & "' WHERE  id_doc='" & Trim(in_doc) & "' AND serie='" & Trim(in_serie) & "'  AND ruc='" & KEY_RUC & "'"
+CnBd.Execute (strCadena)
+End Sub
+Public Function get_periodo_detalle(ByVal in_periodo As String, ByVal in_compra As String) As String
+strCadena = "SELECT * FROM con_periodo WHERE id='" & in_periodo & "'"
+Call ConfiguraRstP(strCadena)
+If rstP.RecordCount > 0 Then
+   get_periodo_detalle = "[ " & rstP("Ejercicio") & "-" & Format(rstP("Mes"), "00") & " ] :" & in_compra
+Else
+   get_periodo_detalle = ""
+End If
+
+End Function
+Public Sub cerrar_caja(ByVal in_cuenta As Double)
+strCadena = "SELECT * FROM  view_mis_cuentas WHERE id_cuenta='" & in_cuenta & "' and Ejercicio='" & Year(KEY_FECHA) & "' and  ruc='" & KEY_RUC & "'"
+Call ConfiguraRst(strCadena)
+If rst.RecordCount > 0 Then
+   Call generar_recibo_ingreso(rst("saldo"), in_cuenta)
+End If
+End Sub
+
+
+Public Sub generar_recibo_ingreso(ByVal in_monto As Double, ByVal in_cuenta As Double)
+Dim in_numero As String
+Dim in_serie As String
+
+                    KEY_VENCIMIENTO = KEY_FECHA
+                    id_tipo_factura = "00001"
+                    igv = "si"
+                    dfac = "no"
+                    
+                    
+                    
+                    horario = Format(Time, "hh:mm")
+                    If horario >= "07:00" And horario <= "13:00" Then
+                        turno = "M"
+                    Else
+                        turno = "T"
+                    End If
+                    
+                    strCadena = "SELECT * FROM mis_cuentas WHERE id_cuenta='" & in_cuenta & "'"
+                    Call ConfiguraRst(strCadena)
+                    If rst.RecordCount > 0 Then
+                        in_moneda = rst("id_moneda")
+                    End If
+                    strCadena = "SELECT * FROM almacen_comprobante WHERE id_doc='0108' and id_alm='" & KEY_ALM & "' and id_moneda='" & in_moneda & "' and ruc='" & KEY_RUC & "'  limit 1"
+                    Call ConfiguraRst(strCadena)
+                    If rst.RecordCount > 0 Then
+                            in_numero = rst("numero")
+                            in_serie = rst("serie")
+                            in_observacion = "SALDO INICIAL: " & KEY_FECHA
+                            Documento = "RECIBO INGRESO" & ":" & rst("serie") & "-" & rst("numero")
+                            strCadena = "P_insert_venta('0108','" & KEY_ALM & "','01','" & rst("id_moneda") & "','no'," & _
+                            "'" & rst("serie") & "','" & rst("numero") & "','" & KEY_RUC & "','" & KEY_EMPRESA & "','0','0','0','" & in_monto & "','0'," & _
+                            "'" & in_monto & "','0','" & KEY_FECHA & "','" & KEY_VENCIMIENTO & "','" & id_tipo_factura & "','" & KEY_USUARIO & "','" & KEY_USUARIO & "','" & KEY_CAMBIO_COMPRA & "','" & dfac & "','" & formato_item(Month(KEY_FECHA), 2) & "','" & Year(KEY_FECHA) & "','" & Documento & "','" & horario & "','" & turno & "','--','" & KEY_RUC & "')"
+                            Call ConfiguraRstP(strCadena)
+                            id_venta = rstP(0)
+                            
+                            strCadena = "INSERT INTO movimiento_venta_detalle(id_venta,id_producto,detalle,referencia,cantidad,precio,peso,total,ruc) VALUES " & _
+                            "('" & id_venta & "','00000','" & in_observacion & "','-','1','" & in_monto & "','0','" & in_monto & "','" & KEY_RUC & "')"
+                            CnBd.Execute (strCadena)
+                            
+                            strCadena = "INSERT INTO movimiento_venta_monto(id_venta,forma_pago,id_forma_pago,monto,monto_caja,id_tarjeta,id_tarjeta_numero,id_tarjeta_operacion,ruc)VALUES " & _
+                            "('" & id_venta & "','01','" & get_id_registro_forma_pago("01", "01") & "','" & in_monto & "','" & in_monto & "','00','--','-','" & KEY_RUC & "')"
+                            CnBd.Execute (strCadena)
+                            
+                            strCadena = "UPDATE almacen_comprobante SET numero='" & Format(Val(in_numero) + 1, "000000") & "' WHERE id_doc='0108' AND serie='" & Trim(in_serie) & "' AND ruc='" & KEY_RUC & "'"
+                            CnBd.Execute (strCadena)
+                    End If
+                    
+End Sub
+Public Function get_id_producto_grupo(ByVal in_empresaii As String) As String
+Dim in_productoA As Double
+Dim in_productoB As Double
+
+strCadena = "SELECT id_producto FROM producto WHERE ruc='" & KEY_RUC & "' ORDER BY id_producto DESC LIMIT 1"
+Call ConfiguraRstP(strCadena)
+If rstP.RecordCount > 0 Then
+   in_productoA = Val(rstP("id_producto")) + 1
+Else
+   in_productoA = 1
+End If
+
+strCadena = "SELECT id_producto FROM producto WHERE ruc='" & in_empresaii & "' ORDER BY id_producto DESC LIMIT 1"
+Call ConfiguraRstP(strCadena)
+If rstP.RecordCount > 0 Then
+    in_productoB = Val(rstP("id_producto")) + 1
+Else
+   in_productoB = 1
+End If
+
+If in_productoA <> in_productoB Then
+   
+   If in_productoA = in_productoB Then
+      get_id_producto_grupo = Format(in_productoA, "00000")
+   End If
+   
+   If in_productoA > in_productoB Then
+      get_id_producto_grupo = Format(in_productoA, "00000")
+   End If
+   
+   If in_productoB > in_productoA Then
+      get_id_producto_grupo = Format(in_productoB, "00000")
+   End If
+Else
+    get_id_producto_grupo = in_productoA
+   
+End If
+
+
+End Function
+Public Function put_revertir(ByVal in_origen As String) As Boolean
+strCadena = "SELECT id_compra, id_venta,monto FROM mis_cuentas_det WHERE id='" & Val(in_origen) & "' and ruc='" & KEY_RUC & "'"
+Call ConfiguraRst(strCadena)
+If rst.RecordCount > 0 Then
+    If rst("id_compra") > 0 Then
+        strCadena = "UPDATE movimiento_compra SET saldo=saldo+'" & rst("monto") & "' WHERE id_compra='" & rst("id_compra") & "'"
+        CnBd.Execute (strCadena)
+    End If
+    
+    If rst("id_venta") > 0 Then
+        strCadena = "UPDATE movimiento_venta SET saldo=saldo+'" & rst("monto") & "' WHERE id_venta='" & rst("id_venta") & "'"
+        CnBd.Execute (strCadena)
+    End If
+    
+    
+End If
+
+strCadena = "DELETE FROM mis_cuentas_det WHERE id='" & Val(in_origen) & "' and ruc='" & KEY_RUC & "'"
+CnBd.Execute (strCadena)
+
+put_revertir = True
+
+End Function
+Public Function get_moneda_movimiento(ByVal in_venta As String, ByVal in_compra As String) As String
+If Val(in_venta) > 0 Then
+    strCadena = "SELECT id_moneda FROM movimiento_venta WHERE id_venta='" & in_venta & "'"
+    Call ConfiguraRstP(strCadena)
+    If rstP.RecordCount > 0 Then
+        get_moneda_movimiento = rstP("id_moneda")
+    End If
+    Exit Function
+End If
+
+If Val(in_compra) > 0 Then
+    strCadena = "SELECT id_moneda FROM movimiento_compra WHERE id_compra='" & in_compra & "'"
+    Call ConfiguraRstP(strCadena)
+    If rstP.RecordCount > 0 Then
+        get_moneda_movimiento = rstP("id_moneda")
+    End If
+    Exit Function
+End If
+
+End Function
+
+Public Function get_moneda_cuentas(ByVal in_cuenta As String) As String
+strCadena = "SELECT id_moneda FROM mis_cuentas WHERE id_cuenta='" & in_cuenta & "'"
+Call ConfiguraRstP(strCadena)
+If rstP.RecordCount > 0 Then
+   get_moneda_cuentas = rstP("id_moneda")
+End If
+End Function
+
+Public Function put_revertir_ultimate(ByVal in_origen As String) As Boolean
+
+Dim in_moneda_factura As String
+Dim in_moneda_cuenta As String
+
+strCadena = "SELECT id_compra, id_venta,monto,id_cuenta,tc FROM mis_cuentas_det WHERE id='" & Val(in_origen) & "' and ruc='" & KEY_RUC & "'"
+Call ConfiguraRst(strCadena)
+If rst.RecordCount > 0 Then
+    If rst("id_compra") > 0 Then
+        in_moneda_factura = get_moneda_movimiento(rst("id_venta"), rst("id_compra"))
+        in_moneda_cuenta = get_moneda_cuentas(rst("id_cuenta"))
+        
+        If in_moneda_factura = in_moneda_cuenta Then
+            in_monto = rst("monto")
+        Else
+            If in_moneda_factura = "00002" Then
+               in_monto = rst("monto") / rst("tc")
+            Else
+               in_monto = rst("monto") * rst("tc")
+            End If
+        End If
+        strCadena = "UPDATE movimiento_compra SET saldo=saldo+'" & in_monto & "' WHERE id_compra='" & rst("id_compra") & "'"
+        CnBd.Execute (strCadena)
+        
+    End If
+    
+    If rst("id_venta") > 0 Then
+        in_moneda_factura = get_moneda_movimiento(rst("id_venta"), rst("id_compra"))
+        in_moneda_cuenta = get_moneda_cuentas(rst("id_cuenta"))
+        
+        If in_moneda_factura = in_moneda_cuenta Then
+            in_monto = rst("monto")
+        Else
+            If in_moneda_factura = "00002" Then
+               in_monto = rst("monto") / rst("tc")
+            Else
+               in_monto = rst("monto") * rst("tc")
+            End If
+        End If
+        
+        strCadena = "UPDATE movimiento_venta SET saldo=saldo+'" & in_monto & "' WHERE id_venta='" & rst("id_venta") & "'"
+        CnBd.Execute (strCadena)
+    End If
+    
+    
+End If
+
+
+
+strCadena = "DELETE FROM mis_cuentas_det WHERE id='" & Val(in_origen) & "' and ruc='" & KEY_RUC & "'"
+CnBd.Execute (strCadena)
+
+put_revertir_ultimate = True
+
+End Function
+Public Function get_forma_pago_detalle(ByVal in_registro As String) As String
+If Val(in_registro) > 0 Then
+    strCadena = "SELECT funct_get_formapago('" & Val(in_registro) & "')"
+    Call ConfiguraRstPP(strCadena)
+    get_forma_pago_detalle = rstPP(0)
+End If
+End Function
+Public Function get_moneda_cuenta(ByVal in_cuenta As String) As String
+
+strCadena = "SELECT id_moneda FROM mis_cuentas WHERE id_cuenta='" & Val(in_cuenta) & "' and ruc='" & KEY_RUC & "' "
+Call ConfiguraRst(strCadena)
+If rst.RecordCount > 0 Then
+   get_moneda_cuenta = rst("id_moneda")
+Else
+   get_moneda_cuenta = "00001"
+End If
+
+End Function
+
+Public Function get_nota_credito_admin() As Boolean
+
+If KEY_NOTA_CREDITO_ADMIN = "si" Then
+   If KEY_NOTA_CREDITO_USER <> "" Then
+       If KEY_NOTA_CREDITO_USER = KEY_USUARIO Then
+          get_nota_credito_admin = True
+       Else
+          get_nota_credito_admin = False
+       End If
+   Else
+       get_nota_credito_admin = True
+   End If
+Else
+    get_nota_credito_admin = True
+End If
+
+End Function
+
+Public Function get_numero_letra(ByVal in_doc As String) As String
+strCadena = "SELECT * FROM movimiento_venta WHERE ruc='" & KEY_RUC & "' and id_doc='0412' ORDER BY numero DESC LIMIT 1"
+Call ConfiguraRstlocal(strCadena)
+If rstLocal.RecordCount > 0 Then
+    get_numero_letra = Format(Val(rstLocal("numero")) + 1, "000000")
+Else
+    get_numero_letra = Format(1, "000000")
+End If
+End Function
+Public Function get_numero_credito() As String
+strCadena = "SELECT count(*) FROM movimiento_venta WHERE id_forma_pago='02' and  id_doc IN('0001','0003','0007','0054') and ruc='" & KEY_RUC & "'"
+Call ConfiguraRstL(strCadena)
+If IsNull(rstL(0)) = False Then
+    get_numero_credito = str(rstL(0))
+Else
+    get_numero_credito = "1"
+End If
+End Function
+
+Public Function get_precio_costo(ByVal in_producto As String) As Single
+strCadena = "SELECT precio_compra FROM almacen_producto WHERE id_producto='" & in_producto & "' and id_alm='" & KEY_ALM & "' and ruc='" & KEY_RUC & "' LIMIT 1"
+Call ConfiguraRstlocal(strCadena)
+If rstLocal.RecordCount > 0 Then
+   get_precio_costo = rstLocal("precio_compra")
+Else
+   get_precio_costo = 0
+End If
+
+End Function
+
+Public Function get_costo_producto(ByVal in_producto As String) As Single
+strCadena = "SELECT precio_compra FROM almacen_producto WHERE id_producto='" & in_producto & "' and id_alm='" & KEY_ALM & "' and ruc='" & KEY_RUC & "' LIMIT 1"
+Call ConfiguraRstlocal(strCadena)
+If rstLocal.RecordCount > 0 Then
+   get_costo_producto = rstLocal("precio_compra")
+Else
+   get_costo_producto = 0
+End If
+
+End Function
+
+
+Public Function get_total_comprobante(ByVal in_venta As String) As Double
+strCadena = "SELECT total FROM movimiento_venta WHERE id_venta='" & Val(in_venta) & "'"
+Call ConfiguraRstP(strCadena)
+If rstP.RecordCount > 0 Then
+   get_total_comprobante = rstP("total")
+Else
+   get_total_comprobante = 0
+End If
+
+End Function
+Public Sub put_actualizar_kardex(ByVal in_producto As String, ByVal in_compra As String, ByVal in_costo As Double, ByVal in_alm As String)
+
+strCadena = "UPDATE kardex SET costo_unitario='" & in_costo & "' WHERE id_movimiento='" & Val(in_compra) & "' and id_producto='" & in_producto & "' and ruc='" & KEY_RUC & "' and cantidad_real>0 LIMIT 1"
+CnBd.Execute (strCadena)
+
+strCadena = "UPDATE almacen_producto SET precio_compra='" & in_costo & "' WHERE id_producto='" & in_producto & "' and ruc='" & KEY_RUC & "' and id_alm='" & in_alm & "'"
+CnBd.Execute (strCadena)
+
+
+
+End Sub
+
+Public Sub get_producto_agranel(ByVal in_producto As String, ByVal in_combo As DataCombo)
+
+strCadena = "SELECT id as Codigo,descripcion as Descripcion FROM view_unidad_producto WHERE id_producto='" & in_producto & "' and id_alm='" & KEY_ALM & "' and ruc='" & KEY_RUC & "'"
+Call ConfiguraRstT(strCadena)
+Call LlenaDataCombo(in_combo)
+End Sub
+
+
+Public Function get_precio_unidad(ByVal in_producto As String, ByVal in_unidad As String) As Single
+
+strCadena = "SELECT precio FROM view_unidad_producto WHERE id_producto='" & in_producto & "' and id_unidad='" & in_unidad & "' and ruc='" & KEY_RUC & "' LIMIT 1"
+Call ConfiguraRstT(strCadena)
+If rstT.RecordCount > 0 Then
+   get_precio_unidad = rstT("precio")
+Else
+   get_precio_unidad = 0
+End If
+
+
+End Function
+
+Public Function get_precio_producto(ByVal in_producto As String, ByVal in_alm As String)
+strCadena = "SELECT * FROM almacen_producto WHERE id_producto='" & in_producto & "' and id_alm='" & in_alm & "' and ruc='" & KEY_RUC & "'"
+Call ConfiguraRstZ(strCadena)
+If rstZ.RecordCount > 0 Then
+   get_precio_producto = rstZ("precio_venta")
+End If
+
+End Function
+Public Sub put_delete_kardex_recepcion(ByVal in_recepcion As String, ByVal in_serie_guia As String, ByVal in_numero_guia As String)
+Dim in_doc As String
+Dim in_serie As String
+Dim in_numero As String
+
+strCadena = "SELECT * FROM orden_compra_detalle WHERE id_orden='" & Val(in_recepcion) & "' and ruc='" & KEY_RUC & "'"
+Call ConfiguraRstZ(strCadena)
+If rstZ.RecordCount > 0 Then
+   rstZ.MoveFirst
+   For i = 0 To rstZ.RecordCount - 1
+       strCadena = "DELETE FROM kardex WHERE id_producto='" & rstZ("id_producto") & "' and id_movimiento='" & Val(in_recepcion) & "' and id_doc='0009' and id_serie='" & in_serie_guia & "' and id_numero='" & in_numero_guia & "' and ruc='" & KEY_RUC & "' and cantidad_real='" & rstZ("cantidad") & "' LIMIT 1"
+       CnBd.Execute (strCadena)
+       rstZ.MoveNext
+   Next i
+End If
+   
+   
+
+
+
+
+End Sub
+
+Public Sub eliminar_compras_general(ByVal id_doc As String, ByVal serie As String, ByVal Numero As String, ByVal id_proveedor As String)
+Dim idCompra As Double
+strCadena = "SELECT * FROM movimiento_compra WHERE (numero='" & Numero & "' AND serie='" & serie & "' AND id_doc='" & id_doc & "' AND id_proveedor='" & id_proveedor & "')"
+Call ConfiguraRst(strCadena)
+If rst.RecordCount > 0 Then
+    idCompra = rst("id_compra")
+    strCadena = "SELECT * FROM `imp_producto_detalle` WHERE id_compra='" & idCompra & "' and  id_alm='" & KEY_ALM & "' and  (vendido='si' or transferencia='si') and ruc='" & KEY_RUC & "'"
+    Call ConfiguraRstL(strCadena)
+    If rstL.RecordCount > 0 Then
+        MsgBox "SERIES VENDIDAS O TRANSFERIDAS" + Chr(13) + "IMPOSIBLE ELIMINAR", vbInformation, KEY_VENDEDOR
+        Exit Sub
+    End If
+    strCadena = "SELECT * FROM movimiento_compra_detalle WHERE id_compra='" & idCompra & "' AND ruc='" & KEY_RUC & "'"
+    Call ConfiguraTemporal(strCadena)
+    If rstTemporal.RecordCount > 0 Then
+        rstTemporal.MoveFirst
+        For i = 0 To rstTemporal.RecordCount - 1
+            strCadena = "DELETE FROM movimiento_compra_detalle WHERE id_compra='" & idCompra & "' AND id_detalle_compra='" & rstTemporal("id_detalle_compra") & "' "
+            CnBd.Execute (strCadena)
+            rstTemporal.MoveNext
+        Next i
+    End If
+     strCadena = "DELETE FROM movimiento_compra WHERE id_compra='" & idCompra & "' AND ruc='" & KEY_RUC & "'"
+     CnBd.Execute (strCadena)
+     
+     strCadena = "Call CON_Asiento_EliminarCompra('" & idCompra & "', '" & KEY_USUARIO & "', '" & KEY_RUC & "')"
+     CnBd.Execute (strCadena)
+    
+End If
+
+End Sub
+

@@ -1,0 +1,6 @@
+id_venta	Number
+emision	Date
+documento	String	30
+total	Number
+id_proveedor	String	16
+proveedor	String	100

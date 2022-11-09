@@ -1,0 +1,16 @@
+id_venta	String	10
+fecha_emision	Datetime
+documento	String	30
+id_cliente	String	11
+ncliente	String	70
+nombre_completo	String	70
+total	Number	
+saldo	Number
+anulado	Number
+id_producto	String	5
+detalle	String	60
+cantidad	Number	
+precio	Number	
+ttotal	Number
+id_alm	String	5
+ruc	String	11

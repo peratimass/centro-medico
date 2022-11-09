@@ -1,0 +1,14 @@
+id_especialidad	String	5
+titulo	String	60
+observacion	String	100
+especialidad	String	200
+pacientes	Number
+horas_efectivas	Number
+horas_programadas	Number
+horas_suspendidas	Number
+horas_reprogramadas	Number
+exedente	Number
+promedio	Number
+necesidad	Number
+pronostico	Number
+turnos	Number

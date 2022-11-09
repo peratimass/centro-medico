@@ -1,0 +1,4398 @@
+VERSION 5.00
+Object = "{EAB22AC0-30C1-11CF-A7EB-0000C05BAE0B}#1.1#0"; "SHDOCVW.dll"
+Object = "{F0D2F211-CCB0-11D0-A316-00AA00688B10}#1.0#0"; "MSDATLST.OCX"
+Object = "{86CF1D34-0C5F-11D2-A9FC-0000F8754DA1}#2.0#0"; "MSCOMCT2.OCX"
+Object = "{38911DA0-E448-11D0-84A3-00DD01104159}#1.1#0"; "COMCT332.OCX"
+Object = "{0ECD9B60-23AA-11D0-B351-00A0C9055D8E}#6.0#0"; "MSHFLXGD.OCX"
+Object = "{831FDD16-0C5C-11D2-A9FC-0000F8754DA1}#2.0#0"; "mscomctl.OCX"
+Object = "{BDC217C8-ED16-11CD-956C-0000C04E4C0A}#1.1#0"; "TABCTL32.OCX"
+Object = "{F9043C88-F6F2-101A-A3C9-08002B2F49FB}#1.2#0"; "Comdlg32.ocx"
+Object = "{48E59290-9880-11CF-9754-00AA00C00908}#1.0#0"; "MSINET.OCX"
+Begin VB.Form FrmDetallePersona 
+   BorderStyle     =   0  'None
+   Caption         =   "Detalle de Clientes"
+   ClientHeight    =   9240
+   ClientLeft      =   540
+   ClientTop       =   315
+   ClientWidth     =   17895
+   ControlBox      =   0   'False
+   Icon            =   "FrmDetalleCliente.frx":0000
+   KeyPreview      =   -1  'True
+   LinkTopic       =   "Form1"
+   MaxButton       =   0   'False
+   MDIChild        =   -1  'True
+   MinButton       =   0   'False
+   ScaleHeight     =   9240
+   ScaleWidth      =   17895
+   ShowInTaskbar   =   0   'False
+   Visible         =   0   'False
+   Begin VB.TextBox TxtAnio 
+      Appearance      =   0  'Flat
+      ForeColor       =   &H00800000&
+      Height          =   315
+      Left            =   4080
+      MaxLength       =   11
+      TabIndex        =   137
+      Top             =   2640
+      Width           =   975
+   End
+   Begin VB.CheckBox chkDescuento 
+      Appearance      =   0  'Flat
+      BackColor       =   &H00FFFFFF&
+      Caption         =   "(% Desc):"
+      BeginProperty Font 
+         Name            =   "Tahoma"
+         Size            =   8.25
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      ForeColor       =   &H00800000&
+      Height          =   255
+      Left            =   4680
+      TabIndex        =   136
+      Top             =   4080
+      Width           =   1095
+   End
+   Begin VB.TextBox TxtDescuento 
+      Appearance      =   0  'Flat
+      ForeColor       =   &H00800000&
+      Height          =   285
+      Left            =   5880
+      MaxLength       =   11
+      TabIndex        =   135
+      Text            =   "0.00"
+      Top             =   4080
+      Visible         =   0   'False
+      Width           =   495
+   End
+   Begin VB.CommandButton Command2 
+      Caption         =   "SUBIR IMAGEN"
+      BeginProperty Font 
+         Name            =   "Tahoma"
+         Size            =   6.75
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      Height          =   375
+      Left            =   6720
+      TabIndex        =   134
+      Top             =   3360
+      Width           =   2415
+   End
+   Begin VB.CommandButton Command4 
+      Caption         =   "ALBUM"
+      BeginProperty Font 
+         Name            =   "Tahoma"
+         Size            =   6.75
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      Height          =   375
+      Left            =   6720
+      TabIndex        =   133
+      Top             =   3720
+      Width           =   2415
+   End
+   Begin VB.CommandButton cmdHuella 
+      Caption         =   "CAPTURAR HUELLAS"
+      BeginProperty Font 
+         Name            =   "Tahoma"
+         Size            =   6.75
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      Height          =   375
+      Left            =   6720
+      TabIndex        =   132
+      Top             =   4080
+      Width           =   2415
+   End
+   Begin VB.TextBox txtRUC 
+      Appearance      =   0  'Flat
+      BeginProperty Font 
+         Name            =   "Tahoma"
+         Size            =   8.25
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      Height          =   285
+      Left            =   4440
+      TabIndex        =   81
+      Top             =   280
+      Width           =   1575
+   End
+   Begin VB.Frame div_verifica 
+      BackColor       =   &H00C0C0FF&
+      BorderStyle     =   0  'None
+      Height          =   975
+      Left            =   5040
+      TabIndex        =   78
+      Top             =   720
+      Visible         =   0   'False
+      Width           =   1575
+      Begin VB.CommandButton cmdVisualizar 
+         Caption         =   "VISUALIZAR"
+         BeginProperty Font 
+            Name            =   "Tahoma"
+            Size            =   8.25
+            Charset         =   0
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         Height          =   195
+         Left            =   15
+         TabIndex        =   80
+         Top             =   720
+         Visible         =   0   'False
+         Width           =   1575
+      End
+      Begin VB.Label lblresultado 
+         Alignment       =   2  'Center
+         BackColor       =   &H00C0C0FF&
+         BeginProperty Font 
+            Name            =   "Tahoma"
+            Size            =   8.25
+            Charset         =   0
+            Weight          =   700
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         Height          =   720
+         Left            =   0
+         TabIndex        =   79
+         Top             =   0
+         Width           =   1590
+      End
+   End
+   Begin VB.TextBox txtMaterno 
+      Appearance      =   0  'Flat
+      BackColor       =   &H00C0FFFF&
+      BeginProperty Font 
+         Name            =   "Tahoma"
+         Size            =   8.25
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      ForeColor       =   &H00800000&
+      Height          =   285
+      Left            =   1560
+      MaxLength       =   60
+      TabIndex        =   71
+      Top             =   1080
+      Width           =   3375
+   End
+   Begin VB.TextBox txtNombre 
+      Appearance      =   0  'Flat
+      BackColor       =   &H00C0FFFF&
+      BeginProperty Font 
+         Name            =   "Tahoma"
+         Size            =   8.25
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      ForeColor       =   &H00800000&
+      Height          =   285
+      Left            =   1560
+      MaxLength       =   60
+      TabIndex        =   70
+      Top             =   1440
+      Width           =   3375
+   End
+   Begin VB.TextBox txtPaterno 
+      Appearance      =   0  'Flat
+      BackColor       =   &H00C0FFFF&
+      BeginProperty Font 
+         Name            =   "Tahoma"
+         Size            =   8.25
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      ForeColor       =   &H00800000&
+      Height          =   285
+      Left            =   1560
+      MaxLength       =   50
+      TabIndex        =   69
+      Top             =   720
+      Width           =   3375
+   End
+   Begin VB.TextBox TxtDistrito 
+      Appearance      =   0  'Flat
+      BeginProperty Font 
+         Name            =   "Tahoma"
+         Size            =   8.25
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      ForeColor       =   &H00800000&
+      Height          =   315
+      Left            =   5340
+      MaxLength       =   80
+      TabIndex        =   65
+      Top             =   8040
+      Width           =   1095
+   End
+   Begin VB.TextBox Text1 
+      Alignment       =   1  'Right Justify
+      Appearance      =   0  'Flat
+      ForeColor       =   &H00800000&
+      Height          =   315
+      Left            =   5340
+      MaxLength       =   11
+      TabIndex        =   24
+      Top             =   8640
+      Visible         =   0   'False
+      Width           =   1095
+   End
+   Begin VB.CommandButton cmdConSUNAT 
+      Caption         =   "OK"
+      BeginProperty Font 
+         Name            =   "Tahoma"
+         Size            =   8.25
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      Height          =   330
+      Left            =   6120
+      TabIndex        =   0
+      Tag             =   "0"
+      Top             =   240
+      Width           =   495
+   End
+   Begin VB.TextBox txtdia 
+      Appearance      =   0  'Flat
+      ForeColor       =   &H00800000&
+      Height          =   315
+      Left            =   1560
+      MaxLength       =   11
+      TabIndex        =   21
+      Top             =   2640
+      Width           =   735
+   End
+   Begin VB.Frame Frame1 
+      ForeColor       =   &H00800000&
+      Height          =   2655
+      Left            =   7950
+      TabIndex        =   20
+      Top             =   4560
+      Width           =   1280
+      Begin VB.CheckBox ChkAlmacen 
+         Appearance      =   0  'Flat
+         BackColor       =   &H008080FF&
+         Caption         =   "Services"
+         BeginProperty Font 
+            Name            =   "Tahoma"
+            Size            =   8.25
+            Charset         =   0
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         ForeColor       =   &H80000008&
+         Height          =   195
+         Left            =   120
+         TabIndex        =   88
+         ToolTipText     =   "PERSONAL BAJO RESPONSABILIDAD DE BIENES"
+         Top             =   2145
+         Width           =   1095
+      End
+      Begin VB.CheckBox ChkCliente 
+         Appearance      =   0  'Flat
+         Caption         =   "Cliente."
+         BeginProperty Font 
+            Name            =   "Tahoma"
+            Size            =   8.25
+            Charset         =   0
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         ForeColor       =   &H80000008&
+         Height          =   195
+         Left            =   120
+         TabIndex        =   87
+         Top             =   240
+         Width           =   975
+      End
+      Begin VB.CheckBox ChkProveedor 
+         Appearance      =   0  'Flat
+         Caption         =   "Proveedor"
+         BeginProperty Font 
+            Name            =   "Tahoma"
+            Size            =   8.25
+            Charset         =   0
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         ForeColor       =   &H80000008&
+         Height          =   195
+         Left            =   120
+         TabIndex        =   86
+         Top             =   520
+         Width           =   1095
+      End
+      Begin VB.CheckBox Chkcontable 
+         Appearance      =   0  'Flat
+         Caption         =   "Vendedor"
+         BeginProperty Font 
+            Name            =   "Tahoma"
+            Size            =   8.25
+            Charset         =   0
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         ForeColor       =   &H80000008&
+         Height          =   195
+         Left            =   120
+         TabIndex        =   85
+         Top             =   820
+         Width           =   1095
+      End
+      Begin VB.CheckBox ChkTransporte 
+         Appearance      =   0  'Flat
+         Caption         =   "Transporte"
+         BeginProperty Font 
+            Name            =   "Tahoma"
+            Size            =   8.25
+            Charset         =   0
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         ForeColor       =   &H80000008&
+         Height          =   195
+         Left            =   120
+         TabIndex        =   84
+         Top             =   1125
+         Width           =   1095
+      End
+      Begin VB.CheckBox ChkPersonal 
+         Appearance      =   0  'Flat
+         Caption         =   "Personal."
+         BeginProperty Font 
+            Name            =   "Tahoma"
+            Size            =   8.25
+            Charset         =   0
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         ForeColor       =   &H80000008&
+         Height          =   195
+         Left            =   120
+         TabIndex        =   83
+         Top             =   1500
+         Width           =   1095
+      End
+      Begin VB.CheckBox ChkAuspiciador 
+         Appearance      =   0  'Flat
+         Caption         =   "Auspiciad"
+         BeginProperty Font 
+            Name            =   "Tahoma"
+            Size            =   8.25
+            Charset         =   0
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         ForeColor       =   &H80000008&
+         Height          =   195
+         Left            =   120
+         TabIndex        =   82
+         Top             =   1815
+         Width           =   1095
+      End
+   End
+   Begin VB.CheckBox ChkRetencion 
+      Appearance      =   0  'Flat
+      BackColor       =   &H80000005&
+      Caption         =   "Afecto a Reten"
+      ForeColor       =   &H00800000&
+      Height          =   330
+      Left            =   3240
+      TabIndex        =   18
+      Top             =   4080
+      Width           =   1530
+   End
+   Begin VB.CheckBox ChkPercepcion 
+      Appearance      =   0  'Flat
+      BackColor       =   &H80000005&
+      Caption         =   "Afecto a Percep"
+      ForeColor       =   &H00800000&
+      Height          =   330
+      Left            =   1680
+      TabIndex        =   17
+      Top             =   4080
+      Width           =   1770
+   End
+   Begin VB.CommandButton CmdFoto 
+      Caption         =   "CAPTURAR IMAGEN"
+      BeginProperty Font 
+         Name            =   "Tahoma"
+         Size            =   8.25
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      Height          =   375
+      Left            =   6720
+      Style           =   1  'Graphical
+      TabIndex        =   16
+      Top             =   3000
+      Width           =   2415
+   End
+   Begin VB.TextBox TxtObservacion 
+      Appearance      =   0  'Flat
+      ForeColor       =   &H00800000&
+      Height          =   315
+      Left            =   1560
+      MaxLength       =   100
+      TabIndex        =   10
+      Top             =   3480
+      Width           =   4935
+   End
+   Begin VB.TextBox TxtFax 
+      Appearance      =   0  'Flat
+      ForeColor       =   &H00800000&
+      Height          =   315
+      Left            =   -2160
+      MaxLength       =   10
+      TabIndex        =   9
+      Top             =   2160
+      Width           =   1575
+   End
+   Begin VB.TextBox Txttelefono1 
+      Appearance      =   0  'Flat
+      ForeColor       =   &H00800000&
+      Height          =   315
+      Left            =   -2280
+      MaxLength       =   10
+      TabIndex        =   3
+      Top             =   4920
+      Width           =   1335
+   End
+   Begin VB.TextBox TxtEmail 
+      Appearance      =   0  'Flat
+      ForeColor       =   &H00800000&
+      Height          =   315
+      Left            =   1560
+      MaxLength       =   80
+      TabIndex        =   8
+      Top             =   3120
+      Width           =   4935
+   End
+   Begin VB.TextBox TxtTelefono2 
+      Appearance      =   0  'Flat
+      ForeColor       =   &H00800000&
+      Height          =   315
+      Left            =   -2145
+      MaxLength       =   10
+      TabIndex        =   7
+      Top             =   2160
+      Width           =   1335
+   End
+   Begin VB.TextBox TxtDireccion1 
+      Appearance      =   0  'Flat
+      BackColor       =   &H00C0FFFF&
+      BeginProperty Font 
+         Name            =   "Tahoma"
+         Size            =   8.25
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      ForeColor       =   &H00800000&
+      Height          =   285
+      Left            =   1560
+      MaxLength       =   150
+      TabIndex        =   2
+      Top             =   2265
+      Width           =   4935
+   End
+   Begin ComCtl3.CoolBar ClbAcciones 
+      Height          =   840
+      Left            =   7320
+      TabIndex        =   6
+      Top             =   8280
+      Width           =   1875
+      _ExtentX        =   3307
+      _ExtentY        =   1482
+      BandCount       =   1
+      ForeColor       =   -2147483635
+      ImageList       =   "ImgIconos"
+      FixedOrder      =   -1  'True
+      VariantHeight   =   0   'False
+      EmbossPicture   =   -1  'True
+      _CBWidth        =   1875
+      _CBHeight       =   840
+      _Version        =   "6.0.8169"
+      Child1          =   "TlbAcciones"
+      MinHeight1      =   780
+      Width1          =   3180
+      FixedBackground1=   0   'False
+      NewRow1         =   0   'False
+      Begin MSComctlLib.Toolbar TlbAcciones 
+         Height          =   780
+         Left            =   30
+         TabIndex        =   1
+         Top             =   30
+         Width           =   1755
+         _ExtentX        =   3096
+         _ExtentY        =   1376
+         ButtonWidth     =   1296
+         ButtonHeight    =   1376
+         Style           =   1
+         ImageList       =   "ImgIconos"
+         _Version        =   393216
+         BeginProperty Buttons {66833FE8-8583-11D1-B16A-00C0F0283628} 
+            NumButtons      =   3
+            BeginProperty Button1 {66833FEA-8583-11D1-B16A-00C0F0283628} 
+               Caption         =   "Grabar"
+               Key             =   "(Grabar)"
+               Object.ToolTipText     =   "Grabar Ctrl+G"
+               ImageKey        =   "(Grabar)"
+            EndProperty
+            BeginProperty Button2 {66833FEA-8583-11D1-B16A-00C0F0283628} 
+               Style           =   3
+            EndProperty
+            BeginProperty Button3 {66833FEA-8583-11D1-B16A-00C0F0283628} 
+               Caption         =   "Cancelar"
+               Key             =   "(Cancelar)"
+               Object.ToolTipText     =   "Cancelar"
+               ImageKey        =   "(Cancelar)"
+            EndProperty
+         EndProperty
+         OLEDropMode     =   1
+      End
+   End
+   Begin MSComctlLib.ImageList ImgIconos 
+      Left            =   10680
+      Top             =   4920
+      _ExtentX        =   1005
+      _ExtentY        =   1005
+      BackColor       =   -2147483643
+      ImageWidth      =   32
+      ImageHeight     =   32
+      MaskColor       =   12632256
+      _Version        =   393216
+      BeginProperty Images {2C247F25-8591-11D1-B16A-00C0F0283628} 
+         NumListImages   =   12
+         BeginProperty ListImage1 {2C247F27-8591-11D1-B16A-00C0F0283628} 
+            Picture         =   "FrmDetalleCliente.frx":08CA
+            Key             =   "(Aceptar)"
+         EndProperty
+         BeginProperty ListImage2 {2C247F27-8591-11D1-B16A-00C0F0283628} 
+            Picture         =   "FrmDetalleCliente.frx":0BE6
+            Key             =   "(Eliminar)"
+         EndProperty
+         BeginProperty ListImage3 {2C247F27-8591-11D1-B16A-00C0F0283628} 
+            Picture         =   "FrmDetalleCliente.frx":1046
+            Key             =   "(Inicio)"
+         EndProperty
+         BeginProperty ListImage4 {2C247F27-8591-11D1-B16A-00C0F0283628} 
+            Picture         =   "FrmDetalleCliente.frx":14A6
+            Key             =   "(Modificar)"
+         EndProperty
+         BeginProperty ListImage5 {2C247F27-8591-11D1-B16A-00C0F0283628} 
+            Picture         =   "FrmDetalleCliente.frx":17C2
+            Key             =   "(Nuevo)"
+         EndProperty
+         BeginProperty ListImage6 {2C247F27-8591-11D1-B16A-00C0F0283628} 
+            Picture         =   "FrmDetalleCliente.frx":1C22
+            Key             =   "(Quitar)"
+         EndProperty
+         BeginProperty ListImage7 {2C247F27-8591-11D1-B16A-00C0F0283628} 
+            Picture         =   "FrmDetalleCliente.frx":1F3E
+            Key             =   "(Salir)"
+         EndProperty
+         BeginProperty ListImage8 {2C247F27-8591-11D1-B16A-00C0F0283628} 
+            Picture         =   "FrmDetalleCliente.frx":239E
+            Key             =   "(Red)"
+         EndProperty
+         BeginProperty ListImage9 {2C247F27-8591-11D1-B16A-00C0F0283628} 
+            Picture         =   "FrmDetalleCliente.frx":27FE
+            Key             =   "(Grabar)"
+         EndProperty
+         BeginProperty ListImage10 {2C247F27-8591-11D1-B16A-00C0F0283628} 
+            Picture         =   "FrmDetalleCliente.frx":30DE
+            Key             =   "(Agregar)"
+         EndProperty
+         BeginProperty ListImage11 {2C247F27-8591-11D1-B16A-00C0F0283628} 
+            Picture         =   "FrmDetalleCliente.frx":33FA
+            Key             =   "(Buscar)"
+         EndProperty
+         BeginProperty ListImage12 {2C247F27-8591-11D1-B16A-00C0F0283628} 
+            Picture         =   "FrmDetalleCliente.frx":3716
+            Key             =   "(Cancelar)"
+         EndProperty
+      EndProperty
+   End
+   Begin MSComDlg.CommonDialog CommonDialog1 
+      Left            =   360
+      Top             =   3840
+      _ExtentX        =   847
+      _ExtentY        =   847
+      _Version        =   393216
+   End
+   Begin MSDataListLib.DataCombo Dtcmes 
+      Height          =   315
+      Left            =   2400
+      TabIndex        =   22
+      Top             =   2640
+      Width           =   1575
+      _ExtentX        =   2778
+      _ExtentY        =   556
+      _Version        =   393216
+      Appearance      =   0
+      Style           =   2
+      ForeColor       =   8388608
+      Text            =   "DataCombo1"
+   End
+   Begin InetCtlsObjects.Inet inetConecta 
+      Left            =   840
+      Top             =   3840
+      _ExtentX        =   1005
+      _ExtentY        =   1005
+      _Version        =   393216
+   End
+   Begin SHDocVwCtl.WebBrowser wbrInfo 
+      Height          =   8925
+      Left            =   9360
+      TabIndex        =   23
+      TabStop         =   0   'False
+      Top             =   120
+      Width           =   8535
+      ExtentX         =   15055
+      ExtentY         =   15743
+      ViewMode        =   0
+      Offline         =   0
+      Silent          =   0
+      RegisterAsBrowser=   0
+      RegisterAsDropTarget=   1
+      AutoArrange     =   0   'False
+      NoClientEdge    =   0   'False
+      AlignLeft       =   0   'False
+      NoWebView       =   0   'False
+      HideFileNames   =   0   'False
+      SingleClick     =   0   'False
+      SingleSelection =   0   'False
+      NoFolders       =   0   'False
+      Transparent     =   0   'False
+      ViewID          =   "{0057D0E0-3573-11CF-AE69-08002B2E1262}"
+      Location        =   "http:///"
+   End
+   Begin TabDlg.SSTab SstKardex 
+      Height          =   2655
+      Left            =   165
+      TabIndex        =   27
+      Top             =   4560
+      Width           =   7695
+      _ExtentX        =   13573
+      _ExtentY        =   4683
+      _Version        =   393216
+      Tabs            =   6
+      Tab             =   2
+      TabsPerRow      =   6
+      TabHeight       =   520
+      ForeColor       =   8388608
+      BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+         Name            =   "Tahoma"
+         Size            =   8.25
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      TabCaption(0)   =   "Creditos"
+      TabPicture(0)   =   "FrmDetalleCliente.frx":3A32
+      Tab(0).ControlEnabled=   0   'False
+      Tab(0).Control(0)=   "chkclientemayor"
+      Tab(0).Control(1)=   "TxtBuscar"
+      Tab(0).Control(2)=   "txtMaximoCredito"
+      Tab(0).Control(3)=   "txtRucEmpresa"
+      Tab(0).Control(4)=   "OptSincredito"
+      Tab(0).Control(5)=   "ChkMaximoCredito"
+      Tab(0).Control(6)=   "chkEmpresa"
+      Tab(0).Control(7)=   "HfdPersona"
+      Tab(0).Control(8)=   "Label11"
+      Tab(0).Control(9)=   "Shape6"
+      Tab(0).Control(10)=   "lblEmpresa"
+      Tab(0).Control(11)=   "Shape4"
+      Tab(0).Control(12)=   "LblCantidad"
+      Tab(0).ControlCount=   13
+      TabCaption(1)   =   "Empleado"
+      TabPicture(1)   =   "FrmDetalleCliente.frx":3A4E
+      Tab(1).ControlEnabled=   0   'False
+      Tab(1).Control(0)=   "Check1"
+      Tab(1).Control(1)=   "TxtPassword"
+      Tab(1).Control(2)=   "TxtEssalud"
+      Tab(1).Control(3)=   "TxtSNDP"
+      Tab(1).Control(4)=   "TxtRentaquinta"
+      Tab(1).Control(5)=   "TxtGratificacion"
+      Tab(1).Control(6)=   "DtpIngreso"
+      Tab(1).Control(7)=   "TxtCuspp"
+      Tab(1).Control(8)=   "txtAsiganacion_familiar"
+      Tab(1).Control(9)=   "txtSueldoMensual"
+      Tab(1).Control(10)=   "TxtBonificacion"
+      Tab(1).Control(11)=   "DtcCargo"
+      Tab(1).Control(12)=   "DtcAfp"
+      Tab(1).Control(13)=   "DtcPlanilla"
+      Tab(1).Control(14)=   "DtcRegimen"
+      Tab(1).Control(15)=   "DtcSucursal"
+      Tab(1).Control(16)=   "Label26"
+      Tab(1).Control(17)=   "Label25"
+      Tab(1).Control(18)=   "Label24"
+      Tab(1).Control(19)=   "Label23"
+      Tab(1).Control(20)=   "Label22"
+      Tab(1).Control(21)=   "Line1"
+      Tab(1).Control(22)=   "Label21"
+      Tab(1).Control(23)=   "Label20"
+      Tab(1).Control(24)=   "Label19"
+      Tab(1).Control(25)=   "Label5"
+      Tab(1).Control(26)=   "Label6"
+      Tab(1).Control(27)=   "Label7"
+      Tab(1).Control(28)=   "Label8"
+      Tab(1).Control(29)=   "Label9"
+      Tab(1).Control(30)=   "Label10"
+      Tab(1).Control(31)=   "Shape3"
+      Tab(1).ControlCount=   32
+      TabCaption(2)   =   "Direct Telefon"
+      TabPicture(2)   =   "FrmDetalleCliente.frx":3A6A
+      Tab(2).ControlEnabled=   -1  'True
+      Tab(2).Control(0)=   "Shape7"
+      Tab(2).Control(0).Enabled=   0   'False
+      Tab(2).Control(1)=   "Label15"
+      Tab(2).Control(1).Enabled=   0   'False
+      Tab(2).Control(2)=   "Label18"
+      Tab(2).Control(2).Enabled=   0   'False
+      Tab(2).Control(3)=   "DtcArea"
+      Tab(2).Control(3).Enabled=   0   'False
+      Tab(2).Control(4)=   "HfTelefonos"
+      Tab(2).Control(4).Enabled=   0   'False
+      Tab(2).Control(5)=   "Command1"
+      Tab(2).Control(5).Enabled=   0   'False
+      Tab(2).Control(6)=   "Command3"
+      Tab(2).Control(6).Enabled=   0   'False
+      Tab(2).Control(7)=   "TxtFono"
+      Tab(2).Control(7).Enabled=   0   'False
+      Tab(2).ControlCount=   8
+      TabCaption(3)   =   "Licencias"
+      TabPicture(3)   =   "FrmDetalleCliente.frx":3A86
+      Tab(3).ControlEnabled=   0   'False
+      Tab(3).Control(0)=   "lblLicencia"
+      Tab(3).Control(1)=   "TxtLicencia"
+      Tab(3).ControlCount=   2
+      TabCaption(4)   =   "Ctas Bank"
+      TabPicture(4)   =   "FrmDetalleCliente.frx":3AA2
+      Tab(4).ControlEnabled=   0   'False
+      Tab(4).Control(0)=   "Label16"
+      Tab(4).Control(1)=   "Label17"
+      Tab(4).Control(2)=   "DtcMoneda"
+      Tab(4).Control(3)=   "DtcBanco"
+      Tab(4).Control(4)=   "Hfcuentas"
+      Tab(4).Control(5)=   "txtnumerocuenta"
+      Tab(4).Control(6)=   "cmdagregarcuenta"
+      Tab(4).Control(7)=   "cmdeliminarcuenta"
+      Tab(4).ControlCount=   8
+      TabCaption(5)   =   "Familiar"
+      TabPicture(5)   =   "FrmDetalleCliente.frx":3ABE
+      Tab(5).ControlEnabled=   0   'False
+      Tab(5).Control(0)=   "txtDni"
+      Tab(5).Control(1)=   "TxtFmaterno"
+      Tab(5).Control(2)=   "cmdAgregar"
+      Tab(5).Control(3)=   "TxtTelefono"
+      Tab(5).Control(4)=   "TxtFpaterno"
+      Tab(5).Control(5)=   "TxtFnombers"
+      Tab(5).Control(6)=   "HfgFamiliares"
+      Tab(5).Control(7)=   "DtcParentesco"
+      Tab(5).Control(8)=   "Label32"
+      Tab(5).Control(9)=   "Label31"
+      Tab(5).Control(10)=   "Label30"
+      Tab(5).Control(11)=   "Label29"
+      Tab(5).Control(12)=   "Label28"
+      Tab(5).Control(13)=   "Label27"
+      Tab(5).ControlCount=   14
+      Begin VB.CheckBox chkclientemayor 
+         Appearance      =   0  'Flat
+         BackColor       =   &H00C0C0FF&
+         Caption         =   "CLIENTE X MAYOR"
+         BeginProperty Font 
+            Name            =   "Tahoma"
+            Size            =   6.75
+            Charset         =   0
+            Weight          =   700
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         ForeColor       =   &H00800000&
+         Height          =   195
+         Left            =   -74760
+         TabIndex        =   139
+         Top             =   2040
+         Width           =   2895
+      End
+      Begin VB.CheckBox Check1 
+         Appearance      =   0  'Flat
+         BackColor       =   &H80000005&
+         Caption         =   "MOSTRAR PASS"
+         BeginProperty Font 
+            Name            =   "Tahoma"
+            Size            =   8.25
+            Charset         =   0
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         ForeColor       =   &H80000008&
+         Height          =   255
+         Left            =   -69240
+         TabIndex        =   130
+         Top             =   1920
+         Width           =   1575
+      End
+      Begin VB.TextBox TxtPassword 
+         Appearance      =   0  'Flat
+         BeginProperty Font 
+            Name            =   "Tahoma"
+            Size            =   8.25
+            Charset         =   0
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         ForeColor       =   &H00800000&
+         Height          =   285
+         IMEMode         =   3  'DISABLE
+         Left            =   -69240
+         MaxLength       =   10
+         PasswordChar    =   "*"
+         TabIndex        =   129
+         Text            =   "0.00"
+         Top             =   2190
+         Width           =   1575
+      End
+      Begin VB.TextBox txtDni 
+         Appearance      =   0  'Flat
+         BeginProperty Font 
+            Name            =   "Tahoma"
+            Size            =   8.25
+            Charset         =   0
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         ForeColor       =   &H00800000&
+         Height          =   285
+         Left            =   -73815
+         TabIndex        =   119
+         Top             =   1440
+         Width           =   1815
+      End
+      Begin VB.TextBox TxtFmaterno 
+         Appearance      =   0  'Flat
+         BeginProperty Font 
+            Name            =   "Tahoma"
+            Size            =   8.25
+            Charset         =   0
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         ForeColor       =   &H00800000&
+         Height          =   285
+         Left            =   -73815
+         TabIndex        =   118
+         Top             =   2040
+         Width           =   1815
+      End
+      Begin VB.CommandButton cmdAgregar 
+         BackColor       =   &H00C0C0C0&
+         Caption         =   "AGREGAR"
+         BeginProperty Font 
+            Name            =   "Tahoma"
+            Size            =   8.25
+            Charset         =   0
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         Height          =   255
+         Left            =   -69975
+         Style           =   1  'Graphical
+         TabIndex        =   117
+         Top             =   2355
+         Width           =   1935
+      End
+      Begin VB.TextBox TxtTelefono 
+         Appearance      =   0  'Flat
+         BeginProperty Font 
+            Name            =   "Tahoma"
+            Size            =   8.25
+            Charset         =   0
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         ForeColor       =   &H00800000&
+         Height          =   285
+         Left            =   -69975
+         TabIndex        =   116
+         Top             =   1995
+         Width           =   1935
+      End
+      Begin VB.TextBox TxtFpaterno 
+         Appearance      =   0  'Flat
+         BeginProperty Font 
+            Name            =   "Tahoma"
+            Size            =   8.25
+            Charset         =   0
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         ForeColor       =   &H00800000&
+         Height          =   285
+         Left            =   -73815
+         TabIndex        =   115
+         Top             =   1740
+         Width           =   1815
+      End
+      Begin VB.TextBox TxtFnombers 
+         Appearance      =   0  'Flat
+         BeginProperty Font 
+            Name            =   "Tahoma"
+            Size            =   8.25
+            Charset         =   0
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         ForeColor       =   &H00800000&
+         Height          =   285
+         Left            =   -73815
+         TabIndex        =   114
+         Top             =   2340
+         Width           =   1815
+      End
+      Begin VB.TextBox TxtEssalud 
+         Appearance      =   0  'Flat
+         BeginProperty Font 
+            Name            =   "Tahoma"
+            Size            =   8.25
+            Charset         =   0
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         ForeColor       =   &H00800000&
+         Height          =   285
+         Left            =   -68475
+         MaxLength       =   10
+         TabIndex        =   109
+         Text            =   "0.00"
+         Top             =   1500
+         Width           =   975
+      End
+      Begin VB.TextBox TxtSNDP 
+         Appearance      =   0  'Flat
+         BeginProperty Font 
+            Name            =   "Tahoma"
+            Size            =   8.25
+            Charset         =   0
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         ForeColor       =   &H00800000&
+         Height          =   285
+         Left            =   -68475
+         MaxLength       =   10
+         TabIndex        =   107
+         Text            =   "0.00"
+         Top             =   1140
+         Width           =   975
+      End
+      Begin VB.TextBox TxtRentaquinta 
+         Appearance      =   0  'Flat
+         BeginProperty Font 
+            Name            =   "Tahoma"
+            Size            =   8.25
+            Charset         =   0
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         ForeColor       =   &H00800000&
+         Height          =   285
+         Left            =   -68490
+         MaxLength       =   10
+         TabIndex        =   105
+         Text            =   "0.00"
+         Top             =   780
+         Width           =   975
+      End
+      Begin VB.TextBox TxtGratificacion 
+         Appearance      =   0  'Flat
+         BeginProperty Font 
+            Name            =   "Tahoma"
+            Size            =   8.25
+            Charset         =   0
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         ForeColor       =   &H00800000&
+         Height          =   285
+         Left            =   -71280
+         MaxLength       =   10
+         TabIndex        =   103
+         Text            =   "0.00"
+         Top             =   1830
+         Width           =   1935
+      End
+      Begin MSComCtl2.DTPicker DtpIngreso 
+         Height          =   300
+         Left            =   -74040
+         TabIndex        =   100
+         Top             =   1500
+         Width           =   1935
+         _ExtentX        =   3413
+         _ExtentY        =   529
+         _Version        =   393216
+         Format          =   16711681
+         CurrentDate     =   41134
+      End
+      Begin VB.TextBox TxtCuspp 
+         Appearance      =   0  'Flat
+         BeginProperty Font 
+            Name            =   "Tahoma"
+            Size            =   8.25
+            Charset         =   0
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         ForeColor       =   &H00800000&
+         Height          =   285
+         Left            =   -74040
+         MaxLength       =   10
+         TabIndex        =   98
+         Text            =   "0.00"
+         Top             =   1185
+         Width           =   1935
+      End
+      Begin VB.CommandButton cmdeliminarcuenta 
+         Caption         =   "Quitar"
+         Height          =   255
+         Left            =   -70440
+         TabIndex        =   91
+         Top             =   420
+         Width           =   975
+      End
+      Begin VB.CommandButton cmdagregarcuenta 
+         Caption         =   "Agregar"
+         Height          =   255
+         Left            =   -71640
+         TabIndex        =   90
+         Top             =   420
+         Width           =   1095
+      End
+      Begin VB.TextBox txtnumerocuenta 
+         Appearance      =   0  'Flat
+         BeginProperty Font 
+            Name            =   "Tahoma"
+            Size            =   8.25
+            Charset         =   0
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         ForeColor       =   &H00800000&
+         Height          =   285
+         Left            =   -71640
+         MaxLength       =   50
+         TabIndex        =   89
+         Top             =   780
+         Width           =   2175
+      End
+      Begin VB.TextBox TxtLicencia 
+         Appearance      =   0  'Flat
+         ForeColor       =   &H00800000&
+         Height          =   315
+         Left            =   -74880
+         MaxLength       =   10
+         TabIndex        =   72
+         Top             =   600
+         Width           =   2055
+      End
+      Begin VB.TextBox TxtFono 
+         Appearance      =   0  'Flat
+         ForeColor       =   &H00800000&
+         Height          =   315
+         Left            =   4920
+         MaxLength       =   10
+         TabIndex        =   52
+         Top             =   1500
+         Width           =   2175
+      End
+      Begin VB.CommandButton Command3 
+         Caption         =   "Eliminar"
+         Height          =   375
+         Left            =   5400
+         TabIndex        =   51
+         Top             =   1920
+         Width           =   855
+      End
+      Begin VB.CommandButton Command1 
+         Caption         =   "Agregar"
+         Height          =   375
+         Left            =   6240
+         TabIndex        =   50
+         Top             =   1920
+         Width           =   855
+      End
+      Begin VB.TextBox TxtBuscar 
+         Alignment       =   1  'Right Justify
+         Appearance      =   0  'Flat
+         BeginProperty Font 
+            Name            =   "Tahoma"
+            Size            =   8.25
+            Charset         =   0
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         ForeColor       =   &H00800000&
+         Height          =   285
+         Left            =   -69765
+         MaxLength       =   11
+         TabIndex        =   46
+         Top             =   540
+         Width           =   2055
+      End
+      Begin VB.TextBox txtAsiganacion_familiar 
+         Appearance      =   0  'Flat
+         BeginProperty Font 
+            Name            =   "Tahoma"
+            Size            =   8.25
+            Charset         =   0
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         ForeColor       =   &H00800000&
+         Height          =   285
+         Left            =   -71280
+         MaxLength       =   10
+         TabIndex        =   37
+         Text            =   "0.00"
+         Top             =   1200
+         Width           =   1935
+      End
+      Begin VB.TextBox txtSueldoMensual 
+         Appearance      =   0  'Flat
+         BeginProperty Font 
+            Name            =   "Tahoma"
+            Size            =   8.25
+            Charset         =   0
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         ForeColor       =   &H00800000&
+         Height          =   285
+         Left            =   -71280
+         MaxLength       =   10
+         TabIndex        =   36
+         Text            =   "0.00"
+         Top             =   885
+         Width           =   1935
+      End
+      Begin VB.TextBox TxtBonificacion 
+         Appearance      =   0  'Flat
+         BeginProperty Font 
+            Name            =   "Tahoma"
+            Size            =   8.25
+            Charset         =   0
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         ForeColor       =   &H00800000&
+         Height          =   285
+         Left            =   -71280
+         MaxLength       =   10
+         TabIndex        =   35
+         Text            =   "0.00"
+         Top             =   1515
+         Width           =   1935
+      End
+      Begin VB.TextBox txtMaximoCredito 
+         Alignment       =   1  'Right Justify
+         Appearance      =   0  'Flat
+         BeginProperty Font 
+            Name            =   "Tahoma"
+            Size            =   8.25
+            Charset         =   0
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         ForeColor       =   &H00800000&
+         Height          =   285
+         Left            =   -72600
+         MaxLength       =   11
+         TabIndex        =   33
+         Top             =   1260
+         Visible         =   0   'False
+         Width           =   1455
+      End
+      Begin VB.TextBox txtRucEmpresa 
+         Alignment       =   1  'Right Justify
+         Appearance      =   0  'Flat
+         BeginProperty Font 
+            Name            =   "Tahoma"
+            Size            =   8.25
+            Charset         =   0
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         ForeColor       =   &H00800000&
+         Height          =   285
+         Left            =   -72600
+         MaxLength       =   11
+         TabIndex        =   32
+         Top             =   660
+         Visible         =   0   'False
+         Width           =   1455
+      End
+      Begin VB.OptionButton OptSincredito 
+         Appearance      =   0  'Flat
+         BackColor       =   &H00C0C0FF&
+         Caption         =   "SIN LINEA DE CREDITO"
+         BeginProperty Font 
+            Name            =   "Tahoma"
+            Size            =   6.75
+            Charset         =   0
+            Weight          =   700
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         ForeColor       =   &H000000C0&
+         Height          =   255
+         Left            =   -74760
+         TabIndex        =   31
+         Top             =   1620
+         Width           =   2895
+      End
+      Begin VB.OptionButton ChkMaximoCredito 
+         Appearance      =   0  'Flat
+         BackColor       =   &H00FFFFFF&
+         Caption         =   "ASIGNAR CREDITO     :"
+         BeginProperty Font 
+            Name            =   "Tahoma"
+            Size            =   6.75
+            Charset         =   0
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         ForeColor       =   &H00800000&
+         Height          =   255
+         Left            =   -74760
+         TabIndex        =   30
+         Top             =   1260
+         Width           =   2175
+      End
+      Begin VB.OptionButton chkEmpresa 
+         Appearance      =   0  'Flat
+         BackColor       =   &H00FFFFFF&
+         Caption         =   "EMPRESA VINCULADA :"
+         BeginProperty Font 
+            Name            =   "Tahoma"
+            Size            =   6.75
+            Charset         =   0
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         ForeColor       =   &H00800000&
+         Height          =   255
+         Left            =   -74760
+         TabIndex        =   29
+         Top             =   660
+         Width           =   2175
+      End
+      Begin MSDataListLib.DataCombo DtcCargo 
+         Height          =   315
+         Left            =   -71280
+         TabIndex        =   38
+         Top             =   540
+         Width           =   1935
+         _ExtentX        =   3413
+         _ExtentY        =   556
+         _Version        =   393216
+         Appearance      =   0
+         Style           =   2
+         ForeColor       =   8388608
+         Text            =   "DataCombo1"
+         BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+            Name            =   "Tahoma"
+            Size            =   8.25
+            Charset         =   0
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+      End
+      Begin MSDataListLib.DataCombo DtcAfp 
+         Height          =   315
+         Left            =   -74040
+         TabIndex        =   39
+         Top             =   825
+         Width           =   1935
+         _ExtentX        =   3413
+         _ExtentY        =   556
+         _Version        =   393216
+         Appearance      =   0
+         Style           =   2
+         ForeColor       =   8388608
+         Text            =   "DataCombo1"
+         BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+            Name            =   "Tahoma"
+            Size            =   8.25
+            Charset         =   0
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+      End
+      Begin MSHierarchicalFlexGridLib.MSHFlexGrid HfdPersona 
+         Height          =   1455
+         Left            =   -70845
+         TabIndex        =   47
+         Top             =   855
+         Width           =   3135
+         _ExtentX        =   5530
+         _ExtentY        =   2566
+         _Version        =   393216
+         ForeColor       =   8388608
+         FixedCols       =   0
+         ForeColorFixed  =   8388608
+         BackColorBkg    =   16777215
+         SelectionMode   =   1
+         Appearance      =   0
+         BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+            Name            =   "Arial"
+            Size            =   8.25
+            Charset         =   0
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         _NumberOfBands  =   1
+         _Band(0).Cols   =   2
+      End
+      Begin MSHierarchicalFlexGridLib.MSHFlexGrid HfTelefonos 
+         Height          =   1935
+         Left            =   120
+         TabIndex        =   49
+         Top             =   420
+         Width           =   4335
+         _ExtentX        =   7646
+         _ExtentY        =   3413
+         _Version        =   393216
+         BackColor       =   16777215
+         ForeColor       =   8388608
+         FixedCols       =   0
+         ForeColorFixed  =   8388608
+         BackColorBkg    =   16777215
+         GridColor       =   0
+         FocusRect       =   0
+         GridLines       =   2
+         SelectionMode   =   1
+         Appearance      =   0
+         BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+            Name            =   "Tahoma"
+            Size            =   8.25
+            Charset         =   0
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         _NumberOfBands  =   1
+         _Band(0).Cols   =   2
+      End
+      Begin MSDataListLib.DataCombo DtcPlanilla 
+         Height          =   315
+         Left            =   -74040
+         TabIndex        =   75
+         Top             =   480
+         Width           =   1935
+         _ExtentX        =   3413
+         _ExtentY        =   556
+         _Version        =   393216
+         Appearance      =   0
+         Style           =   2
+         ForeColor       =   8388608
+         Text            =   "DataCombo1"
+         BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+            Name            =   "Tahoma"
+            Size            =   8.25
+            Charset         =   0
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+      End
+      Begin MSDataListLib.DataCombo DtcArea 
+         Height          =   315
+         Left            =   4920
+         TabIndex        =   76
+         Top             =   840
+         Width           =   2175
+         _ExtentX        =   3836
+         _ExtentY        =   556
+         _Version        =   393216
+         Appearance      =   0
+         Style           =   2
+         ForeColor       =   8388608
+         Text            =   "DataCombo1"
+         BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+            Name            =   "Tahoma"
+            Size            =   8.25
+            Charset         =   0
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+      End
+      Begin MSHierarchicalFlexGridLib.MSHFlexGrid Hfcuentas 
+         Height          =   1215
+         Left            =   -74040
+         TabIndex        =   92
+         Top             =   1185
+         Width           =   5775
+         _ExtentX        =   10186
+         _ExtentY        =   2143
+         _Version        =   393216
+         BackColor       =   16777215
+         ForeColor       =   8388608
+         FixedCols       =   0
+         ForeColorFixed  =   8388608
+         BackColorBkg    =   16777215
+         GridColor       =   0
+         FocusRect       =   0
+         GridLines       =   2
+         SelectionMode   =   1
+         Appearance      =   0
+         BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+            Name            =   "Tahoma"
+            Size            =   8.25
+            Charset         =   0
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         _NumberOfBands  =   1
+         _Band(0).Cols   =   2
+      End
+      Begin MSDataListLib.DataCombo DtcBanco 
+         Height          =   315
+         Left            =   -74070
+         TabIndex        =   93
+         Top             =   420
+         Width           =   2295
+         _ExtentX        =   4048
+         _ExtentY        =   556
+         _Version        =   393216
+         Appearance      =   0
+         Style           =   2
+         ForeColor       =   8388608
+         Text            =   "DataCombo1"
+         BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+            Name            =   "Tahoma"
+            Size            =   8.25
+            Charset         =   0
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+      End
+      Begin MSDataListLib.DataCombo DtcMoneda 
+         Height          =   315
+         Left            =   -74070
+         TabIndex        =   94
+         Top             =   765
+         Width           =   2295
+         _ExtentX        =   4048
+         _ExtentY        =   556
+         _Version        =   393216
+         Appearance      =   0
+         Style           =   2
+         ForeColor       =   8388608
+         Text            =   "DataCombo1"
+         BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+            Name            =   "Tahoma"
+            Size            =   8.25
+            Charset         =   0
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+      End
+      Begin MSDataListLib.DataCombo DtcRegimen 
+         Height          =   315
+         Left            =   -74040
+         TabIndex        =   102
+         Top             =   1860
+         Width           =   1935
+         _ExtentX        =   3413
+         _ExtentY        =   556
+         _Version        =   393216
+         Appearance      =   0
+         Style           =   2
+         ForeColor       =   8388608
+         Text            =   "DataCombo1"
+         BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+            Name            =   "Tahoma"
+            Size            =   8.25
+            Charset         =   0
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+      End
+      Begin MSDataListLib.DataCombo DtcSucursal 
+         Height          =   315
+         Left            =   -74040
+         TabIndex        =   111
+         Top             =   2190
+         Width           =   4695
+         _ExtentX        =   8281
+         _ExtentY        =   556
+         _Version        =   393216
+         Appearance      =   0
+         Style           =   2
+         ForeColor       =   8388608
+         Text            =   "DataCombo1"
+         BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+            Name            =   "Tahoma"
+            Size            =   8.25
+            Charset         =   0
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+      End
+      Begin MSHierarchicalFlexGridLib.MSHFlexGrid HfgFamiliares 
+         Height          =   1050
+         Left            =   -74880
+         TabIndex        =   113
+         Top             =   360
+         Width           =   7335
+         _ExtentX        =   12938
+         _ExtentY        =   1852
+         _Version        =   393216
+         ForeColor       =   8388608
+         FixedCols       =   0
+         ForeColorFixed  =   8388608
+         BackColorBkg    =   16777215
+         SelectionMode   =   1
+         Appearance      =   0
+         BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+            Name            =   "Tahoma"
+            Size            =   8.25
+            Charset         =   0
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         _NumberOfBands  =   1
+         _Band(0).Cols   =   2
+      End
+      Begin MSDataListLib.DataCombo DtcParentesco 
+         Height          =   315
+         Left            =   -69975
+         TabIndex        =   120
+         Top             =   1635
+         Width           =   1935
+         _ExtentX        =   3413
+         _ExtentY        =   556
+         _Version        =   393216
+         Appearance      =   0
+         Style           =   2
+         ForeColor       =   8388608
+         Text            =   "DataCombo1"
+      End
+      Begin VB.Label Label32 
+         Alignment       =   2  'Center
+         AutoSize        =   -1  'True
+         BackStyle       =   0  'Transparent
+         Caption         =   "DNI :"
+         BeginProperty Font 
+            Name            =   "Tahoma"
+            Size            =   8.25
+            Charset         =   0
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         ForeColor       =   &H00800000&
+         Height          =   195
+         Left            =   -74250
+         TabIndex        =   126
+         Top             =   1440
+         Width           =   405
+      End
+      Begin VB.Label Label31 
+         Alignment       =   2  'Center
+         AutoSize        =   -1  'True
+         BackStyle       =   0  'Transparent
+         Caption         =   "PARENTESCO :"
+         BeginProperty Font 
+            Name            =   "Tahoma"
+            Size            =   8.25
+            Charset         =   0
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         ForeColor       =   &H00800000&
+         Height          =   195
+         Left            =   -71265
+         TabIndex        =   125
+         Top             =   1755
+         Width           =   1125
+      End
+      Begin VB.Label Label30 
+         Alignment       =   2  'Center
+         AutoSize        =   -1  'True
+         BackStyle       =   0  'Transparent
+         Caption         =   "TELEFONO :"
+         BeginProperty Font 
+            Name            =   "Tahoma"
+            Size            =   8.25
+            Charset         =   0
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         ForeColor       =   &H00800000&
+         Height          =   195
+         Left            =   -71055
+         TabIndex        =   124
+         Top             =   1995
+         Width           =   915
+      End
+      Begin VB.Label Label29 
+         Alignment       =   2  'Center
+         AutoSize        =   -1  'True
+         BackStyle       =   0  'Transparent
+         Caption         =   "A.MATERNO :"
+         BeginProperty Font 
+            Name            =   "Tahoma"
+            Size            =   8.25
+            Charset         =   0
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         ForeColor       =   &H00800000&
+         Height          =   195
+         Left            =   -74880
+         TabIndex        =   123
+         Top             =   2115
+         Width           =   1035
+      End
+      Begin VB.Label Label28 
+         Alignment       =   2  'Center
+         AutoSize        =   -1  'True
+         BackStyle       =   0  'Transparent
+         Caption         =   "A.PATERNO :"
+         BeginProperty Font 
+            Name            =   "Tahoma"
+            Size            =   8.25
+            Charset         =   0
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         ForeColor       =   &H00800000&
+         Height          =   195
+         Left            =   -74850
+         TabIndex        =   122
+         Top             =   1800
+         Width           =   1005
+      End
+      Begin VB.Label Label27 
+         Alignment       =   2  'Center
+         AutoSize        =   -1  'True
+         BackStyle       =   0  'Transparent
+         Caption         =   "NOMBRES :"
+         BeginProperty Font 
+            Name            =   "Tahoma"
+            Size            =   8.25
+            Charset         =   0
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         ForeColor       =   &H00800000&
+         Height          =   195
+         Left            =   -74700
+         TabIndex        =   121
+         Top             =   2355
+         Width           =   855
+      End
+      Begin VB.Label Label26 
+         Alignment       =   2  'Center
+         AutoSize        =   -1  'True
+         BackStyle       =   0  'Transparent
+         Caption         =   "Sucursal :"
+         ForeColor       =   &H00800000&
+         Height          =   195
+         Left            =   -74880
+         TabIndex        =   112
+         Top             =   2220
+         Width           =   735
+      End
+      Begin VB.Label Label25 
+         Alignment       =   2  'Center
+         AutoSize        =   -1  'True
+         BackStyle       =   0  'Transparent
+         Caption         =   "Essalud:"
+         ForeColor       =   &H00800000&
+         Height          =   195
+         Left            =   -69135
+         TabIndex        =   110
+         Top             =   1515
+         Width           =   615
+      End
+      Begin VB.Label Label24 
+         Alignment       =   2  'Center
+         AutoSize        =   -1  'True
+         BackStyle       =   0  'Transparent
+         Caption         =   "SNDP:"
+         ForeColor       =   &H00800000&
+         Height          =   195
+         Left            =   -69090
+         TabIndex        =   108
+         Top             =   1155
+         Width           =   525
+      End
+      Begin VB.Label Label23 
+         Alignment       =   2  'Center
+         AutoSize        =   -1  'True
+         BackStyle       =   0  'Transparent
+         Caption         =   "Rta 5ta:"
+         ForeColor       =   &H00800000&
+         Height          =   195
+         Left            =   -69135
+         TabIndex        =   106
+         Top             =   795
+         Width           =   585
+      End
+      Begin VB.Label Label22 
+         Alignment       =   2  'Center
+         AutoSize        =   -1  'True
+         BackStyle       =   0  'Transparent
+         Caption         =   "Gratifica:"
+         ForeColor       =   &H00800000&
+         Height          =   195
+         Left            =   -71970
+         TabIndex        =   104
+         Top             =   1905
+         Width           =   645
+      End
+      Begin VB.Line Line1 
+         BorderStyle     =   3  'Dot
+         X1              =   -72000
+         X2              =   -72000
+         Y1              =   435
+         Y2              =   2135
+      End
+      Begin VB.Label Label21 
+         Alignment       =   2  'Center
+         AutoSize        =   -1  'True
+         BackStyle       =   0  'Transparent
+         Caption         =   "Regimen :"
+         ForeColor       =   &H00800000&
+         Height          =   195
+         Left            =   -74850
+         TabIndex        =   101
+         Top             =   1860
+         Width           =   735
+      End
+      Begin VB.Label Label20 
+         Alignment       =   2  'Center
+         AutoSize        =   -1  'True
+         BackStyle       =   0  'Transparent
+         Caption         =   "Fecha I:"
+         ForeColor       =   &H00800000&
+         Height          =   195
+         Left            =   -74730
+         TabIndex        =   99
+         Top             =   1500
+         Width           =   615
+      End
+      Begin VB.Label Label19 
+         Alignment       =   2  'Center
+         AutoSize        =   -1  'True
+         BackStyle       =   0  'Transparent
+         Caption         =   "CUSPP:"
+         ForeColor       =   &H00800000&
+         Height          =   195
+         Left            =   -74730
+         TabIndex        =   97
+         Top             =   1140
+         Width           =   615
+      End
+      Begin VB.Label Label17 
+         Alignment       =   2  'Center
+         AutoSize        =   -1  'True
+         BackStyle       =   0  'Transparent
+         Caption         =   "Moneda:"
+         ForeColor       =   &H00800000&
+         Height          =   195
+         Left            =   -74880
+         TabIndex        =   96
+         Top             =   780
+         Width           =   645
+      End
+      Begin VB.Label Label16 
+         Alignment       =   2  'Center
+         AutoSize        =   -1  'True
+         BackStyle       =   0  'Transparent
+         Caption         =   "Banco:"
+         ForeColor       =   &H00800000&
+         Height          =   195
+         Left            =   -74745
+         TabIndex        =   95
+         Top             =   420
+         Width           =   525
+      End
+      Begin VB.Label Label18 
+         Alignment       =   2  'Center
+         AutoSize        =   -1  'True
+         BackStyle       =   0  'Transparent
+         Caption         =   "Area"
+         ForeColor       =   &H00800000&
+         Height          =   195
+         Left            =   4950
+         TabIndex        =   77
+         Top             =   600
+         Width           =   345
+      End
+      Begin VB.Label Label15 
+         Alignment       =   2  'Center
+         AutoSize        =   -1  'True
+         BackStyle       =   0  'Transparent
+         Caption         =   "Numero Telefonico"
+         ForeColor       =   &H00800000&
+         Height          =   195
+         Left            =   4920
+         TabIndex        =   74
+         Top             =   1200
+         Width           =   1365
+      End
+      Begin VB.Label lblLicencia 
+         Alignment       =   2  'Center
+         AutoSize        =   -1  'True
+         BackStyle       =   0  'Transparent
+         Caption         =   "LICENCIA CONDUCIR"
+         BeginProperty Font 
+            Name            =   "Tahoma"
+            Size            =   8.25
+            Charset         =   0
+            Weight          =   700
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         ForeColor       =   &H00800000&
+         Height          =   195
+         Left            =   -74760
+         TabIndex        =   73
+         Top             =   960
+         Width           =   1695
+      End
+      Begin VB.Shape Shape7 
+         BorderStyle     =   3  'Dot
+         Height          =   1935
+         Left            =   4560
+         Top             =   420
+         Width           =   2775
+      End
+      Begin VB.Label Label11 
+         Alignment       =   2  'Center
+         AutoSize        =   -1  'True
+         BackStyle       =   0  'Transparent
+         Caption         =   "Buscar:"
+         ForeColor       =   &H00800000&
+         Height          =   195
+         Left            =   -70560
+         TabIndex        =   48
+         Top             =   615
+         Width           =   555
+      End
+      Begin VB.Shape Shape6 
+         BackColor       =   &H00FFFFFF&
+         BackStyle       =   1  'Opaque
+         BorderColor     =   &H00C0C0C0&
+         BorderStyle     =   6  'Inside Solid
+         FillColor       =   &H00FFFFFF&
+         Height          =   1935
+         Left            =   -70920
+         Top             =   420
+         Width           =   3375
+      End
+      Begin VB.Label Label5 
+         Alignment       =   2  'Center
+         AutoSize        =   -1  'True
+         BackStyle       =   0  'Transparent
+         Caption         =   "Planilla:"
+         ForeColor       =   &H00800000&
+         Height          =   195
+         Left            =   -74670
+         TabIndex        =   45
+         Top             =   480
+         Width           =   555
+      End
+      Begin VB.Label Label6 
+         Alignment       =   2  'Center
+         AutoSize        =   -1  'True
+         BackStyle       =   0  'Transparent
+         Caption         =   "Cargo:"
+         ForeColor       =   &H00800000&
+         Height          =   195
+         Left            =   -71940
+         TabIndex        =   44
+         Top             =   540
+         Width           =   495
+      End
+      Begin VB.Label Label7 
+         Alignment       =   2  'Center
+         AutoSize        =   -1  'True
+         BackStyle       =   0  'Transparent
+         Caption         =   "Sueldo:"
+         ForeColor       =   &H00800000&
+         Height          =   195
+         Left            =   -71910
+         TabIndex        =   43
+         Top             =   900
+         Width           =   555
+      End
+      Begin VB.Label Label8 
+         Alignment       =   2  'Center
+         AutoSize        =   -1  'True
+         BackStyle       =   0  'Transparent
+         Caption         =   "Afp:"
+         ForeColor       =   &H00800000&
+         Height          =   195
+         Left            =   -74430
+         TabIndex        =   42
+         Top             =   780
+         Width           =   315
+      End
+      Begin VB.Label Label9 
+         Alignment       =   2  'Center
+         AutoSize        =   -1  'True
+         BackStyle       =   0  'Transparent
+         Caption         =   "Asi.Fam:"
+         ForeColor       =   &H00800000&
+         Height          =   195
+         Left            =   -71880
+         TabIndex        =   41
+         Top             =   1260
+         Width           =   615
+      End
+      Begin VB.Label Label10 
+         Alignment       =   2  'Center
+         AutoSize        =   -1  'True
+         BackStyle       =   0  'Transparent
+         Caption         =   "Bonifi:"
+         ForeColor       =   &H00800000&
+         Height          =   195
+         Left            =   -71820
+         TabIndex        =   40
+         Top             =   1560
+         Width           =   465
+      End
+      Begin VB.Shape Shape3 
+         BackColor       =   &H00DFDFE0&
+         BorderColor     =   &H00C0C0C0&
+         BorderStyle     =   6  'Inside Solid
+         FillColor       =   &H00FFFFFF&
+         FillStyle       =   0  'Solid
+         Height          =   2145
+         Left            =   -74880
+         Top             =   420
+         Width           =   7455
+      End
+      Begin VB.Label lblEmpresa 
+         Appearance      =   0  'Flat
+         BackColor       =   &H80000005&
+         BeginProperty Font 
+            Name            =   "Tahoma"
+            Size            =   8.25
+            Charset         =   0
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         ForeColor       =   &H80000008&
+         Height          =   225
+         Left            =   -74760
+         TabIndex        =   34
+         Top             =   1020
+         Width           =   3615
+      End
+      Begin VB.Shape Shape4 
+         BackColor       =   &H00FFFFFF&
+         BackStyle       =   1  'Opaque
+         BorderColor     =   &H00C0C0C0&
+         BorderStyle     =   6  'Inside Solid
+         FillColor       =   &H00FFFFFF&
+         Height          =   1935
+         Left            =   -74880
+         Top             =   420
+         Width           =   3855
+      End
+      Begin VB.Label LblCantidad 
+         Alignment       =   2  'Center
+         AutoSize        =   -1  'True
+         BackStyle       =   0  'Transparent
+         Caption         =   "Al:"
+         BeginProperty Font 
+            Name            =   "Arial"
+            Size            =   8.25
+            Charset         =   0
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         ForeColor       =   &H00800000&
+         Height          =   210
+         Left            =   -72105
+         TabIndex        =   28
+         Top             =   1860
+         Width           =   225
+      End
+   End
+   Begin MSDataListLib.DataCombo DtcDistrito 
+      Height          =   315
+      Left            =   1680
+      TabIndex        =   53
+      Top             =   8040
+      Width           =   3375
+      _ExtentX        =   5953
+      _ExtentY        =   556
+      _Version        =   393216
+      Appearance      =   0
+      Style           =   2
+      ForeColor       =   8388608
+      Text            =   "DataCombo1"
+   End
+   Begin MSDataListLib.DataCombo DtcUrbanizacion 
+      Height          =   315
+      Left            =   1680
+      TabIndex        =   55
+      Top             =   8400
+      Width           =   3375
+      _ExtentX        =   5953
+      _ExtentY        =   556
+      _Version        =   393216
+      Appearance      =   0
+      Style           =   2
+      ForeColor       =   8388608
+      Text            =   "DataCombo1"
+   End
+   Begin MSDataListLib.DataCombo DtcZona 
+      Height          =   315
+      Left            =   1680
+      TabIndex        =   57
+      Top             =   8760
+      Width           =   3375
+      _ExtentX        =   5953
+      _ExtentY        =   556
+      _Version        =   393216
+      Appearance      =   0
+      Style           =   2
+      ForeColor       =   8388608
+      Text            =   "DataCombo1"
+   End
+   Begin MSDataListLib.DataCombo DtcDepartamento 
+      Height          =   315
+      Left            =   1680
+      TabIndex        =   59
+      Top             =   7320
+      Width           =   3375
+      _ExtentX        =   5953
+      _ExtentY        =   556
+      _Version        =   393216
+      Appearance      =   0
+      Style           =   2
+      ForeColor       =   8388608
+      Text            =   "DataCombo1"
+   End
+   Begin MSDataListLib.DataCombo DtcProvincia 
+      Height          =   315
+      Left            =   1680
+      TabIndex        =   61
+      Top             =   7680
+      Width           =   3375
+      _ExtentX        =   5953
+      _ExtentY        =   556
+      _Version        =   393216
+      Appearance      =   0
+      Style           =   2
+      ForeColor       =   8388608
+      Text            =   "DataCombo1"
+   End
+   Begin MSDataListLib.DataCombo DtcVendedor 
+      Height          =   315
+      Left            =   6480
+      TabIndex        =   63
+      Top             =   7320
+      Width           =   2655
+      _ExtentX        =   4683
+      _ExtentY        =   556
+      _Version        =   393216
+      Appearance      =   0
+      Style           =   2
+      ForeColor       =   8388608
+      Text            =   "DataCombo1"
+      BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+         Name            =   "Tahoma"
+         Size            =   8.25
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+   End
+   Begin MSDataListLib.DataCombo DtcCobrador 
+      Height          =   315
+      Left            =   6480
+      TabIndex        =   127
+      Top             =   7680
+      Width           =   2655
+      _ExtentX        =   4683
+      _ExtentY        =   556
+      _Version        =   393216
+      Appearance      =   0
+      Style           =   2
+      ForeColor       =   8388608
+      Text            =   "DataCombo1"
+      BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+         Name            =   "Tahoma"
+         Size            =   8.25
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+   End
+   Begin VitekeySoft.TextBoxPlus txtRazonSocial 
+      Height          =   285
+      Left            =   1560
+      TabIndex        =   131
+      Top             =   1920
+      Width           =   4935
+      _ExtentX        =   8705
+      _ExtentY        =   503
+      BackColor       =   12648447
+      BackColorEnabled=   12648447
+      Appearance      =   0
+      BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+         Name            =   "Tahoma"
+         Size            =   8.25
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      ForeColor       =   4194304
+   End
+   Begin VB.Label Label14 
+      Alignment       =   2  'Center
+      AutoSize        =   -1  'True
+      BackStyle       =   0  'Transparent
+      Caption         =   "F.Nacimiento :"
+      BeginProperty Font 
+         Name            =   "Tahoma"
+         Size            =   8.25
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      ForeColor       =   &H00800000&
+      Height          =   195
+      Left            =   405
+      TabIndex        =   138
+      Top             =   2760
+      Width           =   1065
+   End
+   Begin VB.Label Label33 
+      Alignment       =   2  'Center
+      AutoSize        =   -1  'True
+      BackStyle       =   0  'Transparent
+      Caption         =   "COBRADOR :"
+      BeginProperty Font 
+         Name            =   "Tahoma"
+         Size            =   6.75
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      ForeColor       =   &H00800000&
+      Height          =   165
+      Left            =   5400
+      TabIndex        =   128
+      Top             =   7725
+      Width           =   945
+   End
+   Begin VB.Label Label13 
+      Alignment       =   2  'Center
+      AutoSize        =   -1  'True
+      BackStyle       =   0  'Transparent
+      Caption         =   "A.Materno :"
+      BeginProperty Font 
+         Name            =   "Tahoma"
+         Size            =   8.25
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      ForeColor       =   &H00800000&
+      Height          =   195
+      Left            =   600
+      TabIndex        =   68
+      Top             =   1200
+      Width           =   885
+   End
+   Begin VB.Label Label3 
+      Alignment       =   2  'Center
+      AutoSize        =   -1  'True
+      BackStyle       =   0  'Transparent
+      Caption         =   "A.Paterno :"
+      BeginProperty Font 
+         Name            =   "Tahoma"
+         Size            =   8.25
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      ForeColor       =   &H00800000&
+      Height          =   195
+      Left            =   630
+      TabIndex        =   67
+      Top             =   840
+      Width           =   855
+   End
+   Begin VB.Label Label1 
+      Alignment       =   2  'Center
+      AutoSize        =   -1  'True
+      BackStyle       =   0  'Transparent
+      Caption         =   "Nombres :"
+      BeginProperty Font 
+         Name            =   "Tahoma"
+         Size            =   8.25
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      ForeColor       =   &H00800000&
+      Height          =   195
+      Left            =   720
+      TabIndex        =   66
+      Top             =   1560
+      Width           =   765
+   End
+   Begin VB.Label lblrepartidor 
+      Alignment       =   2  'Center
+      AutoSize        =   -1  'True
+      BackStyle       =   0  'Transparent
+      Caption         =   "VENDEDOR:"
+      BeginProperty Font 
+         Name            =   "Tahoma"
+         Size            =   6.75
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      ForeColor       =   &H00800000&
+      Height          =   165
+      Left            =   5475
+      TabIndex        =   64
+      Top             =   7440
+      Width           =   885
+   End
+   Begin VB.Label lblprovincia 
+      Alignment       =   2  'Center
+      AutoSize        =   -1  'True
+      BackStyle       =   0  'Transparent
+      Caption         =   "PROVINCIA :"
+      BeginProperty Font 
+         Name            =   "Tahoma"
+         Size            =   6.75
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      ForeColor       =   &H00800000&
+      Height          =   165
+      Left            =   615
+      TabIndex        =   62
+      Top             =   7725
+      Width           =   945
+   End
+   Begin VB.Label lbldepartamento 
+      Alignment       =   2  'Center
+      AutoSize        =   -1  'True
+      BackStyle       =   0  'Transparent
+      Caption         =   "DEPARTAMENTO :"
+      BeginProperty Font 
+         Name            =   "Tahoma"
+         Size            =   6.75
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      ForeColor       =   &H00800000&
+      Height          =   165
+      Left            =   225
+      TabIndex        =   60
+      Top             =   7365
+      Width           =   1305
+   End
+   Begin VB.Label Label4 
+      Alignment       =   2  'Center
+      AutoSize        =   -1  'True
+      BackStyle       =   0  'Transparent
+      Caption         =   "ZONA :"
+      BeginProperty Font 
+         Name            =   "Tahoma"
+         Size            =   6.75
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      ForeColor       =   &H00800000&
+      Height          =   165
+      Left            =   1065
+      TabIndex        =   58
+      Top             =   8805
+      Width           =   525
+   End
+   Begin VB.Label Label2 
+      Alignment       =   2  'Center
+      AutoSize        =   -1  'True
+      BackStyle       =   0  'Transparent
+      Caption         =   "URBANIZACION :"
+      BeginProperty Font 
+         Name            =   "Tahoma"
+         Size            =   6.75
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      ForeColor       =   &H00800000&
+      Height          =   165
+      Left            =   285
+      TabIndex        =   56
+      Top             =   8445
+      Width           =   1245
+   End
+   Begin VB.Label lbldistrito 
+      Alignment       =   2  'Center
+      AutoSize        =   -1  'True
+      BackStyle       =   0  'Transparent
+      Caption         =   "DISTRITO :"
+      BeginProperty Font 
+         Name            =   "Tahoma"
+         Size            =   6.75
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      ForeColor       =   &H00800000&
+      Height          =   165
+      Left            =   720
+      TabIndex        =   54
+      Top             =   8085
+      Width           =   825
+   End
+   Begin VB.Label Label12 
+      Alignment       =   2  'Center
+      AutoSize        =   -1  'True
+      BackStyle       =   0  'Transparent
+      Caption         =   "Codigo Barra :"
+      BeginProperty Font 
+         Name            =   "Tahoma"
+         Size            =   8.25
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      ForeColor       =   &H00800000&
+      Height          =   195
+      Left            =   405
+      TabIndex        =   26
+      Top             =   360
+      Width           =   1065
+   End
+   Begin VB.Label LblCodPersona 
+      Appearance      =   0  'Flat
+      BackColor       =   &H80000005&
+      BeginProperty Font 
+         Name            =   "Arial"
+         Size            =   24
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      ForeColor       =   &H80000008&
+      Height          =   400
+      Left            =   1560
+      TabIndex        =   25
+      Top             =   195
+      Width           =   2175
+   End
+   Begin VB.Shape Shape2 
+      BackStyle       =   1  'Opaque
+      BorderColor     =   &H00C0C0C0&
+      BorderStyle     =   6  'Inside Solid
+      Height          =   495
+      Left            =   1560
+      Top             =   3960
+      Width           =   4935
+   End
+   Begin VB.Label LblTipoDocumento 
+      Alignment       =   2  'Center
+      AutoSize        =   -1  'True
+      BackStyle       =   0  'Transparent
+      Caption         =   "RUC/DNI:"
+      BeginProperty Font 
+         Name            =   "Tahoma"
+         Size            =   8.25
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      ForeColor       =   &H00800000&
+      Height          =   195
+      Left            =   3765
+      TabIndex        =   19
+      Top             =   360
+      Width           =   735
+   End
+   Begin VB.Image Image1 
+      Height          =   2700
+      Left            =   6720
+      Picture         =   "FrmDetalleCliente.frx":3ADA
+      Stretch         =   -1  'True
+      Top             =   240
+      Width           =   2415
+   End
+   Begin VB.Label LblEmail 
+      Alignment       =   2  'Center
+      AutoSize        =   -1  'True
+      BackStyle       =   0  'Transparent
+      Caption         =   "E mail :"
+      BeginProperty Font 
+         Name            =   "Tahoma"
+         Size            =   8.25
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      ForeColor       =   &H00800000&
+      Height          =   195
+      Left            =   945
+      TabIndex        =   15
+      Top             =   3180
+      Width           =   525
+   End
+   Begin VB.Label LblTelefono1 
+      Alignment       =   2  'Center
+      AutoSize        =   -1  'True
+      BackStyle       =   0  'Transparent
+      Caption         =   "Teléfono 1 :"
+      ForeColor       =   &H00800000&
+      Height          =   195
+      Left            =   -2910
+      TabIndex        =   14
+      Top             =   2220
+      Width           =   885
+   End
+   Begin VB.Label LblObservacion 
+      Alignment       =   2  'Center
+      AutoSize        =   -1  'True
+      BackStyle       =   0  'Transparent
+      Caption         =   "Observaciones : "
+      ForeColor       =   &H00800000&
+      Height          =   195
+      Left            =   255
+      TabIndex        =   13
+      Top             =   3480
+      Width           =   1215
+   End
+   Begin VB.Label LblTelefono2 
+      Alignment       =   2  'Center
+      AutoSize        =   -1  'True
+      BackStyle       =   0  'Transparent
+      Caption         =   "Teléfono 2 :"
+      ForeColor       =   &H00800000&
+      Height          =   195
+      Left            =   -1560
+      TabIndex        =   12
+      Top             =   2220
+      Width           =   885
+   End
+   Begin VB.Label LblFax 
+      Alignment       =   2  'Center
+      AutoSize        =   -1  'True
+      BackStyle       =   0  'Transparent
+      Caption         =   "Fax :"
+      ForeColor       =   &H00800000&
+      Height          =   195
+      Left            =   -1200
+      TabIndex        =   11
+      Top             =   2220
+      Width           =   375
+   End
+   Begin VB.Label LblDireccion 
+      Alignment       =   2  'Center
+      AutoSize        =   -1  'True
+      BackStyle       =   0  'Transparent
+      Caption         =   "Dirección 1 :"
+      BeginProperty Font 
+         Name            =   "Tahoma"
+         Size            =   8.25
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      ForeColor       =   &H00800000&
+      Height          =   195
+      Left            =   555
+      TabIndex        =   5
+      Top             =   2340
+      Width           =   915
+   End
+   Begin VB.Label LblEntidad 
+      Alignment       =   2  'Center
+      AutoSize        =   -1  'True
+      BackStyle       =   0  'Transparent
+      Caption         =   "Nombre Completo :"
+      BeginProperty Font 
+         Name            =   "Tahoma"
+         Size            =   8.25
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      ForeColor       =   &H00800000&
+      Height          =   195
+      Left            =   90
+      TabIndex        =   4
+      Top             =   1980
+      Width           =   1395
+   End
+   Begin VB.Shape Shape1 
+      BackColor       =   &H00DFDFE0&
+      BorderStyle     =   3  'Dot
+      FillColor       =   &H00DFDFE0&
+      FillStyle       =   0  'Solid
+      Height          =   2700
+      Left            =   6720
+      Top             =   240
+      Width           =   2415
+   End
+   Begin VB.Shape ShpDatos 
+      BackColor       =   &H00DFDFE0&
+      BorderColor     =   &H00C0C0C0&
+      BorderStyle     =   6  'Inside Solid
+      FillColor       =   &H00FFFFFF&
+      FillStyle       =   0  'Solid
+      Height          =   9075
+      Left            =   60
+      Top             =   120
+      Width           =   9250
+   End
+End
+Attribute VB_Name = "FrmDetallePersona"
+Attribute VB_GlobalNameSpace = False
+Attribute VB_Creatable = False
+Attribute VB_PredeclaredId = True
+Attribute VB_Exposed = False
+Dim StrCodTabla As String
+Dim TipoDocumento As String
+Dim strCodPersona As String
+Dim StrCliente As String, strProveedor As String, Per_N As String, StrPercepcion As String, StrRetencion As String, StrAuspiciador As String
+Dim StrContable As String, StrTransporte As String, StrPersonal As String, StrAlmacen As String
+Public img As String
+Dim descuento_por As Single
+Dim Adelantado As Double
+Public IdEmpresa As Long
+Public RucExt As String
+Public Procedencia As EnumProcede
+Private WithEvents cSunat As cls_QrySUNAT
+Attribute cSunat.VB_VarHelpID = -1
+
+Private Sub Save()
+Dim StrNombre As String
+Dim StrDireccion As String
+Dim fecha_nacimiento As String
+Adelantado = 0
+StrNombre = Replace(Trim(Me.txtrazonsocial.Text), "'", " ")   'Comillas(Trim(Me.txtRazonSocial.Text))
+StrDireccion = Replace(Trim(Me.TxtDireccion1.Text), "'", " ")
+    
+  If StrNombre = "" Or StrDireccion = "" Or Trim(Me.txtruc.Text) = "" Then
+    MsgBox MSGFALTADATOS, vbCritical, MSGVALIDACION
+    Exit Sub
+  Else
+      Call verificaTipo
+      strCadena = "SELECT * FROM persona WHERE dni='" & Trim(Me.txtruc.Text) & "'"
+      Call ConfiguraRst(strCadena)
+            If rst.RecordCount < 1 Then
+                
+                strCadena = "call P_insert_persona('" & Trim(Me.txtruc.Text) & "' " & _
+                ",'" & UCase(Me.txtPaterno.Text) & "', " & _
+                "'" & UCase(Me.txtMaterno.Text) & "' " & _
+                ",'" & UCase(Trim(Me.txtNombre.Text)) & "' " & _
+                ",'" & UCase(Trim(Me.txtrazonsocial.Text)) & "' " & _
+                ",'" & Trim(Me.TxtDireccion1.Text) & "' " & _
+                ",'" & Trim(Me.TxtTelefono.Text) & "' " & _
+                ",'" & Me.TxtEmail.Text & "'" & _
+                ",'" & StrTransporte & "' " & _
+                ",'" & StrContable & "'" & _
+                ",'" & strProveedor & "' " & _
+                ",'" & StrPersonal & "' " & _
+                ",'" & StrAuspiciador & "' " & _
+                ",'" & StrAlmacen & "' " & _
+                ",'" & KEY_RUC & "')"
+                CnBd.Execute (strCadena)
+                Call insertar_acciones(strCadena)
+                 
+                
+                strCadena = "UPDATE persona SET a_paterno='" & Trim(Me.txtPaterno.Text) & "',a_materno='" & Trim(Me.txtMaterno.Text) & "',nombres='" & Trim(Me.txtNombre.Text) & "',id_dia='" & Trim(Me.txtdia.Text) & "',id_mes='" & Trim(Me.DtcMes.BoundText) & "'," & _
+                "nombre_completo='" & Trim(Me.txtrazonsocial.Text) & "',direccion='" & Trim(Me.TxtDireccion1.Text) & "',licencia='" & Trim(Me.TxtLicencia.Text) & "',mail='" & Trim(Me.TxtEmail.Text) & "',id_departamento='" & Me.DtcDepartamento.BoundText & "',id_provincia='" & Me.DtcProvincia.BoundText & "',id_distrito='" & Me.DtcDistrito.BoundText & "',id_urbanizacion='" & Me.DtcUrbanizacion.BoundText & "',id_zona='" & Me.DtcZona.BoundText & "' WHERE dni='" & Trim(Me.txtruc.Text) & "'"
+                CnBd.Execute (strCadena)
+                Call insertar_acciones(strCadena)
+                    
+                'strCadena = "P_insert_persona('" & Trim(Me.txtRUC.Text) & "','" & Me.txtPaterno.Text & "','" & Me.txtMaterno.Text & "','" & Trim(Me.txtNombre.Text) & "','" & Trim(Me.txtRazonSocial.Text) & "','" & Trim(Me.TxtDireccion1.Text) & "','" & Me.TxtEmail.Text & "','" & StrTransporte & "','" & StrContable & "','" & strProveedor & "','" & StrPersonal & "','" & StrAuspiciador & "','" & StrAlmacen & "','" & KEY_RUC & "')"
+                'CnBd.Execute (strCadena)  Call insertar_acciones(strCadena)
+                If StrAlmacen = "si" Then
+                    Call persona_almacen(Trim(Me.txtruc.Text))
+                End If
+                If img <> vbNullString And Trim(Str(Me.txtruc.Text)) <> vbNullString Then
+                    strCadena = "UPDATE persona SET foto='" & img & "' WHERE dni='" & Trim(Me.txtruc.Text) & "'"
+                    CnBd.Execute (strCadena)
+                    Call insertar_acciones(strCadena)
+                    img = ""
+                End If
+            Else
+                 cPersona = Trim(Me.LblCodPersona.Caption)
+                 If FrmPersona.Procedencia = Modificar Then
+                    strCadena = "UPDATE persona SET a_paterno='" & Trim(Me.txtPaterno.Text) & "',a_materno='" & Trim(Me.txtMaterno.Text) & "',nombres='" & Trim(Me.txtNombre.Text) & "',id_dia='" & Trim(Me.txtdia.Text) & "',id_mes='" & Trim(Me.DtcMes.BoundText) & "'," & _
+                    "nombre_completo='" & Trim(Me.txtrazonsocial.Text) & "',direccion='" & Trim(Me.TxtDireccion1.Text) & "',licencia='" & Trim(Me.TxtLicencia.Text) & "',mail='" & Trim(Me.TxtEmail.Text) & "',id_departamento='" & Me.DtcDepartamento.BoundText & "',id_provincia='" & Me.DtcProvincia.BoundText & "',id_distrito='" & Me.DtcDistrito.BoundText & "',id_urbanizacion='" & Me.DtcUrbanizacion.BoundText & "',id_zona='" & Me.DtcZona.BoundText & "' WHERE dni='" & cPersona & "'"
+                 Else
+                 strCadena = "INSERT INTO entidad_empresa(cod_unico,id_empresa,id_almacen)VALUES ('" & cPersona & "','" & KEY_RUC & "','" & StrAlmacen & "')"
+                 End If
+                  
+                 CnBd.Execute (strCadena)
+                 Call insertar_acciones(strCadena)
+                 
+                If StrAlmacen = "si" Then
+                    'Call persona_almacen(Trim(Me.txtRuc.Text))
+                Else
+                    'Call quitar_almacen(Trim(Me.tXTrUC.text))
+                End If
+                 
+            End If
+           ' If img <> vbNullString And Trim(Str(Me.txtRUC.text)) <> vbNullString Then
+                'Ret = Guardar_Imagen(CnBd, "SELECT per_foto From Persona Where cPersona=" & Trim(cPersona), "per_foto", img)
+             
+            'End If
+             
+                    If Me.ChkMaximoCredito.Value = True Then
+                        strcredito = "si"
+                    Else
+                        strcredito = "no"
+                    End If
+                    
+                    If Me.chkclientemayor.Value = 1 Then
+                        strmayor = "si"
+                    Else
+                        strmayor = "no"
+                    End If
+                    
+                    strCadena = "UPDATE entidad_empresa SET cliente_mayor='" & strmayor & "', id_credito='" & strcredito & "',monto_credito='" & Val(Me.txtMaximoCredito.Text) & "',id_proveedor='" & strProveedor & "',id_vendedor='" & Me.DtcVendedor.BoundText & "',id_cobrador='" & Me.DtcCobrador.BoundText & "',id_almacen='" & StrAlmacen & "' WHERE cod_unico='" & Trim(Me.txtruc.Text) & "' AND id_empresa='" & KEY_RUC & "'"
+                    CnBd.Execute (strCadena)
+                    Call insertar_acciones(strCadena)
+                
+                
+                
+                If Me.ChkTransporte.Value = 1 Then
+                    strCadena = "UPDATE persona SET licencia='" & Me.TxtLicencia.Text & "' WHERE dni='" & Trim(Me.txtruc.Text) & "'"
+                    CnBd.Execute (strCadena)
+                    Call insertar_acciones(strCadena)
+                End If
+             
+                
+               ' If Me.ChkPersonal.Value = 1 Then
+                '     strCadena = "UPDATE entidad_empresa SET id_personal='" & StrPersonal & "',password='" & Trim(Me.TxtPassword.Text) & "',passwordaccesso='" & Trim(Me.TxtPassword.Text) & "',id_planilla='" & Me.DtcPlanilla.Text & "',id_sucursal='" & Me.DtcSucursal.BoundText & "',sueldo='" & Val(Me.txtSueldoMensual.Text) & "',id_proveedor='" & strProveedor & "',id_afp='" & Me.DtcAfp.BoundText & "',rta_quinta='" & Val(Me.TxtRentaquinta.Text) & "',asig_familiar='" & Val(Me.txtAsiganacion_familiar.Text) & "',bonificacion_extraordinaria='" & Val(Me.TxtBonificacion.Text) & "',cuspp='" & Val(Me.TxtCuspp.Text) & "',essalud='" & Val(Me.TxtEssalud.Text) & "',sndp='" & Val(Me.TxtSNDP.Text) & "',fecha_ingreso='" & Format(Me.DtpIngreso.Value, "YYYY-mm-dd") & "',id_cargo='" & Me.DtcCargo.BoundText & "',id_condicion='" & Me.DtcRegimen.BoundText & "' WHERE cod_unico='" & Trim(Me.txtRuc.Text) & "' AND id_empresa='" & KEY_RUC & "'"
+                 '    CnBd.Execute (strCadena)  Call insertar_acciones(strCadena)
+                'Else
+                  '  strCadena = "UPDATE entidad_empresa SET id_personal='" & StrPersonal & "',id_planilla='" & DtcPlanilla.Text & "',id_sucursal='" & Me.DtcSucursal.BoundText & "',sueldo='" & Val(Me.txtSueldoMensual.Text) & "',id_proveedor='" & strProveedor & "' WHERE cod_unico='" & Trim(Me.txtRuc.Text) & "' AND id_empresa='" & KEY_RUC & "'"
+                 '   CnBd.Execute (strCadena)  Call insertar_acciones(strCadena)
+                'End If
+                    
+                
+                
+               ' If Me.DtcDistrito.BoundText <> "" Then
+                '    strCadena = "UPDATE persona SET id_distrito='" & Me.DtcDistrito.BoundText & "',id_provincia='" & Me.DtcProvincia.BoundText & "',id_departamento='" & Me.DtcDepartamento.BoundText & "', id_urbanizacion='" & Me.DtcUrbanizacion.BoundText & "',id_zona='" & Me.DtcZona.BoundText & "' WHERE dni='" & Trim(Me.txtRuc.Text) & "'"
+                 '   CnBd.Execute (strCadena)  Call insertar_acciones(strCadena)
+                'End If
+                
+                
+            End If
+                
+             
+                
+                
+                
+                
+               
+    
+       
+     If FrmPersona.Procedencia = Modificar Then
+        FrmPersona.HfdPersona.TextMatrix(Me.HfdPersona.Row, 1) = UCase(Me.txtrazonsocial.Text)
+        FrmPersona.HfdPersona.TextMatrix(Me.HfdPersona.Row, 2) = UCase(Me.TxtDireccion1.Text)
+        'Call FrmPersona.actualizar
+        FrmPersona.Procedencia = Neutro
+        Unload Me
+        Exit Sub
+     End If
+     
+     If FrmPersona.Procedencia = Nuevo Then
+        Call FrmPersona.Actualizar
+        FrmPersona.Procedencia = Neutro
+        Call Resalta(FrmPersona.txtruc)
+        Unload Me
+        Exit Sub
+     End If
+       
+       
+       If FrmVentas.Procedencia = Nuevo Or FrmVentas.Procedencia = Selecionar Then
+            If Len(Trim(Me.txtruc.Text)) = 11 Then
+                FrmVentas.TxtCodCliente.Text = Trim(Me.txtruc.Text)
+                FrmVentas.Procedencia = Neutro
+                
+            End If
+            FrmVentas.TxtCliente.Text = Trim(Me.txtrazonsocial.Text)
+            FrmVentas.TxtDireccion.Text = Trim(Me.TxtDireccion1.Text)
+            Call Resalta(FrmVentas.TxtCodProducto)
+            Unload Me
+            Exit Sub
+        End If
+       If FrmComprasGastos.Procedencia = Nuevo Then
+          FrmComprasGastos.txtDni.Text = Me.txtruc.Text
+          FrmComprasGastos.lblcliente.Caption = UCase(Me.txtrazonsocial.Text)
+          FrmComprasGastos.Procedencia = Neutro
+          Unload Me
+          Exit Sub
+       End If
+        
+        
+        
+        If FrmSolicitudViaticosDeclarar.Procedencia = Nuevo Then
+            If Len(Trim(Me.txtruc.Text)) = 11 Then
+                FrmSolicitudViaticosDeclarar.txtruc.Text = Me.txtruc.Text
+                'FrmSolicitudViaticosDeclarar.lblRazonSocial.Caption = Trim(Me.TxtRazonsocial.text)
+                FrmSolicitudViaticosDeclarar.Procedencia = Neutro
+                
+            End If
+            
+            Unload Me
+            Exit Sub
+        End If
+        If FrmPersona.Procedencia = Nuevo Then
+            
+            Call FrmPersona.Actualizar
+            Unload Me
+            Exit Sub
+        End If
+       
+        If FrmCompras.Procedencia = Nuevo Then
+            FrmCompras.txtruc.Text = Trim(Me.txtruc.Text)
+            FrmCompras.TxtProveedor.Text = Trim(Me.txtrazonsocial.Text)
+            FrmCompras.TxtDireccion.Text = Trim(Me.TxtDireccion1.Text)
+            
+            
+        End If
+        
+        If frmNuevoComprobante.Procedencia = Nuevo Then
+            'frmNuevoComprobante.txtcodUuario.Text = Me.TxtRuc.Text
+            'frmNuevoComprobante.txtCliente.Text = Me.TxtRazonSocial.Text
+            'Call frmNuevoComprobante.DtcCCostos.SetFocus
+        End If
+        Unload Me
+  
+
+End Sub
+Private Sub quitar_almacen(ByVal dni As String)
+strCadena = "DELETE FROM almacen WHERE id_responsable='" & dni & "' AND ruc='" & KEY_RUC & "'"
+CnBd.Execute (strCadena)
+Call insertar_acciones(strCadena)
+End Sub
+Private Sub persona_almacen(ByVal dni As String)
+Dim strAlm As String
+        strCadena = "SELECT * FROM almacen WHERE ruc='" & KEY_RUC & "' AND id_responsable='" & Trim(dni) & "' ORDER BY id_alm DESC"
+        Call ConfiguraRstT(strCadena)
+        If rstT.RecordCount < 1 Then
+        If rstT.RecordCount > 0 Then
+            rstT.MoveFirst
+            strAlm = formato_item(Val(rstT("id_alm")) + 1, 5)
+        Else
+            
+            strAlm = formato_item(Val(LastRegistro("almacen", "id_alm")) + 1, 5)
+        End If
+        strCadena = "INSERT INTO almacen (id_alm,descripcion,direccion,id_responsable,ruc)VALUES ('" & strAlm & "','" & Me.txtrazonsocial.Text & "','" & Me.TxtDireccion1.Text & "','" & Trim(dni) & "','" & KEY_RUC & "')"
+        CnBd.Execute (strCadena)
+        Call insertar_acciones(strCadena)
+         
+        
+        strCadena = "SELECT * FROM producto WHERE ruc='" & KEY_RUC & "'"
+        Call ConfiguraRst(strCadena)
+        If rst.RecordCount > 0 Then
+        rst.MoveFirst
+        For i = 0 To rst.RecordCount - 1
+            strCadena = "INSERT INTO almacen_producto(id_alm,id_producto,stock,ruc) VALUES ('" & strAlm & "','" & rst("id_producto") & "','0','" & KEY_RUC & "')"
+            CnBd.Execute (strCadena)
+            Call insertar_acciones(strCadena)
+             
+            rst.MoveNext
+        Next i
+       Set rst = Nothing
+    End If
+    End If
+End Sub
+
+
+
+
+
+
+Private Sub Check1_Click()
+If Me.Check1.Value = 1 Then
+    Me.TxtPassword.PasswordChar = ""
+Else
+    Me.TxtPassword.PasswordChar = "*"
+End If
+End Sub
+
+Private Sub chkDescuento_Click()
+If (Me.chkDescuento.Value = 1) Then
+    Me.TxtDescuento.Visible = True
+Else
+    Me.TxtDescuento.Visible = False
+End If
+End Sub
+
+Private Sub chkEmpresa_Click()
+If Me.chkEmpresa.Value = True Then
+    Me.txtRucEmpresa.Visible = True
+    
+    Me.txtMaximoCredito.Visible = False
+    
+Else
+  
+   Me.txtRucEmpresa.Visible = False
+   
+   
+End If
+End Sub
+
+Private Sub ChkMaximoCredito_Click()
+If Me.ChkMaximoCredito.Value = True Then
+    Me.txtMaximoCredito.Visible = True
+    Me.txtRucEmpresa.Visible = False
+    Me.LblEmpresa.Visible = False
+Else
+    Me.txtMaximoCredito.Visible = False
+End If
+End Sub
+
+Private Sub ChkPersonal_Click()
+Dim strCarg As String
+If Me.ChkPersonal.Value = 1 Then
+      Me.SstKardex.TabVisible(1) = True
+      'Me.SstKardex.Tabs = 5
+        strCadena = "SELECT id_planilla as Codigo, descripcion as Descripcion FROM planilla ORDER BY descripcion"
+          Call ConfiguraRstT(strCadena)
+          Call LlenaDataComboT(Me.DtcPlanilla)
+          If Me.DtcCargo.BoundText <> "" Then
+            strCarg = Me.DtcCargo.BoundText
+          End If
+          strCadena = "SELECT id_cargo as Codigo, descripcion as Descripcion FROM persona_cargos WHERE ruc='si' ORDER BY descripcion"
+          Call ConfiguraRstT(strCadena)
+          Call LlenaDataComboT(Me.DtcCargo)
+          Me.DtcCargo.BoundText = strCarg
+          strCadena = "SELECT id_afp as Codigo, descripcion as Descripcion FROM afp ORDER BY descripcion"
+          Call ConfiguraRstT(strCadena)
+          Call LlenaDataComboT(Me.DtcAfp)
+          strCadena = "SELECT id_banco as Codigo,abreviatura as Descripcion FROM banco ORDER BY abreviatura"
+          Call ConfiguraRstT(strCadena)
+          Call LlenaDataComboT(Me.DtcBanco)
+          strCadena = "SELECT id_moneda as Codigo,descripcion as Descripcion FROM moneda ORDER BY id_moneda"
+          Call ConfiguraRstT(strCadena)
+          Call LlenaDataComboT(Me.DtcMoneda)
+          strCadena = "SELECT id_alm as Codigo,descripcion as Descripcion FROM almacen WHERE ruc='" & KEY_RUC & "'"
+          Call ConfiguraRstT(strCadena)
+          Call LlenaDataComboT(Me.DtcSucursal)
+          strCadena = "SELECT id_condicion as Codigo,descripcion as Descripcion FROM condicion_laboral ORDER BY descripcion"
+          Call ConfiguraRstT(strCadena)
+          Call LlenaDataComboT(Me.DtcRegimen)
+          strCadena = "SELECT id_planilla as Codigo, descripcion as Descripcion FROM planilla ORDER BY descripcion"
+          Call ConfiguraRstT(strCadena)
+          Call LlenaDataComboT(Me.DtcPlanilla)
+          strCadena = "SELECT id_cargo as Codigo, descripcion as Descripcion FROM persona_cargos ORDER BY descripcion"
+          Call ConfiguraRstT(strCadena)
+          Call LlenaDataComboT(Me.DtcCargo)
+          strCadena = "SELECT id_afp as Codigo, descripcion as Descripcion FROM afp ORDER BY descripcion"
+          Call ConfiguraRstT(strCadena)
+          Call LlenaDataComboT(Me.DtcAfp)
+          strCadena = "SELECT id_alm as Codigo,descripcion as Descripcion FROM almacen WHERE ruc='" & KEY_RUC & "'"
+          Call ConfiguraRstT(strCadena)
+          Call LlenaDataComboT(Me.DtcSucursal)
+          
+          
+Else
+     Me.SstKardex.TabVisible(1) = False
+        'Me.SstKardex.Tabs = 4
+End If
+End Sub
+
+
+
+Private Sub ChkTransporte_Click()
+If Me.ChkTransporte.Value = 1 Then
+    Me.lblLicencia.Visible = True
+    Me.TxtLicencia.Visible = True
+Else
+    Me.lblLicencia.Visible = False
+    Me.TxtLicencia.Visible = False
+End If
+End Sub
+
+Private Sub CmdAgregar_Click()
+Dim razon As String
+If Me.txtDni.Text <> "" Then
+    strCadena = "SELECT * FROM persona_accidentes WHERE dni_familia='" & Trim(Me.txtDni.Text) & "'"
+    Call ConfiguraRst(strCadena)
+    If rst.RecordCount > 0 Then
+        strCadena = "UPDATE persona_accidentes SET telefono='" & Me.TxtTelefono.Text & "',id_parentesco='" & Me.DtcParentesco.BoundText & "' WHERE dni_familia='" & Me.txtDni.Text & "' AND dni='" & Me.txtruc.Text & "'"
+        CnBd.Execute (strCadena)
+        Call insertar_acciones(strCadena)
+    Else
+        strCadena = "INSERT INTO persona_accidentes(dni,dni_familia,id_parentesco,telefono)VALUES('" & Me.txtruc.Text & "','" & Me.txtDni.Text & "','" & Me.DtcParentesco.BoundText & "','" & Me.TxtTelefono.Text & "')"
+        CnBd.Execute (strCadena)
+        Call insertar_acciones(strCadena)
+         
+        strCadena = "select * from persona where dni='" & Trim(Me.txtDni.Text) & "'"
+        Call ConfiguraRst(strCadena)
+        If rst.RecordCount < 1 Then
+        razon = Me.TxtFnombers.Text + Space(1) + Me.TxtFpaterno.Text + Space(1) + Me.TxtFmaterno.Text
+        strCadena = "P_insert_persona('" & Trim(Me.txtDni.Text) & "','" & Me.TxtFpaterno.Text & "','" & Me.TxtFmaterno.Text & "','" & Me.TxtFnombers.Text & "','" & Trim(razon) & "','CHICLAYO','" & Me.TxtTelefono.Text & "','--','no','no','no','no','no','0','')"
+        CnBd.Execute (strCadena)
+        Call insertar_acciones(strCadena)
+         
+        End If
+    End If
+    strCadena = "SELECT F.id,P.nombre_completo,PR.descripcion as parentesco,F.telefono,F.dni_familia FROM persona_accidentes F,persona P,parentesco PR WHERE F.id_parentesco=PR.id_parentesco AND  F.dni='" & Me.txtruc.Text & "' AND F.dni_familia=P.dni"
+    Call llenarFamiliares(Me.HfgFamiliares)
+End If
+End Sub
+
+Private Sub cmdagregarcuenta_Click()
+If Me.txtnumerocuenta.Text <> "" And Trim(Me.DtcBanco.BoundText) <> "" And Trim(Me.DtcMoneda.BoundText) Then
+    strCadena = "INSERT INTO persona_cuentabancaria(dni,id_banco,id_moneda,cuenta)VALUES('" & Trim(Me.txtruc.Text) & "','" & Me.DtcBanco.BoundText & "','" & Me.DtcMoneda.BoundText & "','" & Trim(Me.txtnumerocuenta.Text) & "')"
+    CnBd.Execute (strCadena)
+    Call insertar_acciones(strCadena)
+     
+    
+    Call LlenarCuentas(Me.HfCuentas, Trim(Me.txtruc.Text))
+End If
+End Sub
+
+Private Sub cmdConSUNAT_Click()
+ Call precionar
+End Sub
+Public Sub precionar()
+  Set cSunat = New cls_QrySUNAT
+        Set cSunat.WebExplorer = wbrInfo
+        Set cSunat.WebInet = inetConecta
+        If IdEmpresa = 0 Then
+        'ModoInsercion = True
+        Me.Caption = "Ficha nueva de empresa"
+        'cmdGuardar.Caption = "Guardar"
+        If RucExt <> vbNullString Then
+            txtruc.Text = RucExt
+            cmdConSUNAT_Click
+        Else
+            wbrInfo.Navigate "http://www.sunat.gob.pe/cl-ti-itmrconsruc/jcrS00Alias"
+        End If
+    Else
+       ' ModoInsercion = False
+        Me.Caption = "Ficha de empresa Nº " & IdEmpresa
+        'Call CargarDatosEmpresa(IdEmpresa)
+       ' cmdGuardar.Caption = "Actualizar"
+        Call CargaSunat
+        txtruc.Tag = txtruc.Text
+    End If
+    
+If cmdConSUNAT.Tag = 0 Then
+        If txtruc.Tag <> txtruc.Text Then
+            txtruc.Tag = Trim(txtruc.Text)
+            Call CargaSunat
+        End If
+        cmdConSUNAT.Tag = 1
+        cmdConSUNAT.Caption = "OK"
+    Else
+     '   Me.Width = 9195
+        cmdConSUNAT.Tag = 0
+        cmdConSUNAT.Caption = "OK"
+    End If
+    
+End Sub
+Private Sub CargaSunat()
+    cSunat.ruc = txtruc.Text
+    cSunat.CargaWebExplorador
+    
+End Sub
+
+Private Sub cmdeliminarcuenta_Click()
+If Val(Me.HfCuentas.TextMatrix(Me.HfCuentas.Row, 1)) > 0 And Trim(Me.txtruc.Text) <> "" Then
+    strCadena = "DELETE FROM persona_cuentabancaria WHERE cuenta='" & Me.HfCuentas.TextMatrix(Me.HfCuentas.Row, 1) & "' AND dni='" & Trim(Me.txtruc.Text) & "'"
+    CnBd.Execute (strCadena)
+    Call insertar_acciones(strCadena)
+    Call LlenarCuentas(Me.HfCuentas, Trim(Me.txtruc.Text))
+End If
+End Sub
+
+Private Sub cmdGrabarFoto_Click()
+
+End Sub
+
+Private Sub CmdVisualizar_Click()
+If Me.txtruc.Text <> "" Then
+    Call LLENA_NC(Trim(Me.txtruc.Text))
+End If
+End Sub
+
+Private Sub Command1_Click()
+Dim cPersona As Double
+    If (Me.txtruc.Text) <> "" Then
+        strCadena = "INSERT INTO persona_telefono (dni,telefono,id_cargo)VALUES ('" & Trim(Me.txtruc.Text) & "','" & Trim(Me.TxtFono.Text) & "','" & Me.DtcArea.BoundText & "')"
+        CnBd.Execute (strCadena)
+        Call insertar_acciones(strCadena)
+         
+    Else
+        MsgBox "Ingrese un Ruc/DNI", vbInformation, "Mensaje para el Usuario"
+        Call Resalta(Me.txtruc)
+        Exit Sub
+    End If
+    
+    Me.TxtFono.Text = ""
+    Call Resalta(Me.TxtFono)
+    Call LlenarTelefonos(Me.HfTelefonos, Trim(Me.txtruc.Text))
+
+End Sub
+Public Sub LlenarTelefonos(ByVal Grilla As MSHFlexGrid, ByVal cPersona As String)
+On Error GoTo SALIR
+Dim tTotal As Double
+strCadena = "SELECT C.descripcion,T.telefono FROM persona_cargos C,persona_telefono T WHERE C.id_cargo=T.id_cargo AND T.dni='" & cPersona & "'AND C.ruc='no' and C.id_empresa='" & KEY_RUC & "'"
+Call ConfiguraRst(strCadena)
+
+If rst.RecordCount < 1 Then
+    Grilla.Rows = 1
+    Grilla.Clear
+    Exit Sub
+End If
+   Grilla.Clear
+   Grilla.Rows = 0
+       ReDim arrColWidth(1 To rst.Fields.Count)
+       For Each Campo In rst.Fields
+            Grilla.ColWidth(0) = 2500
+            Grilla.ColWidth(1) = 1500
+            
+        Next
+        cabecera = "AREA" & vbTab & "TELEFONO"
+        Grilla.AddItem cabecera
+         For k = 0 To 1
+            Grilla.col = k
+            Grilla.Row = 0
+            Grilla.CellBackColor = &HDFDFE0
+        Next k
+        rst.MoveFirst
+        
+        For i = 0 To rst.RecordCount - 1
+            Fila = Fila & rst("descripcion") & vbTab & rst("telefono")
+            Grilla.AddItem Fila
+            Fila = ""
+            rst.MoveNext
+        Next i
+     
+      
+    
+  Exit Sub
+SALIR: MsgBox "Ocurrio un Error en la Conexion", vbInformation, "Mensaje para el usuario"
+Set rst = Nothing
+
+End Sub
+Public Sub LlenarCuentas(ByVal Grilla As MSHFlexGrid, ByVal cPersona As String)
+On Error GoTo SALIR
+strCadena = "SELECT abreviatura,M.descripcion,cuenta FROM banco B,moneda M,persona_cuentabancaria C WHERE B.id_banco=C.id_banco AND C.id_moneda=M.id_moneda AND C.dni='" & cPersona & "'"
+Call ConfiguraRstT(strCadena)
+If rstT.RecordCount < 1 Then
+    Grilla.Rows = 1
+    Grilla.Clear
+    Exit Sub
+End If
+   Grilla.Clear
+   Grilla.Rows = 0
+       ReDim arrColWidth(1 To rstT.Fields.Count)
+       For Each Campo In rstT.Fields
+            Grilla.ColWidth(0) = 1000
+            Grilla.ColWidth(1) = 1500
+            Grilla.ColWidth(2) = 1500
+        Next
+        cabecera = "BANCO" & vbTab & "CUENTA" & vbTab & "MONEDA"
+        Grilla.AddItem cabecera
+         For k = 0 To 2
+            Grilla.col = k
+            Grilla.Row = 0
+            Grilla.CellBackColor = &HDFDFE0
+        Next k
+        rstT.MoveFirst
+          For i = 0 To rstT.RecordCount - 1
+            Fila = Fila & rstT("abreviatura") & vbTab & rstT("cuenta") & vbTab & UCase(rstT("descripcion"))
+            Grilla.AddItem Fila
+            Fila = ""
+            rstT.MoveNext
+        Next i
+ Exit Sub
+SALIR: MsgBox "Ocurrio un Error en la Conexion", vbInformation, "Mensaje para el usuario"
+Set rstT = Nothing
+End Sub
+
+
+Private Sub Command3_Click()
+If Val(Me.HfTelefonos.TextMatrix(Me.HfTelefonos.Row, 1)) > 0 Then
+    If Trim(Me.txtruc.Text) <> "" Then
+        strCadena = "DELETE FROM persona_telefono WHERE telefono='" & Me.HfTelefonos.TextMatrix(Me.HfTelefonos.Row, 1) & "' AND dni='" & Trim(Me.txtruc.Text) & "'"
+        CnBd.Execute (strCadena)
+        Call insertar_acciones(strCadena)
+        Call LlenarTelefonos(Me.HfTelefonos, Me.txtruc.Text)
+        Exit Sub
+ End If
+End If
+    
+        
+End Sub
+
+Private Sub cSunat_DatosObtenidos()
+    Dim Confirm As Integer
+    Dim nombres() As String
+    Dim telefonos() As String
+    If cSunat.EmRazSocial <> vbNullString Then
+        If txtrazonsocial.Text = vbNullString Then
+            txtrazonsocial.Text = cSunat.EmRazSocial
+   
+            nombres = Split(Trim(txtrazonsocial.Text), " ")
+            Me.txtPaterno.Text = nombres(0)
+            Me.txtMaterno.Text = nombres(1)
+            If UBound(nombres()) > 3 Then
+            'If IsNull(Trim(nombres(3))) = False Then
+                Me.txtNombre.Text = nombres(2) & Space(1) & nombres(3)
+            Else
+                If UBound(nombres()) > 1 Then
+                    Me.txtNombre.Text = nombres(2)
+                End If
+                If UBound(nombres()) >= 3 Then
+                    Me.txtNombre.Text = nombres(2) & Space(1) & nombres(3)
+                End If
+                
+            End If
+            Me.TxtDireccion1.Text = cSunat.EmDireccion
+            
+            
+            If Len(Trim(Me.txtruc.Text)) = 11 Then
+                If MsgBox("Desea registrar con RUC  ", vbYesNo + vbQuestion, KEY_EMPRESA) = vbYes Then
+                    Me.txtruc.Text = Trim(Me.txtruc.Text)
+                Else
+                    Me.txtruc.Text = Mid(Trim(Me.txtruc.Text), 3, 8)
+                End If
+                    Me.LblCodPersona.Caption = Trim(Me.txtruc.Text)
+            End If
+            
+            'txtNomComercial.Text = cSunat.EmNomComercial
+        Else
+            If txtrazonsocial.Text <> cSunat.EmRazSocial Then
+                Confirm = MsgBox("La razón social que tiene almacenado el sistema no coincide con la informacion de SUNAT, ¿desea actualizar?", vbYesNo, "Confirmar actualización")
+                If Confirm = vbYes Then
+                    txtrazonsocial.Text = cSunat.EmRazSocial
+                     Me.TxtDireccion1.Text = cSunat.EmDireccion
+                     
+                End If
+            End If
+            
+          
+           ' If txtNomComercial.Text = vbNullString Then
+            '    txtNomComercial.Text = cSunat.EmNomComercial
+           ' End If
+            
+        End If
+        
+        'cmdGuardar.SetFocus
+         
+        Else
+         If Len(Trim(Me.txtruc.Text)) > 8 And Trim(Me.txtrazonsocial.Text) = "" Then
+            'Me.txtRUC.Text = Mid(Trim(Me.txtRUC.Text), 3, 8)
+        
+        End If
+    End If
+    
+End Sub
+
+Private Sub cSunat_ErrorEnObtencion()
+    MsgBox cSunat.ErrConSunat
+End Sub
+
+'============================================================
+
+
+Private Sub CmdFoto_Click()
+FrmCapturarImagen.Show
+'On Error GoTo finish
+'Me.CommonDialog1.Filter = "*.Jpg"
+'Me.CommonDialog1.ShowOpen
+'Me.Image1.Picture = LoadPicture(Me.CommonDialog1.FileName)
+'img = Me.CommonDialog1.FileName
+'Exit Sub
+'finish: MsgBox "La Imagen que Intenta Subir tiene que ser .JPG", vbInformation, "Imagen no Compatible"
+
+End Sub
+
+Private Sub DtcDistrito_KeyPress(KeyAscii As Integer)
+If KeyAscii = 13 Then
+    If Me.DtcDistrito.BoundText <> "" Then
+        strCadena = "SELECT id_provincia FROM distrito WHERE id_distrito='" & Me.DtcDistrito.BoundText & "'"
+        Call ConfiguraTemporal(strCadena)
+        If rstTemporal.RecordCount > 0 Then
+            Me.lblprovincia.Visible = True
+            Me.DtcProvincia.Visible = True
+            strCadena = "SELECT id_provincia as Codigo,descripcion as Descripcion FROM provincia WHERE id_provincia='" & rstTemporal("id_provincia") & "'"
+            Call ConfiguraRst(strCadena)
+            Call LlenaDataCombo(Me.DtcProvincia)
+            Set rst = Nothing
+            Me.DtcProvincia.Enabled = False
+        End If
+        
+     
+     
+     
+     strCadena = "SELECT id_urbanizacion as Codigo,descripcion as Descripcion FROM urbanizacion WHERE id_distrito='" & Me.DtcDistrito.BoundText & "'"
+     Call ConfiguraRst(strCadena)
+     Call LlenaDataCombo(Me.DtcUrbanizacion)
+     'Call Me.DtcUrbanizacion.SetFocus
+     Set rst = Nothing
+        
+        
+    End If
+End If
+End Sub
+
+Private Sub Dtcmes_KeyPress(KeyAscii As Integer)
+If KeyAscii = 13 Then
+    Call Resalta(Me.txtanio)
+End If
+End Sub
+
+Private Sub DtcProvincia_Change()
+If Me.DtcProvincia.BoundText <> "" Then
+    strCadena = "SELECT * FROM provincia WHERE id_provincia='" & Me.DtcProvincia.BoundText & "' "
+    Call ConfiguraTemporal(strCadena)
+    If rstTemporal.RecordCount > 0 Then
+        Me.lbldepartamento.Visible = True
+        Me.DtcDepartamento.Visible = True
+        strCadena = "SELECT id_depa as Codigo,descripcion as Descripcion FROM departamentos WHERE id_depa='" & rstTemporal("id_departamento") & "'"
+        Call ConfiguraRst(strCadena)
+        Call LlenaDataCombo(Me.DtcDepartamento)
+        Set rst = Nothing
+        Me.DtcDepartamento.Enabled = True
+    End If
+    Set rstTemporal = Nothing
+End If
+End Sub
+
+Private Sub DtcUrbanizacion_Change()
+If Me.DtcUrbanizacion.BoundText <> "" Then
+    strCadena = "SELECT id_zona as Codigo,descripcion_zona as Descripcion FROM zona WHERE id_urbanizacion='" & Me.DtcUrbanizacion.BoundText & "'"
+    Call ConfiguraRst(strCadena)
+    Call LlenaDataCombo(Me.DtcZona)
+    Set rst = Nothing
+End If
+End Sub
+
+Private Sub DtcUrbanizacion_KeyPress(KeyAscii As Integer)
+If KeyAscii = 13 Then
+    
+    Me.DtcZona.SetFocus
+End If
+End Sub
+
+Private Sub DtcZona_KeyPress(KeyAscii As Integer)
+If KeyAscii = 13 Then
+    Call Save
+End If
+End Sub
+
+Private Sub Form_KeyDown(KeyCode As Integer, Shift As Integer)
+  If Shift = 2 And KeyCode = Asc("G") Then
+    Call Save
+    Exit Sub
+  End If
+If KeyCode = 27 Then
+    Unload Me
+End If
+End Sub
+
+Private Sub Form_Load()
+CenterForm Me
+Me.Top = 10
+Me.DtpIngreso.Value = KEY_FECHA
+
+
+  strCadena = "SELECT id_mes as Codigo, descripcion as Descripcion FROM mes ORDER BY descripcion"
+  Call ConfiguraRst(strCadena)
+  Call LlenaDataCombo(Me.DtcMes)
+  
+  strCadena = "SELECT id_parentesco as Codigo,descripcion as Descripcion FROM parentesco ORDER BY descripcion"
+  Call ConfiguraRst(strCadena)
+  Call LlenaDataCombo(Me.DtcParentesco)
+
+  
+  
+ 
+  
+  strCadena = "SELECT P.dni as Codigo,P.nombre_completo as Descripcion FROM entidad_empresa E,persona P WHERE E.cod_unico=P.dni AND E.id_empresa='" & KEY_RUC & "' AND E.id_personal='si' ORDER BY nombre_completo"
+  Call ConfiguraRst(strCadena)
+  Call LlenaDataCombo(Me.DtcVendedor)
+  
+  strCadena = "SELECT P.dni as Codigo,P.nombre_completo as Descripcion FROM entidad_empresa E,persona P WHERE E.cod_unico=P.dni AND E.id_empresa='" & KEY_RUC & "' AND E.id_personal='si' ORDER BY nombre_completo"
+  Call ConfiguraRst(strCadena)
+  Call LlenaDataCombo(Me.DtcCobrador)
+           
+  
+  strCadena = "SELECT id_cargo as Codigo, descripcion as Descripcion FROM persona_cargos WHERE ruc='no' and id_empresa='" & KEY_RUC & "' ORDER BY descripcion"
+Call ConfiguraRstT(strCadena)
+Call LlenaDataComboT(Me.DtcArea)
+
+ 
+ 
+ 'Set objEmpresa = New cbEmpresa
+ Set cSunat = New cls_QrySUNAT
+        Set cSunat.WebExplorer = wbrInfo
+        Set cSunat.WebInet = inetConecta
+    
+       
+        If IdEmpresa = 0 Then
+        'ModoInsercion = True
+            Me.Caption = "Ficha nueva de empresa"
+        'cmdGuardar.Caption = "Guardar"
+        If RucExt <> vbNullString Then
+            txtruc.Text = RucExt
+            cmdConSUNAT_Click
+        Else
+            wbrInfo.Navigate "http://www.sunat.gob.pe/cl-ti-itmrconsruc/jcrS00Alias"
+        End If
+        Else
+       ' ModoInsercion = False
+        Me.Caption = "Ficha de empresa Nº " & IdEmpresa
+        'Call CargarDatosEmpresa(IdEmpresa)
+       ' cmdGuardar.Caption = "Actualizar"
+        Call CargaSunat
+        txtruc.Tag = txtruc.Text
+    End If
+  
+Select Case FrmPersona.Procedencia
+        Case Nuevo
+        Me.OptSincredito.Value = 1
+        Me.ChkCliente.Value = 1
+        Me.SstKardex.TabVisible(1) = False
+        Me.lbldepartamento.Visible = False
+        Me.DtcDepartamento.Visible = False
+        Me.lblprovincia.Visible = False
+        Me.DtcProvincia.Visible = False
+        
+        
+    Case Modificar
+      
+      Call LLENA(Val(FrmPersona.HfdPersona.TextMatrix(FrmPersona.HfdPersona.Row, 0)))
+      
+      If Len(Me.txtruc.Text) > 8 Then
+      Call precionar
+      End If
+      
+  End Select
+End Sub
+ 
+Public Sub LLENA(ByVal cPersona As String)
+'On Error GoTo salir
+Dim cDepartamento As String, cProvincia As String, cDistrito As String, cUrbanizacion As Double, cZona As Double
+strCadena = "SELECT * FROM persona P,entidad_empresa E WHERE P.dni=E.cod_unico AND E.id_empresa='" & KEY_RUC & "' AND P.dni = '" & FrmPersona.HfdPersona.TextMatrix(FrmPersona.HfdPersona.Row, 0) & "'"
+Call ConfiguraRst(strCadena)
+If rst.RecordCount < 1 Then
+    Exit Sub
+End If
+  StrCodTabla = rst("dni")
+  If Len(StrCodTabla) = 8 Then
+     Me.SstKardex.TabVisible(5) = True
+  Else
+    Me.SstKardex.TabVisible(5) = False
+  End If
+  Me.LblCodPersona.Caption = StrCodTabla
+  If IsNull(rst("dni")) = True Then
+    GoTo sin_doc
+  End If
+  Me.txtruc.Text = rst("dni")
+  Me.txtPaterno.Text = UCase(rst("a_paterno"))
+  Me.txtMaterno.Text = UCase(rst("a_materno"))
+  Me.txtNombre.Text = UCase(rst("nombres"))
+  
+    cDepartamento = rst("id_departamento")
+    cProvincia = rst("id_provincia")
+    cDistrito = rst("id_distrito")
+   ' cUrbanizacion = rst("id_urbanizacion")
+    'cZona = rst("id_zona")
+    
+  
+  Me.TxtLicencia.Text = rst("licencia")
+  If Len(rst("dni")) = 8 Then
+         Me.LblEntidad.Caption = "Nombre:"
+         Me.LblTipoDocumento.Caption = "DNI"
+         Call llenarFamiliares(Me.HfgFamiliares)
+    Else
+        Me.LblEntidad.Caption = "Razon Social:"
+        Me.LblTipoDocumento.Caption = "RUC"
+    End If
+sin_doc:
+    Me.txtrazonsocial.Text = rst("nombre_completo")
+        
+If (rst("descuento") > 0) Then
+    Me.chkDescuento.Value = 1
+    Me.TxtDescuento.Visible = True
+    Me.TxtDescuento.Text = rst("descuento")
+Else
+    Me.chkDescuento.Value = 0
+End If
+
+
+If Val(rst("id_vendedor")) > 0 Then
+    
+    Me.DtcVendedor.BoundText = rst("id_vendedor")
+End If
+strCadena = "SELECT id_banco as Codigo,abreviatura as Descripcion FROM banco ORDER BY abreviatura"
+          Call ConfiguraRstT(strCadena)
+          Call LlenaDataComboT(Me.DtcBanco)
+          strCadena = "SELECT id_moneda as Codigo,descripcion as Descripcion FROM moneda ORDER BY id_moneda"
+          Call ConfiguraRstT(strCadena)
+          Call LlenaDataComboT(Me.DtcMoneda)
+          Call LlenarCuentas(Me.HfCuentas, Trim(Me.LblCodPersona.Caption))
+          
+  If rst("id_personal") = "si" Then
+        Me.ChkPersonal.Value = 1
+        StrPersonal = "si"
+        Me.SstKardex.TabVisible(1) = True
+        Me.DtcCargo.BoundText = rst("id_cargo")
+        Me.DtcAfp.BoundText = rst("id_afp")
+        Me.DtcSucursal.BoundText = rst("id_sucursal")
+        Me.DtcPlanilla.Text = Trim(UCase(rst("id_planilla")))
+        Me.txtSueldoMensual.Text = Format(rst("sueldo"), "#,##0.00")
+        'Me.TxtPassword.Text = rst("password")
+        Me.txtAsiganacion_familiar.Text = Format(rst("asig_familiar"), "#,##0.00")
+        Me.TxtRentaquinta.Text = Format(rst("rta_quinta"), "#,##0.00")
+        Me.DtcRegimen.BoundText = rst("id_condicion")
+        Me.TxtCuspp.Text = Format(rst("cuspp"), "#,##0.00")
+        Me.TxtBonificacion.Text = Format(rst("bonificacion_extraordinaria"), "#,##0.00")
+        Me.TxtEssalud.Text = Format(rst("essalud"), "#,##0.00")
+        Me.TxtSNDP.Text = Format(rst("sndp"), "#,##0.00")
+        Me.DtcCobrador.BoundText = rst("id_cobrador")
+        Me.DtcVendedor.BoundText = rst("id_vendedor")
+        
+        
+        If IsNull(rst("fecha_ingreso")) = False Then
+            Me.DtpIngreso.Value = rst("fecha_ingreso")
+        Else
+            Me.DtpIngreso.Value = KEY_FECHA
+        End If
+        
+        
+End If
+    
+    Me.txtdia.Visible = True
+    Me.DtcMes.Visible = True
+    Me.txtdia.Text = formato_item(rst("id_dia"), 2)
+    Me.DtcMes.BoundText = rst("id_mes")
+    cDepartamento = rst("id_departamento")
+    'cProvincia = rst("id_provincia")
+    'cDistrito = rst("id_distrito")
+    'cUrbanizacion = rst("id_urbanizacion")
+   ' cZona = rst("id_zona")
+    Me.TxtDireccion1.Text = rst("direccion")
+    
+  If Trim(rst("id_percepcion")) = "si" Then
+    Me.ChkPercepcion.Value = 1
+    StrPercepcion = "si"
+   Else
+    Me.ChkPercepcion.Value = 0
+    StrPercepcion = "no"
+  End If
+  
+  If Trim(rst("id_retencion")) = "si" Then
+    Me.ChkRetencion.Value = 1
+    StrRetencion = "si"
+   Else
+    Me.ChkRetencion.Value = 0
+    StrRetencion = "no"
+  End If
+  
+  If rst("cliente_mayor") = "si" Then
+    Me.chkclientemayor.Value = 1
+  Else
+    Me.chkclientemayor.Value = 0
+  End If
+  
+  If Trim(rst("id_auspeciador")) = "si" Then
+    Me.ChkAuspiciador.Value = 1
+    StrAuspiciador = "si"
+   Else
+    Me.ChkAuspiciador.Value = 0
+    StrAuspiciador = "no"
+  End If
+  If Trim(rst("id_almacen")) = "si" Then
+    Me.ChkAlmacen.Value = 1
+    StrAlmacen = "si"
+   Else
+    Me.ChkAlmacen.Value = 0
+    StrAlmacen = "no"
+  End If
+  
+  If Trim(rst("id_cliente")) = "si" Then
+    Me.ChkCliente.Value = 1
+    StrCliente = "si"
+   Else
+    Me.ChkCliente.Value = 0
+    StrCliente = "no"
+  End If
+  If Trim(rst("id_proveedor")) = "si" Then
+    Me.chkProveedor.Value = 1
+    strProveedor = "si"
+   Else
+    Me.chkProveedor.Value = 0
+    strProveedor = "no"
+  End If
+  '----------------------------------------
+  If Trim(rst("id_personal")) = "no" Then
+   
+   
+    Me.ChkPersonal.Value = 0
+    StrPersonal = "no"
+     Me.SstKardex.TabVisible(1) = False
+  End If
+  '-------------------------------------------
+  If Trim(rst("id_contable")) = "si" Then
+    Me.ChkContable.Value = 1
+    StrContable = "si"
+   Else
+    Me.ChkContable.Value = 0
+    StrContable = "no"
+  End If
+  '------------------------------
+  
+  
+  
+  If Trim(rst("id_transporte")) = "si" Then
+    Me.ChkTransporte.Value = 1
+    Me.lblLicencia.Visible = True
+    Me.TxtLicencia.Visible = True
+    Me.TxtLicencia.Text = rst("licencia")
+    StrTransporte = "si"
+   Else
+    Me.ChkTransporte.Value = 0
+    StrTransporte = "no"
+  End If
+  If IsNull(rst("mail")) = False Then
+      Me.TxtEmail.Text = rst("mail")
+    Else
+    Me.TxtEmail.Text = ""
+  End If
+  
+If (rst("id_departamento") = 0) Or Me.LblCodPersona.Caption = "" Then
+    Me.lbldepartamento.Visible = False
+    Me.DtcDepartamento.Visible = False
+End If
+
+If (rst("id_provincia") = 0) Or Me.LblCodPersona.Caption = "" Then
+    Me.lblprovincia.Visible = False
+    Me.DtcProvincia.Visible = False
+End If
+
+If Trim(rst("id_credito")) = "si" Then
+    If Len((rst("id_empresa_credito"))) = 11 Then
+        Me.chkEmpresa.Value = True
+        Me.txtRucEmpresa.Text = rst("id_empresa")
+        strCadena = "SELECT * FROM persona WHERE dni='" & Trim(Me.txtRucEmpresa.Text) & "'"
+        Call ConfiguraTemporal(strCadena)
+        If rstTemporal.RecordCount > 0 Then
+            Me.LblEmpresa.Caption = UCase(rstTemporal("nombre_completo"))
+        End If
+     Else
+      
+        Me.ChkMaximoCredito.Value = True
+        Me.txtMaximoCredito.Text = Format(rst("monto_credito"), "###0.00")
+    End If
+Else
+
+    Me.OptSincredito.Value = True
+End If
+
+'--------- foto--------
+If IsNull(rst("foto")) = False And Len(rst("foto")) > 5 Then
+    If VerificarFichero(App.Path & "\archivos\" & rst("dni")) = True Then
+        Me.Image1.Visible = True
+        Me.Image1.Picture = LoadPicture(App.Path + "\archivos\" + rst("dni") + "\" + Trim(rst("foto")))
+        img = Trim(rst("foto"))
+    Else
+        Me.Image1 = Nothing
+    End If
+End If
+'--------- foto--------
+
+If Val(cDepartamento) > 0 Then
+    strCadena = "SELECT id_depa as Codigo,descripcion as Descripcion FROM departamentos WHERE id_depa='" & cDepartamento & "'"
+    Call ConfiguraRst(strCadena)
+    Call LlenaDataCombo(Me.DtcDepartamento)
+    Me.DtcDepartamento.BoundText = cDepartamento
+End If
+
+If Val(cProvincia) > 0 Then
+    strCadena = "SELECT id_provincia as Codigo,descripcion as Descripcion FROM provincia WHERE  id_departamento='" & cDepartamento & "'"
+    Call ConfiguraRst(strCadena)
+    Call LlenaDataCombo(Me.DtcProvincia)
+    Me.DtcProvincia.BoundText = cProvincia
+End If
+If Val(cDistrito) > 0 Then
+    strCadena = "SELECT id_distrito as Codigo,descripcion as Descripcion FROM distrito WHERE  id_provincia='" & cProvincia & "'"
+    Call ConfiguraRst(strCadena)
+    Call LlenaDataCombo(Me.DtcDistrito)
+    Me.DtcDistrito.BoundText = cDistrito
+End If
+
+If Val(cUrbanizacion) > 0 Then
+    strCadena = "SELECT id_urbanizacion as Codigo,descripcion as Descripcion FROM urbanizacion WHERE id_distrito='" & cDistrito & "'"
+    Call ConfiguraRst(strCadena)
+    Call LlenaDataCombo(Me.DtcUrbanizacion)
+    Me.DtcUrbanizacion.BoundText = cUrbanizacion
+End If
+If Val(cZona) > 0 Then
+    strCadena = "SELECT id_zona as Codigo,descripcion_zona as Descripcion FROM zona WHERE id_Urbanizacion='" & cUrbanizacion & "'"
+    Call ConfiguraRst(strCadena)
+    Call LlenaDataCombo(Me.DtcZona)
+    Me.DtcZona.BoundText = cZona
+End If
+
+
+
+'Call CargarLogo(StrCodTabla)
+strCadena = "SELECT * FROM  persona_telefono T,persona_cargos C WHERE T.dni='" & StrCodTabla & "' AND T.id_cargo=C.id_cargo AND C.ruc='no'"
+Call LlenarTelefonos(Me.HfTelefonos, StrCodTabla)
+
+  Exit Sub
+'salir:   MsgBox "Se Presento un Problema Disculpe las molestias", vbInformation, KEY_EMPRESA
+End Sub
+Private Sub llenarFamiliares(ByVal Grilla As MSHFlexGrid)
+strCadena = "SELECT F.id,P.nombre_completo,PR.descripcion as parentesco,F.telefono,F.dni_familia FROM persona_accidentes F,persona P,parentesco PR WHERE F.id_parentesco=PR.id_parentesco AND  F.dni='" & Me.txtruc.Text & "' AND F.dni_familia=P.dni"
+Call ConfiguraRstT(strCadena)
+If rstT.RecordCount < 1 Then
+    Grilla.Rows = 1
+    Grilla.Clear
+    Exit Sub
+
+End If
+   Grilla.Clear
+   Grilla.Refresh
+   Grilla.Rows = 0
+       ReDim arrColWidth(1 To rstT.Fields.Count)
+       For Each Campo In rstT.Fields
+           Grilla.ColWidth(0) = 0
+           Grilla.ColWidth(1) = 1100
+           Grilla.ColWidth(2) = 3500
+           Grilla.ColWidth(3) = 1200
+           Grilla.ColWidth(4) = 1100
+        Next
+        cabecera = "IDCODIGO" & vbTab & "DNI" & vbTab & "FAMILIAR" & vbTab & "PARENTESCO" & vbTab & "TELEFONO"
+        Grilla.AddItem cabecera
+         For k = 0 To 4
+            Grilla.col = k
+            Grilla.Row = 0
+            Grilla.CellBackColor = &HDFDFE0
+         Next k
+        rstT.MoveFirst
+        For i = 0 To rstT.RecordCount - 1
+          Fila = rstT("id") & vbTab & rstT("dni_familia") & vbTab & rstT("nombre_completo") & vbTab & rstT("parentesco") & vbTab & rstT("telefono")
+          Grilla.AddItem Fila
+          Fila = ""
+          rstT.MoveNext
+      Next i
+   
+End Sub
+
+Public Sub LLENA_NC(ByVal cPersona As String)
+'On Error GoTo salir
+Dim cDepartamento As String, cProvincia As String, cDistrito As String, cUrbanizacion As Double, cZona As Double
+strCadena = "SELECT * FROM persona P WHERE  P.dni = '" & cPersona & "'"
+Call ConfiguraRst(strCadena)
+If rst.RecordCount < 1 Then
+    Exit Sub
+End If
+   StrCodTabla = rst("dni")
+  Me.LblCodPersona.Caption = StrCodTabla
+  If IsNull(rst("dni")) = True Then
+    GoTo sin_doc
+  End If
+  Me.txtPaterno.Text = UCase(rst("a_paterno"))
+  Me.txtMaterno.Text = UCase(rst("a_materno"))
+  Me.txtNombre.Text = UCase(rst("nombres"))
+  
+  Me.TxtLicencia.Text = rst("licencia")
+  If Len(rst("dni")) = 8 Then
+         Me.LblEntidad.Caption = "Nombre:"
+          Me.LblTipoDocumento.Caption = "DNI"
+    Else
+        Me.LblEntidad.Caption = "Razon Social:"
+        Me.LblTipoDocumento.Caption = "RUC"
+    End If
+sin_doc:
+    Me.txtrazonsocial.Text = rst("nombre_completo")
+        
+If (rst("descuento") > 0) Then
+    Me.chkDescuento.Value = 1
+    Me.TxtDescuento.Visible = True
+    Me.TxtDescuento.Text = rst("descuento")
+Else
+    Me.chkDescuento.Value = 0
+End If
+
+    
+    Me.txtdia.Visible = True
+    Me.DtcMes.Visible = True
+    Me.txtdia.Text = formato_item(rst("id_dia"), 2)
+    Me.DtcMes.BoundText = formato_item(rst("id_mes"), 2)
+    cDepartamento = rst("id_departamento")
+    cProvincia = rst("id_provincia")
+    cDistrito = rst("id_distrito")
+    'cUrbanizacion = rst("id_urbanizacion")
+    'cZona = rst("id_zona")
+    Me.TxtDireccion1.Text = rst("direccion")
+    Me.txtruc.Text = rst("dni")
+  
+  If IsNull(rst("mail")) = False Then
+      Me.TxtEmail.Text = rst("mail")
+    Else
+    Me.TxtEmail.Text = ""
+  End If
+  
+If (rst("id_departamento") = 0) Or Me.LblCodPersona.Caption = "" Then
+    Me.lbldepartamento.Visible = False
+    Me.DtcDepartamento.Visible = False
+End If
+
+If (rst("id_provincia") = 0) Or Me.LblCodPersona.Caption = "" Then
+    Me.lblprovincia.Visible = False
+    Me.DtcProvincia.Visible = False
+End If
+
+
+If IsNull(rst("foto")) = False And Len(rst("foto")) > 5 Then
+    'Me.Image1.Picture = LoadPicture(App.Path + "\archivos\" + Trim(rst("foto")))
+    img = Trim(rst("foto"))
+End If
+'--------- foto--------
+
+
+If Val(cDepartamento) > 0 Then
+    strCadena = "SELECT id_depa as Codigo,descripcion as Descripcion FROM departamentos WHERE id_depa='" & cDepartamento & "'"
+    Call ConfiguraRst(strCadena)
+    Call LlenaDataCombo(Me.DtcDepartamento)
+    Me.DtcDepartamento.BoundText = cDepartamento
+    Set rst = Nothing
+End If
+
+If Val(cProvincia) > 0 Then
+    strCadena = "SELECT id_provincia as Codigo,descripcion as Descripcion FROM provincia WHERE id_provincia='" & cProvincia & "'"
+    Call ConfiguraRst(strCadena)
+    Call LlenaDataCombo(Me.DtcProvincia)
+    Me.DtcProvincia.BoundText = cProvincia
+    Set rst = Nothing
+End If
+
+If Val(cUrbanizacion) > 0 Then
+    strCadena = "SELECT id_urbanizacion as Codigo,descripcion as Descripcion FROM urbanizacion WHERE id_urbanizacion='" & cUrbanizacion & "'"
+    Call ConfiguraRst(strCadena)
+    Call LlenaDataCombo(Me.DtcUrbanizacion)
+    Me.DtcUrbanizacion.BoundText = cUrbanizacion
+    Set rst = Nothing
+End If
+If Val(cZona) > 0 Then
+    strCadena = "SELECT id_zona as Codigo,descripcion_zona as Descripcion FROM zona WHERE id_zona='" & cZona & "'"
+    Call ConfiguraRst(strCadena)
+    Call LlenaDataCombo(Me.DtcZona)
+    Me.DtcZona.BoundText = cZona
+    Set rst = Nothing
+End If
+
+'Call CargarLogo(StrCodTabla)
+strCadena = "SELECT * FROM  persona_telefono T,persona_cargos C WHERE T.dni='" & StrCodTabla & "' AND T.id_cargo=C.id_cargo"
+Call LlenarTelefonos(Me.HfTelefonos, StrCodTabla)
+
+  Exit Sub
+'salir:   MsgBox "Se Presento un Problema Disculpe las molestias", vbInformation, KEY_EMPRESA
+End Sub
+Private Sub CargarLogo(ByVal cPersona As String)
+Dim sql As String
+Dim sw As String
+sql = "select foto From persona Where dni='" & Trim(cPersona) & "'"
+Call ConfiguraRst(sql)
+If rst.RecordCount > 0 Then
+
+If IsNull(rst(0)) = False Then
+    Image1.Picture = Leer_Imagen(CnBd, sql, "foto")
+End If
+End If
+Set rst = Nothing
+End Sub
+Private Sub HfdPersona_Click()
+If Me.HfdPersona.Rows > 0 Then
+    Me.txtRucEmpresa.Text = Me.HfdPersona.TextMatrix(Me.HfdPersona.Row, 0)
+End If
+End Sub
+
+
+
+Private Sub OptSincredito_Click()
+If Me.OptSincredito.Value = True Then
+    Me.LblEmpresa.Visible = False
+    Me.txtRucEmpresa.Visible = False
+    Me.txtMaximoCredito.Visible = False
+    
+    
+    
+End If
+End Sub
+
+
+
+
+Private Sub TlbAcciones_ButtonClick(ByVal Button As MSComctlLib.Button)
+On Error GoTo Error
+  Select Case Button.Key
+    Case KEY_SAVE
+      Call Save
+    Case KEY_CANCEL
+    
+      Unload Me
+  End Select
+  Exit Sub
+Error:
+  MsgBox Err.Number & " " & Err.Description, vbCritical, MSGERROR
+  Exit Sub
+End Sub
+
+Private Sub TxtNDocumento_KeyPress(KeyAscii As Integer)
+  KeyAscii = ValidaNumero("I", KeyAscii)
+End Sub
+
+Private Sub txtAnio_KeyPress(KeyAscii As Integer)
+If KeyAscii = 13 Then
+    Call Resalta(Me.TxtEmail)
+End If
+End Sub
+
+Private Sub TxtTelefono_KeyPress(KeyAscii As Integer)
+  KeyAscii = ValidaNumero("I", KeyAscii)
+End Sub
+
+Sub verificaTipo()
+If Me.ChkCliente.Value = 1 Then
+    StrCliente = "si"
+Else
+    StrCliente = "no"
+End If
+If Me.ChkAuspiciador.Value = 1 Then
+    StrAuspiciador = "si"
+Else
+    StrAuspiciador = "no"
+End If
+
+If (Me.chkDescuento.Value = 1) Then
+    descuento_por = Me.TxtDescuento.Text
+Else
+    descuento_por = 0
+End If
+
+If Me.chkProveedor.Value = 1 Then
+    strProveedor = "si"
+Else
+    strProveedor = "no"
+End If
+If Me.ChkContable.Value = 1 Then
+    StrContable = "si"
+Else
+    StrContable = "no"
+End If
+If Me.ChkTransporte.Value = 1 Then
+    StrTransporte = "si"
+Else
+    StrTransporte = "no"
+End If
+If Me.ChkPersonal.Value = 1 Then
+    StrPersonal = "si"
+Else
+    StrPersonal = "no"
+End If
+If Me.ChkAlmacen.Value = 1 Then
+    StrAlmacen = "si"
+Else
+    StrAlmacen = "no"
+End If
+
+If Me.ChkPercepcion.Value = 1 Then
+    StrPercepcion = "si"
+Else
+    StrPercepcion = "no"
+End If
+If Me.ChkRetencion.Value = 1 Then
+    StrRetencion = "si"
+Else
+    StrRetencion = "no"
+End If
+End Sub
+
+
+Private Sub txtbuscar_Change()
+ strCadena = "SELECT Per_Ruc,NombrePersona FROM Persona WHERE NombrePersona LIKE '%" & Trim(Me.txtbuscar.Text) & "%'ORDER BY NombrePersona ASC"
+Call llenarGrid(Me.HfdPersona, Me)
+End Sub
+Private Sub llenarGrid(ByVal Grilla As MSHFlexGrid, ByVal formulario As Form)
+On Error GoTo SALIR
+Call ConfiguraRst(strCadena)
+If rst.RecordCount < 1 Then
+    Grilla.Rows = 1
+    Grilla.Clear
+    Exit Sub
+
+End If
+  
+  N = 1
+  
+   Grilla.Clear
+   Grilla.Refresh
+   Grilla.Rows = 0
+      ' Me.HfdGrilla.Rows = rst.RecordCount - 2
+       ReDim arrColWidth(1 To rst.Fields.Count)
+       For Each Campo In rst.Fields
+            ' -- almacena el ancho de los campos
+           Grilla.ColWidth(0) = 0
+           Grilla.ColWidth(1) = 3050
+        Next
+         
+         cabecera = "RAZON SOCIAL" & vbTab & "RUC"
+        Grilla.AddItem cabecera
+         For k = 0 To 1
+                                Grilla.col = k
+                                Grilla.Row = 0
+                                Grilla.CellBackColor = &HDFDFE0
+        Next k
+        rst.MoveFirst
+        For i = 0 To rst.RecordCount - 1
+              Fila = Fila & rst("Per_Ruc") & vbTab & rst("NombrePersona")
+        
+            If (Fila = "") Then
+                X = 1
+            End If
+          Grilla.AddItem Fila
+          
+          Fila = ""
+          rst.MoveNext
+             
+        Next i
+Exit Sub
+SALIR: MsgBox "Por Favor Digite Correctamente", vbInformation, "Mensaje para el usuario"
+End Sub
+
+Private Sub txtCelular_KeyPress(KeyAscii As Integer)
+If KeyAscii = 13 Then
+    Call Resalta(Me.txtdia)
+End If
+End Sub
+
+Private Sub txtdia_KeyPress(KeyAscii As Integer)
+If KeyAscii = 13 Then
+    Me.DtcMes.SetFocus
+End If
+End Sub
+
+Private Sub TxtDireccion1_KeyPress(KeyAscii As Integer)
+Call Mayusculas(KeyAscii)
+If KeyAscii = 13 Then
+    Call Resalta(Me.txtdia)
+End If
+End Sub
+
+Private Sub TxtDireccion2_KeyPress(KeyAscii As Integer)
+Call Mayusculas(KeyAscii)
+If KeyAscii = 13 Then
+    Call Resalta(Me.txtdia)
+End If
+End Sub
+
+Private Sub txtDNI_KeyPress(KeyAscii As Integer)
+If KeyAscii = 13 Then
+    strCadena = "SELECT * FROM persona WHERE dni='" & Trim(Me.txtDni.Text) & "'"
+    Call ConfiguraRst(strCadena)
+    If rst.RecordCount > 0 Then
+       Me.TxtFmaterno.Text = rst("a_materno")
+       Me.TxtFpaterno.Text = rst("a_paterno")
+       Me.TxtFnombers.Text = rst("nombres")
+       Me.DtcParentesco.SetFocus
+    Else
+        Call Resalta(Me.TxtFpaterno)
+    End If
+    
+End If
+End Sub
+
+Private Sub TxtDistrito_Change()
+If Trim(Me.TxtDistrito.Text) <> "" Then
+    strCadena = "SELECT id_distrito as Codigo,CONCAT(d.descripcion,' - ',p.descripcion) as Descripcion FROM distrito d,provincia p  WHERE  d.id_provincia=p.id_provincia and  d.descripcion LIKE '%" & Trim(Me.TxtDistrito.Text) & "%'"
+    Call ConfiguraRst(strCadena)
+    Call LlenaDataCombo(Me.DtcDistrito)
+    Set rst = Nothing
+End If
+End Sub
+
+Private Sub TxtDistrito_KeyPress(KeyAscii As Integer)
+If KeyAscii = 13 Then
+    If Me.DtcDistrito.BoundText <> "" Then
+        Me.DtcDistrito.SetFocus
+    End If
+End If
+End Sub
+
+Private Sub TxtEmail_KeyPress(KeyAscii As Integer)
+If KeyAscii = 13 Then
+    Call Resalta(Me.TxtFono)
+End If
+End Sub
+
+Private Sub TxtEntidad_KeyPress(KeyAscii As Integer)
+Call Mayusculas(KeyAscii)
+If KeyAscii = 13 Then
+    Me.TxtDireccion1.SetFocus
+End If
+End Sub
+
+Private Sub TxtFax_KeyPress(KeyAscii As Integer)
+If KeyAscii = 13 Then
+    Me.txtruc.SetFocus
+End If
+End Sub
+
+
+Private Sub TxtFono_KeyPress(KeyAscii As Integer)
+If KeyAscii = 13 Then
+    If Me.TxtFono.Text <> "" And Len(Me.TxtFono.Text) > 0 Then
+        Me.Command1.SetFocus
+    Else
+        If MsgBox("No desea Ingresar el Telefono de Contacto", vbYesNo + vbQuestion, "Mensaje para el Usuario") = vbYes Then
+            Call Resalta(Me.TxtFono)
+        Else
+            Call Resalta(Me.TxtDistrito)
+        End If
+    End If
+End If
+End Sub
+
+Private Sub TxtLicencia_KeyPress(KeyAscii As Integer)
+If KeyAscii = 13 Then
+    Call Resalta(Me.TxtDistrito)
+End If
+End Sub
+
+Private Sub txtMaterno_Change()
+Me.txtrazonsocial.Text = ""
+Me.txtrazonsocial.Text = UCase(Trim(Me.txtPaterno.Text)) + Space(1) + UCase(Trim(Me.txtMaterno.Text)) + Space(1) + UCase(Trim(Me.txtNombre.Text))
+End Sub
+
+Private Sub txtMaterno_KeyPress(KeyAscii As Integer)
+If KeyAscii = 13 Then
+    Call Resalta(Me.txtNombre)
+End If
+End Sub
+
+Private Sub txtNombre_Change()
+Me.txtrazonsocial.Text = ""
+Me.txtrazonsocial.Text = UCase(Trim(Me.txtPaterno.Text)) + Space(1) + UCase(Trim(Me.txtMaterno.Text)) + Space(1) + UCase(Trim(Me.txtNombre.Text))
+End Sub
+
+Private Sub txtNombre_KeyPress(KeyAscii As Integer)
+If KeyAscii = 13 Then
+    Call Resalta(Me.TxtDireccion1)
+End If
+End Sub
+
+Private Sub TxtObservacion_KeyPress(KeyAscii As Integer)
+If KeyAscii = 13 Then
+    Call Resalta(Me.TxtFono)
+End If
+End Sub
+
+Private Sub txtPaterno_Change()
+Me.txtrazonsocial.Text = ""
+Me.txtrazonsocial.Text = UCase(Trim(Me.txtPaterno.Text)) + Space(1) + UCase(Trim(Me.txtMaterno.Text)) + Space(1) + UCase(Trim(Me.txtNombre.Text))
+End Sub
+
+Private Sub txtPaterno_KeyPress(KeyAscii As Integer)
+If KeyAscii = 13 Then
+    Call Resalta(Me.txtMaterno)
+End If
+End Sub
+
+Private Sub TxtRuc_Change()
+If FrmPersona.Procedencia <> Modificar Then
+strCadena = "SELECT dni FROM persona WHERE dni='" & Trim(Me.txtruc.Text) & "'"
+    Call ConfiguraRstT(strCadena)
+    If rstT.RecordCount > 0 Then
+        Me.div_verifica.Visible = True
+        Set rstT = Nothing
+        strCadena = "SELECT * FROM entidad_empresa WHERE id_empresa='" & KEY_RUC & "' AND cod_unico='" & Trim(Me.txtruc.Text) & "'"
+        Call ConfiguraRstT(strCadena)
+        If rstT.RecordCount > 0 Then
+            Me.lblresultado.Caption = "Entidad ya forma parte de sus Clientes"
+            Me.CmdVisualizar.Visible = True
+        Else
+            Me.lblresultado.Caption = "Registrado en www.Vitekey.com" + Chr(13)
+            Me.CmdVisualizar.Visible = True
+        End If
+    Else
+        Me.div_verifica.Visible = False
+    End If
+    Set rstT = Nothing
+    End If
+End Sub
+
+Private Sub TxtRuc_KeyPress(KeyAscii As Integer)
+If KeyAscii = 13 Then
+ Call Resalta(Me.txtdia)
+ If Len(Me.txtruc.Text) = 8 Then
+    Me.SstKardex.TabVisible(5) = True
+Else
+    Me.SstKardex.TabVisible(5) = False
+ End If
+ 
+ 
+ 
+ strCadena = "SELECT * FROM persona WHERE dni='" & Trim(Me.txtruc.Text) & "'"
+ Call ConfiguraRst(strCadena)
+ If rst.RecordCount > 0 Then
+    Call LLENA(rst("dni"))
+    Call precionar
+ Else
+    Call precionar
+ End If
+ 
+
+End If
+End Sub
+
+Private Sub txtRucEmpresa_Change()
+If Len(Me.txtRucEmpresa.Text) = 11 Then
+    strCadena = "SELECT * FROM persona WHERE dni='" & Trim(Me.txtRucEmpresa.Text) & "'"
+    Call ConfiguraRst(strCadena)
+    If rst.RecordCount > 0 Then
+        Me.LblEmpresa.Caption = UCase(rst("nombre_completo"))
+        Me.LblEmpresa.Visible = True
+    Else
+        MsgBox "Empresa no Registrada Fabor de Registrar", vbInformation, "Mensaje para el Usuario"
+        Me.LblEmpresa.Caption = ""
+    End If
+    Set rst = Nothing
+Else
+    Me.LblEmpresa.Caption = ""
+End If
+End Sub
+
+Private Sub txtRucEmpresa_KeyPress(KeyAscii As Integer)
+If KeyAscii = 13 Then
+    If Me.txtRucEmpresa.Text = "" Then
+        Procedencia = buscar
+        FrmPersona.Show
+    End If
+End If
+End Sub
+
+Private Sub TxtTelefono1_KeyPress(KeyAscii As Integer)
+If KeyAscii = 13 Then
+Me.TxtTelefono2.SetFocus
+End If
+End Sub
+
+Private Sub TxtTelefono2_KeyPress(KeyAscii As Integer)
+If KeyAscii = 13 Then
+    Me.TxtFax.SetFocus
+End If
+End Sub

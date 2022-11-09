@@ -1,0 +1,1058 @@
+VERSION 5.00
+Object = "{F0D2F211-CCB0-11D0-A316-00AA00688B10}#1.0#0"; "MSDATLST.OCX"
+Begin VB.Form FrmDetalleAlmacen 
+   BorderStyle     =   0  'None
+   Caption         =   "DETALLE ALMACEN"
+   ClientHeight    =   7110
+   ClientLeft      =   0
+   ClientTop       =   0
+   ClientWidth     =   13875
+   BeginProperty Font 
+      Name            =   "Tahoma"
+      Size            =   8.25
+      Charset         =   0
+      Weight          =   400
+      Underline       =   0   'False
+      Italic          =   0   'False
+      Strikethrough   =   0   'False
+   EndProperty
+   LinkTopic       =   "Form1"
+   MaxButton       =   0   'False
+   MDIChild        =   -1  'True
+   MinButton       =   0   'False
+   ScaleHeight     =   7110
+   ScaleWidth      =   13875
+   ShowInTaskbar   =   0   'False
+   Begin VB.CheckBox chk_conversion_moneda 
+      Appearance      =   0  'Flat
+      BackColor       =   &H000080FF&
+      Caption         =   "CONVERSION DE MONEDA"
+      BeginProperty Font 
+         Name            =   "Calibri"
+         Size            =   8.25
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      ForeColor       =   &H00800000&
+      Height          =   255
+      Left            =   5880
+      TabIndex        =   27
+      Top             =   3480
+      Width           =   2535
+   End
+   Begin VB.TextBox txtprefijo 
+      Appearance      =   0  'Flat
+      BeginProperty Font 
+         Name            =   "Calibri"
+         Size            =   9
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      ForeColor       =   &H00800000&
+      Height          =   315
+      Left            =   7110
+      MaxLength       =   200
+      TabIndex        =   25
+      Top             =   4200
+      Width           =   1095
+   End
+   Begin VB.Frame frame_telefono 
+      BackColor       =   &H00FFFFFF&
+      Caption         =   "TELEFONOS"
+      BeginProperty Font 
+         Name            =   "Calibri"
+         Size            =   8.25
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      ForeColor       =   &H00800000&
+      Height          =   855
+      Left            =   5880
+      TabIndex        =   22
+      Top             =   1680
+      Visible         =   0   'False
+      Width           =   4215
+      Begin VB.TextBox txtTelefonos 
+         Appearance      =   0  'Flat
+         BeginProperty Font 
+            Name            =   "Calibri"
+            Size            =   9
+            Charset         =   0
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         ForeColor       =   &H00800000&
+         Height          =   315
+         Left            =   1080
+         MaxLength       =   100
+         TabIndex        =   24
+         Top             =   320
+         Width           =   3015
+      End
+      Begin VB.Label Label3 
+         Alignment       =   2  'Center
+         AutoSize        =   -1  'True
+         BackStyle       =   0  'Transparent
+         Caption         =   "TELEFONOS:"
+         BeginProperty Font 
+            Name            =   "Calibri"
+            Size            =   8.25
+            Charset         =   0
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         ForeColor       =   &H00800000&
+         Height          =   195
+         Left            =   255
+         TabIndex        =   23
+         Top             =   360
+         Width           =   825
+      End
+   End
+   Begin VB.CheckBox chkcomprobantesPropios 
+      Appearance      =   0  'Flat
+      BackColor       =   &H000080FF&
+      Caption         =   "COMPROBANTES PROPIOS VENTANILLA"
+      BeginProperty Font 
+         Name            =   "Calibri"
+         Size            =   8.25
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      ForeColor       =   &H00800000&
+      Height          =   255
+      Left            =   1680
+      TabIndex        =   21
+      Top             =   2760
+      Visible         =   0   'False
+      Width           =   4095
+   End
+   Begin VitekeySoft.ChameleonBtn cmdsave 
+      Height          =   855
+      Left            =   9840
+      TabIndex        =   19
+      Top             =   5880
+      Width           =   1455
+      _ExtentX        =   2566
+      _ExtentY        =   1508
+      BTYPE           =   5
+      TX              =   "PROCESAR"
+      ENAB            =   -1  'True
+      BeginProperty FONT {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+         Name            =   "Calibri"
+         Size            =   9
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      COLTYPE         =   2
+      FOCUSR          =   -1  'True
+      BCOL            =   15790320
+      BCOLO           =   15790320
+      FCOL            =   12582912
+      FCOLO           =   12582912
+      MCOL            =   12632256
+      MPTR            =   1
+      MICON           =   "FrmDetalleAlmacen.frx":0000
+      PICN            =   "FrmDetalleAlmacen.frx":001C
+      UMCOL           =   -1  'True
+      SOFT            =   0   'False
+      PICPOS          =   2
+      NGREY           =   0   'False
+      FX              =   0
+      HAND            =   0   'False
+      CHECK           =   0   'False
+      VALUE           =   0   'False
+   End
+   Begin VB.CheckBox chk_facturacion_centralizada 
+      Appearance      =   0  'Flat
+      BackColor       =   &H00C0C0C0&
+      Caption         =   "FACTURACION CENTRALIZADA"
+      BeginProperty Font 
+         Name            =   "Calibri"
+         Size            =   8.25
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      ForeColor       =   &H00800000&
+      Height          =   255
+      Left            =   1680
+      TabIndex        =   18
+      Top             =   3840
+      Width           =   4095
+   End
+   Begin VB.CheckBox chk_comprobante_adicional 
+      Appearance      =   0  'Flat
+      BackColor       =   &H00C0C0C0&
+      Caption         =   "GENERACION COMPROBANTES ADICIONALES"
+      BeginProperty Font 
+         Name            =   "Calibri"
+         Size            =   8.25
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      ForeColor       =   &H00800000&
+      Height          =   255
+      Left            =   1680
+      TabIndex        =   17
+      Top             =   3480
+      Width           =   4095
+   End
+   Begin MSDataListLib.DataCombo DtcSucursal 
+      Height          =   315
+      Left            =   1680
+      TabIndex        =   16
+      Top             =   2400
+      Visible         =   0   'False
+      Width           =   4095
+      _ExtentX        =   7223
+      _ExtentY        =   556
+      _Version        =   393216
+      Appearance      =   0
+      ForeColor       =   8388608
+      Text            =   "DataCombo1"
+      BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+         Name            =   "Calibri"
+         Size            =   8.25
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+   End
+   Begin VB.Frame Frame1 
+      BackColor       =   &H00FFFFFF&
+      Caption         =   "STOCK"
+      BeginProperty Font 
+         Name            =   "Calibri"
+         Size            =   8.25
+         Charset         =   0
+         Weight          =   700
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      ForeColor       =   &H00800000&
+      Height          =   2055
+      Left            =   1680
+      TabIndex        =   13
+      Top             =   4680
+      Width           =   4215
+      Begin VB.CheckBox chk_movimiento_sin_stock 
+         Appearance      =   0  'Flat
+         BackColor       =   &H000080FF&
+         Caption         =   "MOVIMIENTOS SIN STOCK"
+         BeginProperty Font 
+            Name            =   "Calibri"
+            Size            =   9
+            Charset         =   0
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         ForeColor       =   &H00800000&
+         Height          =   375
+         Left            =   480
+         TabIndex        =   29
+         Top             =   1080
+         Width           =   3615
+      End
+      Begin VB.CheckBox ChkAbilitado 
+         Appearance      =   0  'Flat
+         BackColor       =   &H80000005&
+         Caption         =   "HABILITADO"
+         BeginProperty Font 
+            Name            =   "Calibri"
+            Size            =   9
+            Charset         =   0
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         ForeColor       =   &H00800000&
+         Height          =   255
+         Left            =   480
+         TabIndex        =   15
+         Top             =   240
+         Value           =   1  'Checked
+         Width           =   1455
+      End
+      Begin VB.CheckBox chkstock 
+         Appearance      =   0  'Flat
+         BackColor       =   &H008080FF&
+         Caption         =   "STOCK   [Permite Tener Stock en Esta Ventanilla]"
+         BeginProperty Font 
+            Name            =   "Calibri"
+            Size            =   9
+            Charset         =   0
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         ForeColor       =   &H00800000&
+         Height          =   495
+         Left            =   480
+         TabIndex        =   14
+         Top             =   480
+         Width           =   3615
+      End
+   End
+   Begin VB.CheckBox chk_facturacion_detallada 
+      Appearance      =   0  'Flat
+      BackColor       =   &H00C0C0C0&
+      Caption         =   "FACTURACION DETALLADA"
+      BeginProperty Font 
+         Name            =   "Calibri"
+         Size            =   8.25
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      ForeColor       =   &H00800000&
+      Height          =   255
+      Left            =   1680
+      TabIndex        =   12
+      Top             =   1680
+      Width           =   4095
+   End
+   Begin VB.CheckBox chkVentanilla 
+      Appearance      =   0  'Flat
+      BackColor       =   &H00C0C0C0&
+      Caption         =   "VENTANILLA"
+      BeginProperty Font 
+         Name            =   "Calibri"
+         Size            =   8.25
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      ForeColor       =   &H00800000&
+      Height          =   255
+      Left            =   1680
+      TabIndex        =   11
+      Top             =   2040
+      Width           =   4095
+   End
+   Begin VB.CheckBox chkCajaIndependiente 
+      Appearance      =   0  'Flat
+      BackColor       =   &H00C0C0C0&
+      Caption         =   "CAJA INDEPENDIENTE"
+      BeginProperty Font 
+         Name            =   "Calibri"
+         Size            =   8.25
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      ForeColor       =   &H00800000&
+      Height          =   255
+      Left            =   1680
+      TabIndex        =   10
+      Top             =   3120
+      Width           =   4095
+   End
+   Begin VB.TextBox txtCodCliente 
+      Appearance      =   0  'Flat
+      BeginProperty Font 
+         Name            =   "Calibri"
+         Size            =   9
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      ForeColor       =   &H00800000&
+      Height          =   315
+      Left            =   1725
+      MaxLength       =   50
+      TabIndex        =   9
+      Top             =   1200
+      Width           =   1215
+   End
+   Begin VB.CheckBox chkDefault 
+      Appearance      =   0  'Flat
+      BackColor       =   &H008080FF&
+      Caption         =   "DEFAULD"
+      BeginProperty Font 
+         Name            =   "Calibri"
+         Size            =   8.25
+         Charset         =   0
+         Weight          =   700
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      ForeColor       =   &H00800000&
+      Height          =   255
+      Left            =   1680
+      TabIndex        =   8
+      Top             =   4200
+      Width           =   4095
+   End
+   Begin VB.TextBox txtEncargado 
+      Appearance      =   0  'Flat
+      BeginProperty Font 
+         Name            =   "Calibri"
+         Size            =   9
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      ForeColor       =   &H00800000&
+      Height          =   315
+      Left            =   3045
+      MaxLength       =   50
+      TabIndex        =   6
+      Top             =   1200
+      Width           =   3495
+   End
+   Begin VB.TextBox TxtDireccion 
+      Appearance      =   0  'Flat
+      BeginProperty Font 
+         Name            =   "Calibri"
+         Size            =   9
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      ForeColor       =   &H00800000&
+      Height          =   315
+      Left            =   1725
+      MaxLength       =   200
+      TabIndex        =   4
+      Top             =   840
+      Width           =   4815
+   End
+   Begin VB.TextBox txtCodigo 
+      Appearance      =   0  'Flat
+      Enabled         =   0   'False
+      BeginProperty Font 
+         Name            =   "Calibri"
+         Size            =   9
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      ForeColor       =   &H00800000&
+      Height          =   315
+      Left            =   1725
+      MaxLength       =   80
+      TabIndex        =   1
+      Top             =   120
+      Width           =   1095
+   End
+   Begin VB.TextBox txtAlmacen 
+      Appearance      =   0  'Flat
+      BeginProperty Font 
+         Name            =   "Calibri"
+         Size            =   9
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      ForeColor       =   &H00800000&
+      Height          =   315
+      Left            =   1725
+      MaxLength       =   50
+      TabIndex        =   0
+      Top             =   480
+      Width           =   4815
+   End
+   Begin VitekeySoft.ChameleonBtn cmdexit 
+      Height          =   855
+      Left            =   11400
+      TabIndex        =   20
+      Top             =   5880
+      Width           =   1455
+      _ExtentX        =   2566
+      _ExtentY        =   1508
+      BTYPE           =   5
+      TX              =   "SALIR"
+      ENAB            =   -1  'True
+      BeginProperty FONT {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+         Name            =   "Calibri"
+         Size            =   9
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      COLTYPE         =   2
+      FOCUSR          =   -1  'True
+      BCOL            =   15790320
+      BCOLO           =   15790320
+      FCOL            =   12582912
+      FCOLO           =   12582912
+      MCOL            =   12632256
+      MPTR            =   1
+      MICON           =   "FrmDetalleAlmacen.frx":3664
+      PICN            =   "FrmDetalleAlmacen.frx":3680
+      UMCOL           =   -1  'True
+      SOFT            =   0   'False
+      PICPOS          =   2
+      NGREY           =   0   'False
+      FX              =   0
+      HAND            =   0   'False
+      CHECK           =   0   'False
+      VALUE           =   0   'False
+   End
+   Begin MSDataListLib.DataCombo DtcMoneda 
+      Height          =   315
+      Left            =   5880
+      TabIndex        =   28
+      Top             =   3000
+      Visible         =   0   'False
+      Width           =   2535
+      _ExtentX        =   4471
+      _ExtentY        =   556
+      _Version        =   393216
+      Appearance      =   0
+      ForeColor       =   8388608
+      Text            =   "DataCombo1"
+      BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+         Name            =   "Calibri"
+         Size            =   8.25
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+   End
+   Begin VB.Label Label4 
+      Alignment       =   2  'Center
+      AutoSize        =   -1  'True
+      BackStyle       =   0  'Transparent
+      Caption         =   "PREFIJO :"
+      BeginProperty Font 
+         Name            =   "Calibri"
+         Size            =   9
+         Charset         =   0
+         Weight          =   700
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      ForeColor       =   &H00800000&
+      Height          =   210
+      Left            =   6120
+      TabIndex        =   26
+      Top             =   4260
+      Width           =   705
+   End
+   Begin VB.Image Image1 
+      Height          =   1920
+      Left            =   9720
+      Picture         =   "FrmDetalleAlmacen.frx":3A70
+      Stretch         =   -1  'True
+      Top             =   1320
+      Width           =   2280
+   End
+   Begin VB.Label Label2 
+      Alignment       =   2  'Center
+      AutoSize        =   -1  'True
+      BackStyle       =   0  'Transparent
+      Caption         =   "ENCARGADO :"
+      BeginProperty Font 
+         Name            =   "Calibri"
+         Size            =   9
+         Charset         =   0
+         Weight          =   700
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      ForeColor       =   &H00800000&
+      Height          =   210
+      Left            =   345
+      TabIndex        =   7
+      Top             =   1260
+      Width           =   1095
+   End
+   Begin VB.Label Label1 
+      Alignment       =   2  'Center
+      AutoSize        =   -1  'True
+      BackStyle       =   0  'Transparent
+      Caption         =   "DIRECCION :"
+      BeginProperty Font 
+         Name            =   "Calibri"
+         Size            =   9
+         Charset         =   0
+         Weight          =   700
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      ForeColor       =   &H00800000&
+      Height          =   210
+      Left            =   495
+      TabIndex        =   5
+      Top             =   900
+      Width           =   945
+   End
+   Begin VB.Label LblRazonSocial 
+      Alignment       =   2  'Center
+      AutoSize        =   -1  'True
+      BackStyle       =   0  'Transparent
+      Caption         =   "CODIGO :"
+      BeginProperty Font 
+         Name            =   "Calibri"
+         Size            =   9
+         Charset         =   0
+         Weight          =   700
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      ForeColor       =   &H00800000&
+      Height          =   210
+      Left            =   705
+      TabIndex        =   3
+      Top             =   180
+      Width           =   735
+   End
+   Begin VB.Label LblDireccion 
+      Alignment       =   2  'Center
+      AutoSize        =   -1  'True
+      BackStyle       =   0  'Transparent
+      Caption         =   "DESCRIPCION :"
+      BeginProperty Font 
+         Name            =   "Calibri"
+         Size            =   9
+         Charset         =   0
+         Weight          =   700
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      ForeColor       =   &H00800000&
+      Height          =   210
+      Left            =   315
+      TabIndex        =   2
+      Top             =   540
+      Width           =   1125
+   End
+   Begin VB.Shape ShpDatos 
+      BackColor       =   &H00DFDFE0&
+      BorderColor     =   &H00C0C0C0&
+      FillColor       =   &H00FFFFFF&
+      FillStyle       =   0  'Solid
+      Height          =   7110
+      Left            =   0
+      Top             =   0
+      Width           =   13875
+   End
+End
+Attribute VB_Name = "FrmDetalleAlmacen"
+Attribute VB_GlobalNameSpace = False
+Attribute VB_Creatable = False
+Attribute VB_PredeclaredId = True
+Attribute VB_Exposed = False
+Dim strCodAlmacen As String
+Public Procedencia As EnumProcede, defecto As String
+
+Private Sub chkCloud_Click()
+
+End Sub
+
+Private Sub chkDefault_Click()
+If Me.chkDefault.Value = 1 Then
+    defecto = "si"
+Else
+    defecto = "no"
+End If
+End Sub
+
+Private Sub chkVentanilla_Click()
+If Me.chkVentanilla.Value = 1 Then
+    Me.DtcSucursal.Visible = True
+    Me.chkcomprobantesPropios.Visible = True
+Else
+    Me.DtcSucursal.Visible = False
+    Me.chkcomprobantesPropios.Visible = False
+End If
+End Sub
+
+Private Sub cmdexit_Click()
+Unload Me
+End Sub
+
+Private Sub cmdsave_Click()
+On Error GoTo error
+ Call Save
+
+ Exit Sub
+error:
+  MsgBox Err.Number & " " & Err.Description, vbCritical, MSGERROR
+  Exit Sub
+End Sub
+
+Private Sub Form_Load()
+CenterForm Me
+Me.Top = 100
+strCadena = "SELECT id_alm as Codigo, descripcion as Descripcion FROM almacen WHERE ruc='" & KEY_RUC & "' and id_sucursal='0' ORDER BY id_alm"
+Call ConfiguraRst(strCadena)
+Call LlenaDataCombo(Me.DtcSucursal)
+strCadena = "SELECT id_moneda as Codigo, descripcion as Descripcion FROM moneda"
+Call ConfiguraRst(strCadena)
+Call LlenaDataCombo(Me.DtcMoneda)
+
+
+Select Case FrmAlmacenes.Procedencia
+    Case nuevo
+        Me.txtcodigo.Enabled = False
+         strCadena = "SELECT * FROM almacen WHERE ruc='" & Trim(KEY_RUC) & "'ORDER BY id_alm DESC"
+         Call ConfiguraRst(strCadena)
+         If rst.RecordCount > 0 Then
+            rst.MoveFirst
+            Me.txtcodigo.Text = formato_item(rst("id_alm") + 1, 5)
+         Else
+            Me.txtcodigo.Text = "00001"
+         End If
+            
+        Case Modificar
+        Call LLENA
+    End Select
+End Sub
+Private Sub put_gen_sucursal(ByVal in_alm As String, ByVal in_profijo As String)
+Dim in_principal As String
+If Val(in_alm) = 1 Then
+   in_principal = 1
+Else
+   in_principal = 0
+End If
+strCadena = "SELECT * FROM gen_sucursal WHERE IdEmpresaSis='" & KEY_RUC & "' and IdEmpresa='" & in_alm & "'"
+Call ConfiguraRstK(strCadena)
+If rstK.RecordCount > 0 Then
+   strCadena = "UPDATE gen_sucursal SET Prefijo='" & in_profijo & "',Nombre='" & Trim(Me.TxtAlmacen.Text) & "',Direccion='" & Trim(Me.txtdireccion.Text) & "' ,IndPrincipal='" & in_principal & "'WHERE IdEmpresaSis='" & KEY_RUC & "' and IdEmpresa='" & in_alm & "'"
+   CnBd.Execute (strCadena)
+Else
+   strCadena = "SELECT * FROM gen_sucursal ORDER BY id DESC LIMIT 1"
+   Call ConfiguraRstK(strCadena)
+   If rstK.RecordCount > 0 Then
+       in_codigo = "1CIX" + Format(Val(Mid(rstK("id"), 5, 3)) + 1, "000")
+   End If
+   strCadena = "INSERT INTO gen_sucursal(`Id`,`Prefijo`,`IdEmpresaSis`,`IdEmpresa`,`Nombre`,`Abreviatura`,`Direccion`,`IndPrincipal`,`UsuarioCrea`,`FechaCrea`,`Activo`)VALUES " & _
+   "('" & in_codigo & "','" & in_profijo & "','" & KEY_RUC & "','" & in_alm & "','" & Trim(Me.TxtAlmacen.Text) & "','" & Trim(Me.TxtAlmacen.Text) & "','" & Trim(Me.txtdireccion.Text) & "','" & in_principal & "','" & KEY_USUARIO & "',CURDATE(),'1')"
+   CnBd.Execute (strCadena)
+End If
+
+End Sub
+Private Sub Save()
+Dim idalmacen As Integer, StrAlmacen As String, strdetallada As String
+Dim in_prefijo As String
+  If Me.TxtAlmacen.Text = "" Then
+    MsgBox MSGFALTADATOS, vbCritical, MSGVALIDACION
+Else
+        If Me.chkVentanilla.Value = 1 Then
+            ntipoentidad = "00012"
+            nsucursal = Me.DtcSucursal.BoundText
+        Else
+            ntipoentidad = "0"
+            nsucursal = "0"
+        End If
+        
+        If Me.ChkAbilitado.Value = 1 Then
+            activo = "si"
+        Else
+            activo = "no"
+        End If
+        
+        If Me.chk_facturacion_detallada.Value = 1 Then
+            strdetallada = "si"
+        Else
+            strdetallada = "no"
+        End If
+        
+        If Me.ChkStock.Value = 1 Then
+            stock = "si"
+        Else
+            stock = "no"
+        End If
+        
+        If Me.chk_comprobante_adicional.Value = 1 Then
+            in_comprobante_adicional = "si"
+        Else
+            in_comprobante_adicional = "no"
+        End If
+        
+        If Me.chk_facturacion_centralizada.Value = 1 Then
+            in_centralizada = "si"
+        Else
+            in_centralizada = "no"
+        End If
+        
+        If Me.chkcomprobantesPropios.Visible = True Then
+           If Me.chkcomprobantesPropios.Value = 1 Then
+               in_comprobantes_propios = "si"
+           Else
+               in_comprobantes_propios = "no"
+           End If
+           
+        Else
+            in_comprobantes_propios = "no"
+        End If
+        
+        If Me.chk_conversion_moneda.Value = 1 Then
+           in_conversion_dolares = "si"
+        Else
+           in_conversion_dolares = "no"
+        End If
+         
+        If Me.chk_movimiento_sin_stock.Value = 1 Then
+            KEY_MOVIMIENTO_SIN_STOCK = "si"
+        Else
+            KEY_MOVIMIENTO_SIN_STOCK = "no"
+        End If
+         
+        
+        
+        
+        
+    
+    
+    Select Case FrmAlmacenes.Procedencia
+      Case nuevo
+        Dim rstAP As New ADODB.Recordset
+        StrAlmacen = formato_item(Val(Me.txtcodigo.Text), 5)
+       
+        
+        If Me.chkCajaIndependiente.Value = 1 Then
+            str_cajai = "si"
+        Else
+            str_cajai = "no"
+        End If
+        If Me.chkDefault.Value = 1 Then
+            defecto = "si"
+        Else
+            defecto = "no"
+        End If
+        
+        in_prefijo = Mid(KEY_RUC, 9, 2) & Format(Trim(Val(Me.txtcodigo.Text)), "00")
+        strCadena = "INSERT INTO almacen (id_alm,conversion_dolares,prefijo,descripcion,direccion,id_responsable,caja_independiente,id_sucursal,facturacion_detallada,facturacion_centralizada,activo,stock,defecto,id_tipoentidad,comprobante_adicional,comprobantes_propios,telefonos,id_moneda,movimiento_sin_stock,ruc) VALUES " & _
+        " ('" & StrAlmacen & "','" & in_conversion_dolares & "','" & in_prefijo & "','" & Me.TxtAlmacen.Text & "','" & Me.txtdireccion.Text & "','" & Trim(Me.TxtCodCliente.Text) & "','" & str_cajai & "','" & nsucursal & "','" & strdetallada & "','" & in_centralizada & "','" & activo & "','" & stock & "','" & defecto & "','" & ntipoentidad & "','" & in_comprobante_adicional & "','" & in_comprobantes_propios & "','" & Trim(Me.txtTelefonos.Text) & "','" & Me.DtcMoneda.BoundText & "','" & KEY_MOVIMIENTO_SIN_STOCK & "','" & KEY_RUC & "')"
+        CnBd.Execute (strCadena)
+        
+        If defecto = "si" Then
+            strCadena = "UPDATE almacen SET defecto='no' WHERE id_alm <> '" & Me.txtcodigo.Text & "' AND ruc='" & KEY_RUC & "'"
+            CnBd.Execute (strCadena)
+        End If
+        
+    If ntipoentidad = "0" And stock = "si" Then
+        Call put_insert_producto_alm(StrAlmacen)
+    End If
+    
+    FrmAlmacenes.Actualizar_Alm
+    Unload Me
+    Exit Sub
+    
+    Case Modificar
+        in_prefijo = Mid(KEY_RUC, 9, 2) & Format(Trim(Val(Me.txtcodigo.Text)), "00")
+        If (Me.chkDefault.Value = 1) Then
+            defecto = "si"
+        Else
+            defecto = "no"
+        End If
+        If Me.chkCajaIndependiente.Value = 1 Then
+            str_cajai = "si"
+        Else
+            str_cajai = "no"
+        End If
+        
+        strCadena = "UPDATE almacen SET  movimiento_sin_stock='" & KEY_MOVIMIENTO_SIN_STOCK & "', id_moneda='" & Me.DtcMoneda.BoundText & "', conversion_dolares='" & in_conversion_dolares & "',prefijo='" & in_prefijo & "',telefonos='" & Trim(Me.txtTelefonos.Text) & "',comprobantes_propios='" & in_comprobantes_propios & "',comprobante_adicional='" & in_comprobante_adicional & "',defecto='" & defecto & "',stock='" & stock & "',activo='" & activo & "', facturacion_detallada='" & strdetallada & "',facturacion_centralizada='" & in_centralizada & "', caja_independiente='" & str_cajai & "',descripcion='" & Me.TxtAlmacen.Text & "', direccion='" & Me.txtdireccion.Text & "',id_responsable='" & Trim(Me.TxtCodCliente.Text) & "',id_tipoentidad='" & ntipoentidad & "',id_sucursal='" & nsucursal & "' WHERE id_alm = '" & Trim(Me.txtcodigo.Text) & "' AND ruc='" & KEY_RUC & "'"
+        CnBd.Execute (strCadena)
+        
+        If stock = "si" And nsucursal = "0" Then
+           strCadena = "SELECT * FROM almacen_producto WHERE id_alm='" & Trim(Me.txtcodigo.Text) & "' and ruc='" & KEY_RUC & "'"
+           Call ConfiguraRst(strCadena)
+           If rst.RecordCount < 1 Then
+              Call put_insert_producto_alm(Trim(Me.txtcodigo.Text))
+           End If
+        End If
+        
+        If defecto = "si" Then
+            strCadena = "UPDATE almacen SET defecto='no' WHERE id_alm <> '" & Trim(Me.txtcodigo.Text) & "' AND ruc='" & KEY_RUC & "'"
+            CnBd.Execute (strCadena)
+        End If
+        
+        Call put_gen_sucursal(Trim(Me.txtcodigo.Text), in_prefijo)
+        Call FrmAlmacenes.Actualizar_Alm
+        Unload Me
+        End Select
+  End If
+End Sub
+Private Sub LLENA()
+
+strCadena = "SELECT * FROM almacen WHERE id_alm='" & FrmAlmacenes.HfgAlmacen.TextMatrix(FrmAlmacenes.HfgAlmacen.Row, 0) & "'AND ruc='" & KEY_RUC & "'"
+Call ConfiguraRst(strCadena)
+If rst.RecordCount > 0 Then
+Me.txtcodigo.Text = rst(0)
+Me.TxtAlmacen.Text = UCase(rst("descripcion"))
+Me.txtdireccion.Text = UCase(rst("direccion"))
+Me.TxtCodCliente.Text = rst("id_responsable")
+Me.txtEncargado.Text = NombrePersona(rst("id_responsable"))
+    If (rst("defecto") = "si") Then
+        Me.chkDefault.Value = 1
+    Else
+        Me.chkDefault.Value = 0
+    End If
+    Me.DtcMoneda.Visible = True
+    If rst("facturacion_centralizada") = "si" Then
+       Me.chk_facturacion_centralizada.Value = 1
+    Else
+       Me.chk_facturacion_centralizada.Value = 0
+    End If
+    
+    If rst("conversion_dolares") = "si" Then
+       Me.chk_conversion_moneda.Value = 1
+    Else
+        Me.chk_conversion_moneda.Value = 0
+    End If
+   Me.DtcMoneda.BoundText = rst("id_moneda")
+   
+    If rst("movimiento_sin_stock") = "si" Then
+       Me.chk_movimiento_sin_stock.Value = 1
+    Else
+        Me.chk_movimiento_sin_stock.Value = 0
+    End If
+    
+    
+    
+    If rst("stock") = "si" Then
+       Me.ChkStock.Value = 1
+    Else
+       Me.ChkStock.Value = 0
+    End If
+    If rst("activo") = "si" Then
+       Me.ChkAbilitado.Value = 1
+    Else
+       Me.ChkAbilitado.Value = 0
+    End If
+    Me.txtTelefonos.Text = rst("telefonos")
+    
+    If rst("id_sucursal") <> "0" Then
+        Me.chkVentanilla.Value = 1
+        Me.DtcSucursal.Visible = True
+        Me.DtcSucursal.BoundText = rst("id_sucursal")
+        Me.frame_telefono.Visible = False
+    Else
+        Me.frame_telefono.Visible = True
+        Me.chkVentanilla.Value = 0
+        Me.DtcSucursal.Visible = False
+    End If
+    
+    If rst("facturacion_detallada") = "si" Then
+        Me.chk_facturacion_detallada.Value = 1
+    Else
+        Me.chk_facturacion_detallada.Value = 0
+    End If
+   
+ If rst("caja_independiente") = "si" Then
+    Me.chkCajaIndependiente.Value = 1
+ Else
+    Me.chkCajaIndependiente.Value = 0
+ End If
+ 
+ If rst("comprobante_adicional") = "si" Then
+    Me.chk_comprobante_adicional.Value = 1
+ Else
+    Me.chk_comprobante_adicional.Value = 0
+ End If
+ 
+ If rst("comprobantes_propios") = "si" Then
+    Me.chkcomprobantesPropios.Value = 1
+ Else
+    Me.chkcomprobantesPropios.Value = 0
+ End If
+ 
+End If
+End Sub
+
+
+
+Private Sub TlbAcciones_ButtonClick(ByVal Button As MSComctlLib.Button)
+
+  Select Case Button.key
+    Case KEY_SAVE
+     
+    Case KEY_CANCEL
+      Unload Me
+  End Select
+ 
+End Sub
+
+Private Sub txtAlmacen_KeyPress(KeyAscii As Integer)
+If KeyAscii = 13 Then
+    Call Resalta(Me.txtdireccion)
+End If
+End Sub
+
+Private Sub TxtCodCliente_KeyPress(KeyAscii As Integer)
+If KeyAscii = 13 Then
+If Trim(Me.TxtCodCliente.Text) <> "" Then
+    strCadena = "SELECT * FROM persona WHERE dni='" & Trim(Me.TxtCodCliente.Text) & "'"
+    Call ConfiguraRst(strCadena)
+    If rst.RecordCount > 0 Then
+        Me.TxtCodCliente.Text = rst("dni")
+        Me.txtEncargado.Text = rst("nombre_completo")
+    Else
+        Procedencia = Selecionar
+        FrmPersona.Show
+        
+    End If
+Else
+     Procedencia = Selecionar
+     FrmPersona.Show
+End If
+End If
+End Sub
+
+Private Sub TxtDireccion_KeyPress(KeyAscii As Integer)
+If KeyAscii = 13 Then
+    Call Resalta(Me.TxtCodCliente)
+End If
+End Sub

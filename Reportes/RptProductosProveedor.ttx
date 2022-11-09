@@ -1,0 +1,7 @@
+barra	String	20
+producto	String	100
+unidad	String	4
+pVenta	Number
+pCompra	Number
+cproveedor	String	5
+proveedor	String	40

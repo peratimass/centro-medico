@@ -1,0 +1,10 @@
+codigo_cie			String	20
+fecha				Datetime
+hora				Datetime
+cie10				String	200
+medico			String	200
+fechaEnt			Datetime
+horaEnt			Datetime
+cama				String	50
+movimiento			String	80
+tipoDx			String	20

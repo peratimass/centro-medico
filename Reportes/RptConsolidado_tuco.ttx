@@ -1,0 +1,9 @@
+CodProd	String	5
+Prod	String	100
+Und	String	5
+linea	String	50
+stock	Number
+venta	Number
+costo	Number
+
+

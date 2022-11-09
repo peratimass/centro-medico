@@ -1,0 +1,5 @@
+in_venta	Number
+in_tipo_venta	String	20
+in_descripcion	String	50
+in_monto	Number
+in_cuotas	Number

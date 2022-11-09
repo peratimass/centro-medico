@@ -1,0 +1,30 @@
+dni	String	11
+in_ruc	String	11
+a_paterno	String	50
+a_materno	String	50
+nombres		String	80
+nombre_completo	String	120
+nacimiento	Date
+domicilio	String	150
+pais	String	50
+ubigueo	String	100
+edad	String	20
+sexo	String	2
+vinculado	String	2
+in_titular	String	80
+in_parentesco	String	50
+estado	String	30
+id_empresa	String	11
+in_empresa	String	60
+in_codigo_afiliacion	String	15
+in_seguro	String	100
+in_expedicion	String	20
+in_expira	String	20
+in_telefono	String	20
+in_estado_civil	String	20
+
+
+
+
+
+

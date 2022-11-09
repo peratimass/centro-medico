@@ -1,0 +1,15 @@
+emision	Date
+id_doc	String	3
+serie	String	3
+numero	String	14
+tipo	String	1
+ruc	String	11
+nombre	String	120
+afecto	Number
+exonerado	Number
+igv	Number
+total	Number
+retencion	Number
+otros	Number
+tc	Number
+

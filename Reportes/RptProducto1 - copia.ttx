@@ -1,0 +1,15 @@
+sucursal	String	100
+id_producto	String	10
+producto	String	100
+linea	String	60
+modelo	String	60
+marca	String	30
+unidad	String	20
+color	String	20
+precio_compra	Number
+precio_venta	Number
+precio_mayor	Number
+habilitado	String	2
+stock	Number
+
+

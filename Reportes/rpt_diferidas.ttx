@@ -1,0 +1,12 @@
+id_venta	Number
+emision	Date
+id_producto	String	10
+producto	String	50
+linea	String	30
+comprobante	String	30
+id_cliente	String	11
+cliente	String	50
+costo	Number
+venta	Number
+cantidad	Number
+vendedor	String	30

@@ -1,0 +1,17 @@
+id_venta	Number
+fecha_emision	Date
+documento	String	40
+id_cliente	String	11
+ncliente	String	60
+id_producto	String	5
+detalle	String	65
+cantidad	Number
+tptal_parcial	Number
+total	Number
+saldo	Number
+id_venta_pago	Number
+detalle_pago	String	40
+monto	Number
+
+
+

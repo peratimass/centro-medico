@@ -1,0 +1,193 @@
+VERSION 5.00
+Object = "{831FDD16-0C5C-11D2-A9FC-0000F8754DA1}#2.1#0"; "mscomctl.OCX"
+Begin VB.Form frmsegurity 
+   BorderStyle     =   0  'None
+   Caption         =   "Form1"
+   ClientHeight    =   1515
+   ClientLeft      =   0
+   ClientTop       =   0
+   ClientWidth     =   4500
+   KeyPreview      =   -1  'True
+   LinkTopic       =   "Form1"
+   MaxButton       =   0   'False
+   MDIChild        =   -1  'True
+   MinButton       =   0   'False
+   ScaleHeight     =   1515
+   ScaleWidth      =   4500
+   ShowInTaskbar   =   0   'False
+   Begin VB.TextBox txtMotivo 
+      Appearance      =   0  'Flat
+      BackColor       =   &H008080FF&
+      BeginProperty Font 
+         Name            =   "Calibri"
+         Size            =   9
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      Height          =   495
+      Left            =   2160
+      MultiLine       =   -1  'True
+      ScrollBars      =   2  'Vertical
+      TabIndex        =   1
+      Top             =   720
+      Width           =   2295
+   End
+   Begin VB.TextBox TxtClave 
+      Appearance      =   0  'Flat
+      BeginProperty Font 
+         Name            =   "Calibri"
+         Size            =   14.25
+         Charset         =   0
+         Weight          =   700
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      Height          =   315
+      IMEMode         =   3  'DISABLE
+      Left            =   2160
+      PasswordChar    =   "*"
+      TabIndex        =   0
+      Top             =   360
+      Width           =   2310
+   End
+   Begin VB.Timer timer_camara 
+      Interval        =   1000
+      Left            =   1680
+      Top             =   1080
+   End
+   Begin MSComctlLib.ProgressBar ProgressBar1 
+      Height          =   195
+      Left            =   2160
+      TabIndex        =   2
+      Top             =   1250
+      Width           =   2295
+      _ExtentX        =   4048
+      _ExtentY        =   344
+      _Version        =   393216
+      Appearance      =   0
+      Scrolling       =   1
+   End
+   Begin VB.Image img_of 
+      Height          =   1530
+      Left            =   0
+      Picture         =   "frmsegurity.frx":0000
+      Top             =   0
+      Width           =   1785
+   End
+   Begin VB.Image Image1 
+      Height          =   1530
+      Left            =   1792
+      Picture         =   "frmsegurity.frx":50A7
+      Top             =   0
+      Width           =   2715
+   End
+   Begin VB.Image img_on 
+      Height          =   1530
+      Left            =   0
+      Picture         =   "frmsegurity.frx":9CC0
+      Top             =   0
+      Visible         =   0   'False
+      Width           =   1785
+   End
+End
+Attribute VB_Name = "frmsegurity"
+Attribute VB_GlobalNameSpace = False
+Attribute VB_Creatable = False
+Attribute VB_PredeclaredId = True
+Attribute VB_Exposed = False
+
+Private Sub Form_KeyPress(KeyAscii As Integer)
+If KeyAscii = 27 Then
+    Call cerrar
+End If
+End Sub
+Public Sub cerrar()
+If FrmAlmacenes.Procedencia = Eliminar Then
+    FrmAlmacenes.Procedencia = Neutro
+    Call enabled_form(FrmAlmacenes)
+    Unload Me
+    Exit Sub
+End If
+
+If FrmProducto.Procedencia = Eliminar Then
+   FrmProducto.Procedencia = Neutro
+   Call enabled_form(FrmProducto)
+   Unload Me
+   Exit Sub
+End If
+
+Unload Me
+End Sub
+
+Private Sub Form_Load()
+CenterForm Me
+Me.Top = 3000
+End Sub
+
+Private Sub TxtClave_KeyPress(KeyAscii As Integer)
+If KeyAscii = 13 Then
+    
+    
+    If FrmVentas.Procedencia = modificar_precio And verificar_password_admin(Me.TxtClave.Text) = "00004" Then
+       FrmVentas.Procedencia = Neutro
+       FrmVentas.insertar_item
+       Unload Me
+       Exit Sub
+    End If
+    
+    
+    If verificar_password(Trim(Me.TxtClave.Text)) = True Then
+       
+       If FrmTransferencias.Procedencia = anular Then
+          FrmTransferencias.Procedencia = Neutro
+          Call anular_guia(FrmTransferencias.DtcTipoDoc.BoundText, FrmTransferencias.TxtSerie.Text, FrmTransferencias.TxtNumeroDoc.Text, FrmTransferencias.DtcAlmacenOrigen.BoundText)
+          FrmTransferencias.frmanulado.Visible = True
+          FrmTransferencias.lblanulado.Visible = True
+          'FrmTransferencias.TlbGrabar.Buttons(KEY_SAVE).Enabled = False
+          FrmTransferencias.cmdprocesar.Enabled = False
+          Unload Me
+          Exit Sub
+       End If
+       
+    
+       If frmmistareas.Procedencia = eliminar_informe Then
+          frmmistareas.Procedencia = Neutro
+          If eliminar_informe_I(frmmistareas.HfInforme01.TextMatrix(frmmistareas.HfInforme01.Row, 0)) = True Then
+            Call frmmistareas.llenar_informe(frmmistareas.HfInforme01, frmmistareas.MonthInforme.Value, KEY_USUARIO)
+          End If
+          Unload Me
+          Exit Sub
+       End If
+       
+       If FrmAlmacenes.Procedencia = Eliminar Then
+          FrmAlmacenes.Procedencia = Neutro
+          Call delete_almacen(FrmAlmacenes.HfgAlmacen.TextMatrix(FrmAlmacenes.HfgAlmacen.Row, 0))
+          FrmAlmacenes.Actualizar_Alm
+          Call enabled_form(FrmAlmacenes)
+          Unload Me
+          Exit Sub
+          
+       End If
+       
+       If FrmProducto.Procedencia = Eliminar Then
+          FrmProducto.Procedencia = Neutro
+          Call delete_producto(FrmProducto.HfdGrilla.TextMatrix(FrmProducto.HfdGrilla.Row, 0))
+          Call FrmProducto.ActualizarProd
+          Call enabled_form(FrmProducto)
+          Unload Me
+          Exit Sub
+       End If
+    
+    
+    Else
+        MsgBox "PASSWORD DE ACCIONES INCORRECTA." + Chr(13) + Chr(13) + "INTENTE NUEVAMENTE.", vbInformation, "SR(A)." & KEY_VENDEDOR
+        Unload Me
+        Exit Sub
+    End If
+End If
+End Sub
+

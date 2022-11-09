@@ -1,0 +1,16 @@
+in_transferencia	Number
+id_producto	String	10
+detalle	String	100
+peso	Number
+cantidad	Number
+total	Number
+chasis	String	20
+motor	String	20
+nro_dua	String	10
+nro_item	String	10
+unidad	String	20
+modelo	String	30
+color	String	20
+marca	String	30
+anio_fabrica	String	10
+ruc	String	11

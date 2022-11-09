@@ -1,0 +1,11 @@
+Codigo	String	8
+fecha	Date
+descripcion	String	40
+cantidad	Number
+detalle	String	100
+estado	String	20
+cod_barra	String	20
+producto	String	60
+unidad	String	3
+cantidad_uni	Number
+usuario	String	40

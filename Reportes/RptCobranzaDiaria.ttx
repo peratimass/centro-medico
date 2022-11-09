@@ -1,0 +1,10 @@
+CodOperador	String	5
+Operador	String	50
+CodAlm	String	5
+Alm	String	50
+Fecha	Date
+Doc	String	10
+Numero	String	18
+Cliente	String	100
+Total	Number
+FormaPago	String	10

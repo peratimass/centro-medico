@@ -1,0 +1,16 @@
+id_venta	Number
+emision	Date
+in_doc	String	5
+in_producto	String	10
+producto	String	60
+in_linea	String	5
+linea	String	50
+id_sublinea	String	5
+sublinea	String	50
+in_cantidad	Number
+in_costo	Number
+in_venta	Number
+saldo_stock	Number
+promedio	Number
+inventario	Number
+

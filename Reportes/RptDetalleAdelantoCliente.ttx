@@ -1,0 +1,9 @@
+CodCli	String	5
+Cliente	String	50
+Direccion	String	50
+Ruc	String	11
+Adelanto	Number
+TipoDoc	String	5	
+Numero	String	20
+Importe	Number
+

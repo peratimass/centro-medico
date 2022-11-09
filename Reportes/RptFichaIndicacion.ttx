@@ -1,0 +1,25 @@
+nombrePiso	String	50
+cama		String	24
+nombres	String	100
+apellidos	String	201
+dni		String	11
+fecha_nacimiento		String	10
+seguro		String	200
+espec_habit		String	200
+fecha_creacion	Datetime
+id		Number
+medico		String	302
+especialidad	String	200
+dniMed	String	11
+estatura	Number
+peso		Number
+edad		String	20
+nivel		Number
+sexo		String	15
+fecha_ingreso	Datetime
+fechaInd	Datetime
+horaInd	Datetime
+observacion		String	500
+medicoIndicador	String	150
+intervalo		String	20
+dieta			String	20

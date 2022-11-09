@@ -1,0 +1,18 @@
+id_manifiesto	Number
+fecha	Date
+numero	String	14
+marca	String	30
+placa	String	30
+dni_chofer	String	16
+chofer	String	60
+licencia	String	20
+direccion	String	80
+comprobante	String	40
+monto	Number
+forma_pago	String	5
+cliente	String	60
+direccion_cli	String	60
+
+
+
+

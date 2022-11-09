@@ -1,0 +1,719 @@
+VERSION 5.00
+Object = "{F0D2F211-CCB0-11D0-A316-00AA00688B10}#1.0#0"; "MSDATLST.OCX"
+Object = "{86CF1D34-0C5F-11D2-A9FC-0000F8754DA1}#2.0#0"; "MSCOMCT2.OCX"
+Object = "{0ECD9B60-23AA-11D0-B351-00A0C9055D8E}#6.0#0"; "MSHFLXGD.OCX"
+Begin VB.Form frmpersonaasistencia 
+   BorderStyle     =   0  'None
+   Caption         =   "Form1"
+   ClientHeight    =   7230
+   ClientLeft      =   0
+   ClientTop       =   0
+   ClientWidth     =   14670
+   LinkTopic       =   "Form1"
+   MaxButton       =   0   'False
+   MinButton       =   0   'False
+   ScaleHeight     =   7230
+   ScaleWidth      =   14670
+   ShowInTaskbar   =   0   'False
+   StartUpPosition =   3  'Windows Default
+   Begin VB.Frame frmpermiso 
+      BackColor       =   &H00FFFFFF&
+      Height          =   4815
+      Left            =   2160
+      TabIndex        =   12
+      Top             =   1560
+      Visible         =   0   'False
+      Width           =   9855
+      Begin VB.TextBox txtautorizadopor 
+         Appearance      =   0  'Flat
+         BackColor       =   &H00FFFFFF&
+         BeginProperty Font 
+            Name            =   "Calibri"
+            Size            =   9
+            Charset         =   0
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         ForeColor       =   &H00C00000&
+         Height          =   555
+         Left            =   2640
+         ScrollBars      =   2  'Vertical
+         TabIndex        =   28
+         Top             =   3360
+         Width           =   4335
+      End
+      Begin VB.OptionButton optnoremunerado 
+         Appearance      =   0  'Flat
+         BackColor       =   &H80000005&
+         Caption         =   "NO REMUNERADO"
+         BeginProperty Font 
+            Name            =   "Calibri"
+            Size            =   9
+            Charset         =   0
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         ForeColor       =   &H00800000&
+         Height          =   375
+         Left            =   5160
+         TabIndex        =   24
+         Top             =   2760
+         Value           =   -1  'True
+         Width           =   1935
+      End
+      Begin VB.OptionButton optremunerado 
+         Appearance      =   0  'Flat
+         BackColor       =   &H80000005&
+         Caption         =   "REMUNERADO"
+         BeginProperty Font 
+            Name            =   "Calibri"
+            Size            =   9
+            Charset         =   0
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         ForeColor       =   &H00800000&
+         Height          =   375
+         Left            =   2640
+         TabIndex        =   23
+         Top             =   2760
+         Width           =   1575
+      End
+      Begin MSComCtl2.DTPicker dtpinicio 
+         Height          =   375
+         Left            =   2640
+         TabIndex        =   19
+         Top             =   1800
+         Width           =   1695
+         _ExtentX        =   2990
+         _ExtentY        =   661
+         _Version        =   393216
+         BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+            Name            =   "Calibri"
+            Size            =   9
+            Charset         =   0
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         Format          =   68026369
+         CurrentDate     =   42236
+      End
+      Begin VB.TextBox txtdetallepermiso 
+         Appearance      =   0  'Flat
+         BackColor       =   &H00FFFFFF&
+         BeginProperty Font 
+            Name            =   "Calibri"
+            Size            =   9
+            Charset         =   0
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         ForeColor       =   &H00C00000&
+         Height          =   675
+         Left            =   2640
+         MultiLine       =   -1  'True
+         ScrollBars      =   2  'Vertical
+         TabIndex        =   17
+         Top             =   840
+         Width           =   4335
+      End
+      Begin VB.TextBox txtbuscar 
+         Appearance      =   0  'Flat
+         BackColor       =   &H00FFFFFF&
+         BeginProperty Font 
+            Name            =   "Calibri"
+            Size            =   9
+            Charset         =   0
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         ForeColor       =   &H00C00000&
+         Height          =   315
+         Left            =   7080
+         TabIndex        =   15
+         Top             =   360
+         Width           =   1815
+      End
+      Begin MSDataListLib.DataCombo DtcTrabajador 
+         Height          =   330
+         Left            =   2640
+         TabIndex        =   14
+         Top             =   360
+         Width           =   4335
+         _ExtentX        =   7646
+         _ExtentY        =   582
+         _Version        =   393216
+         Appearance      =   0
+         ForeColor       =   8388608
+         Text            =   "DataCombo1"
+         BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+            Name            =   "Calibri"
+            Size            =   9
+            Charset         =   0
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+      End
+      Begin MSComCtl2.DTPicker dtpfinal 
+         Height          =   375
+         Left            =   5280
+         TabIndex        =   20
+         Top             =   1800
+         Width           =   1695
+         _ExtentX        =   2990
+         _ExtentY        =   661
+         _Version        =   393216
+         BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+            Name            =   "Calibri"
+            Size            =   9
+            Charset         =   0
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         Format          =   68026369
+         CurrentDate     =   42236
+      End
+      Begin VitekeySoft.ChameleonBtn cmdprocesar 
+         Height          =   405
+         Left            =   5520
+         TabIndex        =   25
+         Top             =   4200
+         Width           =   1935
+         _ExtentX        =   3413
+         _ExtentY        =   714
+         BTYPE           =   3
+         TX              =   "PROCESAR"
+         ENAB            =   -1  'True
+         BeginProperty FONT {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+            Name            =   "Calibri"
+            Size            =   9
+            Charset         =   0
+            Weight          =   700
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         COLTYPE         =   2
+         FOCUSR          =   -1  'True
+         BCOL            =   16777215
+         BCOLO           =   16777215
+         FCOL            =   0
+         FCOLO           =   0
+         MCOL            =   12632256
+         MPTR            =   1
+         MICON           =   "frmpersonaasistencia.frx":0000
+         PICN            =   "frmpersonaasistencia.frx":001C
+         UMCOL           =   -1  'True
+         SOFT            =   0   'False
+         PICPOS          =   0
+         NGREY           =   0   'False
+         FX              =   0
+         HAND            =   0   'False
+         CHECK           =   0   'False
+         VALUE           =   0   'False
+      End
+      Begin VitekeySoft.ChameleonBtn cmdsalir 
+         Height          =   405
+         Left            =   7560
+         TabIndex        =   26
+         Top             =   4200
+         Width           =   1935
+         _ExtentX        =   3413
+         _ExtentY        =   714
+         BTYPE           =   3
+         TX              =   "CERRAR"
+         ENAB            =   -1  'True
+         BeginProperty FONT {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+            Name            =   "Calibri"
+            Size            =   9
+            Charset         =   0
+            Weight          =   700
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         COLTYPE         =   2
+         FOCUSR          =   -1  'True
+         BCOL            =   16777215
+         BCOLO           =   16777215
+         FCOL            =   0
+         FCOLO           =   0
+         MCOL            =   12632256
+         MPTR            =   1
+         MICON           =   "frmpersonaasistencia.frx":2601
+         PICN            =   "frmpersonaasistencia.frx":261D
+         UMCOL           =   -1  'True
+         SOFT            =   0   'False
+         PICPOS          =   0
+         NGREY           =   0   'False
+         FX              =   0
+         HAND            =   0   'False
+         CHECK           =   0   'False
+         VALUE           =   0   'False
+      End
+      Begin VB.Label Label10 
+         Alignment       =   2  'Center
+         AutoSize        =   -1  'True
+         BackStyle       =   0  'Transparent
+         Caption         =   "AUTORIZADO POR :"
+         BeginProperty Font 
+            Name            =   "Calibri"
+            Size            =   9
+            Charset         =   0
+            Weight          =   700
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         ForeColor       =   &H00800000&
+         Height          =   210
+         Left            =   660
+         TabIndex        =   27
+         Top             =   3525
+         Width           =   1485
+      End
+      Begin VB.Label Label9 
+         Alignment       =   2  'Center
+         AutoSize        =   -1  'True
+         BackStyle       =   0  'Transparent
+         Caption         =   "PERMISO REMUNERADO :"
+         BeginProperty Font 
+            Name            =   "Calibri"
+            Size            =   9
+            Charset         =   0
+            Weight          =   700
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         ForeColor       =   &H00800000&
+         Height          =   210
+         Left            =   180
+         TabIndex        =   22
+         Top             =   2880
+         Width           =   1965
+      End
+      Begin VB.Label Label8 
+         Alignment       =   2  'Center
+         AutoSize        =   -1  'True
+         BackStyle       =   0  'Transparent
+         Caption         =   "AL"
+         BeginProperty Font 
+            Name            =   "Calibri"
+            Size            =   9
+            Charset         =   0
+            Weight          =   700
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         ForeColor       =   &H00800000&
+         Height          =   210
+         Left            =   4665
+         TabIndex        =   21
+         Top             =   1920
+         Width           =   195
+      End
+      Begin VB.Label Label7 
+         Alignment       =   2  'Center
+         AutoSize        =   -1  'True
+         BackStyle       =   0  'Transparent
+         Caption         =   "FECHA INICIO :"
+         BeginProperty Font 
+            Name            =   "Calibri"
+            Size            =   9
+            Charset         =   0
+            Weight          =   700
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         ForeColor       =   &H00800000&
+         Height          =   210
+         Left            =   1020
+         TabIndex        =   18
+         Top             =   1920
+         Width           =   1125
+      End
+      Begin VB.Label Label6 
+         Alignment       =   2  'Center
+         AutoSize        =   -1  'True
+         BackStyle       =   0  'Transparent
+         Caption         =   "DETALLE DEL PERMISO :"
+         BeginProperty Font 
+            Name            =   "Calibri"
+            Size            =   9
+            Charset         =   0
+            Weight          =   700
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         ForeColor       =   &H00800000&
+         Height          =   210
+         Left            =   330
+         TabIndex        =   16
+         Top             =   960
+         Width           =   1815
+      End
+      Begin VB.Label Label5 
+         Alignment       =   2  'Center
+         AutoSize        =   -1  'True
+         BackStyle       =   0  'Transparent
+         Caption         =   "TRABAJADOR :"
+         BeginProperty Font 
+            Name            =   "Calibri"
+            Size            =   9
+            Charset         =   0
+            Weight          =   700
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         ForeColor       =   &H00800000&
+         Height          =   210
+         Left            =   1020
+         TabIndex        =   13
+         Top             =   405
+         Width           =   1125
+      End
+   End
+   Begin MSDataListLib.DataCombo DataCombo1 
+      Height          =   330
+      Left            =   6960
+      TabIndex        =   9
+      Top             =   120
+      Width           =   1695
+      _ExtentX        =   2990
+      _ExtentY        =   582
+      _Version        =   393216
+      Appearance      =   0
+      ForeColor       =   8388608
+      Text            =   "DataCombo1"
+      BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+         Name            =   "Calibri"
+         Size            =   9
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+   End
+   Begin VitekeySoft.ChameleonBtn ChameleonBtn1 
+      Height          =   855
+      Left            =   13560
+      TabIndex        =   5
+      Top             =   960
+      Width           =   975
+      _ExtentX        =   1720
+      _ExtentY        =   1508
+      BTYPE           =   3
+      TX              =   "NUEVO"
+      ENAB            =   -1  'True
+      BeginProperty FONT {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+         Name            =   "Calibri"
+         Size            =   9
+         Charset         =   0
+         Weight          =   700
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      COLTYPE         =   2
+      FOCUSR          =   -1  'True
+      BCOL            =   16777215
+      BCOLO           =   16777215
+      FCOL            =   0
+      FCOLO           =   0
+      MCOL            =   12632256
+      MPTR            =   1
+      MICON           =   "frmpersonaasistencia.frx":5632
+      PICN            =   "frmpersonaasistencia.frx":564E
+      UMCOL           =   -1  'True
+      SOFT            =   0   'False
+      PICPOS          =   2
+      NGREY           =   0   'False
+      FX              =   0
+      HAND            =   0   'False
+      CHECK           =   0   'False
+      VALUE           =   0   'False
+   End
+   Begin VB.TextBox TxtRuc 
+      Appearance      =   0  'Flat
+      BackColor       =   &H00FFFFFF&
+      BeginProperty Font 
+         Name            =   "Tahoma"
+         Size            =   8.25
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      ForeColor       =   &H00C00000&
+      Height          =   285
+      Left            =   2160
+      TabIndex        =   1
+      Top             =   480
+      Width           =   2535
+   End
+   Begin VB.TextBox TxtApellido 
+      Appearance      =   0  'Flat
+      BackColor       =   &H00FFFFFF&
+      BeginProperty Font 
+         Name            =   "Tahoma"
+         Size            =   8.25
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      ForeColor       =   &H00C00000&
+      Height          =   285
+      Left            =   2160
+      TabIndex        =   0
+      Top             =   120
+      Width           =   2535
+   End
+   Begin MSHierarchicalFlexGridLib.MSHFlexGrid HfdPersona 
+      Height          =   6135
+      Left            =   120
+      TabIndex        =   2
+      Top             =   960
+      Width           =   13335
+      _ExtentX        =   23521
+      _ExtentY        =   10821
+      _Version        =   393216
+      ForeColor       =   8388608
+      FixedCols       =   0
+      ForeColorFixed  =   8388608
+      BackColorBkg    =   16777215
+      SelectionMode   =   1
+      Appearance      =   0
+      BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+         Name            =   "Tahoma"
+         Size            =   8.25
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      _NumberOfBands  =   1
+      _Band(0).Cols   =   2
+   End
+   Begin VitekeySoft.ChameleonBtn ChameleonBtn2 
+      Height          =   855
+      Left            =   13560
+      TabIndex        =   6
+      Top             =   1920
+      Width           =   975
+      _ExtentX        =   1720
+      _ExtentY        =   1508
+      BTYPE           =   3
+      TX              =   "ASISTENCIA"
+      ENAB            =   -1  'True
+      BeginProperty FONT {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+         Name            =   "Calibri"
+         Size            =   9
+         Charset         =   0
+         Weight          =   700
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      COLTYPE         =   2
+      FOCUSR          =   -1  'True
+      BCOL            =   16777215
+      BCOLO           =   16777215
+      FCOL            =   0
+      FCOLO           =   0
+      MCOL            =   12632256
+      MPTR            =   1
+      MICON           =   "frmpersonaasistencia.frx":7F38
+      PICN            =   "frmpersonaasistencia.frx":7F54
+      UMCOL           =   -1  'True
+      SOFT            =   0   'False
+      PICPOS          =   2
+      NGREY           =   0   'False
+      FX              =   0
+      HAND            =   0   'False
+      CHECK           =   0   'False
+      VALUE           =   0   'False
+   End
+   Begin VitekeySoft.ChameleonBtn ChameleonBtn3 
+      Height          =   855
+      Left            =   13560
+      TabIndex        =   7
+      Top             =   2880
+      Width           =   975
+      _ExtentX        =   1720
+      _ExtentY        =   1508
+      BTYPE           =   3
+      TX              =   "ASISTENCIA"
+      ENAB            =   -1  'True
+      BeginProperty FONT {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+         Name            =   "Calibri"
+         Size            =   9
+         Charset         =   0
+         Weight          =   700
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      COLTYPE         =   2
+      FOCUSR          =   -1  'True
+      BCOL            =   16777215
+      BCOLO           =   16777215
+      FCOL            =   0
+      FCOLO           =   0
+      MCOL            =   12632256
+      MPTR            =   1
+      MICON           =   "frmpersonaasistencia.frx":AD6B
+      PICN            =   "frmpersonaasistencia.frx":AD87
+      UMCOL           =   -1  'True
+      SOFT            =   0   'False
+      PICPOS          =   2
+      NGREY           =   0   'False
+      FX              =   0
+      HAND            =   0   'False
+      CHECK           =   0   'False
+      VALUE           =   0   'False
+   End
+   Begin MSDataListLib.DataCombo DataCombo2 
+      Height          =   330
+      Left            =   6960
+      TabIndex        =   11
+      Top             =   480
+      Width           =   1695
+      _ExtentX        =   2990
+      _ExtentY        =   582
+      _Version        =   393216
+      Appearance      =   0
+      ForeColor       =   8388608
+      Text            =   "DataCombo1"
+      BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+         Name            =   "Calibri"
+         Size            =   9
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+   End
+   Begin VB.Label Label3 
+      Alignment       =   2  'Center
+      AutoSize        =   -1  'True
+      BackStyle       =   0  'Transparent
+      Caption         =   "MES SELECCIONADO:"
+      BeginProperty Font 
+         Name            =   "Calibri"
+         Size            =   9
+         Charset         =   0
+         Weight          =   700
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      ForeColor       =   &H00800000&
+      Height          =   210
+      Left            =   5055
+      TabIndex        =   10
+      Top             =   480
+      Width           =   1605
+   End
+   Begin VB.Label Label1 
+      Alignment       =   2  'Center
+      AutoSize        =   -1  'True
+      BackStyle       =   0  'Transparent
+      Caption         =   "AÑO ELECCION :"
+      BeginProperty Font 
+         Name            =   "Calibri"
+         Size            =   9
+         Charset         =   0
+         Weight          =   700
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      ForeColor       =   &H00800000&
+      Height          =   210
+      Left            =   5445
+      TabIndex        =   8
+      Top             =   120
+      Width           =   1215
+   End
+   Begin VB.Label Label4 
+      Alignment       =   2  'Center
+      AutoSize        =   -1  'True
+      BackStyle       =   0  'Transparent
+      Caption         =   "RUC/DNI :"
+      BeginProperty Font 
+         Name            =   "Calibri"
+         Size            =   9
+         Charset         =   0
+         Weight          =   700
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      ForeColor       =   &H00800000&
+      Height          =   210
+      Left            =   1200
+      TabIndex        =   4
+      Top             =   480
+      Width           =   795
+   End
+   Begin VB.Label Label2 
+      Alignment       =   2  'Center
+      AutoSize        =   -1  'True
+      BackStyle       =   0  'Transparent
+      Caption         =   "NOMBRE TRABAJADOR :"
+      BeginProperty Font 
+         Name            =   "Calibri"
+         Size            =   9
+         Charset         =   0
+         Weight          =   700
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      ForeColor       =   &H00800000&
+      Height          =   210
+      Left            =   180
+      TabIndex        =   3
+      Top             =   120
+      Width           =   1875
+   End
+End
+Attribute VB_Name = "frmpersonaasistencia"
+Attribute VB_GlobalNameSpace = False
+Attribute VB_Creatable = False
+Attribute VB_PredeclaredId = True
+Attribute VB_Exposed = False
+Private Sub Form_Load()
+CenterForm Me
+Me.Top = 100
+strCadena = "SELECT e.cod_unico as Codigo,p.nombre_completo as Descripcion FROM entidad_empresa e,persona p where e.cod_unico=p.dni and e.id_personal='si' and e.id_empresa='" & KEY_RUC & "'"
+Call ConfiguraRst(strCadena)
+Call LlenaDataCombo(Me.DtcTrabajador)
+End Sub

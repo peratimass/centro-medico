@@ -1,0 +1,6 @@
+id_especialidad	String	5
+especialidad	String	300
+dni_medico	String	11
+medico	String	300
+dni_paciente	String	11
+fecha	Date	

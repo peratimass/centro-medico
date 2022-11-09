@@ -1,0 +1,19 @@
+Serie	String	5
+Numero	String	10
+Abrevia	String	10
+Fecha	Date
+Cliente	String	70
+Direccion	String	100
+Ruc	String	12
+Usuario	String	10
+FormaPago	String	15
+CodProd	String	5
+Cantidad	Number
+Und	String	4
+Producto	String	60
+Precio	Number
+Dscto	Number
+Importe	Number
+
+
+

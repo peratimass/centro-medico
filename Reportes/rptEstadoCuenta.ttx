@@ -1,0 +1,23 @@
+id_venta	String	20
+fecha_emision	Date
+fecha_vencimiento	Date
+dias	Number
+hora	String	10
+numero	String	10
+comprobante	String	35
+id_cliente	String	11
+ncliente	String	100
+direccion	String	100
+celular	String	20
+total	Number
+saldo	Number
+anulado	String	2
+id_moneda	String	5
+ruc	String	11
+tc	Number
+id_alm	String	5
+id_doc	String	4
+referencia	String	40
+moneda	String	15
+simbolo	String	5
+documento	String	40

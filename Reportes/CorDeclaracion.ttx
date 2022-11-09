@@ -1,0 +1,9 @@
+cliente			String	130
+dni				String	11
+dni_coopropietario	String	11
+coopropietario	String	130
+documento	String	30
+cheque	String	50
+fecha_emision	Date
+forma_pago	String	2
+

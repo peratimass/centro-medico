@@ -1,0 +1,15 @@
+fecha_ini	Date
+fecha_fin	Date
+periodo	String	50
+id	String	2
+id_tipo	String	2
+descripcion	String	60
+valor	Number
+operador	String	60
+
+
+
+
+
+
+

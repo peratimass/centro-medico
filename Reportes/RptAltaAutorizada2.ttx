@@ -1,0 +1,17 @@
+paciente	String	302
+nombre_completo	String	130
+fecha	Datetime
+hora	Datetime
+motivo	String	50
+observacion	String	500
+plan	String	1000
+piso	String	50
+fecha_adm	Datetime
+hora_adm	Datetime
+cajera	String	130
+enfermera	String	130
+fecha_real	Datetime
+hora_real	Datetime
+edad	String	20
+fecha_ingreso	Datetime
+

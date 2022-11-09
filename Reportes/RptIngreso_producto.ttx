@@ -1,0 +1,17 @@
+fecha_ini	Date
+fecha_fin	Date
+almacen	String	60
+id_compra	Number
+fecha	Date
+codigo	String	10
+producto	String	80
+cantidad	Number
+proveedor	String	80
+comprobante	String	40
+moneda	String	20
+unitario	Number
+flete	Number
+descuento	Number
+total	Number
+
+

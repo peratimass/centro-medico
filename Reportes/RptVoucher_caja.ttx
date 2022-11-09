@@ -1,0 +1,15 @@
+cuenta_origen	String	50
+cuenta_destino	String	50
+tipomovimiento	String	50
+fecha	Date
+dni_cliente	String	11
+ncliente	String	50
+monto	Number
+monto_letras	String	120
+tc	Number
+id_moneda	String	5
+operacion	String	20
+glosa	String	500
+comprobante	String	50
+forma_pago	String	50
+flujo	String	50

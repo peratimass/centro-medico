@@ -1,0 +1,2 @@
+Línea 754: la clase MSComctlLib.ImageList del control ImgIconos no era una clase de control cargada.
+Línea 842: la clase MSComctlLib.Toolbar del control TlbGrabar no era una clase de control cargada.

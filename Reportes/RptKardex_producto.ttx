@@ -1,0 +1,10 @@
+in_kardex	Number
+fecha	Date
+comprobante	String	30
+dni	String	16
+cliente	String	60
+cantidad	Number
+cantreal	Number
+costo	Number
+saldo	Number
+promedio	Number

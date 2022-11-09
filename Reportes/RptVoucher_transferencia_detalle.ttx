@@ -1,0 +1,7 @@
+cuenta	String	60
+simbolo	String	4
+monto	Number
+tc	Number
+id_moneda	String	5
+operador	String	60
+

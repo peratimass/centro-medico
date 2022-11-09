@@ -1,0 +1,9 @@
+emision	Date
+id_producto	String	10
+producto	String	60
+stock_sistema	Number
+stock_conteo	Number
+sobrante	Number
+faltante	Number
+comentario	String	200
+operador	String	100

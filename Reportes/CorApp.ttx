@@ -1,0 +1,8 @@
+nro_chasis			String	20
+nro_motor			String	20
+modelo	String	20
+marca				String	20
+paciente			String	130
+direccion			String	200
+dni				String	11
+fecha_emision		Datetime

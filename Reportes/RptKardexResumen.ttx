@@ -1,0 +1,7 @@
+id_producto	String	5
+nproducto	String	60
+cantidad_ini	Number
+saldo_ini	Number
+saldo_ing	Number
+saldo_salida	Number
+saldo_final	Number

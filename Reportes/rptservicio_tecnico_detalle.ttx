@@ -1,0 +1,6 @@
+id	Number
+id_producto	String	10
+detalle	String	100
+cantidad	Number
+precio	Number
+total	Number

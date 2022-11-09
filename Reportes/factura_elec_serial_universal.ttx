@@ -1,0 +1,38 @@
+in_venta	Number
+fecha_emision	Date
+fecha_vencimiento	Date
+tipo_doc	String	40
+comprobante	String	40
+id_cliente	String	11
+ncliente	String	100
+direccion	String	200
+exonerado	Number
+valor_venta	Number
+igv	Number
+total	Number
+sunat_key	String	150
+sunat_hash	String	100
+id_producto	String	10
+detalle_producto	String	80
+referencia	String	100
+cantidad	Number
+valor_neto_d	Number
+precio_d	Number
+total_d	Number
+detraccion	String	120
+monto_letras	String	150
+usuario	String	100
+vim	String	30
+chasis	String	30
+motor	String	30
+modelo	String	40
+color	String	25
+marca	String	40
+anio_fabrica	String	10
+nrodua	String	20
+nitem	String	10
+opcional	String	100
+poliza	String	20
+ip	String	20	
+id_moneda	String	5
+ruc	String	11

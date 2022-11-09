@@ -1,0 +1,2 @@
+vitekeyaurora.c7sooxrhnzrw.us-east-1.rds.amazonaws.com
+vitekeyextrem-cluster.cluster-c7sooxrhnzrw.us-east-1.rds.amazonaws.com

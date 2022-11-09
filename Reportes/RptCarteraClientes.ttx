@@ -1,0 +1,6 @@
+Codigo	String	10
+Ruc	String	11
+Persona	String	150
+SubTotal	Number		
+Igv	Number
+Total	Number

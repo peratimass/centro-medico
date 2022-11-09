@@ -1,0 +1,14 @@
+id_parametro	Number
+descripcion	String	60
+emision	Date
+vencimiento	Date
+dni	String	11
+cliente	String	60
+documento	String	40
+total	Number
+pago	Number
+saldo	Number
+dias	Number
+dudosa	String	2
+id_doc	String	4
+ruc	String	11

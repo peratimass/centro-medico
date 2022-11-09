@@ -1,0 +1,18 @@
+id_manifiesto	Number
+fecha	Date
+numero	String	14
+marca	String	30
+placa	String	30
+dni_chofer	String	16
+chofer	String	60
+licencia	String	20
+direccion	String	80
+linea	String	40
+id_producto	String	5
+producto	String	60
+cantidad	Number
+operador	String	60
+
+
+
+

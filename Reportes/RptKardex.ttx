@@ -1,0 +1,16 @@
+cKardex	String	20
+cTipoMov	String	5
+TipoMov	String	10
+Doc_Cod	String	5
+Doc_Abre	String	10
+NumeroDoc	String	20
+cproducto	String	5
+Producto	String	50
+Cant_Mov	Number
+Precio	Number
+Total	Number
+fecha	Date
+cLinea	String	5
+Linea	String	20	
+CodAlm	String	5
+Alm	String	50

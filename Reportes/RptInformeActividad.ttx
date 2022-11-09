@@ -1,0 +1,14 @@
+ruc	String	16
+empresa	String	100
+celular	String	10
+plan	String	40
+operador	String	60
+estado	String	40
+fecha	Date
+hora	String	20
+
+
+
+
+
+

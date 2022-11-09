@@ -1,0 +1,6 @@
+cDistribuidora	String	6	
+sRazonSocial	String	80	
+sDireccionDistribuidora	String	50	
+sRuc	String	11	
+sTelefonoDistribuidora1	String	9	
+sEmailDistribuidora	String	50	

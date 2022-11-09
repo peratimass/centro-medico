@@ -1,0 +1,10 @@
+id_producto	String	5
+nproducto	String	60
+cantidad_ini	Number
+costo_ini	Number
+cantidad_ingreso	Number
+costo_ingreso	Number
+cantidad_salida	Number
+costo_salida	Number
+cantidad_final	Number
+costo_final	Number

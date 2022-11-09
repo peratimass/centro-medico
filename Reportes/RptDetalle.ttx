@@ -1,0 +1,12 @@
+CodProd	String	4
+Articulo	String	70
+Fecha	Date
+TipoDoc	String	4
+Comprobante	String	15
+Precio	Number
+IngCant	Number
+SalCant	Number
+SaldoCant	Number
+IngImp	Number
+SalImp	Number
+Cliente	String	100

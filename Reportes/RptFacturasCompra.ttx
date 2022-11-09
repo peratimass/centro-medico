@@ -1,0 +1,27 @@
+idCompra	Number
+ruc	String	11
+proveedor	String	50
+fecha	Date
+serie	String	4
+numero	String	10
+doc_cod	String	5
+comprobante	String	10
+descuento	Number
+subtotal	Number
+igv	Number
+isc	Number
+percepcion	Number
+total	Number
+redondeo	Number
+cproducto	String	5
+barra	String	20
+producto	String	100
+cantidad	Number
+cunitario	Number
+Des_soles	Number
+Des_proc	Number
+valorn	Number
+Disc	Number
+Digv	Number
+pventa	Number
+

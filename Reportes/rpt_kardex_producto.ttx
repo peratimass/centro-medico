@@ -1,0 +1,18 @@
+periodo	String	20
+ruc	String	16
+id_producto	String	10
+tipo	String	20
+producto	String	80
+emision	Date
+id_doc	String	4
+serie	String	4
+numero	String	10
+tipo_op	String	2
+cantidad	Number
+cantidad_real	Number
+costo_unitario	Number
+saldo_stock	Number
+
+
+
+

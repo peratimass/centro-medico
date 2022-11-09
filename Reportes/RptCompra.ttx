@@ -1,0 +1,22 @@
+in_compra	Number
+in_comprobante	String	30
+fecha_registro	Date
+fecha_pedido	Date
+fecha_pago	Date
+id_proveedor	String	11
+nproveedor	String	60
+id_producto	String	5
+nproducto	String	80
+unidad	String	20
+cantidad	Number
+unitario	Number
+descuento	Number
+in_total	Number
+total_factura	Number
+vv_factura	NUmber
+igv_factura	Number
+ncreador	String	60
+ruc	String	11
+
+
+

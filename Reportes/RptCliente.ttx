@@ -1,0 +1,5 @@
+dni	String	16
+razonsocial	String	200
+direccion	String	200
+telefono	String	20
+observacion	String	500

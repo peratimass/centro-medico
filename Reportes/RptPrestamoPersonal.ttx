@@ -1,0 +1,21 @@
+codigo	String	10
+prestamo	String	40
+fecha_solicitud	Date
+fecha_transferencia	Date
+dni	String	16
+personal	String	80
+monto	Number
+saldo	Number
+moneda	String	20
+periodo	String	40
+cuenta	String	100
+operacion	String	20
+forma_pago	String	40
+autorizado	String	60
+detalle	String	200
+estado	String	20
+
+
+
+
+

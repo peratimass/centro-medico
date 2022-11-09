@@ -1,0 +1,2506 @@
+VERSION 5.00
+Object = "{F0D2F211-CCB0-11D0-A316-00AA00688B10}#1.0#0"; "MSDATLST.OCX"
+Object = "{86CF1D34-0C5F-11D2-A9FC-0000F8754DA1}#2.0#0"; "mscomct2.ocx"
+Object = "{0ECD9B60-23AA-11D0-B351-00A0C9055D8E}#6.0#0"; "mshflxgd.ocx"
+Object = "{831FDD16-0C5C-11D2-A9FC-0000F8754DA1}#2.1#0"; "mscomctl.OCX"
+Object = "{BDC217C8-ED16-11CD-956C-0000C04E4C0A}#1.1#0"; "tabctl32.ocx"
+Begin VB.Form frmmistareas 
+   BorderStyle     =   0  'None
+   Caption         =   "Form1"
+   ClientHeight    =   9240
+   ClientLeft      =   0
+   ClientTop       =   0
+   ClientWidth     =   18690
+   KeyPreview      =   -1  'True
+   LinkTopic       =   "Form1"
+   MaxButton       =   0   'False
+   MDIChild        =   -1  'True
+   MinButton       =   0   'False
+   ScaleHeight     =   9240
+   ScaleWidth      =   18690
+   ShowInTaskbar   =   0   'False
+   Begin VB.Frame Frame2 
+      BackColor       =   &H00C0C0C0&
+      BorderStyle     =   0  'None
+      Caption         =   "Frame1"
+      Height          =   550
+      Left            =   10560
+      TabIndex        =   66
+      Top             =   2640
+      Visible         =   0   'False
+      Width           =   4695
+      Begin MSDataListLib.DataCombo DtcEstadoBacklog 
+         Height          =   330
+         Left            =   120
+         TabIndex        =   67
+         Top             =   120
+         Width           =   3495
+         _ExtentX        =   6165
+         _ExtentY        =   582
+         _Version        =   393216
+         Appearance      =   0
+         ForeColor       =   8388608
+         Text            =   ""
+         BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+            Name            =   "Calibri"
+            Size            =   9
+            Charset         =   0
+            Weight          =   700
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+      End
+      Begin VitekeySoft.ChameleonBtn cmdestadoBacklog 
+         Height          =   380
+         Left            =   3840
+         TabIndex        =   68
+         Top             =   120
+         Width           =   525
+         _ExtentX        =   926
+         _ExtentY        =   661
+         BTYPE           =   3
+         TX              =   ""
+         ENAB            =   -1  'True
+         BeginProperty FONT {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+            Name            =   "Calibri"
+            Size            =   9
+            Charset         =   0
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         COLTYPE         =   1
+         FOCUSR          =   -1  'True
+         BCOL            =   14215660
+         BCOLO           =   14215660
+         FCOL            =   0
+         FCOLO           =   0
+         MCOL            =   12632256
+         MPTR            =   1
+         MICON           =   "frmmistareas.frx":0000
+         PICN            =   "frmmistareas.frx":001C
+         UMCOL           =   -1  'True
+         SOFT            =   0   'False
+         PICPOS          =   0
+         NGREY           =   0   'False
+         FX              =   0
+         HAND            =   0   'False
+         CHECK           =   0   'False
+         VALUE           =   0   'False
+      End
+   End
+   Begin VitekeySoft.ChameleonBtn cmdbacklog 
+      Height          =   495
+      Left            =   15480
+      TabIndex        =   47
+      Top             =   3480
+      Width           =   3015
+      _ExtentX        =   5318
+      _ExtentY        =   873
+      BTYPE           =   5
+      TX              =   "NUEVO PRODUCT BACKLOG"
+      ENAB            =   -1  'True
+      BeginProperty FONT {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+         Name            =   "Calibri"
+         Size            =   9
+         Charset         =   0
+         Weight          =   700
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      COLTYPE         =   2
+      FOCUSR          =   -1  'True
+      BCOL            =   8421631
+      BCOLO           =   8421631
+      FCOL            =   0
+      FCOLO           =   0
+      MCOL            =   12632256
+      MPTR            =   1
+      MICON           =   "frmmistareas.frx":2601
+      PICN            =   "frmmistareas.frx":261D
+      UMCOL           =   -1  'True
+      SOFT            =   0   'False
+      PICPOS          =   0
+      NGREY           =   0   'False
+      FX              =   0
+      HAND            =   0   'False
+      CHECK           =   0   'False
+      VALUE           =   0   'False
+   End
+   Begin VB.Frame frmbacklog 
+      BackColor       =   &H00FFFFFF&
+      BeginProperty Font 
+         Name            =   "Tahoma"
+         Size            =   6.75
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      ForeColor       =   &H00800000&
+      Height          =   9000
+      Left            =   16800
+      TabIndex        =   8
+      Top             =   120
+      Visible         =   0   'False
+      Width           =   15255
+      Begin VB.TextBox txtid_backlog 
+         Appearance      =   0  'Flat
+         Height          =   285
+         Left            =   6000
+         TabIndex        =   33
+         Top             =   1560
+         Visible         =   0   'False
+         Width           =   1215
+      End
+      Begin MSComCtl2.MonthView calendario1 
+         Height          =   2310
+         Left            =   9240
+         TabIndex        =   20
+         Top             =   435
+         Width           =   2565
+         _ExtentX        =   4524
+         _ExtentY        =   4075
+         _Version        =   393216
+         ForeColor       =   -2147483630
+         BackColor       =   14737632
+         BorderStyle     =   1
+         Appearance      =   0
+         BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+            Name            =   "Tahoma"
+            Size            =   8.25
+            Charset         =   0
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         StartOfWeek     =   16711681
+         TitleBackColor  =   33023
+         CurrentDate     =   42221
+      End
+      Begin MSDataListLib.DataCombo dtcprioridad 
+         Height          =   315
+         Left            =   1680
+         TabIndex        =   14
+         Top             =   840
+         Width           =   3735
+         _ExtentX        =   6588
+         _ExtentY        =   556
+         _Version        =   393216
+         Appearance      =   0
+         ForeColor       =   8388608
+         Text            =   ""
+         BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+            Name            =   "Tahoma"
+            Size            =   8.25
+            Charset         =   0
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+      End
+      Begin VB.TextBox txttitulo 
+         Appearance      =   0  'Flat
+         BeginProperty Font 
+            Name            =   "Tahoma"
+            Size            =   8.25
+            Charset         =   0
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         ForeColor       =   &H00800000&
+         Height          =   285
+         Left            =   1680
+         TabIndex        =   10
+         Top             =   360
+         Width           =   6975
+      End
+      Begin MSDataListLib.DataCombo dtcasignado 
+         Height          =   315
+         Left            =   1680
+         TabIndex        =   15
+         Top             =   1320
+         Width           =   3735
+         _ExtentX        =   6588
+         _ExtentY        =   556
+         _Version        =   393216
+         Appearance      =   0
+         ForeColor       =   8388608
+         Text            =   ""
+         BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+            Name            =   "Tahoma"
+            Size            =   8.25
+            Charset         =   0
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+      End
+      Begin MSDataListLib.DataCombo dtcmodulo 
+         Height          =   315
+         Left            =   1680
+         TabIndex        =   16
+         Top             =   1800
+         Width           =   3735
+         _ExtentX        =   6588
+         _ExtentY        =   556
+         _Version        =   393216
+         Appearance      =   0
+         ForeColor       =   8388608
+         Text            =   ""
+         BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+            Name            =   "Tahoma"
+            Size            =   8.25
+            Charset         =   0
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+      End
+      Begin TabDlg.SSTab SSTab1 
+         Height          =   5655
+         Left            =   240
+         TabIndex        =   17
+         Top             =   2880
+         Width           =   14655
+         _ExtentX        =   25850
+         _ExtentY        =   9975
+         _Version        =   393216
+         Tab             =   2
+         TabHeight       =   520
+         ForeColor       =   8388608
+         BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+            Name            =   "Tahoma"
+            Size            =   8.25
+            Charset         =   0
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         TabCaption(0)   =   "DESCRIPCION"
+         TabPicture(0)   =   "frmmistareas.frx":4C02
+         Tab(0).ControlEnabled=   0   'False
+         Tab(0).Control(0)=   "txtdetalle"
+         Tab(0).ControlCount=   1
+         TabCaption(1)   =   "BOCETOS"
+         TabPicture(1)   =   "frmmistareas.frx":4C1E
+         Tab(1).ControlEnabled=   0   'False
+         Tab(1).Control(0)=   "boceto01"
+         Tab(1).Control(1)=   "Image1"
+         Tab(1).Control(2)=   "Image2"
+         Tab(1).Control(3)=   "Image3"
+         Tab(1).Control(4)=   "ChameleonBtn4"
+         Tab(1).Control(5)=   "ChameleonBtn3"
+         Tab(1).Control(6)=   "ChameleonBtn2"
+         Tab(1).Control(7)=   "ChameleonBtn1"
+         Tab(1).ControlCount=   8
+         TabCaption(2)   =   "TAREAS"
+         TabPicture(2)   =   "frmmistareas.frx":4C3A
+         Tab(2).ControlEnabled=   -1  'True
+         Tab(2).Control(0)=   "cmddeletetarea"
+         Tab(2).Control(0).Enabled=   0   'False
+         Tab(2).Control(1)=   "cmdnuevatarea"
+         Tab(2).Control(1).Enabled=   0   'False
+         Tab(2).Control(2)=   "HfTarea"
+         Tab(2).Control(2).Enabled=   0   'False
+         Tab(2).Control(3)=   "frmtarea"
+         Tab(2).Control(3).Enabled=   0   'False
+         Tab(2).ControlCount=   4
+         Begin VB.Frame frmtarea 
+            Height          =   5175
+            Left            =   360
+            TabIndex        =   24
+            Top             =   360
+            Visible         =   0   'False
+            Width           =   12855
+            Begin VB.Frame Frame1 
+               Height          =   1815
+               Left            =   1440
+               TabIndex        =   38
+               Top             =   2925
+               Visible         =   0   'False
+               Width           =   11175
+               Begin VB.TextBox TxtHoraFin 
+                  Appearance      =   0  'Flat
+                  BeginProperty Font 
+                     Name            =   "Tahoma"
+                     Size            =   8.25
+                     Charset         =   0
+                     Weight          =   400
+                     Underline       =   0   'False
+                     Italic          =   0   'False
+                     Strikethrough   =   0   'False
+                  EndProperty
+                  ForeColor       =   &H00800000&
+                  Height          =   285
+                  Left            =   4320
+                  TabIndex        =   46
+                  Top             =   1320
+                  Width           =   1455
+               End
+               Begin VB.TextBox txtHoraInicio 
+                  Appearance      =   0  'Flat
+                  BeginProperty Font 
+                     Name            =   "Tahoma"
+                     Size            =   8.25
+                     Charset         =   0
+                     Weight          =   400
+                     Underline       =   0   'False
+                     Italic          =   0   'False
+                     Strikethrough   =   0   'False
+                  EndProperty
+                  ForeColor       =   &H00800000&
+                  Height          =   285
+                  Left            =   1560
+                  TabIndex        =   44
+                  Top             =   1320
+                  Width           =   1455
+               End
+               Begin VB.TextBox txtpersonaincidencia 
+                  Appearance      =   0  'Flat
+                  BeginProperty Font 
+                     Name            =   "Tahoma"
+                     Size            =   8.25
+                     Charset         =   0
+                     Weight          =   400
+                     Underline       =   0   'False
+                     Italic          =   0   'False
+                     Strikethrough   =   0   'False
+                  EndProperty
+                  ForeColor       =   &H00800000&
+                  Height          =   285
+                  Left            =   1560
+                  TabIndex        =   42
+                  Top             =   840
+                  Width           =   7095
+               End
+               Begin VB.TextBox txtincidencia 
+                  Appearance      =   0  'Flat
+                  BeginProperty Font 
+                     Name            =   "Tahoma"
+                     Size            =   8.25
+                     Charset         =   0
+                     Weight          =   400
+                     Underline       =   0   'False
+                     Italic          =   0   'False
+                     Strikethrough   =   0   'False
+                  EndProperty
+                  ForeColor       =   &H00800000&
+                  Height          =   525
+                  Left            =   1560
+                  TabIndex        =   39
+                  Top             =   240
+                  Width           =   7095
+               End
+               Begin VitekeySoft.ChameleonBtn cmdagregarIncidencia 
+                  Height          =   405
+                  Left            =   8880
+                  TabIndex        =   58
+                  Top             =   360
+                  Width           =   1485
+                  _ExtentX        =   2619
+                  _ExtentY        =   714
+                  BTYPE           =   5
+                  TX              =   "AGREGAR"
+                  ENAB            =   -1  'True
+                  BeginProperty FONT {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+                     Name            =   "Calibri"
+                     Size            =   9
+                     Charset         =   0
+                     Weight          =   700
+                     Underline       =   0   'False
+                     Italic          =   0   'False
+                     Strikethrough   =   0   'False
+                  EndProperty
+                  COLTYPE         =   2
+                  FOCUSR          =   -1  'True
+                  BCOL            =   16777215
+                  BCOLO           =   16777215
+                  FCOL            =   0
+                  FCOLO           =   0
+                  MCOL            =   12632256
+                  MPTR            =   1
+                  MICON           =   "frmmistareas.frx":4C56
+                  PICN            =   "frmmistareas.frx":4C72
+                  UMCOL           =   -1  'True
+                  SOFT            =   0   'False
+                  PICPOS          =   0
+                  NGREY           =   0   'False
+                  FX              =   0
+                  HAND            =   0   'False
+                  CHECK           =   0   'False
+                  VALUE           =   0   'False
+               End
+               Begin VitekeySoft.ChameleonBtn cmdcerrarincidencia 
+                  Height          =   405
+                  Left            =   8880
+                  TabIndex        =   59
+                  Top             =   840
+                  Width           =   1485
+                  _ExtentX        =   2619
+                  _ExtentY        =   714
+                  BTYPE           =   5
+                  TX              =   "CERRAR "
+                  ENAB            =   -1  'True
+                  BeginProperty FONT {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+                     Name            =   "Calibri"
+                     Size            =   9
+                     Charset         =   0
+                     Weight          =   700
+                     Underline       =   0   'False
+                     Italic          =   0   'False
+                     Strikethrough   =   0   'False
+                  EndProperty
+                  COLTYPE         =   2
+                  FOCUSR          =   -1  'True
+                  BCOL            =   16777215
+                  BCOLO           =   16777215
+                  FCOL            =   0
+                  FCOLO           =   0
+                  MCOL            =   12632256
+                  MPTR            =   1
+                  MICON           =   "frmmistareas.frx":520C
+                  PICN            =   "frmmistareas.frx":5228
+                  UMCOL           =   -1  'True
+                  SOFT            =   0   'False
+                  PICPOS          =   0
+                  NGREY           =   0   'False
+                  FX              =   0
+                  HAND            =   0   'False
+                  CHECK           =   0   'False
+                  VALUE           =   0   'False
+               End
+               Begin VB.Label Label14 
+                  Alignment       =   1  'Right Justify
+                  AutoSize        =   -1  'True
+                  BackStyle       =   0  'Transparent
+                  Caption         =   "HORA FIN:"
+                  BeginProperty Font 
+                     Name            =   "Tahoma"
+                     Size            =   6.75
+                     Charset         =   0
+                     Weight          =   700
+                     Underline       =   0   'False
+                     Italic          =   0   'False
+                     Strikethrough   =   0   'False
+                  EndProperty
+                  ForeColor       =   &H00800000&
+                  Height          =   165
+                  Left            =   3450
+                  TabIndex        =   45
+                  Top             =   1440
+                  Width           =   825
+               End
+               Begin VB.Label Label13 
+                  Alignment       =   1  'Right Justify
+                  AutoSize        =   -1  'True
+                  BackStyle       =   0  'Transparent
+                  Caption         =   "HORA  INICIO:"
+                  BeginProperty Font 
+                     Name            =   "Tahoma"
+                     Size            =   6.75
+                     Charset         =   0
+                     Weight          =   700
+                     Underline       =   0   'False
+                     Italic          =   0   'False
+                     Strikethrough   =   0   'False
+                  EndProperty
+                  ForeColor       =   &H00800000&
+                  Height          =   165
+                  Left            =   240
+                  TabIndex        =   43
+                  Top             =   1440
+                  Width           =   1155
+               End
+               Begin VB.Label Label12 
+                  Alignment       =   1  'Right Justify
+                  BackStyle       =   0  'Transparent
+                  Caption         =   "PERSONAL INCIDENCIA:"
+                  BeginProperty Font 
+                     Name            =   "Tahoma"
+                     Size            =   6.75
+                     Charset         =   0
+                     Weight          =   700
+                     Underline       =   0   'False
+                     Italic          =   0   'False
+                     Strikethrough   =   0   'False
+                  EndProperty
+                  ForeColor       =   &H00800000&
+                  Height          =   525
+                  Left            =   -510
+                  TabIndex        =   41
+                  Top             =   840
+                  Width           =   1635
+               End
+               Begin VB.Label Label11 
+                  Alignment       =   1  'Right Justify
+                  AutoSize        =   -1  'True
+                  BackStyle       =   0  'Transparent
+                  Caption         =   "DETALLE:"
+                  BeginProperty Font 
+                     Name            =   "Tahoma"
+                     Size            =   6.75
+                     Charset         =   0
+                     Weight          =   700
+                     Underline       =   0   'False
+                     Italic          =   0   'False
+                     Strikethrough   =   0   'False
+                  EndProperty
+                  ForeColor       =   &H00800000&
+                  Height          =   165
+                  Left            =   150
+                  TabIndex        =   40
+                  Top             =   480
+                  Width           =   735
+               End
+            End
+            Begin VB.Frame frmestado 
+               BackColor       =   &H008080FF&
+               BorderStyle     =   0  'None
+               Caption         =   "Frame1"
+               Height          =   495
+               Left            =   8760
+               TabIndex        =   34
+               Top             =   1560
+               Visible         =   0   'False
+               Width           =   3735
+               Begin MSDataListLib.DataCombo DtcEstado 
+                  Height          =   315
+                  Left            =   120
+                  TabIndex        =   35
+                  Top             =   120
+                  Width           =   2895
+                  _ExtentX        =   5106
+                  _ExtentY        =   556
+                  _Version        =   393216
+                  Appearance      =   0
+                  ForeColor       =   8388608
+                  Text            =   ""
+                  BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+                     Name            =   "Tahoma"
+                     Size            =   8.25
+                     Charset         =   0
+                     Weight          =   400
+                     Underline       =   0   'False
+                     Italic          =   0   'False
+                     Strikethrough   =   0   'False
+                  EndProperty
+               End
+               Begin VitekeySoft.ChameleonBtn cmdestadocriterio 
+                  Height          =   405
+                  Left            =   3240
+                  TabIndex        =   55
+                  Top             =   40
+                  Width           =   405
+                  _ExtentX        =   714
+                  _ExtentY        =   714
+                  BTYPE           =   3
+                  TX              =   ""
+                  ENAB            =   -1  'True
+                  BeginProperty FONT {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+                     Name            =   "Calibri"
+                     Size            =   9
+                     Charset         =   0
+                     Weight          =   400
+                     Underline       =   0   'False
+                     Italic          =   0   'False
+                     Strikethrough   =   0   'False
+                  EndProperty
+                  COLTYPE         =   1
+                  FOCUSR          =   -1  'True
+                  BCOL            =   14215660
+                  BCOLO           =   14215660
+                  FCOL            =   0
+                  FCOLO           =   0
+                  MCOL            =   12632256
+                  MPTR            =   1
+                  MICON           =   "frmmistareas.frx":823D
+                  PICN            =   "frmmistareas.frx":8259
+                  UMCOL           =   -1  'True
+                  SOFT            =   0   'False
+                  PICPOS          =   0
+                  NGREY           =   0   'False
+                  FX              =   0
+                  HAND            =   0   'False
+                  CHECK           =   0   'False
+                  VALUE           =   0   'False
+               End
+            End
+            Begin VB.TextBox txtidtarea 
+               Appearance      =   0  'Flat
+               Height          =   285
+               Left            =   10200
+               TabIndex        =   32
+               Top             =   720
+               Visible         =   0   'False
+               Width           =   1215
+            End
+            Begin MSComCtl2.DTPicker DtpInicio 
+               Height          =   300
+               Left            =   8400
+               TabIndex        =   30
+               Top             =   240
+               Width           =   1335
+               _ExtentX        =   2355
+               _ExtentY        =   529
+               _Version        =   393216
+               BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+                  Name            =   "Tahoma"
+                  Size            =   8.25
+                  Charset         =   0
+                  Weight          =   400
+                  Underline       =   0   'False
+                  Italic          =   0   'False
+                  Strikethrough   =   0   'False
+               EndProperty
+               Format          =   16711681
+               CurrentDate     =   42224
+            End
+            Begin VB.TextBox TxtCriterio 
+               Appearance      =   0  'Flat
+               BeginProperty Font 
+                  Name            =   "Tahoma"
+                  Size            =   8.25
+                  Charset         =   0
+                  Weight          =   400
+                  Underline       =   0   'False
+                  Italic          =   0   'False
+                  Strikethrough   =   0   'False
+               EndProperty
+               ForeColor       =   &H00800000&
+               Height          =   560
+               Left            =   1440
+               MultiLine       =   -1  'True
+               ScrollBars      =   2  'Vertical
+               TabIndex        =   29
+               Top             =   620
+               Width           =   6855
+            End
+            Begin VB.TextBox txtnombretarea 
+               Appearance      =   0  'Flat
+               BeginProperty Font 
+                  Name            =   "Tahoma"
+                  Size            =   8.25
+                  Charset         =   0
+                  Weight          =   400
+                  Underline       =   0   'False
+                  Italic          =   0   'False
+                  Strikethrough   =   0   'False
+               EndProperty
+               ForeColor       =   &H00800000&
+               Height          =   400
+               Left            =   1440
+               MultiLine       =   -1  'True
+               ScrollBars      =   2  'Vertical
+               TabIndex        =   26
+               Top             =   200
+               Width           =   6855
+            End
+            Begin MSHierarchicalFlexGridLib.MSHFlexGrid HfCriterios 
+               Height          =   2295
+               Left            =   1440
+               TabIndex        =   27
+               Top             =   1200
+               Width           =   11175
+               _ExtentX        =   19711
+               _ExtentY        =   4048
+               _Version        =   393216
+               ForeColor       =   8388608
+               FixedCols       =   0
+               ForeColorFixed  =   8388608
+               BackColorBkg    =   16777215
+               SelectionMode   =   1
+               Appearance      =   0
+               BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+                  Name            =   "Tahoma"
+                  Size            =   8.25
+                  Charset         =   0
+                  Weight          =   400
+                  Underline       =   0   'False
+                  Italic          =   0   'False
+                  Strikethrough   =   0   'False
+               EndProperty
+               _NumberOfBands  =   1
+               _Band(0).Cols   =   2
+            End
+            Begin MSComCtl2.DTPicker DtpFin 
+               Height          =   300
+               Left            =   10200
+               TabIndex        =   31
+               Top             =   240
+               Width           =   1335
+               _ExtentX        =   2355
+               _ExtentY        =   529
+               _Version        =   393216
+               BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+                  Name            =   "Tahoma"
+                  Size            =   8.25
+                  Charset         =   0
+                  Weight          =   400
+                  Underline       =   0   'False
+                  Italic          =   0   'False
+                  Strikethrough   =   0   'False
+               EndProperty
+               Format          =   16711681
+               CurrentDate     =   42224
+            End
+            Begin MSHierarchicalFlexGridLib.MSHFlexGrid HfIncidencia 
+               Height          =   1095
+               Left            =   1440
+               TabIndex        =   36
+               Top             =   3600
+               Width           =   11175
+               _ExtentX        =   19711
+               _ExtentY        =   1931
+               _Version        =   393216
+               ForeColor       =   8388608
+               FixedCols       =   0
+               ForeColorFixed  =   8388608
+               BackColorBkg    =   16777215
+               SelectionMode   =   1
+               Appearance      =   0
+               BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+                  Name            =   "Tahoma"
+                  Size            =   8.25
+                  Charset         =   0
+                  Weight          =   400
+                  Underline       =   0   'False
+                  Italic          =   0   'False
+                  Strikethrough   =   0   'False
+               EndProperty
+               _NumberOfBands  =   1
+               _Band(0).Cols   =   2
+            End
+            Begin VitekeySoft.ChameleonBtn cmdagregarcriterio 
+               Height          =   405
+               Left            =   8400
+               TabIndex        =   56
+               Top             =   720
+               Width           =   405
+               _ExtentX        =   714
+               _ExtentY        =   714
+               BTYPE           =   3
+               TX              =   ""
+               ENAB            =   -1  'True
+               BeginProperty FONT {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+                  Name            =   "Calibri"
+                  Size            =   9
+                  Charset         =   0
+                  Weight          =   400
+                  Underline       =   0   'False
+                  Italic          =   0   'False
+                  Strikethrough   =   0   'False
+               EndProperty
+               COLTYPE         =   1
+               FOCUSR          =   -1  'True
+               BCOL            =   14215660
+               BCOLO           =   14215660
+               FCOL            =   0
+               FCOLO           =   0
+               MCOL            =   12632256
+               MPTR            =   1
+               MICON           =   "frmmistareas.frx":A83E
+               PICN            =   "frmmistareas.frx":A85A
+               UMCOL           =   -1  'True
+               SOFT            =   0   'False
+               PICPOS          =   0
+               NGREY           =   0   'False
+               FX              =   0
+               HAND            =   0   'False
+               CHECK           =   0   'False
+               VALUE           =   0   'False
+            End
+            Begin VitekeySoft.ChameleonBtn cmdeliminarcriterio 
+               Height          =   405
+               Left            =   8880
+               TabIndex        =   57
+               Top             =   720
+               Width           =   405
+               _ExtentX        =   714
+               _ExtentY        =   714
+               BTYPE           =   3
+               TX              =   ""
+               ENAB            =   -1  'True
+               BeginProperty FONT {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+                  Name            =   "Calibri"
+                  Size            =   9
+                  Charset         =   0
+                  Weight          =   400
+                  Underline       =   0   'False
+                  Italic          =   0   'False
+                  Strikethrough   =   0   'False
+               EndProperty
+               COLTYPE         =   1
+               FOCUSR          =   -1  'True
+               BCOL            =   14215660
+               BCOLO           =   14215660
+               FCOL            =   0
+               FCOLO           =   0
+               MCOL            =   12632256
+               MPTR            =   1
+               MICON           =   "frmmistareas.frx":ADF4
+               PICN            =   "frmmistareas.frx":AE10
+               UMCOL           =   -1  'True
+               SOFT            =   0   'False
+               PICPOS          =   0
+               NGREY           =   0   'False
+               FX              =   0
+               HAND            =   0   'False
+               CHECK           =   0   'False
+               VALUE           =   0   'False
+            End
+            Begin VitekeySoft.ChameleonBtn cmdguardartarea 
+               Height          =   345
+               Left            =   10560
+               TabIndex        =   64
+               Top             =   4755
+               Width           =   1965
+               _ExtentX        =   3466
+               _ExtentY        =   609
+               BTYPE           =   5
+               TX              =   "GUARDAR TAREA"
+               ENAB            =   -1  'True
+               BeginProperty FONT {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+                  Name            =   "Calibri"
+                  Size            =   9
+                  Charset         =   0
+                  Weight          =   700
+                  Underline       =   0   'False
+                  Italic          =   0   'False
+                  Strikethrough   =   0   'False
+               EndProperty
+               COLTYPE         =   2
+               FOCUSR          =   -1  'True
+               BCOL            =   16777215
+               BCOLO           =   16777215
+               FCOL            =   0
+               FCOLO           =   0
+               MCOL            =   12632256
+               MPTR            =   1
+               MICON           =   "frmmistareas.frx":B3AA
+               PICN            =   "frmmistareas.frx":B3C6
+               UMCOL           =   -1  'True
+               SOFT            =   0   'False
+               PICPOS          =   0
+               NGREY           =   0   'False
+               FX              =   0
+               HAND            =   0   'False
+               CHECK           =   0   'False
+               VALUE           =   0   'False
+            End
+            Begin VitekeySoft.ChameleonBtn ChameleonBtn5 
+               Height          =   345
+               Left            =   8520
+               TabIndex        =   65
+               Top             =   4755
+               Width           =   1965
+               _ExtentX        =   3466
+               _ExtentY        =   609
+               BTYPE           =   5
+               TX              =   "CERRAR TAREAS"
+               ENAB            =   -1  'True
+               BeginProperty FONT {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+                  Name            =   "Calibri"
+                  Size            =   9
+                  Charset         =   0
+                  Weight          =   700
+                  Underline       =   0   'False
+                  Italic          =   0   'False
+                  Strikethrough   =   0   'False
+               EndProperty
+               COLTYPE         =   2
+               FOCUSR          =   -1  'True
+               BCOL            =   16777215
+               BCOLO           =   16777215
+               FCOL            =   0
+               FCOLO           =   0
+               MCOL            =   12632256
+               MPTR            =   1
+               MICON           =   "frmmistareas.frx":B960
+               PICN            =   "frmmistareas.frx":B97C
+               UMCOL           =   -1  'True
+               SOFT            =   0   'False
+               PICPOS          =   0
+               NGREY           =   0   'False
+               FX              =   0
+               HAND            =   0   'False
+               CHECK           =   0   'False
+               VALUE           =   0   'False
+            End
+            Begin VB.Label Label10 
+               Alignment       =   2  'Center
+               BackStyle       =   0  'Transparent
+               Caption         =   "INCIDENCIAS / RECOMENDACIONES"
+               BeginProperty Font 
+                  Name            =   "Tahoma"
+                  Size            =   6.75
+                  Charset         =   0
+                  Weight          =   700
+                  Underline       =   0   'False
+                  Italic          =   0   'False
+                  Strikethrough   =   0   'False
+               EndProperty
+               ForeColor       =   &H00800000&
+               Height          =   405
+               Left            =   0
+               TabIndex        =   37
+               Top             =   3600
+               Width           =   1365
+            End
+            Begin VB.Image Image5 
+               Height          =   240
+               Left            =   9840
+               Picture         =   "frmmistareas.frx":E991
+               Top             =   240
+               Width           =   240
+            End
+            Begin VB.Label Label9 
+               Alignment       =   2  'Center
+               BackStyle       =   0  'Transparent
+               Caption         =   "CRITERIOS DE ACEPTACION :"
+               BeginProperty Font 
+                  Name            =   "Tahoma"
+                  Size            =   6.75
+                  Charset         =   0
+                  Weight          =   700
+                  Underline       =   0   'False
+                  Italic          =   0   'False
+                  Strikethrough   =   0   'False
+               EndProperty
+               ForeColor       =   &H00800000&
+               Height          =   405
+               Left            =   30
+               TabIndex        =   28
+               Top             =   840
+               Width           =   1365
+            End
+            Begin VB.Label Label8 
+               Alignment       =   2  'Center
+               AutoSize        =   -1  'True
+               BackStyle       =   0  'Transparent
+               Caption         =   "DESCRIPCION :"
+               BeginProperty Font 
+                  Name            =   "Tahoma"
+                  Size            =   6.75
+                  Charset         =   0
+                  Weight          =   700
+                  Underline       =   0   'False
+                  Italic          =   0   'False
+                  Strikethrough   =   0   'False
+               EndProperty
+               ForeColor       =   &H00800000&
+               Height          =   165
+               Left            =   120
+               TabIndex        =   25
+               Top             =   360
+               Width           =   1185
+            End
+         End
+         Begin VB.TextBox txtdetalle 
+            Appearance      =   0  'Flat
+            BeginProperty Font 
+               Name            =   "Tahoma"
+               Size            =   9.75
+               Charset         =   0
+               Weight          =   400
+               Underline       =   0   'False
+               Italic          =   0   'False
+               Strikethrough   =   0   'False
+            EndProperty
+            ForeColor       =   &H00800000&
+            Height          =   3405
+            Left            =   -74640
+            MultiLine       =   -1  'True
+            ScrollBars      =   2  'Vertical
+            TabIndex        =   18
+            Top             =   840
+            Width           =   12495
+         End
+         Begin MSHierarchicalFlexGridLib.MSHFlexGrid HfTarea 
+            Height          =   3855
+            Left            =   360
+            TabIndex        =   19
+            Top             =   480
+            Width           =   11655
+            _ExtentX        =   20558
+            _ExtentY        =   6800
+            _Version        =   393216
+            ForeColor       =   8388608
+            FixedCols       =   0
+            ForeColorFixed  =   8388608
+            BackColorBkg    =   16777215
+            SelectionMode   =   1
+            Appearance      =   0
+            BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+               Name            =   "Calibri"
+               Size            =   9
+               Charset         =   0
+               Weight          =   400
+               Underline       =   0   'False
+               Italic          =   0   'False
+               Strikethrough   =   0   'False
+            EndProperty
+            _NumberOfBands  =   1
+            _Band(0).Cols   =   2
+         End
+         Begin VitekeySoft.ChameleonBtn ChameleonBtn1 
+            Height          =   495
+            Left            =   -74520
+            TabIndex        =   51
+            Top             =   4200
+            Width           =   2535
+            _ExtentX        =   4471
+            _ExtentY        =   873
+            BTYPE           =   3
+            TX              =   "PROTOTIPO 1      "
+            ENAB            =   -1  'True
+            BeginProperty FONT {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+               Name            =   "Calibri"
+               Size            =   9
+               Charset         =   0
+               Weight          =   400
+               Underline       =   0   'False
+               Italic          =   0   'False
+               Strikethrough   =   0   'False
+            EndProperty
+            COLTYPE         =   1
+            FOCUSR          =   -1  'True
+            BCOL            =   14215660
+            BCOLO           =   14215660
+            FCOL            =   0
+            FCOLO           =   0
+            MCOL            =   12632256
+            MPTR            =   1
+            MICON           =   "frmmistareas.frx":EF1B
+            PICN            =   "frmmistareas.frx":EF37
+            UMCOL           =   -1  'True
+            SOFT            =   0   'False
+            PICPOS          =   0
+            NGREY           =   0   'False
+            FX              =   0
+            HAND            =   0   'False
+            CHECK           =   0   'False
+            VALUE           =   0   'False
+         End
+         Begin VitekeySoft.ChameleonBtn ChameleonBtn2 
+            Height          =   495
+            Left            =   -71280
+            TabIndex        =   52
+            Top             =   4200
+            Width           =   2535
+            _ExtentX        =   4471
+            _ExtentY        =   873
+            BTYPE           =   3
+            TX              =   "PROTOTIPO 1      "
+            ENAB            =   -1  'True
+            BeginProperty FONT {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+               Name            =   "Calibri"
+               Size            =   9
+               Charset         =   0
+               Weight          =   400
+               Underline       =   0   'False
+               Italic          =   0   'False
+               Strikethrough   =   0   'False
+            EndProperty
+            COLTYPE         =   1
+            FOCUSR          =   -1  'True
+            BCOL            =   14215660
+            BCOLO           =   14215660
+            FCOL            =   0
+            FCOLO           =   0
+            MCOL            =   12632256
+            MPTR            =   1
+            MICON           =   "frmmistareas.frx":1151C
+            PICN            =   "frmmistareas.frx":11538
+            UMCOL           =   -1  'True
+            SOFT            =   0   'False
+            PICPOS          =   0
+            NGREY           =   0   'False
+            FX              =   0
+            HAND            =   0   'False
+            CHECK           =   0   'False
+            VALUE           =   0   'False
+         End
+         Begin VitekeySoft.ChameleonBtn ChameleonBtn3 
+            Height          =   495
+            Left            =   -68040
+            TabIndex        =   53
+            Top             =   4200
+            Width           =   2535
+            _ExtentX        =   4471
+            _ExtentY        =   873
+            BTYPE           =   3
+            TX              =   "PROTOTIPO 1      "
+            ENAB            =   -1  'True
+            BeginProperty FONT {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+               Name            =   "Calibri"
+               Size            =   9
+               Charset         =   0
+               Weight          =   400
+               Underline       =   0   'False
+               Italic          =   0   'False
+               Strikethrough   =   0   'False
+            EndProperty
+            COLTYPE         =   1
+            FOCUSR          =   -1  'True
+            BCOL            =   14215660
+            BCOLO           =   14215660
+            FCOL            =   0
+            FCOLO           =   0
+            MCOL            =   12632256
+            MPTR            =   1
+            MICON           =   "frmmistareas.frx":13B1D
+            PICN            =   "frmmistareas.frx":13B39
+            UMCOL           =   -1  'True
+            SOFT            =   0   'False
+            PICPOS          =   0
+            NGREY           =   0   'False
+            FX              =   0
+            HAND            =   0   'False
+            CHECK           =   0   'False
+            VALUE           =   0   'False
+         End
+         Begin VitekeySoft.ChameleonBtn ChameleonBtn4 
+            Height          =   495
+            Left            =   -64800
+            TabIndex        =   54
+            Top             =   4200
+            Width           =   2535
+            _ExtentX        =   4471
+            _ExtentY        =   873
+            BTYPE           =   3
+            TX              =   "PROTOTIPO 1      "
+            ENAB            =   -1  'True
+            BeginProperty FONT {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+               Name            =   "Calibri"
+               Size            =   9
+               Charset         =   0
+               Weight          =   400
+               Underline       =   0   'False
+               Italic          =   0   'False
+               Strikethrough   =   0   'False
+            EndProperty
+            COLTYPE         =   1
+            FOCUSR          =   -1  'True
+            BCOL            =   14215660
+            BCOLO           =   14215660
+            FCOL            =   0
+            FCOLO           =   0
+            MCOL            =   12632256
+            MPTR            =   1
+            MICON           =   "frmmistareas.frx":1611E
+            PICN            =   "frmmistareas.frx":1613A
+            UMCOL           =   -1  'True
+            SOFT            =   0   'False
+            PICPOS          =   0
+            NGREY           =   0   'False
+            FX              =   0
+            HAND            =   0   'False
+            CHECK           =   0   'False
+            VALUE           =   0   'False
+         End
+         Begin VitekeySoft.ChameleonBtn cmdnuevatarea 
+            Height          =   345
+            Left            =   13245
+            TabIndex        =   62
+            Top             =   480
+            Width           =   1335
+            _ExtentX        =   2355
+            _ExtentY        =   609
+            BTYPE           =   5
+            TX              =   "NUEVA     "
+            ENAB            =   -1  'True
+            BeginProperty FONT {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+               Name            =   "Calibri"
+               Size            =   9
+               Charset         =   0
+               Weight          =   700
+               Underline       =   0   'False
+               Italic          =   0   'False
+               Strikethrough   =   0   'False
+            EndProperty
+            COLTYPE         =   2
+            FOCUSR          =   -1  'True
+            BCOL            =   16777215
+            BCOLO           =   16777215
+            FCOL            =   0
+            FCOLO           =   0
+            MCOL            =   12632256
+            MPTR            =   1
+            MICON           =   "frmmistareas.frx":1871F
+            PICN            =   "frmmistareas.frx":1873B
+            UMCOL           =   -1  'True
+            SOFT            =   0   'False
+            PICPOS          =   0
+            NGREY           =   0   'False
+            FX              =   0
+            HAND            =   0   'False
+            CHECK           =   0   'False
+            VALUE           =   0   'False
+         End
+         Begin VitekeySoft.ChameleonBtn cmddeletetarea 
+            Height          =   345
+            Left            =   13245
+            TabIndex        =   63
+            Top             =   960
+            Width           =   1335
+            _ExtentX        =   2355
+            _ExtentY        =   609
+            BTYPE           =   5
+            TX              =   "ELIMINAR"
+            ENAB            =   -1  'True
+            BeginProperty FONT {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+               Name            =   "Calibri"
+               Size            =   9
+               Charset         =   0
+               Weight          =   700
+               Underline       =   0   'False
+               Italic          =   0   'False
+               Strikethrough   =   0   'False
+            EndProperty
+            COLTYPE         =   2
+            FOCUSR          =   -1  'True
+            BCOL            =   16777215
+            BCOLO           =   16777215
+            FCOL            =   0
+            FCOLO           =   0
+            MCOL            =   12632256
+            MPTR            =   1
+            MICON           =   "frmmistareas.frx":18CD5
+            PICN            =   "frmmistareas.frx":18CF1
+            UMCOL           =   -1  'True
+            SOFT            =   0   'False
+            PICPOS          =   0
+            NGREY           =   0   'False
+            FX              =   0
+            HAND            =   0   'False
+            CHECK           =   0   'False
+            VALUE           =   0   'False
+         End
+         Begin VB.Image Image3 
+            Height          =   3375
+            Left            =   -65040
+            Top             =   600
+            Width           =   3015
+         End
+         Begin VB.Image Image2 
+            Height          =   3375
+            Left            =   -68280
+            Top             =   600
+            Width           =   3015
+         End
+         Begin VB.Image Image1 
+            Height          =   3375
+            Left            =   -71520
+            Top             =   600
+            Width           =   3015
+         End
+         Begin VB.Image boceto01 
+            Height          =   3375
+            Left            =   -74760
+            Top             =   600
+            Width           =   3015
+         End
+      End
+      Begin MSComCtl2.MonthView calendario2 
+         Height          =   2310
+         Left            =   12360
+         TabIndex        =   21
+         Top             =   435
+         Width           =   2565
+         _ExtentX        =   4524
+         _ExtentY        =   4075
+         _Version        =   393216
+         ForeColor       =   -2147483630
+         BackColor       =   -2147483633
+         BorderStyle     =   1
+         Appearance      =   0
+         BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+            Name            =   "Tahoma"
+            Size            =   8.25
+            Charset         =   0
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         StartOfWeek     =   16711681
+         TitleBackColor  =   33023
+         CurrentDate     =   42221
+      End
+      Begin VitekeySoft.ChameleonBtn cmdprocesar 
+         Height          =   345
+         Left            =   10440
+         TabIndex        =   60
+         Top             =   8580
+         Width           =   2205
+         _ExtentX        =   3889
+         _ExtentY        =   609
+         BTYPE           =   5
+         TX              =   "PROCESAR"
+         ENAB            =   -1  'True
+         BeginProperty FONT {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+            Name            =   "Calibri"
+            Size            =   9
+            Charset         =   0
+            Weight          =   700
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         COLTYPE         =   2
+         FOCUSR          =   -1  'True
+         BCOL            =   16777215
+         BCOLO           =   16777215
+         FCOL            =   0
+         FCOLO           =   0
+         MCOL            =   12632256
+         MPTR            =   1
+         MICON           =   "frmmistareas.frx":1928B
+         PICN            =   "frmmistareas.frx":192A7
+         UMCOL           =   -1  'True
+         SOFT            =   0   'False
+         PICPOS          =   0
+         NGREY           =   0   'False
+         FX              =   0
+         HAND            =   0   'False
+         CHECK           =   0   'False
+         VALUE           =   0   'False
+      End
+      Begin VitekeySoft.ChameleonBtn cmdcerrarpantalla 
+         Height          =   345
+         Left            =   12720
+         TabIndex        =   61
+         Top             =   8580
+         Width           =   2205
+         _ExtentX        =   3889
+         _ExtentY        =   609
+         BTYPE           =   5
+         TX              =   "CERRAR PANTALLA"
+         ENAB            =   -1  'True
+         BeginProperty FONT {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+            Name            =   "Calibri"
+            Size            =   9
+            Charset         =   0
+            Weight          =   700
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         COLTYPE         =   2
+         FOCUSR          =   -1  'True
+         BCOL            =   16777215
+         BCOLO           =   16777215
+         FCOL            =   0
+         FCOLO           =   0
+         MCOL            =   12632256
+         MPTR            =   1
+         MICON           =   "frmmistareas.frx":19841
+         PICN            =   "frmmistareas.frx":1985D
+         UMCOL           =   -1  'True
+         SOFT            =   0   'False
+         PICPOS          =   0
+         NGREY           =   0   'False
+         FX              =   0
+         HAND            =   0   'False
+         CHECK           =   0   'False
+         VALUE           =   0   'False
+      End
+      Begin VB.Label Label7 
+         Alignment       =   2  'Center
+         AutoSize        =   -1  'True
+         BackColor       =   &H00E0E0E0&
+         Caption         =   "FECHA FIN"
+         BeginProperty Font 
+            Name            =   "Tahoma"
+            Size            =   6.75
+            Charset         =   0
+            Weight          =   700
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         ForeColor       =   &H00800000&
+         Height          =   165
+         Left            =   12375
+         TabIndex        =   23
+         Top             =   240
+         Width           =   2565
+      End
+      Begin VB.Label Label6 
+         Alignment       =   2  'Center
+         AutoSize        =   -1  'True
+         BackColor       =   &H00E0E0E0&
+         Caption         =   "FECHA INICIO"
+         BeginProperty Font 
+            Name            =   "Tahoma"
+            Size            =   6.75
+            Charset         =   0
+            Weight          =   700
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         ForeColor       =   &H00800000&
+         Height          =   165
+         Left            =   9195
+         TabIndex        =   22
+         Top             =   200
+         Width           =   2565
+      End
+      Begin VB.Image Image4 
+         Height          =   240
+         Left            =   12000
+         Picture         =   "frmmistareas.frx":1C872
+         Top             =   1440
+         Width           =   240
+      End
+      Begin VB.Label Label5 
+         Alignment       =   2  'Center
+         AutoSize        =   -1  'True
+         BackStyle       =   0  'Transparent
+         Caption         =   "PROYECTO :"
+         BeginProperty Font 
+            Name            =   "Tahoma"
+            Size            =   6.75
+            Charset         =   0
+            Weight          =   700
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         ForeColor       =   &H00800000&
+         Height          =   165
+         Left            =   315
+         TabIndex        =   13
+         Top             =   1920
+         Width           =   975
+      End
+      Begin VB.Label Label4 
+         Alignment       =   2  'Center
+         AutoSize        =   -1  'True
+         BackStyle       =   0  'Transparent
+         Caption         =   "ASIGNADO A :"
+         BeginProperty Font 
+            Name            =   "Tahoma"
+            Size            =   6.75
+            Charset         =   0
+            Weight          =   700
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         ForeColor       =   &H00800000&
+         Height          =   165
+         Left            =   405
+         TabIndex        =   12
+         Top             =   1440
+         Width           =   1125
+      End
+      Begin VB.Label Label3 
+         Alignment       =   2  'Center
+         AutoSize        =   -1  'True
+         BackStyle       =   0  'Transparent
+         Caption         =   "PRIORIDAD :"
+         BeginProperty Font 
+            Name            =   "Tahoma"
+            Size            =   6.75
+            Charset         =   0
+            Weight          =   700
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         ForeColor       =   &H00800000&
+         Height          =   165
+         Left            =   405
+         TabIndex        =   11
+         Top             =   960
+         Width           =   1035
+      End
+      Begin VB.Label Label2 
+         Alignment       =   2  'Center
+         AutoSize        =   -1  'True
+         BackStyle       =   0  'Transparent
+         Caption         =   "TITULO :"
+         BeginProperty Font 
+            Name            =   "Tahoma"
+            Size            =   6.75
+            Charset         =   0
+            Weight          =   700
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         ForeColor       =   &H00800000&
+         Height          =   165
+         Left            =   405
+         TabIndex        =   9
+         Top             =   360
+         Width           =   705
+      End
+   End
+   Begin VB.TextBox txtcolaborador 
+      Appearance      =   0  'Flat
+      BeginProperty Font 
+         Name            =   "Tahoma"
+         Size            =   8.25
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      ForeColor       =   &H00800000&
+      Height          =   285
+      Left            =   11640
+      TabIndex        =   7
+      Top             =   8640
+      Width           =   1935
+   End
+   Begin MSDataListLib.DataCombo dtccolaborador 
+      Height          =   315
+      Left            =   6840
+      TabIndex        =   5
+      Top             =   8640
+      Width           =   4695
+      _ExtentX        =   8281
+      _ExtentY        =   556
+      _Version        =   393216
+      Appearance      =   0
+      ForeColor       =   8388608
+      Text            =   ""
+      BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+         Name            =   "Tahoma"
+         Size            =   8.25
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+   End
+   Begin MSComCtl2.MonthView calendario 
+      Height          =   2760
+      Left            =   15480
+      TabIndex        =   4
+      Top             =   480
+      Width           =   2985
+      _ExtentX        =   5265
+      _ExtentY        =   4868
+      _Version        =   393216
+      ForeColor       =   -2147483630
+      BackColor       =   -2147483633
+      BorderStyle     =   1
+      Appearance      =   0
+      BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+         Name            =   "Tahoma"
+         Size            =   9.75
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      StartOfWeek     =   16711681
+      TitleBackColor  =   8438015
+      CurrentDate     =   42219
+   End
+   Begin VB.TextBox cmdcerrartareas 
+      Appearance      =   0  'Flat
+      BeginProperty Font 
+         Name            =   "Tahoma"
+         Size            =   8.25
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      ForeColor       =   &H00800000&
+      Height          =   285
+      Left            =   1800
+      TabIndex        =   0
+      Top             =   8640
+      Width           =   2775
+   End
+   Begin MSComctlLib.ImageList ImgIconos 
+      Left            =   3360
+      Top             =   2880
+      _ExtentX        =   1005
+      _ExtentY        =   1005
+      BackColor       =   -2147483643
+      ImageWidth      =   32
+      ImageHeight     =   32
+      MaskColor       =   12632256
+      _Version        =   393216
+      BeginProperty Images {2C247F25-8591-11D1-B16A-00C0F0283628} 
+         NumListImages   =   9
+         BeginProperty ListImage1 {2C247F27-8591-11D1-B16A-00C0F0283628} 
+            Picture         =   "frmmistareas.frx":1CDFC
+            Key             =   "(Nuevo)"
+         EndProperty
+         BeginProperty ListImage2 {2C247F27-8591-11D1-B16A-00C0F0283628} 
+            Picture         =   "frmmistareas.frx":1D250
+            Key             =   "(Modificar)"
+         EndProperty
+         BeginProperty ListImage3 {2C247F27-8591-11D1-B16A-00C0F0283628} 
+            Picture         =   "frmmistareas.frx":1D570
+            Key             =   "(Eliminar)"
+         EndProperty
+         BeginProperty ListImage4 {2C247F27-8591-11D1-B16A-00C0F0283628} 
+            Picture         =   "frmmistareas.frx":1D9C4
+            Key             =   "(Salir)"
+         EndProperty
+         BeginProperty ListImage5 {2C247F27-8591-11D1-B16A-00C0F0283628} 
+            Picture         =   "frmmistareas.frx":1DE18
+            Key             =   "(Aceptar)"
+         EndProperty
+         BeginProperty ListImage6 {2C247F27-8591-11D1-B16A-00C0F0283628} 
+            Picture         =   "frmmistareas.frx":1E138
+            Key             =   "(Cancelar)"
+         EndProperty
+         BeginProperty ListImage7 {2C247F27-8591-11D1-B16A-00C0F0283628} 
+            Picture         =   "frmmistareas.frx":1E458
+            Key             =   "(Quitar)"
+         EndProperty
+         BeginProperty ListImage8 {2C247F27-8591-11D1-B16A-00C0F0283628} 
+            Picture         =   "frmmistareas.frx":1E778
+            Key             =   "(Agregar)"
+         EndProperty
+         BeginProperty ListImage9 {2C247F27-8591-11D1-B16A-00C0F0283628} 
+            Picture         =   "frmmistareas.frx":1EA98
+            Key             =   "(Buscar)"
+         EndProperty
+      EndProperty
+   End
+   Begin MSHierarchicalFlexGridLib.MSHFlexGrid HfgLinea 
+      Height          =   7815
+      Left            =   240
+      TabIndex        =   1
+      Top             =   480
+      Width           =   15135
+      _ExtentX        =   26696
+      _ExtentY        =   13785
+      _Version        =   393216
+      ForeColor       =   8388608
+      FixedCols       =   0
+      ForeColorFixed  =   8388608
+      BackColorBkg    =   16777215
+      SelectionMode   =   1
+      Appearance      =   0
+      BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+         Name            =   "Calibri"
+         Size            =   9
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      _NumberOfBands  =   1
+      _Band(0).Cols   =   2
+   End
+   Begin VitekeySoft.ChameleonBtn cmdingresar 
+      Height          =   495
+      Left            =   15480
+      TabIndex        =   48
+      Top             =   4080
+      Width           =   3015
+      _ExtentX        =   5318
+      _ExtentY        =   873
+      BTYPE           =   5
+      TX              =   "INGRESAR BACKLOG            "
+      ENAB            =   -1  'True
+      BeginProperty FONT {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+         Name            =   "Calibri"
+         Size            =   9
+         Charset         =   0
+         Weight          =   700
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      COLTYPE         =   2
+      FOCUSR          =   -1  'True
+      BCOL            =   8421631
+      BCOLO           =   8421631
+      FCOL            =   0
+      FCOLO           =   0
+      MCOL            =   12632256
+      MPTR            =   1
+      MICON           =   "frmmistareas.frx":1EDB8
+      PICN            =   "frmmistareas.frx":1EDD4
+      UMCOL           =   -1  'True
+      SOFT            =   0   'False
+      PICPOS          =   0
+      NGREY           =   0   'False
+      FX              =   0
+      HAND            =   0   'False
+      CHECK           =   0   'False
+      VALUE           =   0   'False
+   End
+   Begin VitekeySoft.ChameleonBtn cmdeliminar 
+      Height          =   495
+      Left            =   15480
+      TabIndex        =   49
+      Top             =   4680
+      Width           =   3015
+      _ExtentX        =   5318
+      _ExtentY        =   873
+      BTYPE           =   5
+      TX              =   "ELIMINAR BACKLOG            "
+      ENAB            =   -1  'True
+      BeginProperty FONT {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+         Name            =   "Calibri"
+         Size            =   9
+         Charset         =   0
+         Weight          =   700
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      COLTYPE         =   2
+      FOCUSR          =   -1  'True
+      BCOL            =   8421631
+      BCOLO           =   8421631
+      FCOL            =   0
+      FCOLO           =   0
+      MCOL            =   12632256
+      MPTR            =   1
+      MICON           =   "frmmistareas.frx":213B9
+      PICN            =   "frmmistareas.frx":213D5
+      UMCOL           =   -1  'True
+      SOFT            =   0   'False
+      PICPOS          =   0
+      NGREY           =   0   'False
+      FX              =   0
+      HAND            =   0   'False
+      CHECK           =   0   'False
+      VALUE           =   0   'False
+   End
+   Begin VitekeySoft.ChameleonBtn cmdcerrar 
+      Height          =   495
+      Left            =   15480
+      TabIndex        =   50
+      Top             =   5280
+      Width           =   3015
+      _ExtentX        =   5318
+      _ExtentY        =   873
+      BTYPE           =   5
+      TX              =   "CERRAR PANTALLA              "
+      ENAB            =   -1  'True
+      BeginProperty FONT {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+         Name            =   "Calibri"
+         Size            =   9
+         Charset         =   0
+         Weight          =   700
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      COLTYPE         =   2
+      FOCUSR          =   -1  'True
+      BCOL            =   8421631
+      BCOLO           =   8421631
+      FCOL            =   0
+      FCOLO           =   0
+      MCOL            =   12632256
+      MPTR            =   1
+      MICON           =   "frmmistareas.frx":239BA
+      PICN            =   "frmmistareas.frx":239D6
+      UMCOL           =   -1  'True
+      SOFT            =   0   'False
+      PICPOS          =   0
+      NGREY           =   0   'False
+      FX              =   0
+      HAND            =   0   'False
+      CHECK           =   0   'False
+      VALUE           =   0   'False
+   End
+   Begin VB.Label Label1 
+      Alignment       =   2  'Center
+      AutoSize        =   -1  'True
+      BackStyle       =   0  'Transparent
+      Caption         =   "COLABORADOR "
+      BeginProperty Font 
+         Name            =   "Tahoma"
+         Size            =   6.75
+         Charset         =   0
+         Weight          =   700
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      ForeColor       =   &H00800000&
+      Height          =   165
+      Left            =   5475
+      TabIndex        =   6
+      Top             =   8640
+      Width           =   1275
+   End
+   Begin VB.Label LblEmpresa 
+      Alignment       =   2  'Center
+      AutoSize        =   -1  'True
+      BackStyle       =   0  'Transparent
+      Caption         =   "METODOLOGIA SCRUM."
+      BeginProperty Font 
+         Name            =   "Calibri"
+         Size            =   14.25
+         Charset         =   0
+         Weight          =   700
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      ForeColor       =   &H00800000&
+      Height          =   345
+      Left            =   240
+      TabIndex        =   3
+      Top             =   120
+      Width           =   2895
+   End
+   Begin VB.Label LblFecha 
+      Alignment       =   2  'Center
+      AutoSize        =   -1  'True
+      BackStyle       =   0  'Transparent
+      Caption         =   "DESCRIPCION :"
+      BeginProperty Font 
+         Name            =   "Tahoma"
+         Size            =   6.75
+         Charset         =   0
+         Weight          =   700
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      ForeColor       =   &H00800000&
+      Height          =   165
+      Left            =   405
+      TabIndex        =   2
+      Top             =   8640
+      Width           =   1185
+   End
+   Begin VB.Shape ShpDatos 
+      BackColor       =   &H00DFDFE0&
+      BorderColor     =   &H00C0C0C0&
+      BorderStyle     =   6  'Inside Solid
+      FillColor       =   &H00FFFFFF&
+      FillStyle       =   0  'Solid
+      Height          =   675
+      Left            =   240
+      Top             =   8400
+      Width           =   15135
+   End
+   Begin VB.Shape Shape1 
+      BackStyle       =   1  'Opaque
+      BorderColor     =   &H00808080&
+      Height          =   9240
+      Left            =   0
+      Top             =   0
+      Width           =   18690
+   End
+End
+Attribute VB_Name = "frmmistareas"
+Attribute VB_GlobalNameSpace = False
+Attribute VB_Creatable = False
+Attribute VB_PredeclaredId = True
+Attribute VB_Exposed = False
+
+Public Procedencia As EnumProcede
+
+Private Sub ChameleonBtn5_Click()
+frmtarea.Visible = False
+End Sub
+
+Private Sub cmdagregarcriterio_Click()
+
+If Trim(Me.TxtCriterio.Text) <> "" And Val(Me.txtidtarea.Text) > 0 Then
+strCadena = "INSERT INTO proyecto_testing(id_tarea,descripcion)VALUES('" & Val(Me.txtidtarea.Text) & "','" & Trim(Me.TxtCriterio.Text) & "')"
+CnBd.Execute (strCadena)
+Call insertar_acciones(strCadena)
+Call Criterio(Me.HfCriterios, Val(Me.txtidtarea.Text))
+Me.TxtCriterio.Text = ""
+Call Resalta(Me.TxtCriterio)
+Else
+    MsgBox "Primero debe GRABAR la tarea para luego ingresar" + Chr(13) + "los criterios.", vbInformation
+    Call Resalta(Me.TxtCriterio)
+    Exit Sub
+End If
+
+End Sub
+
+Private Sub cmdagregarIncidencia_Click()
+If Trim(Me.txtincidencia.Text) <> "" And Trim(Me.txtpersonaincidencia.Text) <> "" Then
+    strCadena = "INSERT INTO proyecto_incidencia (`id_tarea`,`descripcion`,`hora_inicio`,`hora_fin`,`operador`,`fecha_registro`) " & _
+    "VALUES('" & Val(Me.txtidtarea.Text) & "','" & Trim(Me.txtincidencia.Text) & "','" & Trim(Me.txtHoraInicio.Text) & "','" & Trim(Me.TxtHoraFin.Text) & "','" & Trim(Me.txtpersonaincidencia.Text) & "',CURDATE())"
+    CnBd.Execute (strCadena)
+    Call insertar_acciones(strCadena)
+    Me.Frame1.Visible = False
+    Call Incidencias(Me.HfIncidencia, Val(Me.txtidtarea.Text))
+    
+Else
+    MsgBox "Ingrese los campos obligatorios", vbInformation
+    Call Resalta(Me.txtincidencia)
+    Exit Sub
+End If
+End Sub
+
+Private Sub cmdbacklog_Click()
+Me.frmbacklog.Visible = True
+
+Me.txttitulo.Text = ""
+Me.txtdetalle.Text = ""
+Me.txtid_backlog.Text = ""
+frmtarea.Visible = False
+Call Me.tareas(Me.HfTarea, Val(Me.txtid_backlog.Text))
+Call Resalta(Me.txttitulo)
+End Sub
+
+Private Sub cmdcerrar_Click()
+Unload Me
+End Sub
+
+Private Sub cmdcerrarincidencia_Click()
+Me.Frame1.Visible = False
+End Sub
+
+Private Sub cmdcerrarpantalla_Click()
+Me.frmbacklog.Visible = False
+End Sub
+
+Private Sub cmdcerrartareas_Click()
+Me.frmtarea.Visible = False
+End Sub
+
+Private Sub cmddeletetarea_Click()
+Procedencia = anular
+FrmSeguridad.Show
+Exit Sub
+End Sub
+
+Private Sub CmdEliminar_Click()
+Procedencia = Eliminar
+FrmSeguridad.Show
+Exit Sub
+End Sub
+
+Private Sub cmdeliminarcriterio_Click()
+Procedencia = anular_asignacion
+FrmSeguridad.Show
+Exit Sub
+End Sub
+
+Private Sub cmdestadocriterio_Click()
+strCadena = "UPDATE proyecto_testing SET id_estado='" & Me.DtcEstado.BoundText & "' WHERE id_testing='" & Val(Me.HfCriterios.TextMatrix(Me.HfCriterios.Row, 0)) & "'"
+CnBd.Execute (strCadena)
+Call insertar_acciones(strCadena)
+Me.frmestado.Visible = False
+
+If Me.DtcEstado.BoundText = "2" Then ' en proceso
+   strCadena = "UPDATE proyecto_tareas SET id_estado='" & Me.DtcEstado.BoundText & "' WHERE  id_tarea='" & Val(Me.txtidtarea.Text) & "'"
+   CnBd.Execute (strCadena)
+   strCadena = "UPDATE proyecto_backlog SET id_estado='2' WHERE id_codigo='" & Trim(Me.HfgLinea.TextMatrix(Me.HfgLinea.Row, 0)) & "'"
+   CnBd.Execute (strCadena)
+   Call insertar_acciones(strCadena)
+End If
+
+If Me.DtcEstado.BoundText = "1" Then ' en proceso
+   strCadena = "SELECT * FROM proyecto_testing WHERE id_estado<>'" & Me.DtcEstado.BoundText & "' AND id_tarea='" & Val(Me.txtidtarea.Text) & "'"
+   CnBd.Execute (strCadena)
+   Call insertar_acciones(strCadena)
+   If rst.RecordCount < 1 Then
+       strCadena = "UPDATE proyecto_tareas SET id_estado='" & Me.DtcEstado.BoundText & "' WHERE  id_tarea='" & Val(Me.txtidtarea.Text) & "'"
+       CnBd.Execute (strCadena)
+       Call insertar_acciones(strCadena)
+    Else
+        strCadena = "UPDATE proyecto_tareas SET id_estado='1' WHERE  id_tarea='" & Val(Me.txtidtarea.Text) & "'"
+       CnBd.Execute (strCadena)
+       Call insertar_acciones(strCadena)
+   End If
+End If
+
+If Me.DtcEstado.BoundText = "5" Then ' en proceso
+   strCadena = "UPDATE proyecto_tareas SET id_estado='" & Me.DtcEstado.BoundText & "' WHERE  id_tarea='" & Val(Me.txtidtarea.Text) & "'"
+   CnBd.Execute (strCadena)
+   Call insertar_acciones(strCadena)
+   
+   strCadena = "SELECT * FROM proyecto_testing WHERE id_estado<>'" & Me.DtcEstado.BoundText & "' AND id_tarea='" & Val(Me.txtidtarea.Text) & "'"
+   CnBd.Execute (strCadena)
+   Call insertar_acciones(strCadena)
+   If rst.RecordCount < 1 Then
+       strCadena = "UPDATE proyecto_tareas SET id_estado='" & Me.DtcEstado.BoundText & "' WHERE  id_tarea='" & Val(Me.txtidtarea.Text) & "'"
+       CnBd.Execute (strCadena)
+       Call insertar_acciones(strCadena)
+    Else
+       strCadena = "UPDATE proyecto_tareas SET id_estado='2' WHERE  id_tarea='" & Val(Me.txtidtarea.Text) & "'"
+       CnBd.Execute (strCadena)
+       Call insertar_acciones(strCadena)
+   End If
+   strCadena = "SELECT * FROM proyecto_tareas WHERE id_estado='2' and id_backlog='" & Val(Me.HfgLinea.TextMatrix(Me.HfgLinea.Row, 0)) & "'"
+   Call ConfiguraRst(strCadena)
+   If rst.RecordCount < 1 Then
+      strCadena = "UPDATE proyecto_backlog SET id_estado='5' WHERE id_codigo='" & Trim(Me.HfgLinea.TextMatrix(Me.HfgLinea.Row, 0)) & "'"
+      CnBd.Execute (strCadena)
+   End If
+   
+End If
+
+If Me.DtcEstado.BoundText = "4" Then ' aprobado
+   strCadena = "SELECT * FROM proyecto_testing WHERE id_estado<>'" & Me.DtcEstado.BoundText & "' AND id_tarea='" & Val(Me.txtidtarea.Text) & "'"
+   CnBd.Execute (strCadena)
+   Call insertar_acciones(strCadena)
+   If rst.RecordCount < 1 Then
+       strCadena = "UPDATE proyecto_tareas SET id_estado='" & Me.DtcEstado.BoundText & "' WHERE  id_tarea='" & Val(Me.txtidtarea.Text) & "'"
+       CnBd.Execute (strCadena)
+       Call insertar_acciones(strCadena)
+    Else
+        strCadena = "UPDATE proyecto_tareas SET id_estado='2' WHERE  id_tarea='" & Val(Me.txtidtarea.Text) & "'"
+       CnBd.Execute (strCadena)
+       Call insertar_acciones(strCadena)
+   End If
+End If
+Call Me.tareas(Me.HfTarea, Val(Me.txtid_backlog.Text))
+Call Me.Criterio(Me.HfCriterios, Val(Me.txtidtarea.Text))
+End Sub
+
+Private Sub cmdguardartarea_Click()
+If Val(Me.txtidtarea.Text) > 0 Then
+    strCadena = "UPDATE proyecto_tareas SET descripcion='" & Trim(Me.txtnombretarea.Text) & "',fecha_ini='" & Format(Me.DtpInicio.Value, "YYYY-mm-dd") & "',fecha_fin='" & Format(Me.DtpFin.Value, "YYYY-mm-dd") & "' WHERE id_tarea='" & Val(Me.txtidtarea.Text) & "'"
+Else
+    If Trim(Me.txtnombretarea.Text) <> "" Then
+        strCadena = "INSERT INTO proyecto_tareas(id_backlog,descripcion,fecha_ini,fecha_fin)VALUES('" & Val(Me.HfgLinea.TextMatrix(Me.HfgLinea.Row, 0)) & "','" & Trim(Me.txtnombretarea.Text) & "','" & Format(Me.DtpInicio.Value, "YYYY-mm-dd") & "','" & Format(Me.DtpFin.Value, "YYYY-mm-dd") & "')"
+    Else
+        MsgBox "Debe de ingresar un Descripcion", vbQuestion
+        Call Resalta(Me.txtnombretarea)
+        Exit Sub
+    End If
+End If
+    CnBd.Execute (strCadena)
+    Call insertar_acciones(strCadena)
+    Me.frmtarea.Visible = False
+    Call Me.tareas(Me.HfTarea, Val(Me.HfgLinea.TextMatrix(Me.HfgLinea.Row, 0)))
+End Sub
+
+Public Sub llena_tarea(ByVal in_tarea As Integer)
+strCadena = "SELECT * FROM proyecto_tareas WHERE id_tarea='" & in_tarea & "'"
+Call ConfiguraRst(strCadena)
+If rst.RecordCount > 0 Then
+    Me.frmtarea.Visible = True
+    Me.txtnombretarea.Text = rst("descripcion")
+    Me.DtpInicio.Value = rst("fecha_ini")
+    Me.DtpFin.Value = rst("fecha_fin")
+    Call Criterio(Me.HfCriterios, Val(Me.txtidtarea.Text))
+End If
+End Sub
+
+Private Sub cmdingresar_Click()
+Call LLENA(Val(Me.HfgLinea.TextMatrix(Me.HfgLinea.Row, 0)))
+End Sub
+Private Sub LLENA(ByVal in_codigo As Integer)
+strCadena = "SELECT * FROM view_backlog WHERE id_codigo='" & in_codigo & "'"
+Call ConfiguraRst(strCadena)
+If rst.RecordCount > 0 Then
+   Me.txtid_backlog.Text = rst("id_codigo")
+   Me.txttitulo.Text = rst("backlog")
+   Me.dtcasignado.BoundText = rst("dni_colaborador")
+   Me.dtcprioridad.BoundText = rst("id_prioridad")
+   Me.dtcmodulo.BoundText = rst("id_proyecto")
+      Me.txtdetalle.Text = rst("detalle")
+   Me.calendario1.Value = rst("fecha_inicio")
+   Me.calendario2.Value = rst("fecha_final")
+   
+   Call Me.tareas(Me.HfTarea, txtid_backlog.Text)
+   Me.Frame1.Visible = False
+   Me.frmbacklog.Visible = True
+Else
+   Me.txtid_backlog.Text = 0
+   Me.txttitulo.Text = ""
+   Me.txtdetalle.Text = ""
+   Me.dtcasignado.BoundText = 0
+
+   Me.frmbacklog.Visible = True
+   
+End If
+End Sub
+
+Private Sub cmdnuevatarea_Click()
+Me.txtnombretarea.Text = ""
+Me.txtidtarea.Text = ""
+Me.frmtarea.Visible = True
+Me.DtpInicio.Value = KEY_FECHA
+Me.DtpFin.Value = KEY_FECHA
+Call Resalta(Me.txtnombretarea)
+Call Me.tareas(Me.HfTarea, Val(Me.HfgLinea.TextMatrix(Me.HfgLinea.Row, 0)))
+Call Me.Criterio(Me.HfCriterios, Val(Me.txtidtarea.Text))
+End Sub
+
+Private Sub cmdprocesar_Click()
+If Trim(Me.txttitulo.Text) <> "" And Val(Me.txtid_backlog.Text) < 1 Then
+    strCadena = "INSERT INTO proyecto_backlog(descripcion,dni_colaborador,id_proyecto,fecha_inicio,fecha_final,id_prioridad,detalle) VALUES  " & _
+    "('" & UCase(Trim(Me.txttitulo.Text)) & "','" & Me.dtcasignado.BoundText & "','" & Me.dtcmodulo.BoundText & "','" & Format(Me.calendario1.Value, "YYYY-mm-dd") & "','" & Format(Me.calendario2.Value, "YYYY-mm-dd") & "','" & Me.dtcprioridad.BoundText & "','" & Trim(Me.txtdetalle.Text) & "')"
+    CnBd.Execute (strCadena)
+    Call insertar_acciones(strCadena)
+    Call backlog(Me.HfgLinea)
+    Me.frmbacklog.Visible = False
+Else
+    strCadena = "UPDATE  proyecto_backlog SET detalle='" & Trim(Me.txtdetalle.Text) & "', descripcion='" & UCase(Trim(Me.txttitulo.Text)) & "',dni_colaborador='" & Me.dtcasignado.BoundText & "',id_proyecto='" & Me.dtcmodulo.BoundText & "',fecha_inicio='" & Format(Me.calendario1.Value, "YYYY-mm-dd") & "',id_prioridad='" & Me.dtcprioridad.BoundText & "' WHERE id_codigo='" & Val(Me.txtid_backlog.Text) & "'"
+    CnBd.Execute (strCadena)
+    Call insertar_acciones(strCadena)
+    Call backlog(Me.HfgLinea)
+    Me.frmbacklog.Visible = False
+    Call calcular_dias(Me.txtid_backlog.Text)
+End If
+End Sub
+Private Sub calcular_dias(ByVal in_backlog As Integer)
+
+strCadena = "SELECT fecha_fin FROM proyecto_tareas WHERE id_backlog='" & in_backlog & "' ORDER BY fecha_ini DESC LIMIT 1"
+Call ConfiguraRst(strCadena)
+If rst.RecordCount > 0 Then
+   strCadena = "UPDATE proyecto_backlog SET fecha_final='" & Format(rst("fecha_fin"), "YYYY-mm-dd") & "' WHERE id_codigo='" & in_backlog & "'"
+   CnBd.Execute (strCadena)
+   Call insertar_acciones(strCadena)
+   Call Me.backlog(Me.HfgLinea)
+End If
+End Sub
+Private Sub Form_Load()
+CenterForm Me
+Me.Top = 50
+Me.calendario1.Value = KEY_FECHA
+Me.calendario2.Value = KEY_FECHA
+
+strCadena = "SELECT id_prioridad as Codigo,descripcion as Descripcion FROM proyecto_prioridad order by id_prioridad asc"
+Call ConfiguraRst(strCadena)
+Call LlenaDataCombo(Me.dtcprioridad)
+
+If KEY_USUARIO = "42546269" Then
+    strCadena = "SELECT id_estado as Codigo,descripcion as Descripcion FROM proyecto_estado order by id_estado asc"
+Else
+    strCadena = "SELECT id_estado as Codigo,descripcion as Descripcion FROM proyecto_estado WHERE id_estado<>'04' order by id_estado asc"
+End If
+Call ConfiguraRst(strCadena)
+Call LlenaDataCombo(Me.DtcEstado)
+
+
+If KEY_USUARIO = "42546269" Then
+    strCadena = "SELECT id_estado as Codigo,descripcion as Descripcion FROM proyecto_estado order by id_estado asc"
+Else
+    strCadena = "SELECT id_estado as Codigo,descripcion as Descripcion FROM proyecto_estado WHERE id_estado<>'04' order by id_estado asc"
+End If
+Call ConfiguraRst(strCadena)
+Call LlenaDataCombo(Me.DtcEstadoBacklog)
+
+
+
+  strCadena = "SELECT e.cod_unico as Codigo,p.nombre_completo as Descripcion FROM entidad_empresa e,persona p where e.cod_unico=p.dni  and e.id_personal='si' and  e.id_empresa='" & KEY_RUC & "'"
+  Call ConfiguraRst(strCadena)
+  Call LlenaDataCombo(Me.dtcasignado)
+  
+  strCadena = "SELECT id_proyecto as Codigo,descripcion as Descripcion FROM proyecto"
+  Call ConfiguraRst(strCadena)
+  Call LlenaDataCombo(Me.dtcmodulo)
+  Call backlog(Me.HfgLinea)
+   
+   
+   
+
+End Sub
+Public Sub backlog(ByVal Grilla As MSHFlexGrid)
+Dim Orden As Integer
+Dim espacio As Single
+
+On Error GoTo SALIR
+If KEY_USUARIO <> "42546269" Then
+    strCadena = "SELECT * FROM view_backlog WHERE dni_colaborador='" & KEY_USUARIO & "' ORDER BY id_codigo ASC "
+Else
+    strCadena = "SELECT * FROM view_backlog  ORDER BY id_codigo ASC "
+End If
+
+Call ConfiguraRstL(strCadena)
+If rstL.RecordCount < 1 Then
+    Grilla.Rows = 1
+    Grilla.Clear
+    Exit Sub
+End If
+   Grilla.Clear
+   Grilla.Refresh
+   Grilla.Rows = 0
+   ReDim arrColWidth(1 To rstL.Fields.Count)
+       For Each Campo In rstL.Fields
+           Grilla.ColWidth(0) = 900
+           Grilla.ColWidth(1) = 4000
+           Grilla.ColWidth(2) = 2800
+           Grilla.ColWidth(3) = 2500
+           Grilla.ColWidth(4) = 1200
+           Grilla.ColWidth(5) = 1200
+           Grilla.ColWidth(6) = 1200
+           Grilla.ColWidth(7) = 1000
+           
+          Next
+         cabecera = "CODIGO" & vbTab & "DESCRIPCION" & vbTab & "PROYECTO" & vbTab & "COLABORADOR" & vbTab & "PRIORIDAD" & vbTab & "FECHA INICIO" & vbTab & "FECHA FIN" & vbTab & "ESTADO"
+         Grilla.AddItem cabecera
+         For k = 0 To 7
+            Grilla.col = k
+            Grilla.Row = 0
+            Grilla.CellBackColor = &HDFDFE0
+         Next k
+         
+         
+        rstL.MoveFirst
+       
+        For i = 0 To rstL.RecordCount - 1
+            Fila = Format(rstL("id_codigo"), "00000") & vbTab & rstL("backlog") & vbTab & rstL("proyecto") & vbTab & rstL("colaborador") & vbTab & rstL("prioridad") & vbTab & Format(rstL("fecha_inicio"), "dd-mm-YYYY") & vbTab & Format(rstL("fecha_final"), "dd-mm-YYYY") & vbTab & rstL("estado")
+            Grilla.AddItem Fila
+            Fila = ""
+            For k = 0 To 7
+                Grilla.col = k
+                Grilla.Row = i + 1
+                Select Case rstL("estado")
+                    Case "EN PROCESO"
+                            Grilla.CellBackColor = &H80C0FF       ' proceso
+                    Case "RECHAZADO"
+                            Grilla.CellBackColor = &H8080FF       ' desaprobado
+                    Case "APROBADO"
+                            Grilla.CellBackColor = &H80FF80    ' aprobado
+                    Case "TERMINADO"
+                            Grilla.CellBackColor = &HFFFF80       ' terminado
+                End Select
+            Next k
+            rstL.MoveNext
+        Next i
+  
+         
+        
+         
+Exit Sub
+SALIR:
+Call manejador_error
+End Sub
+Public Sub tareas(ByVal Grilla As MSHFlexGrid, ByVal in_backlog As Integer)
+Dim Orden As Integer
+Dim espacio As Single
+
+On Error GoTo SALIR
+strCadena = "SELECT t.id_tarea,t.descripcion as tarea,t.fecha_ini,t.fecha_fin,e.descripcion as estado FROM proyecto_tareas t,proyecto_estado e WHERE t.id_estado=e.id_estado and t.id_backlog='" & Val(Me.txtid_backlog.Text) & "' ORDER BY id_tarea ASC "
+Call ConfiguraRstL(strCadena)
+If rstL.RecordCount < 1 Then
+    Grilla.Rows = 1
+    Grilla.Clear
+    Exit Sub
+End If
+   Grilla.Clear
+   Grilla.Refresh
+   Grilla.Rows = 0
+   ReDim arrColWidth(1 To rstL.Fields.Count)
+       For Each Campo In rstL.Fields
+           Grilla.ColWidth(0) = 700
+           Grilla.ColWidth(1) = 6000
+           Grilla.ColWidth(2) = 1200
+           Grilla.ColWidth(3) = 1200
+           Grilla.ColWidth(4) = 1200
+      
+          
+           
+          Next
+         cabecera = "CODIGO" & vbTab & "DESCRIPCION" & vbTab & "F.INICIO" & vbTab & "F.FIN" & vbTab & "ESTADO"
+         Grilla.AddItem cabecera
+         For k = 0 To 4
+            Grilla.col = k
+            Grilla.Row = 0
+            Grilla.CellBackColor = &HDFDFE0
+         Next k
+         
+         
+        rstL.MoveFirst
+       
+        For i = 0 To rstL.RecordCount - 1
+            Fila = Format(rstL("id_tarea"), "000") & vbTab & rstL("tarea") & vbTab & Format(rstL("fecha_ini"), "dd-mm-YYYY") & vbTab & Format(rstL("fecha_fin"), "dd-mm-YYYY") & vbTab & rstL("estado")
+            Grilla.AddItem Fila
+            Fila = ""
+            For k = 0 To 4
+                Grilla.col = k
+                Grilla.Row = i + 1
+                Select Case rstL("estado")
+                    Case "EN PROCESO"
+                            Grilla.CellBackColor = &H80C0FF       ' proceso
+                    Case "RECHAZADO"
+                            Grilla.CellBackColor = &H8080FF       ' desaprobado
+                    Case "APROBADO"
+                            Grilla.CellBackColor = &H80FF80    ' aprobado
+                    Case "TERMINADO"
+                            Grilla.CellBackColor = &HFFFF80       ' terminado
+                End Select
+            Next k
+            rstL.MoveNext
+        Next i
+  
+         
+        
+         
+Exit Sub
+SALIR:
+Call manejador_error
+End Sub
+Public Sub Criterio(ByVal Grilla As MSHFlexGrid, ByVal in_tarea As Integer)
+Dim Orden As Integer
+Dim espacio As Single
+
+On Error GoTo SALIR
+strCadena = "SELECT t.id_testing,t.descripcion,e.descripcion as estado FROM proyecto_testing t,proyecto_estado e WHERE t.id_estado=e.id_estado and  t.id_tarea='" & in_tarea & "' ORDER BY id_testing ASC "
+Call ConfiguraRstL(strCadena)
+If rstL.RecordCount < 1 Then
+    Grilla.Rows = 1
+    Grilla.Clear
+    Exit Sub
+End If
+   Grilla.Clear
+   Grilla.Refresh
+   Grilla.Rows = 0
+   ReDim arrColWidth(1 To rstL.Fields.Count)
+       For Each Campo In rstL.Fields
+           Grilla.ColWidth(0) = 800
+           Grilla.ColWidth(1) = 8500
+           Grilla.ColWidth(2) = 1200
+           
+          
+           
+          Next
+         cabecera = "CODIGO" & vbTab & "DESCRIPCION" & vbTab & "ESTADO"
+         Grilla.AddItem cabecera
+         For k = 0 To 2
+            Grilla.col = k
+            Grilla.Row = 0
+            Grilla.CellBackColor = &HDFDFE0
+         Next k
+         
+         
+        rstL.MoveFirst
+       
+        For i = 0 To rstL.RecordCount - 1
+            Fila = Format(rstL("id_testing"), "000") & vbTab & rstL("descripcion") & vbTab & rstL("estado")
+            Grilla.AddItem Fila
+            Fila = ""
+            For k = 0 To 2
+                Grilla.col = k
+                Grilla.Row = i + 1
+                Select Case rstL("estado")
+                    Case "EN PROCESO"
+                            Grilla.CellBackColor = &H80C0FF       ' proceso
+                    Case "RECHAZADO"
+                            Grilla.CellBackColor = &H8080FF       ' desaprobado
+                    Case "APROBADO"
+                            Grilla.CellBackColor = &H80FF80       ' aprobado
+                    Case "TERMINADO"
+                            Grilla.CellBackColor = &HFFFF80       ' terminado
+                End Select
+            Next k
+            rstL.MoveNext
+        Next i
+  
+         
+        
+         
+Exit Sub
+SALIR:
+Call manejador_error
+End Sub
+Public Sub Incidencias(ByVal Grilla As MSHFlexGrid, ByVal in_tarea As Integer)
+Dim Orden As Integer
+Dim espacio As Single
+
+On Error GoTo SALIR
+strCadena = "SELECT * FROM proyecto_incidencia WHERE id_tarea='" & Val(Me.txtidtarea.Text) & "' ORDER BY hora_inicio asc"
+Call ConfiguraRstL(strCadena)
+If rstL.RecordCount < 1 Then
+    Grilla.Rows = 1
+    Grilla.Clear
+    Exit Sub
+End If
+   
+   Grilla.Clear
+   Grilla.Refresh
+   Grilla.Rows = 0
+   ReDim arrColWidth(1 To rstL.Fields.Count)
+       For Each Campo In rstL.Fields
+           Grilla.ColWidth(0) = 0
+           Grilla.ColWidth(1) = 5500
+           Grilla.ColWidth(2) = 2000
+           Grilla.ColWidth(3) = 750
+           Grilla.ColWidth(4) = 750
+           
+          Next
+         cabecera = "CODIGO" & vbTab & "DESCRIPCION" & vbTab & "DESTINO" & vbTab & "H.INICIO" & vbTab & "H.FIN"
+         Grilla.AddItem cabecera
+         For k = 0 To 4
+            Grilla.col = k
+            Grilla.Row = 0
+            Grilla.CellBackColor = &HDFDFE0
+         Next k
+         
+         
+        rstL.MoveFirst
+       
+        For i = 0 To rstL.RecordCount - 1
+            Fila = rstL("id_incidencia") & vbTab & rstL("descripcion") & vbTab & rstL("operador") & vbTab & rstL("hora_inicio") & vbTab & rstL("hora_fin")
+            Grilla.AddItem Fila
+            Fila = ""
+            
+            rstL.MoveNext
+        Next i
+  
+         
+        
+         
+Exit Sub
+SALIR:
+Call manejador_error
+End Sub
+
+Private Sub HfCriterios_Click()
+Me.TxtCriterio.Text = Me.HfCriterios.TextMatrix(Me.HfCriterios.Row, 1)
+End Sub
+
+Private Sub HfCriterios_DblClick()
+If Val(Me.HfCriterios.TextMatrix(Me.HfCriterios.Row, 0)) > 0 Then
+    Me.frmestado.Visible = True
+    
+End If
+End Sub
+
+Private Sub HfgLinea_Click()
+
+End Sub
+
+Private Sub HfgLinea_DblClick()
+
+End Sub
+
+Private Sub HfIncidencia_DblClick()
+Me.Frame1.Visible = True
+Call Resalta(Me.txtincidencia)
+End Sub
+
+Private Sub HfTarea_DblClick()
+Me.txtidtarea.Text = Val(Me.HfTarea.TextMatrix(Me.HfTarea.Row, 0))
+Call llena_tarea(Val(Me.txtidtarea.Text))
+Call Me.Incidencias(Me.HfIncidencia, Val(Me.txtidtarea.Text))
+End Sub
+
+Private Sub HfTarea_SelChange()
+If Val(Me.HfTarea.TextMatrix(Me.HfTarea.Row, 0)) > 0 Then
+    Me.cmddeletetarea.Enabled = True
+Else
+    Me.cmddeletetarea.Enabled = False
+End If
+End Sub

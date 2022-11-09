@@ -1,0 +1,10 @@
+barra	String	20
+Producto	String	80
+Unidad	String	5
+inicial	Number
+ingresos	Number		
+salidas	Number
+Stock	Number
+linea	String	50
+Precio	Number
+

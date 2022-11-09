@@ -1,0 +1,13 @@
+in_servicio	Number
+emision	Date
+dni	String	20
+cliente	String	80
+placa	String	20
+observacion	String	500
+costo	Number
+tecnico	String	80
+km_inicio	Number
+km_fin	Number
+fecha_proxima	Date
+
+

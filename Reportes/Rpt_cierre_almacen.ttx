@@ -1,0 +1,18 @@
+codigo	String	5
+producto	String	100
+unidad	String	6
+linea	String	20
+inicial	Number
+ingresos	Number
+salidas	Number
+saldo	Number
+costo	Number
+valorizado	Number
+saldo_inicial	Number
+
+
+
+
+
+
+

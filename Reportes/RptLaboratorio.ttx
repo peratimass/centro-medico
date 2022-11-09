@@ -1,0 +1,5 @@
+cLaboratorio	String	4	
+sRazonSocial	String	80	
+sDireccionLaboratorio1	String	50	
+sTelefonoLaboratorio1	String	9	
+sEmailLaboratorio	String	50	

@@ -1,0 +1,18 @@
+id_producto	String	5
+producto	String	50
+linea	String	30
+stock	Number
+p_venta	Number
+p_costo	Number
+sem1	Number
+sem2	Number
+sem3	Number
+sem4	Number
+sem5	Number
+sem6	Number
+cant1	Number
+cant2	Number
+cant3	Number
+cant4	Number
+cant5	Number
+cant6	Number		

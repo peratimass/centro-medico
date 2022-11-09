@@ -1,0 +1,12 @@
+Serie	String	5
+Numero	String	10
+Cliente	String	80
+Direccion	String	80
+Ruc	String	11
+cantidad	Number	
+sDescripcionProducto	String	100	
+precio	Number
+Total_parcial	Number
+SubTotal	Number		
+Igv	Number
+Total	Number

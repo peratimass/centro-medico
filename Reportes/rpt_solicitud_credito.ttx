@@ -1,0 +1,41 @@
+a_solicitud	String	6
+fecha_solicitud	Date
+vendedor	String	50
+b_venta	Number
+c_producto	String	10
+d_detalle	String	70
+e_precio	Number
+f_interes	Number
+g_dni_cliente	String	11
+h_cliente	String	80
+i_direccion	String	80
+j_dni_conyugue	String	11
+k_conyugue	String	80
+l_celular_conyu	String	10
+m_edad	Number
+n_estado_civil	String	2
+o_departamento_cliente	String	40
+p_provincia	String	40
+q_distrito	String	40
+r_vivienda	String	40
+s_alquiler	Number
+t_dni_fiador	String	11
+u_cliente	String	80
+v_celular_fiador	String	10
+w_departamento_fiador	String	40
+x_provincia_fiador	String	40
+y_distrito_fiador	String	40
+zing_comprador	Number
+abing_conyugue	Number
+acin_otro	Number
+adin_vivienda_fiador	String	40
+aein_alquiler_fiador	Number
+afin_profesion_fiador	String	40
+agin_profesion_comprador	String	40
+ahin_ingreso_fiador	Number
+aiin_otro_ingreso_fiador	Number
+ajin_contado	Number
+akin_credito	Number
+alin_cuotas	Number
+
+

@@ -1,0 +1,18 @@
+in_fecha_pago	Date
+ruc_cliente	String	16
+comprobante_origen	String	40
+fecha_origen	Date
+comprobante	String	40
+moneda	String	5
+monto	Number
+tc	Number
+operador	String	60
+forma_pago	String	60
+operacion	String	20
+total	Number
+
+
+
+
+
+

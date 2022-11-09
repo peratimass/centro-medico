@@ -1,0 +1,19 @@
+fecha_emision	Date
+id_producto	String	10
+nombre_prod	String	100
+unidad	String	10
+linea	String	30
+cantidad	Number
+precio	Number
+cobertura	Number
+mayor	Number
+mercado	Number
+id_alm	String	5
+id_vendedor	String	16
+nombre_completo	String	80
+id_tipo_cobertura	String	2
+ncobertura	String	20
+ruc	String	16
+
+
+

@@ -1,0 +1,6 @@
+Codigo	String	20	
+Linea	String	20		
+sDescripcionProducto	String	80	
+nStockActual	Number		
+Unidad	String	20
+nPrecioVenta	Number		

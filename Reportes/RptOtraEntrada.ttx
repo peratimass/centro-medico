@@ -1,0 +1,11 @@
+cotraentrada	String	10
+Entidad	String	101
+TipoMovimiento	String	20
+Estado	String	20        
+sTipoEntidad	string	1
+dotraentrada	Date
+nCantidadOtraEntrada	Number
+Unidad	String	20
+sDescripcionProducto	String	80
+nPrecioVenta	Number
+PTotal	Number

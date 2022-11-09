@@ -1,0 +1,28 @@
+fecha_inicio	Date
+fecha_fin	Date
+dni	String	11
+vendedor	String	60
+id_linea1	String	5
+id_linea2	String	5
+id_linea3	String	5
+id_linea4	String	5
+id_linea5	String	5
+id_linea6	String	5
+linea1	String	30
+linea2	String	30
+linea3	String	30
+linea4	String	30
+linea5	String	30
+linea6	String	30
+monto_linea1	Number
+monto_linea2	Number
+monto_linea3	Number
+monto_linea4	Number
+monto_linea5	Number
+monto_linea6	Number
+dni_save	String	11
+operador	String	60
+ruc	String	11
+
+
+

@@ -1,0 +1,5 @@
+Codigo	String	10	
+sDescripcionProducto	String	150	
+Unidad	String	10
+nStockActual	Number		
+nPrecioVenta	Number

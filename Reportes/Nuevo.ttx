@@ -1,0 +1,3 @@
+dni	String	11
+nombre	String	150
+fecha	Date

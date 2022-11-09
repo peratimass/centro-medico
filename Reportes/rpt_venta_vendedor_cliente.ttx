@@ -1,0 +1,5 @@
+cliente	Number
+vendedor	String	70
+monto	Number
+
+

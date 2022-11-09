@@ -1,0 +1,12 @@
+Codigo	String	8
+cProducto	String	5
+stock_inicial	Number
+fecha	Date
+descripcion	String	40
+detalle	String	100
+estado	String	20
+cod_barra	String	20
+producto	String	60
+unidad	String	3
+cantidad_uni	Number
+usuario	String	40

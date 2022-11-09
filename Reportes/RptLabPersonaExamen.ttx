@@ -1,0 +1,10 @@
+id_cita	Number
+id_fecha  		Datetime
+dni	String	11
+paciente	String	130
+id_producto	String	10
+descripcion	String	150
+estado	String	20
+genero	String	15
+ups	String	50
+responsable	String	50

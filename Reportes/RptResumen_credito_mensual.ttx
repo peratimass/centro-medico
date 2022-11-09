@@ -1,0 +1,11 @@
+id	Number
+descripcion	String	40
+facturado	Number
+cobrado	Number
+saldo_soles	Number
+saldo_dolares	Number
+clientes	Number
+tc	Number
+
+
+

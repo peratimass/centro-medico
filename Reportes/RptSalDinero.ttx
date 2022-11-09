@@ -1,0 +1,7 @@
+Cpersona	String	10
+Persona	String	100	
+fecha	Date
+DocAbrevia	String	10
+Numero	String	20
+Total	Number
+

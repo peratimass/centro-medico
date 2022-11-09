@@ -1,0 +1,14 @@
+cdocumentoventa	String	10
+Cliente	String	101
+demisionventa	Date
+dvencimiento	Date
+dpago	Date
+nsubtotal	Number
+nigv	Number
+ntotalventa	Number		
+Estado	String	20
+ncantidad	Number
+Unidad	String	20
+sdescripcionproducto	String	20
+nPrecioVenta	Number
+PTotal	Number

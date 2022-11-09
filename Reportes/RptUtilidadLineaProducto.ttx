@@ -1,0 +1,15 @@
+id_producto	String	10
+producto	String	100
+id_linea	String	5
+linea	String	40
+unidad	String	40
+cantidad	Number
+valor_venta	Number
+valor_costo	Number
+precio_venta	Number
+
+
+
+
+
+

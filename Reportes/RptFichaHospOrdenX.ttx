@@ -1,0 +1,7 @@
+medico	String	130
+paciente	String	130
+fecha		Datetime
+hora_save	Datetime
+observacion		String	200
+nombre_generico	String	600
+cama		String	24

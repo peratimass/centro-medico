@@ -1,0 +1,6 @@
+fecha_emision	Date
+serie	String	3
+numero	String	6
+id_producto	String	6
+descripcion	String	150
+total	Number

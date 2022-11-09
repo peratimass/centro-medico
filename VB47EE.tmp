@@ -1,0 +1,1479 @@
+VERSION 5.00
+Object = "{F0D2F211-CCB0-11D0-A316-00AA00688B10}#1.0#0"; "MSDATLST.OCX"
+Object = "{86CF1D34-0C5F-11D2-A9FC-0000F8754DA1}#2.0#0"; "MSCOMCT2.OCX"
+Object = "{0ECD9B60-23AA-11D0-B351-00A0C9055D8E}#6.0#0"; "mshflxgd.ocx"
+Object = "{831FDD16-0C5C-11D2-A9FC-0000F8754DA1}#2.1#0"; "mscomctl.OCX"
+Begin VB.Form FrmKardexdeProductos 
+   BorderStyle     =   0  'None
+   Caption         =   "Kardex de Productos"
+   ClientHeight    =   9240
+   ClientLeft      =   0
+   ClientTop       =   0
+   ClientWidth     =   20145
+   LinkTopic       =   "Form1"
+   MaxButton       =   0   'False
+   MDIChild        =   -1  'True
+   MinButton       =   0   'False
+   ScaleHeight     =   9240
+   ScaleWidth      =   20145
+   ShowInTaskbar   =   0   'False
+   Begin VB.CheckBox chk_ventas_realizadas 
+      Appearance      =   0  'Flat
+      BackColor       =   &H008080FF&
+      Caption         =   "VENTAS REALIZADAS"
+      BeginProperty Font 
+         Name            =   "Calibri"
+         Size            =   8.25
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      ForeColor       =   &H00800000&
+      Height          =   240
+      Left            =   15960
+      TabIndex        =   27
+      Top             =   720
+      Width           =   2055
+   End
+   Begin VB.CheckBox chk_kardex_contable 
+      Appearance      =   0  'Flat
+      BackColor       =   &H008080FF&
+      Caption         =   "KARDEX CONTABLE"
+      BeginProperty Font 
+         Name            =   "Calibri"
+         Size            =   8.25
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      ForeColor       =   &H00800000&
+      Height          =   240
+      Left            =   15960
+      TabIndex        =   26
+      Top             =   400
+      Width           =   2055
+   End
+   Begin VB.CheckBox chk_kardex_fisico 
+      Appearance      =   0  'Flat
+      BackColor       =   &H008080FF&
+      Caption         =   "KARDEX FISICO"
+      BeginProperty Font 
+         Name            =   "Calibri"
+         Size            =   8.25
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      ForeColor       =   &H00800000&
+      Height          =   240
+      Left            =   15960
+      TabIndex        =   25
+      Top             =   120
+      Value           =   1  'Checked
+      Width           =   2055
+   End
+   Begin VitekeySoft.ChameleonBtn cmdactivar 
+      Height          =   375
+      Left            =   5040
+      TabIndex        =   22
+      Top             =   120
+      Width           =   735
+      _ExtentX        =   1296
+      _ExtentY        =   661
+      BTYPE           =   5
+      TX              =   ""
+      ENAB            =   -1  'True
+      BeginProperty FONT {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+         Name            =   "MS Sans Serif"
+         Size            =   8.25
+         Charset         =   0
+         Weight          =   700
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      COLTYPE         =   2
+      FOCUSR          =   -1  'True
+      BCOL            =   16777215
+      BCOLO           =   16777215
+      FCOL            =   0
+      FCOLO           =   0
+      MCOL            =   12632256
+      MPTR            =   1
+      MICON           =   "FrmKardexProducto.frx":0000
+      PICN            =   "FrmKardexProducto.frx":001C
+      UMCOL           =   -1  'True
+      SOFT            =   0   'False
+      PICPOS          =   0
+      NGREY           =   0   'False
+      FX              =   0
+      HAND            =   0   'False
+      CHECK           =   0   'False
+      VALUE           =   0   'False
+   End
+   Begin VB.CheckBox chkBuscarfechas 
+      Appearance      =   0  'Flat
+      BackColor       =   &H008080FF&
+      Caption         =   "BUSCAR X FECHAS :"
+      BeginProperty Font 
+         Name            =   "Calibri"
+         Size            =   8.25
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      ForeColor       =   &H00800000&
+      Height          =   230
+      Left            =   10080
+      TabIndex        =   21
+      Top             =   1200
+      Width           =   1815
+   End
+   Begin VB.Frame Frame1 
+      BackColor       =   &H00FFFFFF&
+      Height          =   600
+      Left            =   12000
+      TabIndex        =   17
+      Top             =   1020
+      Visible         =   0   'False
+      Width           =   7935
+      Begin MSComCtl2.DTPicker DtpDesde 
+         Height          =   300
+         Left            =   120
+         TabIndex        =   18
+         Top             =   225
+         Width           =   1335
+         _ExtentX        =   2355
+         _ExtentY        =   529
+         _Version        =   393216
+         BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+            Name            =   "Calibri"
+            Size            =   9
+            Charset         =   0
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         Format          =   99942401
+         CurrentDate     =   41291
+      End
+      Begin MSComCtl2.DTPicker DtpHasta 
+         Height          =   300
+         Left            =   1920
+         TabIndex        =   19
+         Top             =   225
+         Width           =   1335
+         _ExtentX        =   2355
+         _ExtentY        =   529
+         _Version        =   393216
+         BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+            Name            =   "Calibri"
+            Size            =   9
+            Charset         =   0
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         Format          =   99942401
+         CurrentDate     =   41291
+      End
+      Begin VitekeySoft.ChameleonBtn cmdKardexGeneral 
+         Height          =   345
+         Left            =   6120
+         TabIndex        =   29
+         Top             =   165
+         Width           =   1695
+         _ExtentX        =   2990
+         _ExtentY        =   609
+         BTYPE           =   5
+         TX              =   "KARDEX  GENERAL"
+         ENAB            =   -1  'True
+         BeginProperty FONT {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+            Name            =   "Calibri"
+            Size            =   8.25
+            Charset         =   0
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         COLTYPE         =   2
+         FOCUSR          =   -1  'True
+         BCOL            =   33023
+         BCOLO           =   33023
+         FCOL            =   0
+         FCOLO           =   0
+         MCOL            =   12632256
+         MPTR            =   1
+         MICON           =   "FrmKardexProducto.frx":2547
+         PICN            =   "FrmKardexProducto.frx":2563
+         UMCOL           =   -1  'True
+         SOFT            =   0   'False
+         PICPOS          =   0
+         NGREY           =   0   'False
+         FX              =   0
+         HAND            =   0   'False
+         CHECK           =   0   'False
+         VALUE           =   0   'False
+      End
+      Begin MSComctlLib.ProgressBar prg_avance 
+         Height          =   195
+         Left            =   3360
+         TabIndex        =   30
+         Top             =   240
+         Width           =   2535
+         _ExtentX        =   4471
+         _ExtentY        =   344
+         _Version        =   393216
+         Appearance      =   0
+         Scrolling       =   1
+      End
+      Begin VB.Label Label9 
+         Alignment       =   2  'Center
+         AutoSize        =   -1  'True
+         BackStyle       =   0  'Transparent
+         Caption         =   "AL"
+         BeginProperty Font 
+            Name            =   "Tahoma"
+            Size            =   8.25
+            Charset         =   0
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         ForeColor       =   &H00800000&
+         Height          =   195
+         Left            =   1605
+         TabIndex        =   20
+         Top             =   240
+         Width           =   195
+      End
+   End
+   Begin VB.TextBox TxtBusquedarapida 
+      Appearance      =   0  'Flat
+      BeginProperty Font 
+         Name            =   "Calibri"
+         Size            =   9
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      Height          =   285
+      Left            =   7560
+      TabIndex        =   6
+      Top             =   530
+      Width           =   5295
+   End
+   Begin VB.TextBox TxtStockActual 
+      Appearance      =   0  'Flat
+      BackColor       =   &H00C0FFFF&
+      BeginProperty Font 
+         Name            =   "Calibri"
+         Size            =   8.25
+         Charset         =   0
+         Weight          =   700
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      ForeColor       =   &H00800000&
+      Height          =   285
+      Left            =   7920
+      TabIndex        =   5
+      Top             =   1200
+      Width           =   1335
+   End
+   Begin VB.TextBox TxtStockMinima 
+      Appearance      =   0  'Flat
+      BeginProperty Font 
+         Name            =   "Calibri"
+         Size            =   8.25
+         Charset         =   0
+         Weight          =   700
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      ForeColor       =   &H00800000&
+      Height          =   285
+      Left            =   6885
+      TabIndex        =   4
+      Top             =   1200
+      Width           =   975
+   End
+   Begin VB.CommandButton CmdEjecutar 
+      Caption         =   "CONSULTAR"
+      BeginProperty Font 
+         Name            =   "Tahoma"
+         Size            =   8.25
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      Height          =   375
+      Left            =   18600
+      TabIndex        =   3
+      Top             =   120
+      Width           =   1095
+   End
+   Begin VB.TextBox TxtcodigoProd 
+      Appearance      =   0  'Flat
+      BeginProperty Font 
+         Name            =   "Tahoma"
+         Size            =   9
+         Charset         =   0
+         Weight          =   700
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      Height          =   315
+      Left            =   12960
+      TabIndex        =   2
+      Top             =   120
+      Width           =   2535
+   End
+   Begin VB.TextBox Txtproducto 
+      Appearance      =   0  'Flat
+      BeginProperty Font 
+         Name            =   "Calibri"
+         Size            =   8.25
+         Charset         =   0
+         Weight          =   700
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      ForeColor       =   &H00800000&
+      Height          =   285
+      Left            =   240
+      TabIndex        =   1
+      Top             =   1200
+      Width           =   5535
+   End
+   Begin VB.TextBox TxtUnidad 
+      Appearance      =   0  'Flat
+      BeginProperty Font 
+         Name            =   "Calibri"
+         Size            =   8.25
+         Charset         =   0
+         Weight          =   700
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      ForeColor       =   &H00800000&
+      Height          =   285
+      Left            =   5880
+      TabIndex        =   0
+      Top             =   1200
+      Width           =   975
+   End
+   Begin MSDataListLib.DataCombo DtcAlmacen 
+      Height          =   330
+      Left            =   210
+      TabIndex        =   7
+      Top             =   120
+      Width           =   4695
+      _ExtentX        =   8281
+      _ExtentY        =   582
+      _Version        =   393216
+      Appearance      =   0
+      Style           =   2
+      ForeColor       =   8388608
+      Text            =   "DataCombo1"
+      BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+         Name            =   "Calibri"
+         Size            =   9
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+   End
+   Begin MSDataListLib.DataCombo DtcProducto 
+      Height          =   330
+      Left            =   6000
+      TabIndex        =   8
+      Top             =   120
+      Width           =   6855
+      _ExtentX        =   12091
+      _ExtentY        =   582
+      _Version        =   393216
+      Appearance      =   0
+      Style           =   2
+      ForeColor       =   8388608
+      Text            =   "DataCombo1"
+      BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+         Name            =   "Calibri"
+         Size            =   9
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+   End
+   Begin MSHierarchicalFlexGridLib.MSHFlexGrid HfdGrilla 
+      Height          =   7095
+      Left            =   120
+      TabIndex        =   9
+      Top             =   2040
+      Width           =   19935
+      _ExtentX        =   35163
+      _ExtentY        =   12515
+      _Version        =   393216
+      ForeColor       =   8388608
+      Rows            =   0
+      FixedRows       =   0
+      FixedCols       =   0
+      ForeColorFixed  =   8388608
+      BackColorBkg    =   16777215
+      GridColor       =   8388608
+      SelectionMode   =   1
+      Appearance      =   0
+      BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+         Name            =   "Calibri"
+         Size            =   9
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      _NumberOfBands  =   1
+      _Band(0).Cols   =   2
+   End
+   Begin VitekeySoft.ChameleonBtn cmdcerrar 
+      Height          =   255
+      Left            =   19800
+      TabIndex        =   23
+      Top             =   120
+      Width           =   255
+      _ExtentX        =   450
+      _ExtentY        =   450
+      BTYPE           =   5
+      TX              =   ""
+      ENAB            =   -1  'True
+      BeginProperty FONT {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+         Name            =   "MS Sans Serif"
+         Size            =   8.25
+         Charset         =   0
+         Weight          =   700
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      COLTYPE         =   2
+      FOCUSR          =   -1  'True
+      BCOL            =   16777215
+      BCOLO           =   16777215
+      FCOL            =   0
+      FCOLO           =   0
+      MCOL            =   12632256
+      MPTR            =   1
+      MICON           =   "FrmKardexProducto.frx":4A8E
+      PICN            =   "FrmKardexProducto.frx":4AAA
+      UMCOL           =   -1  'True
+      SOFT            =   0   'False
+      PICPOS          =   0
+      NGREY           =   0   'False
+      FX              =   0
+      HAND            =   0   'False
+      CHECK           =   0   'False
+      VALUE           =   0   'False
+   End
+   Begin VitekeySoft.ChameleonBtn cmdKardexContable 
+      Height          =   375
+      Left            =   12960
+      TabIndex        =   24
+      Top             =   525
+      Width           =   2535
+      _ExtentX        =   4471
+      _ExtentY        =   661
+      BTYPE           =   5
+      TX              =   " [  CONSOLIDADO  ]"
+      ENAB            =   -1  'True
+      BeginProperty FONT {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+         Name            =   "Calibri"
+         Size            =   8.25
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      COLTYPE         =   2
+      FOCUSR          =   -1  'True
+      BCOL            =   16777215
+      BCOLO           =   16777215
+      FCOL            =   0
+      FCOLO           =   0
+      MCOL            =   12632256
+      MPTR            =   1
+      MICON           =   "FrmKardexProducto.frx":795E
+      PICN            =   "FrmKardexProducto.frx":797A
+      UMCOL           =   -1  'True
+      SOFT            =   0   'False
+      PICPOS          =   0
+      NGREY           =   0   'False
+      FX              =   0
+      HAND            =   0   'False
+      CHECK           =   0   'False
+      VALUE           =   0   'False
+   End
+   Begin VitekeySoft.ChameleonBtn cmdupdate 
+      Height          =   375
+      Left            =   210
+      TabIndex        =   28
+      Top             =   480
+      Width           =   1935
+      _ExtentX        =   3413
+      _ExtentY        =   661
+      BTYPE           =   5
+      TX              =   "UPDATE KARDEX"
+      ENAB            =   -1  'True
+      BeginProperty FONT {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+         Name            =   "Calibri"
+         Size            =   8.25
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      COLTYPE         =   2
+      FOCUSR          =   -1  'True
+      BCOL            =   33023
+      BCOLO           =   33023
+      FCOL            =   0
+      FCOLO           =   0
+      MCOL            =   12632256
+      MPTR            =   1
+      MICON           =   "FrmKardexProducto.frx":9F5F
+      PICN            =   "FrmKardexProducto.frx":9F7B
+      UMCOL           =   -1  'True
+      SOFT            =   0   'False
+      PICPOS          =   0
+      NGREY           =   0   'False
+      FX              =   0
+      HAND            =   0   'False
+      CHECK           =   0   'False
+      VALUE           =   0   'False
+   End
+   Begin VitekeySoft.ChameleonBtn cmdUpdateKardexTotal 
+      Height          =   375
+      Left            =   2400
+      TabIndex        =   31
+      Top             =   480
+      Width           =   2535
+      _ExtentX        =   4471
+      _ExtentY        =   661
+      BTYPE           =   5
+      TX              =   "UPDATE A TODO"
+      ENAB            =   -1  'True
+      BeginProperty FONT {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+         Name            =   "Calibri"
+         Size            =   8.25
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      COLTYPE         =   2
+      FOCUSR          =   -1  'True
+      BCOL            =   33023
+      BCOLO           =   33023
+      FCOL            =   0
+      FCOLO           =   0
+      MCOL            =   12632256
+      MPTR            =   1
+      MICON           =   "FrmKardexProducto.frx":C4A6
+      PICN            =   "FrmKardexProducto.frx":C4C2
+      UMCOL           =   -1  'True
+      SOFT            =   0   'False
+      PICPOS          =   0
+      NGREY           =   0   'False
+      FX              =   0
+      HAND            =   0   'False
+      CHECK           =   0   'False
+      VALUE           =   0   'False
+   End
+   Begin VB.Label Label8 
+      Alignment       =   2  'Center
+      AutoSize        =   -1  'True
+      BackStyle       =   0  'Transparent
+      Caption         =   "S  A  L  D  O"
+      BeginProperty Font 
+         Name            =   "Calibri"
+         Size            =   9
+         Charset         =   0
+         Weight          =   700
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      ForeColor       =   &H00800000&
+      Height          =   210
+      Left            =   16950
+      TabIndex        =   16
+      Top             =   1755
+      Width           =   885
+   End
+   Begin VB.Label Label4 
+      Alignment       =   2  'Center
+      AutoSize        =   -1  'True
+      BackStyle       =   0  'Transparent
+      Caption         =   "S  A  L  I  D  A  S"
+      BeginProperty Font 
+         Name            =   "Calibri"
+         Size            =   9
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      ForeColor       =   &H00800000&
+      Height          =   210
+      Left            =   12420
+      TabIndex        =   15
+      Top             =   1755
+      Width           =   1215
+   End
+   Begin VB.Label Label2 
+      Alignment       =   2  'Center
+      AutoSize        =   -1  'True
+      BackStyle       =   0  'Transparent
+      Caption         =   " I  N  G  R  E  S  O  S "
+      BeginProperty Font 
+         Name            =   "Calibri"
+         Size            =   9
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      ForeColor       =   &H00800000&
+      Height          =   210
+      Left            =   8175
+      TabIndex        =   14
+      Top             =   1755
+      Width           =   1545
+   End
+   Begin VB.Label Label1 
+      Alignment       =   2  'Center
+      AutoSize        =   -1  'True
+      BackStyle       =   0  'Transparent
+      Caption         =   "BUSQUEDA RAPIDA:"
+      BeginProperty Font 
+         Name            =   "Calibri"
+         Size            =   8.25
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      ForeColor       =   &H00800000&
+      Height          =   195
+      Left            =   6075
+      TabIndex        =   13
+      Top             =   600
+      Width           =   1365
+   End
+   Begin VB.Label Label7 
+      Alignment       =   2  'Center
+      AutoSize        =   -1  'True
+      BackStyle       =   0  'Transparent
+      Caption         =   "STOCK GENERAL"
+      BeginProperty Font 
+         Name            =   "Calibri"
+         Size            =   8.25
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      ForeColor       =   &H00800000&
+      Height          =   195
+      Left            =   8010
+      TabIndex        =   12
+      Top             =   990
+      Width           =   1095
+   End
+   Begin VB.Label Label6 
+      Alignment       =   2  'Center
+      AutoSize        =   -1  'True
+      BackStyle       =   0  'Transparent
+      Caption         =   "STOCK MIN"
+      BeginProperty Font 
+         Name            =   "Calibri"
+         Size            =   8.25
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      ForeColor       =   &H00800000&
+      Height          =   195
+      Left            =   6930
+      TabIndex        =   11
+      Top             =   990
+      Width           =   765
+   End
+   Begin VB.Label Label5 
+      Alignment       =   2  'Center
+      AutoSize        =   -1  'True
+      BackStyle       =   0  'Transparent
+      Caption         =   "UNIDAD"
+      BeginProperty Font 
+         Name            =   "Calibri"
+         Size            =   8.25
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      ForeColor       =   &H00800000&
+      Height          =   195
+      Left            =   5895
+      TabIndex        =   10
+      Top             =   990
+      Width           =   585
+   End
+   Begin VB.Shape Shape3 
+      BackColor       =   &H008080FF&
+      BackStyle       =   1  'Opaque
+      BorderColor     =   &H00808080&
+      BorderStyle     =   6  'Inside Solid
+      FillColor       =   &H00FFFFFF&
+      Height          =   255
+      Left            =   11160
+      Top             =   1740
+      Width           =   3975
+   End
+   Begin VB.Shape Shape4 
+      BackColor       =   &H008080FF&
+      BackStyle       =   1  'Opaque
+      BorderColor     =   &H00808080&
+      BorderStyle     =   6  'Inside Solid
+      FillColor       =   &H00FFFFFF&
+      Height          =   255
+      Left            =   15240
+      Top             =   1740
+      Width           =   4215
+   End
+   Begin VB.Shape Shape2 
+      BackColor       =   &H008080FF&
+      BackStyle       =   1  'Opaque
+      BorderColor     =   &H00808080&
+      BorderStyle     =   6  'Inside Solid
+      FillColor       =   &H00FFFFFF&
+      Height          =   255
+      Left            =   7080
+      Top             =   1740
+      Width           =   3975
+   End
+   Begin VB.Shape Shape1 
+      BackColor       =   &H00FFFFFF&
+      BackStyle       =   1  'Opaque
+      BorderColor     =   &H00808080&
+      BorderStyle     =   6  'Inside Solid
+      FillColor       =   &H00FFFFFF&
+      Height          =   680
+      Left            =   120
+      Top             =   1000
+      Width           =   19935
+   End
+   Begin VB.Shape Shape5 
+      BackStyle       =   1  'Opaque
+      BorderColor     =   &H00C0C0C0&
+      Height          =   9240
+      Left            =   0
+      Top             =   0
+      Width           =   20145
+   End
+End
+Attribute VB_Name = "FrmKardexdeProductos"
+Attribute VB_GlobalNameSpace = False
+Attribute VB_Creatable = False
+Attribute VB_PredeclaredId = True
+Attribute VB_Exposed = False
+Public Procedencia As EnumProcede
+
+Private Sub ChameleonBtn1_Click()
+
+
+
+
+End Sub
+
+Private Sub chk_kardex_contable_Click()
+If Me.chk_kardex_contable.Value = 1 Then
+   Me.chk_kardex_fisico.Value = 0
+Else
+   Me.chk_kardex_fisico.Value = 1
+End If
+End Sub
+
+Private Sub chk_kardex_fisico_Click()
+If Me.chk_kardex_fisico.Value = 1 Then
+   Me.chk_kardex_contable.Value = 0
+Else
+   Me.chk_kardex_contable.Value = 1
+End If
+End Sub
+
+Private Sub chkBuscarfechas_Click()
+If Me.chkBuscarfechas.Value = 1 Then
+    Me.Frame1.Visible = True
+    Me.DtpDesde.Value = KEY_FECHA
+    Me.DtpHasta.Value = KEY_FECHA
+Else
+    Me.Frame1.Visible = False
+End If
+End Sub
+
+Private Sub cmdactivar_Click()
+Me.DtcAlmacen.Enabled = True
+Me.DtcProducto.Enabled = True
+Me.txtcodigoprod.Enabled = True
+Me.CmdEjecutar.Enabled = True
+Call Resalta(Me.txtcodigoprod)
+End Sub
+
+Private Sub cmdcerrar_Click()
+Unload Me
+End Sub
+
+Private Sub CmdEjecutar_Click()
+Dim stcodigop As String
+Dim stock_anterior As Double, stock As Double
+Dim fecha_inicio As Date
+Dim Campo As Field
+Dim arrColWidth()   As Long
+stock_anterior = 0
+stock = 0
+Call LlenarKardexDetallado
+Exit Sub
+
+End Sub
+
+
+Private Sub llenarGrid(ByVal Grilla As MSHFlexGrid, ByVal Formulario As Form)
+On Error GoTo salir
+'  Grilla.Clear
+  
+ '  Grilla.Rows = Rst.RecordCount
+   
+  Set Grilla.Recordset = rst
+  Grilla.ColWidth(0) = 0
+  Grilla.ColWidth(1) = 1000
+  Grilla.ColWidth(2) = 2400
+  Grilla.ColWidth(3) = 2000
+  Grilla.ColWidth(4) = 2000
+  Grilla.ColWidth(5) = 2200
+  Grilla.ColWidth(6) = 1200
+  Grilla.ColWidth(7) = 0
+  Grilla.ColWidth(8) = 0
+  Grilla.ColWidth(9) = 0
+  Grilla.ColWidth(10) = 0
+  
+Call DarFormatoFecha(Grilla, 1)
+Call DarFormato(Grilla, 3)
+Call DarFormato(Grilla, 4)
+Call DarFormato(Grilla, 5)
+Call DarFormato(Grilla, 6)
+Call DarFormato(Grilla, 7)
+Call DarFormato(Grilla, 8)
+
+Set rst = Nothing
+
+  
+  Exit Sub
+salir: MsgBox "Por Favor Digite Correctamente", vbInformation, "Mensaje para el usuario"
+
+End Sub
+
+
+
+
+
+Private Sub cmdKardexContable_Click()
+Procedencia = nuevo
+ frmTempExportExcel.Show
+   
+
+End Sub
+
+
+
+Private Sub cmdKardexGeneral_Click()
+Dim param As Variant
+Dim arr(0 To 1, 1 To 2) As String
+arr(0, 1) = "moneda_ini"
+arr(1, 1) = "moneda_fin"
+
+arr(0, 2) = Format(Me.DtpDesde.Value, "dd-mm-YYYY")
+arr(1, 2) = Format(Me.DtpHasta.Value, "dd-mm-YYYY")
+
+param = arr()
+
+strCadena = "DELETE FROM kardex_valorizado_sunat WHERE dni_save='" & KEY_USUARIO & "' and ruc='" & KEY_RUC & "'"
+CnBd.Execute (strCadena)
+
+strCadena = "SELECT id_producto,nombre_prod " & _
+" funct_stock_inicial(`id_producto`,'" & Format(Me.DtpDesde.Value, "YYYY-mm-dd") & "','" & Me.DtcAlmacen.BoundText & "','" & KEY_RUC & "') as cantidad_inicial, " & _
+" funct_costo_inicial(`id_producto`,'" & Format(Me.DtpDesde.Value, "YYYY-mm-dd") & "','" & Me.DtcAlmacen.BoundText & "','" & KEY_RUC & "') as saldo_inicial , " & _
+" funct_total_cantidad_ingresos(`id_producto`,'" & Format(Me.DtpDesde.Value, "YYYY-mm-dd") & "','" & Format(Me.DtpHasta.Value, "YYYY-mm-dd") & "','" & Me.DtcAlmacen.BoundText & "','" & KEY_RUC & "') as in_cantidad_ingreso," & _
+" funct_total_costo_ingresos(`id_producto`,'" & Format(Me.DtpDesde.Value, "YYYY-mm-dd") & "','" & Format(Me.DtpHasta.Value, "YYYY-mm-dd") & "','" & Me.DtcAlmacen.BoundText & "','" & KEY_RUC & "') as in_saldo_ingreso," & _
+" funct_total_cantidad_salidas(`id_producto`,'" & Format(Me.DtpDesde.Value, "YYYY-mm-dd") & "','" & Format(Me.DtpHasta.Value, "YYYY-mm-dd") & "','" & Me.DtcAlmacen.BoundText & "','" & KEY_RUC & "') as in_cantidad_salida, " & _
+" funct_total_costo_salidas(`id_producto`,'" & Format(Me.DtpDesde.Value, "YYYY-mm-dd") & "','" & Format(Me.DtpHasta.Value, "YYYY-mm-dd") & "','" & Me.DtcAlmacen.BoundText & "','" & KEY_RUC & "') as in_saldo_salida, " & _
+" funct_costo_final(`id_producto`,'" & Format(Me.DtpHasta.Value, "YYYY-mm-dd") & "','" & Me.DtcAlmacen.BoundText & "','" & KEY_RUC & "') as in_costo_final FROM view_producto WHERE habilitado='si' and   id_producto not in('00000','00') and ruc='" & KEY_RUC & "'  ORDER BY id_producto"
+'strCadena = "SELECT * FROM producto WHERE id_producto in('02380') and ruc='" & KEY_RUC & "'  ORDER BY id_producto  "
+Call ConfiguraRst(strCadena)
+If rst.RecordCount > 0 Then
+   rst.MoveFirst
+   Me.prg_avance.Min = 0
+   Me.prg_avance.Max = rst.RecordCount - 1
+   For i = 0 To rst.RecordCount - 1
+        
+        
+      '  strCadena = "SELECT funct_stock_inicial(`id_producto`,'" & Format(Me.DtpDesde.Value, "YYYY-mm-dd") & "','" & Me.DtcAlmacen.BoundText & "','" & KEY_RUC & "') as cantidad_inicial FROM view_producto WHERE ruc='" & KEY_RUC & "' and id_producto='" & rst("id_producto") & "'"
+      '  Call ConfiguraRstK(strCadena)
+        If IsNull(rst("cantidad_inicial")) = True Then
+            in_cantidad_ini = 0
+        Else
+            in_cantidad_ini = rst("cantidad_inicial")
+        End If
+        'ya esta
+        
+        
+     '   strCadena = "SELECT funct_costo_inicial(`id_producto`,'" & Format(Me.DtpDesde.Value, "YYYY-mm-dd") & "','" & Me.DtcAlmacen.BoundText & "','" & KEY_RUC & "') as saldo_inicial FROM view_producto WHERE ruc='" & KEY_RUC & "' and id_producto='" & rst("id_producto") & "'"
+     '   Call ConfiguraRstK(strCadena)
+        If IsNull(rst("saldo_inicial")) = True Then
+            in_saldo_ini = 0
+        Else
+            in_saldo_ini = rst("saldo_inicial")
+        End If
+        'ya esta
+        
+          
+       ' strCadena = "SELECT funct_total_cantidad_ingresos(`id_producto`,'" & Format(Me.DtpDesde.Value, "YYYY-mm-dd") & "','" & Format(Me.DtpHasta.Value, "YYYY-mm-dd") & "','" & Me.DtcAlmacen.BoundText & "','" & KEY_RUC & "') as costo_inicial FROM view_producto WHERE ruc='" & KEY_RUC & "' and id_producto='" & rst("id_producto") & "'"
+       ' Call ConfiguraRstK(strCadena)
+        If IsNull(rst("in_cantidad_ingreso")) = True Then
+            in_cantidad_ingreso = 0
+       Else
+            in_cantidad_ingreso = rst("in_cantidad_ingreso")
+        End If
+        ' ya esta
+        
+       ' strCadena = "SELECT funct_total_costo_ingresos(`id_producto`,'" & Format(Me.DtpDesde.Value, "YYYY-mm-dd") & "','" & Format(Me.DtpHasta.Value, "YYYY-mm-dd") & "','" & Me.DtcAlmacen.BoundText & "','" & KEY_RUC & "') as in_saldo_ingreso FROM view_producto WHERE ruc='" & KEY_RUC & "' and id_producto='" & rst("id_producto") & "'"
+       'Call ConfiguraRstK(strCadena)
+        in_saldo_ingreso = rst("in_saldo_ingreso")
+        'ya esta
+        
+        
+        'strCadena = "SELECT funct_total_cantidad_salidas(`id_producto`,'" & Format(Me.DtpDesde.Value, "YYYY-mm-dd") & "','" & Format(Me.DtpHasta.Value, "YYYY-mm-dd") & "','" & Me.DtcAlmacen.BoundText & "','" & KEY_RUC & "') as in_cantidad_salida FROM view_producto WHERE ruc='" & KEY_RUC & "' and id_producto='" & rst("id_producto") & "'"
+        'Call ConfiguraRstK(strCadena)
+        in_cantidad_salida = rst("in_cantidad_salida")
+        'ya esta
+        
+        'strCadena = "SELECT funct_total_costo_salidas(`id_producto`,'" & Format(Me.DtpDesde.Value, "YYYY-mm-dd") & "','" & Format(Me.DtpHasta.Value, "YYYY-mm-dd") & "','" & Me.DtcAlmacen.BoundText & "','" & KEY_RUC & "') as in_saldo_salida FROM view_producto WHERE ruc='" & KEY_RUC & "' and id_producto='" & rst("id_producto") & "'"
+        'Call ConfiguraRstK(strCadena)
+        in_saldo_salida = rst("in_saldo_salida")
+        'ya esta
+        
+       ' strCadena = "SELECT funct_costo_final(`id_producto`,'" & Format(Me.DtpHasta.Value, "YYYY-mm-dd") & "','" & Me.DtcAlmacen.BoundText & "','" & KEY_RUC & "') as in_costo_final FROM view_producto WHERE ruc='" & KEY_RUC & "' and id_producto='" & rst("id_producto") & "'"
+       ' Call ConfiguraRstK(strCadena)
+        If IsNull(rst("in_costo_final")) = True Then
+            in_costo_final = 0
+        Else
+            in_costo_final = rst("in_costo_final")
+        End If
+        
+        
+        
+        in_cantidad_saldo = in_cantidad_ini + in_cantidad_ingreso - in_cantidad_salida
+        
+        
+        strCadena = "INSERT INTO kardex_valorizado_sunat(`id_producto`,producto,`cantidad_inicial`,`saldo_inicial`,`cantidad_ingreso`,`saldo_ingreso`,`cantidad_salida`,`saldo_salida`,`cantidad_final`,`saldo_final`,`dni_save`,`ruc`) VALUES " & _
+        "('" & rst("id_producto") & "','" & rst("nombre_prod") & "','" & in_cantidad_ini & "','" & in_saldo_ini & "','" & in_cantidad_ingreso & "','" & in_saldo_ingreso & "','" & in_cantidad_salida & "','" & in_saldo_salida & "','" & in_cantidad_saldo & "','" & in_costo_final & "','" & KEY_USUARIO & "','" & KEY_RUC & "')"
+        CnBd.Execute (strCadena)
+        rst.MoveNext
+        Me.prg_avance.Value = i
+        DoEvents
+   Next i
+
+End If
+ strCadena = "SELECT id_producto,producto,cantidad_inicial,saldo_inicial,cantidad_ingreso,saldo_ingreso,cantidad_salida,saldo_salida,cantidad_final,saldo_final FROM kardex_valorizado_sunat WHERE dni_save='" & KEY_USUARIO & "' and  ruc='" & KEY_RUC & "'"
+Call ConfiguraRst(strCadena)
+
+
+   'Cantidad Inicial
+   'Costo Inicial
+   
+   'Cantidad Ingresos
+   'Costo Ingresos
+   
+   'Cantidad Salidas
+   'Costo Salida
+   
+   
+   
+   
+   
+
+
+
+
+
+Ans = ShowMultiReport(rst, "RptKardexValorizado", param, App.Path + "\Reportes\")
+
+
+End Sub
+
+Private Sub cmdupdate_Click()
+
+If KEY_RUC = "20128836251" Then
+    Call update_kardex_VARGAS(Trim(Me.txtcodigoprod.Text))
+Else
+    Call update_kardex(Trim(Me.txtcodigoprod.Text))
+End If
+
+
+
+
+End Sub
+
+Private Sub cmdValorizado_Click()
+
+End Sub
+
+Private Sub cmdUpdateKardexTotal_Click()
+strCadena = "SELECT id_producto,sum(cantidad) FROM view_producto_rotacion WHERE fecha_emision>='1900-01-01' and fecha_emision<='" & KEY_FECHA & "' and  ruc='" & KEY_RUC & "' GROUP BY id_producto ORDER BY 2 DESC"
+Call ConfiguraRstlocal(strCadena)
+If rstLocal.RecordCount > 0 Then
+   rstLocal.MoveFirst
+   For i = 0 To rstLocal.RecordCount - 1
+       If KEY_RUC = "20128836251" Then
+            Call update_kardex_VARGAS(rstLocal("id_producto"))
+            Me.cmdUpdateKardexTotal.Caption = i + 1
+            DoEvents
+       Else
+            Call update_kardex(Trim(Me.txtcodigoprod.Text))
+        End If
+        rstLocal.MoveNext
+        DoEvents
+   Next i
+End If
+
+
+End Sub
+
+Private Sub DtcProducto_KeyPress(KeyAscii As Integer)
+On Error GoTo salir
+ If KeyAscii = 13 Then
+    Call presionar
+End If
+Exit Sub
+salir: MsgBox "Por Favor Digite Correctamente", vbInformation, "Mensaje para el usuario"
+End Sub
+Public Sub presionar()
+'If KEY_BARRAS = "si" Then
+    strCadena = "SELECT cod_barra FROM producto_barras WHERE id_producto='" & Trim(Me.DtcProducto.BoundText) & "' AND ruc='" & KEY_RUC & "'"
+'Else
+strCadena = "SELECT id_producto FROM producto WHERE id_producto='" & Trim(Me.DtcProducto.BoundText) & "' AND ruc='" & KEY_RUC & "'"
+'End If
+
+ Call ConfiguraRst(strCadena)
+ If rst.RecordCount > 0 Then
+    Me.txtcodigoprod.Text = rst(0)
+    Call Resalta(Me.txtcodigoprod)
+    
+ End If
+End Sub
+Private Sub Form_Load()
+CenterForm Me
+Me.Top = 0
+strCadena = "SELECT id_alm as Codigo, descripcion as Descripcion FROM almacen WHERE id_tipoentidad='0' and ruc='" & KEY_RUC & "'  ORDER BY descripcion"
+  Call ConfiguraRst(strCadena)
+  Call LlenaDataCombo(Me.DtcAlmacen)
+  Me.DtcAlmacen.BoundText = KEY_ALM
+  Me.DtcAlmacen.Enabled = False
+  Me.txtcodigoprod.Enabled = False
+  Me.CmdEjecutar.Enabled = False
+  
+strCadena = "SELECT id_producto as Codigo,nombre_prod as Descripcion FROM producto WHERE ruc='" & KEY_RUC & "' ORDER BY nombre_prod"
+Call ConfiguraRst(strCadena)
+Call LlenaDataCombo(Me.DtcProducto)
+Me.DtcProducto.Enabled = False
+
+If KEY_USUARIO = "42546269" Then
+    Me.cmdUpdateKardexTotal.Visible = True
+Else
+    Me.cmdUpdateKardexTotal.Visible = False
+End If
+
+End Sub
+
+Private Sub TlbAcciones_ButtonClick(ByVal Button As MSComctlLib.Button)
+Select Case Button.key
+    Case KEY_EXIT
+        Unload Me
+End Select
+End Sub
+
+Private Sub Text1_Change()
+
+End Sub
+
+Private Sub Toolbar1_ButtonClick(ByVal Button As MSComctlLib.Button)
+
+End Sub
+
+Private Sub TxtBusquedaRapida_Change()
+If Len(Me.TxtBusquedaRapida) > 0 Then
+    strCadena = "SELECT id_producto as Codigo,nombre_prod as Descripcion FROM producto WHERE ruc='" & KEY_RUC & "' AND nombre_prod LIKE '%" & Trim(Me.TxtBusquedaRapida.Text) & "%' ORDER BY nombre_prod"
+    Call ConfiguraRst(strCadena)
+    Call LlenaDataCombo(Me.DtcProducto)
+End If
+End Sub
+
+Private Sub TxtBusquedarapida_KeyPress(KeyAscii As Integer)
+If KeyAscii = 13 Then
+    If Me.DtcProducto.Enabled = True Then
+        Me.DtcProducto.SetFocus
+    End If
+End If
+End Sub
+
+Private Sub TxtcodigoProd_KeyPress(KeyAscii As Integer)
+Dim stcodigop As String
+Dim stock_anterior As Double, stock As Double
+Dim fecha_inicio As Date
+Dim Campo As Field
+Dim arrColWidth()   As Long
+stock_anterior = 0
+stock = 0
+
+If KeyAscii = 13 Then
+Call LlenarKardexDetallado
+Exit Sub
+If KEY_BARRAS = "si" Then
+    strCadena = "SELECT id_producto FROM producto_barras  WHERE cod_barra='" & Trim(Me.txtcodigoprod.Text) & "' AND ruc='" & KEY_RUC & "' "
+Else
+   Me.txtcodigoprod.Text = formato_item(Me.txtcodigoprod.Text, 5)
+    strCadena = "SELECT id_producto FROM producto WHERE id_producto='" & Trim(Me.txtcodigoprod.Text) & "' AND ruc='" & KEY_RUC & "' "
+End If
+Call ConfiguraRst(strCadena)
+If rst.RecordCount > 0 And Me.txtcodigoprod.Text <> "" Then
+    stcodigop = rst(0)
+Else
+   Set rst = Nothing
+   Procedencia = buscar
+   FrmProducto.Show
+   Exit Sub
+End If
+
+If Me.chkBuscarfechas.Value = 0 Then
+    strCadena = "SELECT SUM(cantidad_real) AS Expr1 FROM   kardex WHERE id_producto='" & Trim(stcodigop) & "' AND id_alm ='" & Trim(Me.DtcAlmacen.BoundText) & "' AND ruc='" & KEY_RUC & "' "
+Else
+    strCadena = "SELECT SUM(cantidad_real) AS Expr1 FROM   kardex WHERE id_producto='" & Trim(stcodigop) & "' AND id_alm ='" & Trim(Me.DtcAlmacen.BoundText) & "' AND ruc='" & KEY_RUC & "' AND fecha_emision>='" & Format(Me.DtpDesde.Value, "YYYY-mm-dd") & "' AND fecha_emision<='" & Format(Me.DtpHasta.Value, "YYYY-mm-dd") & "' "
+End If
+Call ConfiguraRst(strCadena)
+If IsNull(rst(0)) = False Then
+    stock_anterior = rst(0)
+Else
+    stock_anterior = 0
+    Me.HfdGrilla.Rows = 0
+    Me.HfdGrilla.Clear
+End If
+
+
+Me.TxtStockActual.Text = Format(stock_anterior, "#,##0.00")
+Me.TxtProducto.Text = UCase(Me.DtcProducto.Text)
+Set rst = Nothing
+strCadena = "SELECT P.stock_minimo,U.abreviatura FROM producto P,unidad U WHERE id_producto='" & stcodigop & "' AND P.id_unidad=U.id_und AND P.ruc='" & KEY_RUC & "' AND U.id_usu='" & KEY_RUC & "'"
+Call ConfiguraRst(strCadena)
+Me.txtunidad.Text = UCase(rst("abreviatura"))
+Me.TxtStockMinima.Text = Format(rst("stock_minimo"), "#,##0.00")
+Set rst = Nothing
+strCadena = "SELECT fecha_emision,CONCAT(C.doc_abrev,':',K.id_serie,'-',K.id_numero) as comprobante,cantidad_ing,cantidad_sal,cantidad_real,precio,ncliente FROM kardex K,comprobantes C  WHERE K.id_doc=C.id_doc AND ruc='" & KEY_RUC & "' AND id_alm='" & Me.DtcAlmacen.BoundText & "' AND id_producto='" & Trim(stcodigop) & "' AND ruc='" & KEY_RUC & "' ORDER BY K.id_kardex DESC"
+        Call ConfiguraRst(strCadena)
+        If rst.RecordCount < 1 Then
+            Exit Sub
+        End If
+        Me.DtcProducto.BoundText = Trim(stcodigop)
+        N = 1
+       Me.HfdGrilla.Clear
+       Me.HfdGrilla.Rows = 0
+       ReDim arrColWidth(1 To rst.Fields.Count)
+       For Each Campo In rst.Fields
+            Me.HfdGrilla.ColWidth(0) = 1150
+            Me.HfdGrilla.ColWidth(1) = 1850
+            Me.HfdGrilla.ColWidth(2) = 4500
+            Me.HfdGrilla.ColWidth(3) = 1300
+            Me.HfdGrilla.ColWidth(4) = 1300
+            Me.HfdGrilla.ColWidth(5) = 1300
+            Me.HfdGrilla.ColWidth(6) = 1400
+        Next
+        
+       cabecera = "FECHA" & vbTab & "COMPROBANTE" & vbTab & "CLIENTE/PROVEEDOR" & vbTab & "INGRESOS" & vbTab & "SALIDAS" & vbTab & "STOCK FINAL"
+       Me.HfdGrilla.AddItem cabecera
+         For k = 0 To 6
+             HfdGrilla.col = k
+             HfdGrilla.Row = 0
+             HfdGrilla.CellBackColor = &HDFDFE0
+        Next k
+     '   Fila = "***********" & vbTab & rst("comprobante") & vbTab & rst("ncliente") & vbTab & rst("cantidad_ing") & vbTab & rst("cantidad_sal") & vbTab & Format(stock_anterior, "#,##0.00")
+      '  Me.HfdGrilla.AddItem Fila
+            
+        rst.MoveFirst
+        For i = 0 To rst.RecordCount - 1
+            Fila = rst("fecha_emision") & vbTab & rst("comprobante") & vbTab & rst("ncliente") & vbTab & rst("cantidad_ing") & vbTab & rst("cantidad_sal") & vbTab & Format(stock_anterior, "#,##0.00")
+            Me.HfdGrilla.AddItem Fila
+            If rst("cantidad_real") > 0 Then
+                stock_anterior = stock_anterior + rst("cantidad_real")
+            Else
+                stock_anterior = stock_anterior - rst("cantidad_real")
+            End If
+                    For j = i To Me.HfdGrilla.Rows - 1
+                        Me.HfdGrilla.col = 5
+                        Me.HfdGrilla.Row = j
+                        Me.HfdGrilla.CellBackColor = &HC0FFC0
+                    Next j
+            Fila = ""
+            rst.MoveNext
+        Next i
+        
+       ' Call LlenaDescripcion(Trim(stcodigop), Trim(Me.DtcAlmacen.BoundText))
+        'Call Resalta(Me.TxtcodigoProd)
+    End If
+    
+End Sub
+Private Sub LlenarKardexDetallado()
+Dim stcodigop As String
+Dim stock_anterior As Double, stock As Double, stock_inicial As Double
+Dim fecha_inicio As Date, precio_costo As Double, Monto1 As Double, Monto2 As Double, valorizado As Double
+Dim Campo As Field
+Dim arrColWidth()   As Long
+stock_anterior = 0
+stock = 0
+stock_inicial = 0
+If KEY_BARRAS = "si" Then
+    strCadena = "SELECT id_producto FROM producto_barras  WHERE cod_barra='" & Trim(Me.txtcodigoprod.Text) & "' AND ruc='" & KEY_RUC & "' "
+    Call ConfiguraRstT(strCadena)
+    If rstT.RecordCount < 1 Then
+       strCadena = "SELECT id_producto FROM producto WHERE id_producto='" & Trim(Me.txtcodigoprod.Text) & "' AND ruc='" & KEY_RUC & "' "
+    End If
+Else
+   Me.txtcodigoprod.Text = formato_item(Me.txtcodigoprod.Text, 5)
+    strCadena = "SELECT id_producto FROM producto WHERE id_producto='" & Trim(Me.txtcodigoprod.Text) & "' AND ruc='" & KEY_RUC & "' "
+End If
+Call ConfiguraRst(strCadena)
+If rst.RecordCount > 0 And Me.txtcodigoprod.Text <> "" Then
+    stcodigop = rst(0)
+Else
+   Set rst = Nothing
+   Procedencia = buscar
+   FrmProducto.Show
+   Exit Sub
+End If
+
+If Me.chkBuscarfechas.Value = 0 Then
+    
+        
+    strCadena = "SELECT SUM(cantidad_real) AS Expr1 FROM   kardex WHERE id_producto='" & Trim(stcodigop) & "' AND id_alm ='" & Trim(Me.DtcAlmacen.BoundText) & "' AND ruc='" & KEY_RUC & "' "
+    stock_inicial = 0
+Else
+    strCadena = "SELECT SUM(cantidad_real) AS Expr1 FROM   kardex WHERE id_producto='" & Trim(stcodigop) & "' AND id_alm ='" & Trim(Me.DtcAlmacen.BoundText) & "' AND ruc='" & KEY_RUC & "' AND fecha_emision<'" & Format(Me.DtpDesde.Value, "YYYY-mm-dd") & "'"
+    
+End If
+
+Call ConfiguraRst(strCadena)
+If IsNull(rst(0)) = False Then
+    stock_anterior = rst(0)
+    If Me.chkBuscarfechas.Value = 0 Then
+       stock_inicial = 0
+    Else
+        stock_inicial = rst(0)
+    End If
+Else
+    stock_anterior = 0
+    stock_inicial = 0
+    Me.HfdGrilla.Rows = 0
+   
+End If
+If Me.chkBuscarfechas.Value = 0 Then
+    'strCadena = "UPDATE almacen_producto SET stock ='" & Val(stock_anterior) & "' WHERE id_producto='" & Trim(stcodigop) & "' and id_alm='" & KEY_ALM & "' AND ruc='" & KEY_RUC & "'"
+    'CnBd.Execute (strCadena)
+End If
+
+Me.TxtStockActual.Text = Format(stock_anterior, "#,##0.00")
+Me.TxtProducto.Text = UCase(Me.DtcProducto.Text)
+
+strCadena = "SELECT P.stock_minimo,U.abreviatura FROM producto P,unidad U WHERE id_producto='" & stcodigop & "' AND P.id_unidad=U.id_und AND P.ruc='" & KEY_RUC & "' AND U.id_usu='" & KEY_RUC & "'"
+Call ConfiguraRst(strCadena)
+Me.txtunidad.Text = UCase(rst("abreviatura"))
+Me.TxtStockMinima.Text = Format(rst("stock_minimo"), "#,##0.00")
+
+If Me.chkBuscarfechas.Value = 0 Then
+    strCadena = "SELECT * FROM view_kardex WHERE id_alm='" & Me.DtcAlmacen.BoundText & "' AND id_producto='" & Trim(stcodigop) & "' AND ruc='" & KEY_RUC & "'"
+Else
+    strCadena = "SELECT * FROM view_kardex WHERE id_alm='" & Me.DtcAlmacen.BoundText & "' AND id_producto='" & Trim(stcodigop) & "' AND ruc='" & KEY_RUC & "' AND fecha_emision>='" & Format(Me.DtpDesde.Value, "YYYY-mm-dd") & "' AND fecha_emision<='" & Format(Me.DtpHasta.Value, "YYYY-mm-dd") & "'"
+End If
+
+Call ConfiguraRst(strCadena)
+If rst.RecordCount < 1 Then
+   Exit Sub
+        End If
+       Me.DtcProducto.BoundText = Trim(stcodigop)
+       
+       Me.HfdGrilla.Rows = 0
+       ReDim arrColWidth(1 To rst.Fields.Count)
+       For Each Campo In rst.Fields
+            Me.HfdGrilla.ColWidth(0) = 1200
+            Me.HfdGrilla.ColWidth(1) = 2000
+            Me.HfdGrilla.ColWidth(2) = 3800
+            Me.HfdGrilla.ColWidth(3) = 1100
+            Me.HfdGrilla.ColWidth(4) = 1500
+            Me.HfdGrilla.ColWidth(5) = 1500
+            Me.HfdGrilla.ColWidth(6) = 1200
+            Me.HfdGrilla.ColWidth(7) = 1500
+            Me.HfdGrilla.ColWidth(8) = 1500
+            Me.HfdGrilla.ColWidth(9) = 1200
+            Me.HfdGrilla.ColWidth(10) = 1500
+            Me.HfdGrilla.ColWidth(11) = 1500
+        Next
+        
+       cabecera = "FECHA" & vbTab & "COMPROBANTE" & vbTab & "CLIENTE/PROVEEDOR" & vbTab & "CANTIDAD" & vbTab & "COSTO.U" & vbTab & "TOTAL " & vbTab & "CANTIDAD" & vbTab & "COSTO.U" & vbTab & "TOTAL " & vbTab & "CANTIDAD" & vbTab & "COSTO.U" & vbTab & "TOTAL "
+       Me.HfdGrilla.AddItem cabecera
+         For k = 0 To 11
+             HfdGrilla.col = k
+             HfdGrilla.Row = 0
+             HfdGrilla.CellBackColor = &HDFDFE0
+        Next k
+        
+        
+        
+        Fila = " " & vbTab & "INVENTARIO INICIAL" & vbTab & "" & vbTab & "" & vbTab & "" & vbTab & "" & vbTab & "" & vbTab & "" & vbTab & ValorItemII(preciosal * rst("cantidad_sal")) & vbTab & Format(stock_inicial, "#,##0.00") & vbTab & ValorItemII(rst("costo_unitario")) & vbTab & ValorItemII(stock_inicial * rst("costo_unitario"))
+        Me.HfdGrilla.AddItem Fila
+            
+            
+        
+        rst.MoveFirst
+        cant_real = 0
+        
+        in_cantidad_ingreso = 0
+        in_saldo_ingresos = 0
+        in_cantidad_salidas = 0
+        in_saldo_salidas = 0
+        in_cantidad_saldo = 0
+        in_saldo_final = 0
+        For i = 0 To rst.RecordCount - 1
+            
+            cant_real = rst("cantidad_real") '+ rst("cantidad_contable")
+            If cant_real > 0 Then
+                   precioing = rst("costo_unitario")
+                   preciosal = 0
+                   Monto1 = precioing * rst("cantidad_ing")
+                   
+            Else
+                   Monto1 = rst("costo_unitario") * cant_real
+                   precioing = 0
+                   preciosal = rst("costo_unitario")
+            End If
+            
+            
+            stock_inicial = stock_inicial + cant_real
+            
+            
+            costo_movil = rst("costo_promedio")
+            valorizado = stock_inicial * costo_movil
+            Fila = Format(rst("fecha_emision"), "dd-mm-YYYY") & vbTab & rst("comprobante") & vbTab & rst("ncliente") & vbTab & ValorItem(rst("cantidad_ing")) & vbTab & ValorItemII(precioing) & vbTab & ValorItem(precioing * rst("cantidad_ing")) & vbTab & ValorItem(rst("cantidad_sal")) & vbTab & ValorItemII(preciosal) & vbTab & ValorItem(preciosal * rst("cantidad_sal")) & vbTab & ValorItem_v(stock_inicial) & vbTab & ValorItemIII(costo_movil) & vbTab & ValorItem_v(valorizado)
+            Me.HfdGrilla.AddItem Fila
+            stock_anterior = stock_anterior - cant_real
+            
+            in_cantidad_ingreso = in_cantidad_ingreso + rst("cantidad_ing")
+            in_saldo_ingresos = in_saldo_ingresos + precioing * rst("cantidad_ing")
+            
+            in_cantidad_salidas = in_cantidad_salidas + rst("cantidad_sal")
+            in_saldo_salidas = in_saldo_salidas + preciosal * rst("cantidad_sal")
+            
+            in_cantidad_saldo = in_cantidad_saldo + stock_inicial
+            in_saldo_final = in_saldo_final + valorizado
+           
+           
+           For k = 9 To 11
+                                HfdGrilla.col = k
+                                HfdGrilla.Row = i + 1
+                                HfdGrilla.CellBackColor = &HC0FFC0
+          Next k
+                            
+              
+          
+            rst.MoveNext
+        Next i
+        
+        
+            
+        For k = 9 To 11
+                                HfdGrilla.col = k
+                                HfdGrilla.Row = i + 1
+                                HfdGrilla.CellBackColor = &H8080FF
+        Next k
+
+
+End Sub
+
+Private Sub LlenaDescripcion(ByVal codigo As String, ByVal Almacen As String)
+strCadena = "SELECT Producto.DescripcionProducto,Unidad.sAbreviatura,Producto.StockMinimo FROM Producto INNER JOIN Unidad ON Producto.cUnidad=Unidad.cUnidad WHERE Producto.cProducto='" & codigo & "' "
+Call ConfiguraRst(strCadena)
+If rst.RecordCount > 0 Then
+    Me.TxtProducto.Text = rst(0)
+    Me.txtunidad.Text = rst(1)
+    Me.TxtStockMinima.Text = str(rst(2)) + Space(32) + rst(1)
+    Set rst = Nothing
+    strCadena = "SELECT     SUM(Stk_Cant) AS Expr1 From Kardex WHERE  cProducto = '" & Trim(codigo) & "' AND Alm_cod='" & Trim(Me.DtcAlmacen.BoundText) & "'"
+    Call ConfiguraRst(strCadena)
+On Error GoTo 100
+        Me.TxtStockActual.Text = str(rst(0)) + Space(32) + Me.txtunidad.Text
+        Set rst = Nothing
+        Exit Sub
+100:
+        Me.TxtStockActual.Text = "0" + Space(32) + Me.txtunidad.Text
+
+    Set rst = Nothing
+End If
+End Sub
+Private Sub Resalta(ByVal Texto As TextBox)
+Texto.SelStart = 0
+Texto.SelLength = Len(Trim(Texto))
+Texto.Text = Texto.SelText
+Texto.SetFocus
+End Sub
+
+

@@ -1,0 +1,14 @@
+id_transferencia	Number
+id_venta	Number	
+fecha	Date
+guia	String	20 
+idproducto	String	10
+detalle	String	80
+cantidad	Number
+id_cliente	String	11
+ncliente	String	60
+documento	String	30
+fecha_emision	Date
+det_venta	String	80
+cant_venta	Number
+ruc	String	11

@@ -1,0 +1,11 @@
+cPedido	String	10	
+Cliente	String	101	
+dEmisionPedido	Date		
+nTotalPedido	Number		
+Estado	String	20	
+cDocumentoVenta	String	10
+nCantidadPedido	Number
+Unidad	String	20
+sDescripcionProducto	String	80
+nPrecioPedido	Number
+PTotal	Number

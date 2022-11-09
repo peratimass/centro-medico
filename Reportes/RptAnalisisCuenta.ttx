@@ -1,0 +1,12 @@
+idcompra	Number
+emision	Date
+id_moneda	String	5
+id_proveedor	String	16
+proveedor		String	120
+comprobante	String	40
+nrocuenta		String	16
+cuenta	String	80
+debe	Number
+haber	Number
+total	Number
+saldo	Number

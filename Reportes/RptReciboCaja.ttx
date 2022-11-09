@@ -1,0 +1,13 @@
+des_comprobante	String	12
+serie	String	5
+numero	String	10
+cPersona	String	5
+Persona	String	50
+Direccion	String	80
+Ruc	String	11
+fecha	Date
+cambio	Number
+glosa	String	1000
+centro_costo	String	100
+monto	Number
+monto_letras	String	100

@@ -1,0 +1,9 @@
+Fecha	Date
+CodDoc	String	5
+Doc	String	20
+Numero	String	20
+Ruc	String	11
+Cliente	String	150
+BaseImp	Number
+IGV	Number
+PrecioCompra	Number

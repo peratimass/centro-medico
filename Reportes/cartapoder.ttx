@@ -1,0 +1,4 @@
+dni	String	11
+cliente	String	100
+direccion	String	120
+serie	String	40

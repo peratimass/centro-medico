@@ -1,0 +1,6 @@
+codigo	String	10
+barra	String	10
+descripcion	String	70
+precio	Number
+fecha	String	12
+empresa	String	50

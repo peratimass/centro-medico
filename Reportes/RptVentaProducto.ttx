@@ -1,0 +1,19 @@
+id_producto	String	10
+producto	String	100
+und	String	20
+linea	String	50
+sublinea	String	50
+modelo	String	50
+emision	Date
+comprobante	String	40
+id_cliente	String	16
+cliente	String	60
+telefono	String	10
+direccion	String	70
+cantidad	Number
+precio	Number
+total	Number	
+
+
+
+

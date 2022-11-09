@@ -1,0 +1,11 @@
+id_producto	String	5
+surtidor	String	100
+lectura_ini	Number
+lectura_fin	Number
+lectura_anterior	Number
+fecha	Date
+hora	Time
+hora_cadena	String	60
+precio	Number
+operador	String	60
+isla	String	60

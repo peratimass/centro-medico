@@ -1,0 +1,15 @@
+fecha_emision	Date
+fecha_vencimi	Date
+dni	String	16
+cliente	String	250
+direccion	String	250
+observacion	String	300
+telefono	String	80
+documento	String	40
+total	Number
+pagado	Number
+dias	Number
+ubigeo	String	160
+parametro1	String	100
+parametro2	String	100
+

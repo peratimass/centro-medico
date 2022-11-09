@@ -1,0 +1,8 @@
+fecha_emision	Date
+in_ruc	String	11
+in_proveedor	String	60
+comprobante	String	40
+tc	Number
+id_moneda	String	5
+monto_inicial	Number
+monto_pago	Number

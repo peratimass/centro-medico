@@ -1,0 +1,10 @@
+id_venta	Number
+fecha	Date
+id_doc	String	4
+descripcion_doc	String	30
+comprobante	String	30
+cliente	String	60
+monto	Number
+id_forma_pago	String	2
+forma_pago	String	20
+operador	String	40

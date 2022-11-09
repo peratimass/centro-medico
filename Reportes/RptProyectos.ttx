@@ -1,0 +1,10 @@
+solicitud	String	5
+fecha	Date
+nombre	String	50
+comprobante	String	50
+monto	Number
+detalle	String	200
+material	String	50
+cantidad	Number
+precio	Number
+total	Number

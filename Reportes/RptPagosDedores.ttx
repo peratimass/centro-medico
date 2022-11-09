@@ -1,0 +1,5 @@
+Fecha	Date
+comprobante	String	40
+Persona	String	60
+total	Number
+cPersona	String	5

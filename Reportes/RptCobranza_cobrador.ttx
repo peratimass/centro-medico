@@ -1,0 +1,14 @@
+id_venta	Number
+recibo	String	30
+fecha_pago	Date
+fecha_vencimiento	Date
+dias	Number
+dni_cliente	String	11
+cliente	String	60
+comprobante	String	30
+forma_pago	String	50
+total	Number
+cobrador	String	60
+tramo	Number
+comision	Number,
+ruc

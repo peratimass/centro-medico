@@ -1,0 +1,18 @@
+vendedor	String	80
+proveedor	String	80
+linea	String	40
+sublinea	String	40
+codigo	String	5
+producto	String	70
+cantidad	Number
+precio	Number
+obsequio	Number
+unidad	String	20
+igv	Number
+total	Number
+
+
+
+
+
+

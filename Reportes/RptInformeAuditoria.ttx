@@ -1,0 +1,14 @@
+ruc	String	16
+razon_social	String	100
+plan	String	50
+celular	String	20
+encargado	String	100
+estado	String	20
+fecha	Date
+hora	Datetime
+
+
+
+
+
+

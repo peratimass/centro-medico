@@ -1,0 +1,13 @@
+paciente		String	130
+medico		String	130
+fecha_ingreso	Datetime
+fecha_alta		Datetime
+dni			String	11
+edad			String	20
+cama			String	24
+seguro		String	200
+sexo			String	15
+examenFisico		String	2000
+anamnesis		String	2000
+evolucion		String	20
+pronostico		String	20

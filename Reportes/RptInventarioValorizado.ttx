@@ -1,0 +1,15 @@
+codigo	String	10
+producto	String	100
+almacen	String	60
+ubicacion	String	50
+linea	String	60
+stock	Number
+costo	Number
+total	Number
+
+
+
+
+
+
+

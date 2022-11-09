@@ -1,0 +1,6 @@
+ruc	String	11
+razonsocial	String	120
+exonerado	Number
+valor_venta	Number
+igv	Number
+total	Number

@@ -1,0 +1,9 @@
+id_cliente	String	16
+cliente	String	100
+nota_credito	Number
+importe	Number
+
+
+
+
+

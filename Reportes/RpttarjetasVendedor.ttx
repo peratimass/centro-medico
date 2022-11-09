@@ -1,0 +1,16 @@
+fecha	Date
+hora	Datetime
+ruc	String	16
+razon_social	String	100
+apoderado	String	100
+vendedor	String	100
+estado	String	40
+rubro	String	50
+medio	String	50
+celular	String	20
+
+
+
+
+
+

@@ -1,0 +1,45 @@
+numero				String	20
+dni_paciente			String	11
+fecha_emision			Datetime
+hora_emision			Datetime
+es_origen				String	20
+es_destino				String	20
+anamnesis				String	400
+examen_fisico			String	400
+codigo_sis				String	20
+edad					String	12
+ups_destino				String	30
+fecha_sera_atendido		Datetime
+hora_sera_atendido		Datetime
+nombre_atendera			String	100
+nombre_cord_ate			String	100
+especialidad_dest			String	30
+condiciones_inicio		String	12
+dni_responsable_rf		String	8
+dni_responsable_es		String	8
+dni_personal_acom			String	8
+personal_recibe			String	8
+condiciones_llegada		String	100
+id_fua				String	20
+id_estado				String	3
+ruc					String	11
+fecha					Datetime
+hora					Datetime
+dni_save				String	11
+origen				String	100
+destino				String	100
+nombres				String	100
+a_materno				String	100
+a_paterno				String	100
+direccion				String	200
+distrito				String	50
+departamento			String	50
+genero				String	100
+nomb_resp_rf			String	130
+cmp_rf				String	60
+nomb_resp_est			String	130
+cmp_es				String	60
+nomb_res_acom			String	130
+cmp_acom				String	60
+nomb_res_rec			String	130
+cmp_rec				String	60

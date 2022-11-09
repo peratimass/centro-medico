@@ -1,0 +1,9 @@
+id_producto	String	5
+producto	String	80
+und	String	5
+linea	String	40
+stock	Number
+venta	Number
+costo	Number
+
+

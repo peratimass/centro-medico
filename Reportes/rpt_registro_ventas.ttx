@@ -1,0 +1,5 @@
+periodo	String	100
+anio	String	4
+mes	String	2
+acumulado	Number
+
